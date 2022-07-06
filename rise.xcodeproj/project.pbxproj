@@ -7,9 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2EA0797E287611C000931A86 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EA0797D287611C000931A86 /* LoginViewController.m */; };
+		2EA079812876144D00931A86 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EA079802876144D00931A86 /* RegisterViewController.m */; };
+		2EA079842876146400931A86 /* GalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EA079832876146400931A86 /* GalleryViewController.m */; };
+		2EA079872876148300931A86 /* GuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EA079862876148300931A86 /* GuideViewController.m */; };
+		2EA0798B287615B100931A86 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2EA0798A287615B100931A86 /* Keys.plist */; };
 		2ED6586328760D5100B66436 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ED6586228760D5100B66436 /* AppDelegate.m */; };
 		2ED6586628760D5100B66436 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ED6586528760D5100B66436 /* SceneDelegate.m */; };
-		2ED6586928760D5100B66436 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ED6586828760D5100B66436 /* ViewController.m */; };
 		2ED6586C28760D5100B66436 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ED6586A28760D5100B66436 /* Main.storyboard */; };
 		2ED6586E28760D5200B66436 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2ED6586D28760D5200B66436 /* Assets.xcassets */; };
 		2ED6587128760D5200B66436 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ED6586F28760D5200B66436 /* LaunchScreen.storyboard */; };
@@ -17,6 +21,9 @@
 		2ED6587E28760D5200B66436 /* riseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ED6587D28760D5200B66436 /* riseTests.m */; };
 		2ED6588828760D5200B66436 /* riseUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ED6588728760D5200B66436 /* riseUITests.m */; };
 		2ED6588A28760D5200B66436 /* riseUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ED6588928760D5200B66436 /* riseUITestsLaunchTests.m */; };
+		3736CADEB2AA3803C40A16E9 /* Pods_riseTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19087805CD20347335A84649 /* Pods_riseTests.framework */; };
+		5D8267FC61DD3B20317CED35 /* Pods_rise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7188923E3A8320555BE7C9 /* Pods_rise.framework */; };
+		FF1074AD65948910A6CA2107 /* Pods_rise_riseUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19A880A6BE4B8115ADCBECCB /* Pods_rise_riseUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,13 +44,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		19087805CD20347335A84649 /* Pods_riseTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_riseTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		19A880A6BE4B8115ADCBECCB /* Pods_rise_riseUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_rise_riseUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2CD7FD21D01B8C6A73C2CA80 /* Pods-rise-riseUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rise-riseUITests.debug.xcconfig"; path = "Target Support Files/Pods-rise-riseUITests/Pods-rise-riseUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		2EA0797C287611C000931A86 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		2EA0797D287611C000931A86 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		2EA0797F2876144D00931A86 /* RegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		2EA079802876144D00931A86 /* RegisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		2EA079822876146400931A86 /* GalleryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GalleryViewController.h; sourceTree = "<group>"; };
+		2EA079832876146400931A86 /* GalleryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GalleryViewController.m; sourceTree = "<group>"; };
+		2EA079852876148300931A86 /* GuideViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GuideViewController.h; sourceTree = "<group>"; };
+		2EA079862876148300931A86 /* GuideViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GuideViewController.m; sourceTree = "<group>"; };
+		2EA0798A287615B100931A86 /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		2ED6585E28760D5100B66436 /* rise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rise.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2ED6586128760D5100B66436 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2ED6586228760D5100B66436 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		2ED6586428760D5100B66436 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
 		2ED6586528760D5100B66436 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
-		2ED6586728760D5100B66436 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		2ED6586828760D5100B66436 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		2ED6586B28760D5100B66436 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2ED6586D28760D5200B66436 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2ED6587028760D5200B66436 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -54,6 +71,12 @@
 		2ED6588328760D5200B66436 /* riseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = riseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2ED6588728760D5200B66436 /* riseUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = riseUITests.m; sourceTree = "<group>"; };
 		2ED6588928760D5200B66436 /* riseUITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = riseUITestsLaunchTests.m; sourceTree = "<group>"; };
+		30E3CD26461577DE0746FC2B /* Pods-rise-riseUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rise-riseUITests.release.xcconfig"; path = "Target Support Files/Pods-rise-riseUITests/Pods-rise-riseUITests.release.xcconfig"; sourceTree = "<group>"; };
+		642AF3CB8B28883CD23F5A0F /* Pods-riseTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-riseTests.release.xcconfig"; path = "Target Support Files/Pods-riseTests/Pods-riseTests.release.xcconfig"; sourceTree = "<group>"; };
+		8DA873CE591308AB62E8B7BB /* Pods-rise.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rise.debug.xcconfig"; path = "Target Support Files/Pods-rise/Pods-rise.debug.xcconfig"; sourceTree = "<group>"; };
+		B6FC0BEFDE587E89DCB07D1C /* Pods-rise.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rise.release.xcconfig"; path = "Target Support Files/Pods-rise/Pods-rise.release.xcconfig"; sourceTree = "<group>"; };
+		CE7188923E3A8320555BE7C9 /* Pods_rise.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_rise.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E79B870DD6FA8DA8E0BCB6D4 /* Pods-riseTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-riseTests.debug.xcconfig"; path = "Target Support Files/Pods-riseTests/Pods-riseTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D8267FC61DD3B20317CED35 /* Pods_rise.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3736CADEB2AA3803C40A16E9 /* Pods_riseTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,19 +100,52 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF1074AD65948910A6CA2107 /* Pods_rise_riseUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2EA079792876119500931A86 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2EA0797C287611C000931A86 /* LoginViewController.h */,
+				2EA0797D287611C000931A86 /* LoginViewController.m */,
+				2EA0797F2876144D00931A86 /* RegisterViewController.h */,
+				2EA079802876144D00931A86 /* RegisterViewController.m */,
+				2EA079822876146400931A86 /* GalleryViewController.h */,
+				2EA079832876146400931A86 /* GalleryViewController.m */,
+				2EA079852876148300931A86 /* GuideViewController.h */,
+				2EA079862876148300931A86 /* GuideViewController.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		2EA0797A287611A100931A86 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2EA0797B287611A800931A86 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		2ED6585528760D5100B66436 = {
 			isa = PBXGroup;
 			children = (
+				2EA0798A287615B100931A86 /* Keys.plist */,
 				2ED6586028760D5100B66436 /* rise */,
 				2ED6587C28760D5200B66436 /* riseTests */,
 				2ED6588628760D5200B66436 /* riseUITests */,
 				2ED6585F28760D5100B66436 /* Products */,
+				B6DAFC7FB415B0CEB7010572 /* Pods */,
+				9E69AFC41A98437CB153268D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -104,12 +162,13 @@
 		2ED6586028760D5100B66436 /* rise */ = {
 			isa = PBXGroup;
 			children = (
+				2EA0797B287611A800931A86 /* Views */,
+				2EA0797A287611A100931A86 /* Models */,
+				2EA079792876119500931A86 /* ViewControllers */,
 				2ED6586128760D5100B66436 /* AppDelegate.h */,
 				2ED6586228760D5100B66436 /* AppDelegate.m */,
 				2ED6586428760D5100B66436 /* SceneDelegate.h */,
 				2ED6586528760D5100B66436 /* SceneDelegate.m */,
-				2ED6586728760D5100B66436 /* ViewController.h */,
-				2ED6586828760D5100B66436 /* ViewController.m */,
 				2ED6586A28760D5100B66436 /* Main.storyboard */,
 				2ED6586D28760D5200B66436 /* Assets.xcassets */,
 				2ED6586F28760D5200B66436 /* LaunchScreen.storyboard */,
@@ -136,6 +195,29 @@
 			path = riseUITests;
 			sourceTree = "<group>";
 		};
+		9E69AFC41A98437CB153268D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CE7188923E3A8320555BE7C9 /* Pods_rise.framework */,
+				19A880A6BE4B8115ADCBECCB /* Pods_rise_riseUITests.framework */,
+				19087805CD20347335A84649 /* Pods_riseTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B6DAFC7FB415B0CEB7010572 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8DA873CE591308AB62E8B7BB /* Pods-rise.debug.xcconfig */,
+				B6FC0BEFDE587E89DCB07D1C /* Pods-rise.release.xcconfig */,
+				2CD7FD21D01B8C6A73C2CA80 /* Pods-rise-riseUITests.debug.xcconfig */,
+				30E3CD26461577DE0746FC2B /* Pods-rise-riseUITests.release.xcconfig */,
+				E79B870DD6FA8DA8E0BCB6D4 /* Pods-riseTests.debug.xcconfig */,
+				642AF3CB8B28883CD23F5A0F /* Pods-riseTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,9 +225,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2ED6588D28760D5200B66436 /* Build configuration list for PBXNativeTarget "rise" */;
 			buildPhases = (
+				E642417684F8040078CAEBAF /* [CP] Check Pods Manifest.lock */,
 				2ED6585A28760D5100B66436 /* Sources */,
 				2ED6585B28760D5100B66436 /* Frameworks */,
 				2ED6585C28760D5100B66436 /* Resources */,
+				19E1608CE428C43150FCDE7C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -160,6 +244,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2ED6589028760D5200B66436 /* Build configuration list for PBXNativeTarget "riseTests" */;
 			buildPhases = (
+				2029A8EACDBCE25A2D27B0BB /* [CP] Check Pods Manifest.lock */,
 				2ED6587528760D5200B66436 /* Sources */,
 				2ED6587628760D5200B66436 /* Frameworks */,
 				2ED6587728760D5200B66436 /* Resources */,
@@ -178,9 +263,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2ED6589328760D5200B66436 /* Build configuration list for PBXNativeTarget "riseUITests" */;
 			buildPhases = (
+				7049F5C2B04903C59409C483 /* [CP] Check Pods Manifest.lock */,
 				2ED6587F28760D5200B66436 /* Sources */,
 				2ED6588028760D5200B66436 /* Frameworks */,
 				2ED6588128760D5200B66436 /* Resources */,
+				A63CAC48736A41EAEFBA05F6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -239,6 +326,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EA0798B287615B100931A86 /* Keys.plist in Resources */,
 				2ED6587128760D5200B66436 /* LaunchScreen.storyboard in Resources */,
 				2ED6586E28760D5200B66436 /* Assets.xcassets in Resources */,
 				2ED6586C28760D5100B66436 /* Main.storyboard in Resources */,
@@ -261,15 +349,121 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		19E1608CE428C43150FCDE7C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-rise/Pods-rise-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-rise/Pods-rise-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-rise/Pods-rise-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2029A8EACDBCE25A2D27B0BB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-riseTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7049F5C2B04903C59409C483 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-rise-riseUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A63CAC48736A41EAEFBA05F6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-rise-riseUITests/Pods-rise-riseUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-rise-riseUITests/Pods-rise-riseUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-rise-riseUITests/Pods-rise-riseUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E642417684F8040078CAEBAF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-rise-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2ED6585A28760D5100B66436 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2ED6586928760D5100B66436 /* ViewController.m in Sources */,
+				2EA079812876144D00931A86 /* RegisterViewController.m in Sources */,
+				2EA079872876148300931A86 /* GuideViewController.m in Sources */,
+				2EA0797E287611C000931A86 /* LoginViewController.m in Sources */,
 				2ED6586328760D5100B66436 /* AppDelegate.m in Sources */,
 				2ED6587428760D5200B66436 /* main.m in Sources */,
 				2ED6586628760D5100B66436 /* SceneDelegate.m in Sources */,
+				2EA079842876146400931A86 /* GalleryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,6 +631,7 @@
 		};
 		2ED6588E28760D5200B66436 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8DA873CE591308AB62E8B7BB /* Pods-rise.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -464,6 +659,7 @@
 		};
 		2ED6588F28760D5200B66436 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B6FC0BEFDE587E89DCB07D1C /* Pods-rise.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -491,6 +687,7 @@
 		};
 		2ED6589128760D5200B66436 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E79B870DD6FA8DA8E0BCB6D4 /* Pods-riseTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -509,6 +706,7 @@
 		};
 		2ED6589228760D5200B66436 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 642AF3CB8B28883CD23F5A0F /* Pods-riseTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -527,6 +725,7 @@
 		};
 		2ED6589428760D5200B66436 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2CD7FD21D01B8C6A73C2CA80 /* Pods-rise-riseUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -543,6 +742,7 @@
 		};
 		2ED6589528760D5200B66436 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 30E3CD26461577DE0746FC2B /* Pods-rise-riseUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
