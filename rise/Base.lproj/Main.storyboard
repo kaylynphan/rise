@@ -44,7 +44,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="LoginViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="LoginViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -210,22 +210,37 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EzC-G2-KWw">
-                                <rect key="frame" x="179" y="437.5" width="56" height="31"/>
+                                <rect key="frame" x="167" y="435" width="80" height="31"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="56" id="TPB-Ka-4qm"/>
+                                    <constraint firstAttribute="width" constant="80" id="TPB-Ka-4qm"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Start"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cfm-gZ-jRG">
+                                <rect key="frame" x="40" y="98" width="106" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="106" id="vXW-rw-7vp"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Logout"/>
+                                <connections>
+                                    <action selector="didTapLogout:" destination="AMF-Fz-qXC" eventType="touchUpInside" id="caP-be-EWp"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4Dn-kr-FOT"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Cfm-gZ-jRG" firstAttribute="leading" secondItem="4Dn-kr-FOT" secondAttribute="leading" constant="40" id="5hQ-Hl-Fir"/>
+                            <constraint firstItem="Cfm-gZ-jRG" firstAttribute="top" secondItem="4Dn-kr-FOT" secondAttribute="top" constant="10" id="PON-3s-2sP"/>
                             <constraint firstItem="EzC-G2-KWw" firstAttribute="centerX" secondItem="4Dn-kr-FOT" secondAttribute="centerX" id="dUP-Gs-BHR"/>
                             <constraint firstItem="EzC-G2-KWw" firstAttribute="centerY" secondItem="4Dn-kr-FOT" secondAttribute="centerY" id="kMW-CP-y1O"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="SmY-DX-tXY"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wtv-vQ-IiH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -267,7 +282,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Ecx-6H-y7k"/>
-        <segue reference="Q7o-Iq-hWL"/>
+        <segue reference="Kb5-dY-LIA"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
