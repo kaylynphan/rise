@@ -9,4 +9,10 @@
 
 @implementation PoseNetOutput
 
+static NSString *heatmap = @"heatmap";
+static NSString *offsets = @"offsets";
+static NSString *backwardDisplacementMap = @"displacementBwd";
+static NSString *forwardDisplacementMap = @"displacementFwd";
+
+
 @end
