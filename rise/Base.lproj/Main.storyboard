@@ -34,12 +34,12 @@
                     <connections>
                         <outlet property="activityIndicator" destination="ohW-Eg-q5m" id="dI4-Do-gH5"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="splashToLoginSegue" id="zFt-d9-zMg"/>
-                        <segue destination="AMF-Fz-qXC" kind="show" identifier="splashToGallerySegue" id="Q7o-Iq-hWL"/>
+                        <segue destination="YWI-id-exe" kind="presentation" identifier="splashToGallerySegue" id="Cff-gh-GlX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GP1-Oh-Jod" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1012" y="-656"/>
+            <point key="canvasLocation" x="894" y="-947"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -201,6 +201,22 @@
             </objects>
             <point key="canvasLocation" x="819" y="881"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="GYb-GR-lEF">
+            <objects>
+                <navigationController modalPresentationStyle="fullScreen" id="YWI-id-exe" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gEo-or-Nh8">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="AMF-Fz-qXC" kind="relationship" relationship="rootViewController" id="qdz-2d-5g6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cSJ-TQ-biD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2496" y="-723"/>
+        </scene>
         <!--Gallery View Controller-->
         <scene sceneID="7lv-5q-wMT">
             <objects>
@@ -210,36 +226,38 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EzC-G2-KWw">
-                                <rect key="frame" x="167" y="435" width="80" height="31"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="TPB-Ka-4qm"/>
-                                </constraints>
+                                <rect key="frame" x="179" y="435" width="56" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Start"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cfm-gZ-jRG">
-                                <rect key="frame" x="40" y="98" width="106" height="31"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="106" id="vXW-rw-7vp"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Logout"/>
                                 <connections>
-                                    <action selector="didTapLogout:" destination="AMF-Fz-qXC" eventType="touchUpInside" id="caP-be-EWp"/>
+                                    <segue destination="mZG-wJ-sOR" kind="show" id="RU4-Kh-nLY"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4Dn-kr-FOT"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Cfm-gZ-jRG" firstAttribute="leading" secondItem="4Dn-kr-FOT" secondAttribute="leading" constant="40" id="5hQ-Hl-Fir"/>
-                            <constraint firstItem="Cfm-gZ-jRG" firstAttribute="top" secondItem="4Dn-kr-FOT" secondAttribute="top" constant="10" id="PON-3s-2sP"/>
                             <constraint firstItem="EzC-G2-KWw" firstAttribute="centerX" secondItem="4Dn-kr-FOT" secondAttribute="centerX" id="dUP-Gs-BHR"/>
                             <constraint firstItem="EzC-G2-KWw" firstAttribute="centerY" secondItem="4Dn-kr-FOT" secondAttribute="centerY" id="kMW-CP-y1O"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="SmY-DX-tXY"/>
+                    <navigationItem key="navigationItem" id="SmY-DX-tXY">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="mXz-Gr-tth">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Cfm-gZ-jRG">
+                                <rect key="frame" x="20" y="5" width="106" height="34.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Logout"/>
+                                <connections>
+                                    <action selector="didTapLogout:" destination="AMF-Fz-qXC" eventType="touchUpInside" id="caP-be-EWp"/>
+                                </connections>
+                            </button>
+                            <connections>
+                                <action selector="didTapLogout:" destination="AMF-Fz-qXC" id="pOc-gE-H02"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wtv-vQ-IiH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -256,6 +274,7 @@
                         <viewLayoutGuide key="safeArea" id="gvT-UN-M41"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="tqn-U5-kZH"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sub-Lu-78C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -282,7 +301,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Ecx-6H-y7k"/>
-        <segue reference="Kb5-dY-LIA"/>
+        <segue reference="qdz-2d-5g6"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
