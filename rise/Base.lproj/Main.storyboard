@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="g5R-un-V86">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -8,10 +8,43 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Splash View Controller-->
+        <scene sceneID="Dki-bO-acU">
+            <objects>
+                <viewController id="g5R-un-V86" customClass="SplashViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Bdf-02-yog">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Splash!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aF8-YB-o3v">
+                                <rect key="frame" x="168" y="414" width="95" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="ohW-Eg-q5m">
+                                <rect key="frame" x="186" y="461" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vLb-Yf-wAL"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="ohW-Eg-q5m" id="dI4-Do-gH5"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="splashToLoginSegue" id="zFt-d9-zMg"/>
+                        <segue destination="AMF-Fz-qXC" kind="show" identifier="splashToGallerySegue" id="Q7o-Iq-hWL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GP1-Oh-Jod" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1012" y="-656"/>
+        </scene>
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="LoginViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -66,6 +99,7 @@
                             <constraint firstItem="P3g-PK-Lci" firstAttribute="top" secondItem="QsC-QY-G4o" secondAttribute="bottom" constant="54" id="xi9-fD-KTk"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="EL2-3W-Byp"/>
                     <connections>
                         <outlet property="passwordField" destination="P3g-PK-Lci" id="XAd-VV-lpL"/>
                         <outlet property="usernameField" destination="QsC-QY-G4o" id="kLg-SE-xh2"/>
@@ -170,13 +204,13 @@
         <!--Gallery View Controller-->
         <scene sceneID="7lv-5q-wMT">
             <objects>
-                <viewController id="AMF-Fz-qXC" customClass="GalleryViewController" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="AMF-Fz-qXC" customClass="GalleryViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XJA-T7-rgu">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EzC-G2-KWw">
-                                <rect key="frame" x="179" y="459.5" width="56" height="31"/>
+                                <rect key="frame" x="179" y="437.5" width="56" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="56" id="TPB-Ka-4qm"/>
                                 </constraints>
@@ -232,7 +266,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="At5-ff-MHn"/>
+        <segue reference="Ecx-6H-y7k"/>
+        <segue reference="Q7o-Iq-hWL"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">

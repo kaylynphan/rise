@@ -15,6 +15,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(  NSDictionary *)launchOptions {
 
+    // complete Parse configuration
     ParseClientConfiguration *config = [ParseClientConfiguration  configurationWithBlock:^(id<ParseMutableClientConfiguration> configuration) {
 
         NSString *path = [[NSBundle mainBundle] pathForResource: @"Keys" ofType: @"plist"];
@@ -26,11 +27,11 @@
         configuration.clientKey = clientKey; // <- UPDATE
         configuration.server = @"https://parseapi.back4app.com";
     }];
-
     [Parse initializeWithConfiguration:config];
-
+    
     return YES;
 }
+
 
 #pragma mark - UISceneSession lifecycle
 
