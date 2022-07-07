@@ -49,7 +49,10 @@
             } else {
                 [self performSegueWithIdentifier:@"splashToLoginSegue" sender:nil];
             }
-            
+        } else {
+            [self presentViewController:networkAlert animated:YES completion:^{
+                // optional code for what happens after the alert controller has finished presenting
+            }];
         }
     }];
 }
