@@ -11,8 +11,9 @@
 
 static NSString *heatmap = @"heatmap";
 static NSString *offsets = @"offsets";
-static NSString *backwardDisplacementMap = @"displacementBwd";
-static NSString *forwardDisplacementMap = @"displacementFwd";
 
+// only used for multiple poses
+//static NSString *backwardDisplacementMap = @"displacementBwd";
+//static NSString *forwardDisplacementMap = @"displacementFwd";
 
 @end

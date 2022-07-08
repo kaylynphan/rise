@@ -36,8 +36,7 @@ static NSString *imageFeatureName = @"image";
                                             pixelsHigh:self.imageFeatureSize->height
                                                      pixelFormatType:CGImageGetPixelFormatInfo(*(self.imageFeature))
                                             options:options
-                                            error:nil]; // Not sure what to put here
-     
+                                            error:nil]; // Not sure what to put here, there was no error parameter in the original swift code
     if (result) {
         return result;
     } else {

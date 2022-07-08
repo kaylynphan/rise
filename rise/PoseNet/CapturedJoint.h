@@ -35,7 +35,7 @@ static NSInteger *numberOfJoints = enumCount;
 
 @interface CapturedJoint : NSObject
 
-@property (weak, nonatomic) Name *name;
+@property (assign, nonatomic) Name *name;
 @property (assign, nonatomic) CGPoint *position;
 
 
