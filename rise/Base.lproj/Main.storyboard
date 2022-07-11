@@ -245,9 +245,6 @@
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EzC-G2-KWw">
                                                     <rect key="frame" x="179" y="119" width="56" height="31"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="31" id="uxB-v9-h21"/>
-                                                    </constraints>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="Start"/>
                                                     <connections>

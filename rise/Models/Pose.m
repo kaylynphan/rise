@@ -15,6 +15,8 @@
     NSString *imageURLString = dictionary[@"img_url"];
     self.imageURL = [NSURL URLWithString:imageURLString];
     self.imageData = [[NSData alloc] initWithContentsOfURL: self.imageURL];
+    //[self.imageData base64EncodedDataWithOptions:NSDataBase64DecodingIgnoreUnknownCharacters];
+    //[self.imageData base64EncodedStringWithOptions:NSDataBase64EncodingEndLineWithLineFeed];
     return self;
 }
 
