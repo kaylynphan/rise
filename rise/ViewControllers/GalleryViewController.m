@@ -8,9 +8,14 @@
 #import "GalleryViewController.h"
 #import "LoginViewController.h"
 #import "Parse/Parse.h"
+#import "SplashViewController.h"
+#import "WorkoutCell.h"
+#import "Pose.h"
+
 
 @interface GalleryViewController ()
 - (IBAction)didTapLogout:(id)sender;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -19,7 +24,32 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    //NSLog(@"%@", self.poses);
+    [self.tableView setDelegate:self];
+    [self.tableView setDataSource:self];
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    
+    
 }
+
+- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    // for now, test the table view by showing each pose's image in a cell
+    WorkoutCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"WorkoutCell" forIndexPath:indexPath];
+    Pose *pose = self.poses[indexPath.row];
+    
+    cell.workoutImageView.image = nil;
+    
+    NSLog(@"%@", pose.imageURL);
+    //NSData * imageData = [[NSData alloc] initWithContentsOfURL: pose.imageURL];
+    cell.workoutImageView.image = [UIImage imageWithData: pose.imageData];
+    return cell;
+}
+
+- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.poses.count;
+}
+
 
 /*
 #pragma mark - Navigation
@@ -44,5 +74,6 @@
         }
     }];
 }
+
 
 @end

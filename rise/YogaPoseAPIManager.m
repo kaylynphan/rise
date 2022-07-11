@@ -18,7 +18,7 @@
     return self;
 }
 
-- (void)fetchPoses:(void(^)(NSArray *movies, NSError *error))completion {
+- (void)fetchPoses:(void(^)(NSArray *poses, NSError *error))completion {
     NSURL *url = [NSURL URLWithString:@"https://lightning-yoga-api.herokuapp.com/yoga_poses"];
     NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
     NSURLSessionDataTask *task = [self.session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {

@@ -57,14 +57,19 @@
     }];
 }
 
-/*
-#pragma mark - Navigation
 
+#pragma mark - Navigation
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"splashToGallerySegue"]){
+         UINavigationController *navController = (UINavigationController *)segue.destinationViewController;
+         GalleryViewController *controller = (GalleryViewController *)navController.topViewController;
+         controller.poses = self.poses;
+    } else if ([segue.identifier isEqualToString:@"splashToLoginSegue"]){
+        // pass poses to LoginViewController to ultimately pass to GalleryViewController
+        LoginViewController *controller = (LoginViewController *)segue.destinationViewController;
+        controller.poses = self.poses;
+   }
 }
-*/
 
 @end
