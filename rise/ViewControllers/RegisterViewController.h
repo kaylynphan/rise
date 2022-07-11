@@ -11,6 +11,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface RegisterViewController : UIViewController
 
+@property (strong, nonatomic) NSArray *poses;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -8,6 +8,7 @@
 #import "RegisterViewController.h"
 #import "Parse/Parse.h"
 #import "User.h"
+#import "GalleryViewController.h"
 
 @interface RegisterViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
@@ -28,15 +29,6 @@
     
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (IBAction)didTapLogin:(id)sender {
     [self dismissViewControllerAnimated:true completion:nil];
@@ -89,4 +81,17 @@
         }];
     }
 }
+
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+     if ([segue.identifier isEqualToString:@"registerSegue"]){
+         UINavigationController *navController = (UINavigationController *)segue.destinationViewController;
+         GalleryViewController *controller = (GalleryViewController *)navController.topViewController;
+         controller.poses = self.poses;
+     }
+}
+
+
 @end

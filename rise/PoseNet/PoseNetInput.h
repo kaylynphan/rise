@@ -9,9 +9,24 @@
 #import <CoreML/MLFeatureProvider.h>
 #import <Vision/Vision.h>
 
+
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PoseNetInput : MLFeatureProvider
+@interface PoseNetInput : NSObject <MLFeatureProvider>
+
+@property (nonatomic) CGImageRef *imageFeature;
+@property (nonatomic) CGSize *imageFeatureSize;
+@property (strong, nonatomic) NSMutableSet *featureNames;
+
+- (instancetype) initWithImage:(CGImageRef *)image withSize:(CGSize *)size;
+
+- (MLFeatureValue * _Nullable) featureValueForName:(NSString *)featureName;
+
+
+
+
+
+
 
 
 

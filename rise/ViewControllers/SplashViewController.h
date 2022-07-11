@@ -1,3 +1,5 @@
+
+
 //
 //  SplashViewController.h
 //  rise
@@ -11,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SplashViewController : UIViewController
 
-@property (strong, nonatomic) NSMutableArray *poses;
+@property (strong, nonatomic) NSArray *poses;
 
 @end
 

@@ -8,6 +8,7 @@
 #import "LoginViewController.h"
 #import "Parse/Parse.h"
 #import "User.h"
+#import "GalleryViewController.h"
 
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
@@ -22,16 +23,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (IBAction)loginUser:(id)sender {
     UIAlertController *nullUsernameAlert = [UIAlertController alertControllerWithTitle:@"Username Required"
@@ -68,4 +59,18 @@
         }];
     }
 }
+
+
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"loginSegue"]){
+        UINavigationController *navController = (UINavigationController *)segue.destinationViewController;
+        GalleryViewController *controller = (GalleryViewController *)navController.topViewController;
+        controller.poses = self.poses;
+    }
+}
+
+
 @end

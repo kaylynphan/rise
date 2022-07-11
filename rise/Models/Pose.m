@@ -13,7 +13,10 @@
     self = [super init];
     self.name = dictionary[@"english_name"];
     NSString *imageURLString = dictionary[@"img_url"];
-    self.imageURL= [NSURL URLWithString:imageURLString];
+    self.imageURL = [NSURL URLWithString:imageURLString];
+    self.imageData = [[NSData alloc] initWithContentsOfURL: self.imageURL];
+    //[self.imageData base64EncodedDataWithOptions:NSDataBase64DecodingIgnoreUnknownCharacters];
+    //[self.imageData base64EncodedStringWithOptions:NSDataBase64EncodingEndLineWithLineFeed];
     return self;
 }
 
@@ -21,7 +24,7 @@
 + (NSArray *)posesWithDictionaries:(NSArray *)dictionaries {
     NSMutableArray *poses = [[NSMutableArray alloc] init];
         for (NSDictionary *dictionary in dictionaries) {
-            NSLog(@"%@", dictionary); // print each 'item' dictionary
+            //NSLog(@"%@", dictionary); // print each 'item' dictionary
             Pose *pose = [[Pose alloc] initWithDictionary:dictionary];
             [poses addObject:pose];
         }
