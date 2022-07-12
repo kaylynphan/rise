@@ -42,20 +42,11 @@
     Pose *pose = self.poses[indexPath.row];
     
     cell.workoutImageView.image = nil;
+    cell.titleLabel.text = pose.name;
     
-    NSLog(@"Pose image URL is %@", pose.imageURL); // check that the image URL is being passed correctly
-    // Originally, I loaded the image data in the Splash screen to make the table view scrolling smoother,
-    // but the images did not show up.
-    //cell.workoutImageView.image = [UIImage imageWithData: pose.imageData];
-    
-    //Now, I'm trying to load the image data inside cellForRowAtIndexPath, but the images still don't appear
     SVGKImage *svgImage = [SVGKImage imageWithData:pose.imageData];
     cell.workoutImageView.image = svgImage.UIImage;
-    /*
-    UIImage *image = [UIImage imageWithData:pose.imageData];
-    UIImage *originalRenderingImage = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    cell.workoutImageView.image = originalRenderingImage;
-     */
+    
     return cell;
 }
 

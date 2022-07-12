@@ -239,7 +239,7 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h2Z-vf-Bck">
                                                     <rect key="frame" x="156.5" y="20" width="101" height="101"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="101" id="9BZ-yP-2GD"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="101" id="9BZ-yP-2GD"/>
                                                         <constraint firstAttribute="height" constant="101" id="iT3-H4-9oC"/>
                                                     </constraints>
                                                 </imageView>
@@ -252,16 +252,29 @@
                                                         <segue destination="mZG-wJ-sOR" kind="show" id="RU4-Kh-nLY"/>
                                                     </connections>
                                                 </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pGV-qz-vUq">
+                                                    <rect key="frame" x="277" y="20" width="117" height="20.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="117" id="FQe-ys-HFQ"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="pGV-qz-vUq" firstAttribute="trailing" secondItem="aId-Hg-XbJ" secondAttribute="trailingMargin" id="6fZ-Xx-gva"/>
                                                 <constraint firstItem="h2Z-vf-Bck" firstAttribute="top" secondItem="aId-Hg-XbJ" secondAttribute="top" constant="20" symbolic="YES" id="ExX-qp-IaR"/>
                                                 <constraint firstAttribute="bottom" secondItem="EzC-G2-KWw" secondAttribute="bottom" constant="24" id="FVg-ca-OfM"/>
                                                 <constraint firstItem="EzC-G2-KWw" firstAttribute="centerX" secondItem="h2Z-vf-Bck" secondAttribute="centerX" id="NUZ-4h-Axi"/>
                                                 <constraint firstItem="h2Z-vf-Bck" firstAttribute="centerX" secondItem="aId-Hg-XbJ" secondAttribute="centerX" id="Phd-TF-Zxv"/>
+                                                <constraint firstItem="pGV-qz-vUq" firstAttribute="leading" secondItem="h2Z-vf-Bck" secondAttribute="trailing" constant="19.5" id="YVB-1J-QiH"/>
+                                                <constraint firstItem="pGV-qz-vUq" firstAttribute="top" secondItem="h2Z-vf-Bck" secondAttribute="top" id="lY5-4M-rEh"/>
                                                 <constraint firstItem="EzC-G2-KWw" firstAttribute="top" secondItem="h2Z-vf-Bck" secondAttribute="bottom" constant="-2" id="tBN-ud-jhI"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="titleLabel" destination="pGV-qz-vUq" id="el5-Uk-2kz"/>
                                             <outlet property="workoutImageView" destination="h2Z-vf-Bck" id="kgz-KY-FVt"/>
                                         </connections>
                                     </tableViewCell>
