@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GuideViewController : UIViewController
 
 @property (weak, nonatomic) Workout *workout;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 @end
 
