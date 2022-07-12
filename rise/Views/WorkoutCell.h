@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIImageView *workoutImageView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) Workout *workout;
+@property (weak, nonatomic) IBOutlet UILabel *stretchesLabel;
+
 
 @end
 

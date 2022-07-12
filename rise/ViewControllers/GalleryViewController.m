@@ -86,8 +86,28 @@
     WorkoutCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"WorkoutCell" forIndexPath:indexPath];
     cell.workout = self.arrayOfWorkouts[indexPath.row];
     cell.titleLabel.text = [NSString stringWithFormat:@"%d: %@", indexPath.row, cell.workout.name];
+    cell.workoutImageView.image = nil;
     
-    //NSLog(@"%@", [NSString stringWithFormat:@"The first stretch has index %@", [cell.workout.stretches objectAtIndex:0]]);
+    // This works:
+    NSLog(@"%@", [NSString stringWithFormat:@"The first stretch has index %@", [cell.workout.stretches objectAtIndex:0]]);
+    
+    NSString *stringToDisplay = @"Stretches:\n";
+    NSMutableArray *arrayOfStretchNames = [[NSMutableArray alloc] init];
+    for (long i = 0; i < cell.workout.stretches.count; i++) {
+        NSNumber *index = [cell.workout.stretches objectAtIndex:i];
+        Pose *poseToList = [self.poses objectAtIndex:[index intValue]];
+        stringToDisplay = [stringToDisplay stringByAppendingFormat:@"%@\n", poseToList.name];
+        // set image
+        if (i == 0) {
+            cell.workoutImageView.image = [SVGKImage imageWithData:[[NSData alloc] initWithContentsOfURL:poseToList.imageURL]].UIImage;
+        }
+    }
+    cell.stretchesLabel.text = stringToDisplay;
+    [cell.stretchesLabel setNumberOfLines:0];
+    [cell.stretchesLabel sizeToFit];
+    //NSLog(stringToDisplay);
+    
+
     /*
     cell.workoutImageView.image = nil;
     

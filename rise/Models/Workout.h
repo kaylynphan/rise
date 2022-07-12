@@ -11,7 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Workout : PFObject<PFSubclassing>
 @property (nonatomic, weak) NSString *name;
-@property (nonatomic, strong) NSMutableArray *stretches;
+@property (nonatomic, strong) NSMutableArray *stretches; // this is an array of indices
 
 //- (instancetype) initWithName:(NSString *)name withArray:(NSArray *)array;
 
