@@ -39,8 +39,28 @@
     [self.tableView setDataSource:self];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     
+    // delete this later: save some workouts into Parse
+    /*
+    PFObject *workout1 = [PFObject objectWithClassName:@"Workout"];
+    workout1[@"name"] = @"Mind and Flow";
+    workout1[@"stretches"] = @[@28, @19, @14, @42, @43, @44];
+    [workout1 saveInBackground];
+    PFObject *workout2 = [PFObject objectWithClassName:@"Workout"];
+    workout2[@"name"] = @"Full Body";
+    workout2[@"stretches"] = @[@(22), @(37), @(41), @(14), @(2), @(9)];
+    [workout2 saveInBackground];
+    PFObject *workout3 = [PFObject objectWithClassName:@"Workout"];
+    workout3[@"name"] = @"Core Rotation";
+    workout3[@"stretches"] = @[@(42), @(25), @(33), @(6), @(7), @(1)];
+    [workout3 saveInBackground];
+    PFObject *workout4 = [PFObject objectWithClassName:@"Workout"];
+    workout4[@"name"] = @"Barre Warmup";
+    workout4[@"stretches"] = @[@(16), @(38), @(37), @(28), @(23), @(17)];
+    [workout4 saveInBackground];
+     */
+    
     // perform query
-    self.workouts = [[NSArray alloc] init];
+    self.arrayOfWorkouts = [[NSArray alloc] init];
     [self queryWorkouts];
 }
 
@@ -52,8 +72,8 @@
     [query findObjectsInBackgroundWithBlock:^(NSArray *savedWorkouts, NSError *error) {
         if (savedWorkouts != nil) {
             // do something with the array of object returned by the call
-            self.workouts = savedWorkouts;
-            NSLog(@"%@", self.workouts);
+            self.arrayOfWorkouts = savedWorkouts;
+            NSLog(@"%@", self.arrayOfWorkouts);
             [self.tableView reloadData];
         } else {
             NSLog(@"%@", error.localizedDescription);
@@ -64,21 +84,26 @@
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     // for now, test the table view by showing each pose's image in a cell
     WorkoutCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"WorkoutCell" forIndexPath:indexPath];
-    Workout *workout = self.workouts[indexPath.row];
+    cell.workout = self.arrayOfWorkouts[indexPath.row];
+    cell.titleLabel.text = [NSString stringWithFormat:@"%d: %@", indexPath.row, cell.workout.name];
     
+    //NSLog(@"%@", [NSString stringWithFormat:@"The first stretch has index %@", [cell.workout.stretches objectAtIndex:0]]);
+    /*
     cell.workoutImageView.image = nil;
-    cell.titleLabel.text = [NSString stringWithFormat:@"%d: %@", indexPath.row, workout.name];
     
-    NSInteger firstPoseIndex = workout.stretches[0];
+    workout.stretches = workout[@"stretches"];
+    NSInteger firstPoseIndex = (workout.stretches)[0];
     Pose *firstPose = self.poses[firstPoseIndex];
-    SVGKImage *svgImage = [SVGKImage imageWithData:firstPose.imageData];
+    //SVGKImage *svgImage = [SVGKImage imageWithData:firstPose.imageData];
+    SVGKImage *svgImage = [SVGKImage imageWithData:[[NSData alloc] initWithContentsOfURL:firstPose.imageURL]];
     cell.workoutImageView.image = svgImage.UIImage;
-    
+    [cell setWorkout:workout];
+    */
     return cell;
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.workouts.count;
+    return self.arrayOfWorkouts.count;
 }
 
 

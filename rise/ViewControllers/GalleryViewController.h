@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GalleryViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (strong, nonatomic) NSArray *poses;
-@property (strong, nonatomic) NSArray *workouts;
+@property (strong, nonatomic) NSArray *arrayOfWorkouts;
 
 @end
 
