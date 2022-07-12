@@ -271,8 +271,7 @@
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="Start"/>
                                                     <connections>
-                                                        <action selector="didTapStart:" destination="SwV-B0-iH1" eventType="touchUpInside" id="Bis-cV-eb7"/>
-                                                        <segue destination="mZG-wJ-sOR" kind="show" id="RU4-Kh-nLY"/>
+                                                        <action selector="didTapStart:" destination="SwV-B0-iH1" eventType="touchUpInside" id="taa-FO-BHA"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -326,6 +325,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="6wg-Jf-5uY" id="kJE-wv-Jtv"/>
+                        <segue destination="mZG-wJ-sOR" kind="show" identifier="startWorkoutSegue" id="Wwl-oh-W0Z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wtv-vQ-IiH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
