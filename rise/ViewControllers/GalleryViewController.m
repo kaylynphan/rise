@@ -11,6 +11,8 @@
 #import "SplashViewController.h"
 #import "WorkoutCell.h"
 #import "Pose.h"
+#import <SVGKit/SVGKit.h>
+#import <SVGKit/SVGKImage.h>
 
 
 @interface GalleryViewController ()
@@ -40,16 +42,11 @@
     Pose *pose = self.poses[indexPath.row];
     
     cell.workoutImageView.image = nil;
+    cell.titleLabel.text = pose.name;
     
-    NSLog(@"Pose image URL is %@", pose.imageURL); // check that the image URL is being passed correctly
-    // Originally, I loaded the image data in the Splash screen to make the table view scrolling smoother,
-    // but the images did not show up.
-    //cell.workoutImageView.image = [UIImage imageWithData: pose.imageData];
+    SVGKImage *svgImage = [SVGKImage imageWithData:pose.imageData];
+    cell.workoutImageView.image = svgImage.UIImage;
     
-    //Now, I'm trying to load the image data inside cellForRowAtIndexPath, but the images still don't appear
-    UIImage *image = [UIImage imageWithData:pose.imageData];
-    UIImage *originalRenderingImage = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    cell.workoutImageView.image = originalRenderingImage;
     return cell;
 }
 

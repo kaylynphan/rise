@@ -8,6 +8,7 @@ target 'rise' do
   # Pods for rise
   pod 'Parse'
   pod 'AFNetworking'
+  pod 'SVGKit'
 
   target 'riseTests' do
     inherit! :search_paths
