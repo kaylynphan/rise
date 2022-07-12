@@ -42,7 +42,7 @@
     Pose *pose = self.poses[indexPath.row];
     
     cell.workoutImageView.image = nil;
-    cell.titleLabel.text = pose.name;
+    cell.titleLabel.text = [NSString stringWithFormat:@"%d: %@", indexPath.row, pose.name];
     
     SVGKImage *svgImage = [SVGKImage imageWithData:pose.imageData];
     cell.workoutImageView.image = svgImage.UIImage;
