@@ -13,11 +13,13 @@
 #import "Pose.h"
 #import <SVGKit/SVGKit.h>
 #import <SVGKit/SVGKImage.h>
+#import "Workout.h"
 
 
 @interface GalleryViewController ()
 - (IBAction)didTapLogout:(id)sender;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) UIRefreshControl *refreshControl;
 
 @end
 
@@ -27,31 +29,101 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    //NSLog(@"%@", self.poses);
+    // set up refresh
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(beginRefresh:) forControlEvents:UIControlEventValueChanged];
+    [self.tableView insertSubview:refreshControl atIndex:0];
+
+    // set up table
     [self.tableView setDelegate:self];
     [self.tableView setDataSource:self];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     
-    [self.tableView reloadData];
+    // delete this later: save some workouts into Parse
+    /*
+    PFObject *workout1 = [PFObject objectWithClassName:@"Workout"];
+    workout1[@"name"] = @"Mind and Flow";
+    workout1[@"stretches"] = @[@28, @19, @14, @42, @43, @44];
+    [workout1 saveInBackground];
+    PFObject *workout2 = [PFObject objectWithClassName:@"Workout"];
+    workout2[@"name"] = @"Full Body";
+    workout2[@"stretches"] = @[@(22), @(37), @(41), @(14), @(2), @(9)];
+    [workout2 saveInBackground];
+    PFObject *workout3 = [PFObject objectWithClassName:@"Workout"];
+    workout3[@"name"] = @"Core Rotation";
+    workout3[@"stretches"] = @[@(42), @(25), @(33), @(6), @(7), @(1)];
+    [workout3 saveInBackground];
+    PFObject *workout4 = [PFObject objectWithClassName:@"Workout"];
+    workout4[@"name"] = @"Barre Warmup";
+    workout4[@"stretches"] = @[@(16), @(38), @(37), @(28), @(23), @(17)];
+    [workout4 saveInBackground];
+     */
     
+    // perform query
+    self.arrayOfWorkouts = [[NSArray alloc] init];
+    [self queryWorkouts];
+}
+
+- (void)queryWorkouts {
+    PFQuery *query = [PFQuery queryWithClassName:@"Workout"];
+    [query orderByDescending:@"createdAt"];
+    [query includeKey:@"objectId"];
+    // fetch data asynchronously
+    [query findObjectsInBackgroundWithBlock:^(NSArray *savedWorkouts, NSError *error) {
+        if (savedWorkouts != nil) {
+            // do something with the array of object returned by the call
+            self.arrayOfWorkouts = savedWorkouts;
+            NSLog(@"%@", self.arrayOfWorkouts);
+            [self.tableView reloadData];
+        } else {
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     // for now, test the table view by showing each pose's image in a cell
     WorkoutCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"WorkoutCell" forIndexPath:indexPath];
-    Pose *pose = self.poses[indexPath.row];
-    
+    cell.workout = self.arrayOfWorkouts[indexPath.row];
+    cell.titleLabel.text = [NSString stringWithFormat:@"%d: %@", indexPath.row, cell.workout.name];
     cell.workoutImageView.image = nil;
-    cell.titleLabel.text = pose.name;
     
-    SVGKImage *svgImage = [SVGKImage imageWithData:pose.imageData];
+    // This works:
+    NSLog(@"%@", [NSString stringWithFormat:@"The first stretch has index %@", [cell.workout.stretches objectAtIndex:0]]);
+    
+    NSString *stringToDisplay = @"Stretches:\n";
+    NSMutableArray *arrayOfStretchNames = [[NSMutableArray alloc] init];
+    for (long i = 0; i < cell.workout.stretches.count; i++) {
+        NSNumber *index = [cell.workout.stretches objectAtIndex:i];
+        Pose *poseToList = [self.poses objectAtIndex:[index intValue]];
+        stringToDisplay = [stringToDisplay stringByAppendingFormat:@"%@\n", poseToList.name];
+        // set image
+        if (i == 0) {
+            cell.workoutImageView.image = [SVGKImage imageWithData:[[NSData alloc] initWithContentsOfURL:poseToList.imageURL]].UIImage;
+        }
+    }
+    cell.stretchesLabel.text = stringToDisplay;
+    [cell.stretchesLabel setNumberOfLines:0];
+    [cell.stretchesLabel sizeToFit];
+    //NSLog(stringToDisplay);
+    
+
+    /*
+    cell.workoutImageView.image = nil;
+    
+    workout.stretches = workout[@"stretches"];
+    NSInteger firstPoseIndex = (workout.stretches)[0];
+    Pose *firstPose = self.poses[firstPoseIndex];
+    //SVGKImage *svgImage = [SVGKImage imageWithData:firstPose.imageData];
+    SVGKImage *svgImage = [SVGKImage imageWithData:[[NSData alloc] initWithContentsOfURL:firstPose.imageURL]];
     cell.workoutImageView.image = svgImage.UIImage;
-    
+    [cell setWorkout:workout];
+    */
     return cell;
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.poses.count;
+    return self.arrayOfWorkouts.count;
 }
 
 

@@ -13,8 +13,10 @@
     self = [super init];
     self.name = dictionary[@"english_name"];
     NSString *imageURLString = dictionary[@"img_url"];
+    NSInteger id = dictionary[@"id"];
+    self.index = id - 1;
     self.imageURL = [NSURL URLWithString:imageURLString];
-    self.imageData = [[NSData alloc] initWithContentsOfURL: self.imageURL];
+    //self.imageData = [[NSData alloc] initWithContentsOfURL: self.imageURL];
     //[self.imageData base64EncodedDataWithOptions:NSDataBase64DecodingIgnoreUnknownCharacters];
     //[self.imageData base64EncodedStringWithOptions:NSDataBase64EncodingEndLineWithLineFeed];
     return self;

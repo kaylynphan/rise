@@ -22,6 +22,7 @@
 		2EA079A42877564500931A86 /* PoseNetOutput.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EA079A32877564500931A86 /* PoseNetOutput.m */; };
 		2ED124A1287785EC00DD5CBF /* Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ED124A0287785EC00DD5CBF /* Cell.m */; };
 		2ED124A4287C93A800DD5CBF /* WorkoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ED124A3287C93A800DD5CBF /* WorkoutCell.m */; };
+		2ED124AB287DE8F000DD5CBF /* Workout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ED124AA287DE8F000DD5CBF /* Workout.m */; };
 		2ED6586328760D5100B66436 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ED6586228760D5100B66436 /* AppDelegate.m */; };
 		2ED6586628760D5100B66436 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ED6586528760D5100B66436 /* SceneDelegate.m */; };
 		2ED6586C28760D5100B66436 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ED6586A28760D5100B66436 /* Main.storyboard */; };
@@ -87,6 +88,8 @@
 		2ED124A2287C93A800DD5CBF /* WorkoutCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WorkoutCell.h; sourceTree = "<group>"; };
 		2ED124A3287C93A800DD5CBF /* WorkoutCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WorkoutCell.m; sourceTree = "<group>"; };
 		2ED124A5287CF74000DD5CBF /* SVGKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SVGKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2ED124A9287DE8F000DD5CBF /* Workout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Workout.h; sourceTree = "<group>"; };
+		2ED124AA287DE8F000DD5CBF /* Workout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Workout.m; sourceTree = "<group>"; };
 		2ED6585E28760D5100B66436 /* rise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rise.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2ED6586128760D5100B66436 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2ED6586228760D5100B66436 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -161,6 +164,8 @@
 				2EA0799228765EA600931A86 /* Pose.h */,
 				2EA0799328765EA600931A86 /* Pose.m */,
 				2EA0798C287655E700931A86 /* User.h */,
+				2ED124A9287DE8F000DD5CBF /* Workout.h */,
+				2ED124AA287DE8F000DD5CBF /* Workout.m */,
 				2EA0798D287655E700931A86 /* User.m */,
 			);
 			path = Models;
@@ -528,6 +533,7 @@
 				2ED124A4287C93A800DD5CBF /* WorkoutCell.m in Sources */,
 				2EA079872876148300931A86 /* GuideViewController.m in Sources */,
 				2EA079A12877563900931A86 /* PoseNetInput.m in Sources */,
+				2ED124AB287DE8F000DD5CBF /* Workout.m in Sources */,
 				2EA0797E287611C000931A86 /* LoginViewController.m in Sources */,
 				2EA07997287669DF00931A86 /* SplashViewController.m in Sources */,
 				2ED6586328760D5100B66436 /* AppDelegate.m in Sources */,
