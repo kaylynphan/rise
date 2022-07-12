@@ -6,11 +6,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WorkoutCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 
-@interface GalleryViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface GalleryViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, WorkoutCellDelegate>
 
 @property (strong, nonatomic) NSArray *poses;
 @property (strong, nonatomic) NSArray *arrayOfWorkouts;

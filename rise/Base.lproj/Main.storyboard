@@ -271,8 +271,7 @@
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="Start"/>
                                                     <connections>
-                                                        <action selector="didTapStart:" destination="SwV-B0-iH1" eventType="touchUpInside" id="Bis-cV-eb7"/>
-                                                        <segue destination="mZG-wJ-sOR" kind="show" id="RU4-Kh-nLY"/>
+                                                        <action selector="didTapStart:" destination="SwV-B0-iH1" eventType="touchUpInside" id="taa-FO-BHA"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -326,6 +325,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="6wg-Jf-5uY" id="kJE-wv-Jtv"/>
+                        <segue destination="mZG-wJ-sOR" kind="show" identifier="startWorkoutSegue" id="Wwl-oh-W0Z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wtv-vQ-IiH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -339,14 +339,32 @@
                     <view key="view" contentMode="scaleToFill" id="gC1-6Y-o34">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fum-3U-9yL">
+                                <rect key="frame" x="41" y="106" width="353" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="353" id="enn-iL-KQZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="gvT-UN-M41"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Fum-3U-9yL" firstAttribute="top" secondItem="gvT-UN-M41" secondAttribute="top" constant="18" id="61k-TX-pn7"/>
+                            <constraint firstItem="Fum-3U-9yL" firstAttribute="leading" secondItem="gvT-UN-M41" secondAttribute="leading" constant="41" id="HBC-qm-fWQ"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="tqn-U5-kZH"/>
+                    <connections>
+                        <outlet property="titleLabel" destination="Fum-3U-9yL" id="C78-E3-4TF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sub-Lu-78C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3449" y="139"/>
+            <point key="canvasLocation" x="3447.826086956522" y="138.61607142857142"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="MxQ-9y-VRE">

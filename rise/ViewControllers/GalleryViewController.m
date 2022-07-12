@@ -14,6 +14,7 @@
 #import <SVGKit/SVGKit.h>
 #import <SVGKit/SVGKImage.h>
 #import "Workout.h"
+#import "GuideViewController.h"
 
 
 @interface GalleryViewController ()
@@ -93,6 +94,7 @@
     cell.workout = self.arrayOfWorkouts[indexPath.row];
     cell.titleLabel.text = [NSString stringWithFormat:@"%d: %@", indexPath.row, cell.workout.name];
     cell.workoutImageView.image = nil;
+    cell.delegate = self;
     
     // This works:
     NSLog(@"%@", [NSString stringWithFormat:@"The first stretch has index %@", [cell.workout.stretches objectAtIndex:0]]);
@@ -120,16 +122,11 @@
     return self.arrayOfWorkouts.count;
 }
 
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)didStartWorkout:(Workout *)workout {
+    NSLog(@"didStartWorkout being called from GalleryViewController");
+    [self performSegueWithIdentifier:@"startWorkoutSegue" sender:workout];
 }
-*/
+
 
 - (IBAction)didTapLogout:(id)sender {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -144,6 +141,22 @@
         }
     }];
 }
+
+
+
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    if ([[segue identifier] isEqualToString:@"startWorkoutSegue"]) {
+        GuideViewController *guideVC = [segue destinationViewController];
+        guideVC.workout = sender;
+    }
+    
+}
+
 
 
 @end

@@ -9,11 +9,6 @@
 
 @implementation WorkoutCell
 
-
-
-- (IBAction)didTapStart:(id)sender {
-}
-
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
@@ -25,4 +20,12 @@
     // Configure the view for the selected state
 }
 
+- (IBAction)didTapStart:(id)sender {
+    NSLog(@"Start button tapped!");
+    Workout *workoutToSend = self.workout;
+    if (self.delegate != nil) {
+        NSLog(@"Telling delegate to start workout!");
+        [self.delegate didStartWorkout:workoutToSend];
+    }
+}
 @end
