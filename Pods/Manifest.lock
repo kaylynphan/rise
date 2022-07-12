@@ -15,26 +15,36 @@ PODS:
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
   - Bolts/Tasks (1.9.1)
+  - CocoaLumberjack (3.7.4):
+    - CocoaLumberjack/Core (= 3.7.4)
+  - CocoaLumberjack/Core (3.7.4)
   - Parse (1.19.3):
     - Parse/Core (= 1.19.3)
   - Parse/Core (1.19.3):
     - Bolts/Tasks (= 1.9.1)
+  - SVGKit (3.0.0):
+    - CocoaLumberjack (~> 3.0)
 
 DEPENDENCIES:
   - AFNetworking
   - Parse
+  - SVGKit
 
 SPEC REPOS:
   trunk:
     - AFNetworking
     - Bolts
+    - CocoaLumberjack
     - Parse
+    - SVGKit
 
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
   Bolts: 8c1e8aab2f603387b8b9924f57d1d64f43d3ffdc
+  CocoaLumberjack: 543c79c114dadc3b1aba95641d8738b06b05b646
   Parse: 0abb63a0ff6fa34a3f64b81d595a294e2ece143a
+  SVGKit: 1ad7513f8c74d9652f94ed64ddecda1a23864dea
 
-PODFILE CHECKSUM: d9a91be9b1483fa8e904ffd756c83cb87109b2ec
+PODFILE CHECKSUM: e3a8fe279dce68313ef39f5c474f271f62aad0e4
 
 COCOAPODS: 1.11.3

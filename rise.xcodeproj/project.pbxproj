@@ -86,6 +86,7 @@
 		2ED124A0287785EC00DD5CBF /* Cell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Cell.m; sourceTree = "<group>"; };
 		2ED124A2287C93A800DD5CBF /* WorkoutCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WorkoutCell.h; sourceTree = "<group>"; };
 		2ED124A3287C93A800DD5CBF /* WorkoutCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WorkoutCell.m; sourceTree = "<group>"; };
+		2ED124A5287CF74000DD5CBF /* SVGKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SVGKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2ED6585E28760D5100B66436 /* rise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rise.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2ED6586128760D5100B66436 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2ED6586228760D5100B66436 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -256,6 +257,7 @@
 		9E69AFC41A98437CB153268D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2ED124A5287CF74000DD5CBF /* SVGKit.framework */,
 				CE7188923E3A8320555BE7C9 /* Pods_rise.framework */,
 				19A880A6BE4B8115ADCBECCB /* Pods_rise_riseUITests.framework */,
 				19087805CD20347335A84649 /* Pods_riseTests.framework */,

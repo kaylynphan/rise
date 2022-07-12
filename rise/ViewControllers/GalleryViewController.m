@@ -11,6 +11,8 @@
 #import "SplashViewController.h"
 #import "WorkoutCell.h"
 #import "Pose.h"
+#import <SVGKit/SVGKit.h>
+#import <SVGKit/SVGKImage.h>
 
 
 @interface GalleryViewController ()
@@ -47,9 +49,13 @@
     //cell.workoutImageView.image = [UIImage imageWithData: pose.imageData];
     
     //Now, I'm trying to load the image data inside cellForRowAtIndexPath, but the images still don't appear
+    SVGKImage *svgImage = [SVGKImage imageWithData:pose.imageData];
+    cell.workoutImageView.image = svgImage.UIImage;
+    /*
     UIImage *image = [UIImage imageWithData:pose.imageData];
     UIImage *originalRenderingImage = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     cell.workoutImageView.image = originalRenderingImage;
+     */
     return cell;
 }
 
