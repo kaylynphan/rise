@@ -13,11 +13,13 @@
 #import "Pose.h"
 #import <SVGKit/SVGKit.h>
 #import <SVGKit/SVGKImage.h>
+#import "Workout.h"
 
 
 @interface GalleryViewController ()
 - (IBAction)didTapLogout:(id)sender;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) UIRefreshControl *refreshControl;
 
 @end
 
@@ -27,31 +29,56 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    //NSLog(@"%@", self.poses);
+    // set up refresh
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(beginRefresh:) forControlEvents:UIControlEventValueChanged];
+    [self.tableView insertSubview:refreshControl atIndex:0];
+
+    // set up table
     [self.tableView setDelegate:self];
     [self.tableView setDataSource:self];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     
-    [self.tableView reloadData];
-    
+    // perform query
+    self.workouts = [[NSArray alloc] init];
+    [self queryWorkouts];
+}
+
+- (void)queryWorkouts {
+    PFQuery *query = [PFQuery queryWithClassName:@"Workout"];
+    [query orderByDescending:@"createdAt"];
+    [query includeKey:@"objectId"];
+    // fetch data asynchronously
+    [query findObjectsInBackgroundWithBlock:^(NSArray *savedWorkouts, NSError *error) {
+        if (savedWorkouts != nil) {
+            // do something with the array of object returned by the call
+            self.workouts = savedWorkouts;
+            NSLog(@"%@", self.workouts);
+            [self.tableView reloadData];
+        } else {
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     // for now, test the table view by showing each pose's image in a cell
     WorkoutCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"WorkoutCell" forIndexPath:indexPath];
-    Pose *pose = self.poses[indexPath.row];
+    Workout *workout = self.workouts[indexPath.row];
     
     cell.workoutImageView.image = nil;
-    cell.titleLabel.text = [NSString stringWithFormat:@"%d: %@", indexPath.row, pose.name];
+    cell.titleLabel.text = [NSString stringWithFormat:@"%d: %@", indexPath.row, workout.name];
     
-    SVGKImage *svgImage = [SVGKImage imageWithData:pose.imageData];
+    NSInteger firstPoseIndex = workout.stretches[0];
+    Pose *firstPose = self.poses[firstPoseIndex];
+    SVGKImage *svgImage = [SVGKImage imageWithData:firstPose.imageData];
     cell.workoutImageView.image = svgImage.UIImage;
     
     return cell;
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.poses.count;
+    return self.workouts.count;
 }
 
 
