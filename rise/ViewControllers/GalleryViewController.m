@@ -81,6 +81,12 @@
     }];
 }
 
+- (void)beginRefresh:(UIRefreshControl *)refreshControl {
+    [self queryWorkouts];
+    [refreshControl endRefreshing];
+}
+
+
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     // for now, test the table view by showing each pose's image in a cell
     WorkoutCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"WorkoutCell" forIndexPath:indexPath];
@@ -107,18 +113,6 @@
     [cell.stretchesLabel sizeToFit];
     //NSLog(stringToDisplay);
     
-
-    /*
-    cell.workoutImageView.image = nil;
-    
-    workout.stretches = workout[@"stretches"];
-    NSInteger firstPoseIndex = (workout.stretches)[0];
-    Pose *firstPose = self.poses[firstPoseIndex];
-    //SVGKImage *svgImage = [SVGKImage imageWithData:firstPose.imageData];
-    SVGKImage *svgImage = [SVGKImage imageWithData:[[NSData alloc] initWithContentsOfURL:firstPose.imageURL]];
-    cell.workoutImageView.image = svgImage.UIImage;
-    [cell setWorkout:workout];
-    */
     return cell;
 }
 
