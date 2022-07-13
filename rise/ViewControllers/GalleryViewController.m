@@ -10,7 +10,7 @@
 #import "Parse/Parse.h"
 #import "SplashViewController.h"
 #import "WorkoutCell.h"
-#import "Pose.h"
+#import "YogaPose.h"
 #import <SVGKit/SVGKit.h>
 #import <SVGKit/SVGKImage.h>
 #import "Workout.h"
@@ -84,7 +84,7 @@
     NSMutableArray *arrayOfStretchNames = [[NSMutableArray alloc] init];
     for (long i = 0; i < cell.workout.stretches.count; i++) {
         NSNumber *index = [cell.workout.stretches objectAtIndex:i];
-        Pose *poseToList = [self.poses objectAtIndex:[index intValue]];
+        YogaPose *poseToList = [self.poses objectAtIndex:[index intValue]];
         stringToDisplay = [stringToDisplay stringByAppendingFormat:@"%@\n", poseToList.name];
         // set image
         if (i == 0) {

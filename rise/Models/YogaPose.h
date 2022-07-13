@@ -1,5 +1,5 @@
 //
-//  Pose.h
+//  YogaPose.h
 //  rise
 //
 //  Created by Kaylyn Phan on 7/6/22.
@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Pose : NSObject
+@interface YogaPose : NSObject
 
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSURL *imageURL;

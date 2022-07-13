@@ -6,7 +6,7 @@
 //
 
 #import "YogaPoseAPIManager.h"
-#import "Pose.h"
+#import "YogaPose.h"
 
 @implementation YogaPoseAPIManager
 
@@ -32,7 +32,7 @@
             NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
 
             NSArray *dictionaries = dataDictionary[@"items"];
-            NSArray *poses = [Pose posesWithDictionaries:dictionaries];
+            NSArray *poses = [YogaPose posesWithDictionaries:dictionaries];
 
             // The network request has completed, and succeeded.
             // Invoke the completion block with the movies array.
