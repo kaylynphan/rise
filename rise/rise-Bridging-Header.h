@@ -8,5 +8,4 @@
 #ifndef rise_Bridging_Header_h
 #define rise_Bridging_Header_h
 
-
 #endif /* rise_Bridging_Header_h */

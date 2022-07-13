@@ -7,7 +7,9 @@ Implementation details of a structure used to describe a joint.
 
 import CoreGraphics
 
-class Joint {
+@objcMembers
+
+public class Joint {
     enum Name: Int, CaseIterable {
         case nose
         case leftEye

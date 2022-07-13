@@ -11,12 +11,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PoseImageView : UIImageView
 
-@property (nonatomic, strong) NSArray *jointSegments;
+//@property Joint *joint;
 
-struct JointSegment {
-    CGPoint *jointA;
-    CGPoint *jointB;
-};
+
 
 @end
 

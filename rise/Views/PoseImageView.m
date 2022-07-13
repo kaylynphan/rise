@@ -6,16 +6,9 @@
 //
 
 #import "PoseImageView.h"
+//#import "Joint-Swift.h"
 
 @implementation PoseImageView
-
-
-
-
-     
-
-
-
 
 
 
