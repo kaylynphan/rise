@@ -7,7 +7,7 @@
 
 #import "GuideViewController.h"
 #import <SRCountdownTimer-Swift.h>
-#import "Pose.h"
+#import "YogaPose.h"
 #import <SVGKit/SVGKit.h>
 @import SRCountdownTimer;
 
@@ -30,7 +30,7 @@ static int exerciseNum = 0;
     
     // initial labels and images
     /*
-    Pose *firstPose = [self.workout.stretches objectAtIndex:0];
+    YogaPose *firstPose = [self.workout.stretches objectAtIndex:0];
     self.poseLabel.text = firstPose.name;
     self.poseImage.image = [UIImage imageWithData:[[NSData alloc] initWithContentsOfURL:firstPose.imageURL]];
     [self.countdownTimer startWithBeginingValue:30 interval:1];
@@ -46,7 +46,7 @@ static int exerciseNum = 0;
 - (void)updateLabels {
     if (exerciseNum < 6) {
         int *poseIndex = [[self.workout.stretches objectAtIndex:exerciseNum] intValue];
-        Pose *pose = [self.poses objectAtIndex:poseIndex];
+        YogaPose *pose = [self.poses objectAtIndex:poseIndex];
         self.poseLabel.text = pose.name;
         self.poseImage.image = [SVGKImage imageWithContentsOfURL:pose.imageURL].UIImage;
         [self.countdownTimer startWithBeginingValue:30 interval:1];

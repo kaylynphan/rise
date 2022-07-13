@@ -1,13 +1,13 @@
 //
-//  Pose.m
+//  YogaPose.m
 //  rise
 //
 //  Created by Kaylyn Phan on 7/6/22.
 //
 
-#import "Pose.h"
+#import "YogaPose.h"
 
-@implementation Pose
+@implementation YogaPose
 
 - (id)initWithDictionary:(NSDictionary *)dictionary {
     self = [super init];
@@ -27,7 +27,7 @@
     NSMutableArray *poses = [[NSMutableArray alloc] init];
         for (NSDictionary *dictionary in dictionaries) {
             //NSLog(@"%@", dictionary); // print each 'item' dictionary
-            Pose *pose = [[Pose alloc] initWithDictionary:dictionary];
+            YogaPose *pose = [[YogaPose alloc] initWithDictionary:dictionary];
             [poses addObject:pose];
         }
         return poses;
