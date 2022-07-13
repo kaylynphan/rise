@@ -25,7 +25,6 @@ static int exerciseNum = 0;
     // Do any additional setup after loading the view.
     
     self.countdownTimer.delegate = self;
-    [self.countdownTimer setTimerFinishingText:@"0"];
     self.titleLabel.text = self.workout.name;
     [self updateLabels];
     
