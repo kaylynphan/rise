@@ -7,6 +7,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Workout.h"
+#import <SRCountdownTimer/SRCountdownTimer-Swift.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -14,6 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (weak, nonatomic) Workout *workout;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet SRCountdownTimer *countdownTimer;
+@property (weak, nonatomic) IBOutlet UILabel *poseLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *poseImage;
 
 @end
 

@@ -6,6 +6,10 @@
 //
 
 #import "GuideViewController.h"
+#import <SRCountdownTimer-Swift.h>
+#import "Pose.h"
+@import SRCountdownTimer;
+
 
 @interface GuideViewController ()
 
@@ -17,6 +21,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.titleLabel.text = self.workout.name;
+    Pose *firstPose = [self.workout.stretches objectAtIndex:0];
+    self.poseLabel.text = firstPose.name;
+    self.poseImage.image = [UIImage imageWithData:[[NSData alloc] initWithContentsOfURL:firstPose.imageURL]];
+    [self.countdownTimer startWithBeginingValue:30 interval:1];
+
 }
 
 /*
