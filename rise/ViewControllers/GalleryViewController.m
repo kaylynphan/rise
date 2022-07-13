@@ -15,7 +15,7 @@
 #import <SVGKit/SVGKImage.h>
 #import "Workout.h"
 #import "GuideViewController.h"
-#import <AFNetworking/UIImageView+AFNetworking.h>>
+#import <AFNetworking/UIImageView+AFNetworking.h>
 
 
 @interface GalleryViewController ()
@@ -136,6 +136,7 @@
     if ([[segue identifier] isEqualToString:@"startWorkoutSegue"]) {
         GuideViewController *guideVC = [segue destinationViewController];
         guideVC.workout = sender;
+        guideVC.poses = self.poses;
     }
     
 }

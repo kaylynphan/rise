@@ -8,6 +8,7 @@
 #import "GuideViewController.h"
 #import <SRCountdownTimer-Swift.h>
 #import "Pose.h"
+#import <SVGKit/SVGKit.h>
 @import SRCountdownTimer;
 
 
@@ -17,17 +18,41 @@
 
 @implementation GuideViewController
 
+static int exerciseNum = 0;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.countdownTimer.delegate = self;
+    [self.countdownTimer setTimerFinishingText:@"0"];
     self.titleLabel.text = self.workout.name;
+    [self updateLabels];
+    
+    // initial labels and images
+    /*
     Pose *firstPose = [self.workout.stretches objectAtIndex:0];
     self.poseLabel.text = firstPose.name;
     self.poseImage.image = [UIImage imageWithData:[[NSData alloc] initWithContentsOfURL:firstPose.imageURL]];
     [self.countdownTimer startWithBeginingValue:30 interval:1];
-
+     */
 }
 
+- (void)timerDidEndWithSender:(SRCountdownTimer *)sender elapsedTime:(NSTimeInterval)elapsedTime {
+    NSLog(@"Timer did end");
+    exerciseNum++;
+    [self updateLabels];
+}
+
+- (void)updateLabels {
+    if (exerciseNum < 6) {
+        int *poseIndex = [[self.workout.stretches objectAtIndex:exerciseNum] intValue];
+        Pose *pose = [self.poses objectAtIndex:poseIndex];
+        self.poseLabel.text = pose.name;
+        self.poseImage.image = [SVGKImage imageWithContentsOfURL:pose.imageURL].UIImage;
+        [self.countdownTimer startWithBeginingValue:30 interval:1];
+    }
+}
 /*
 #pragma mark - Navigation
 
