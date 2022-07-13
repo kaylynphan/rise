@@ -41,7 +41,7 @@ class PoseNet {
 
     init() throws {
         poseNetMLModel = try PoseNetMobileNet075S16FP16(configuration: .init()).model
-    } 
+    }
 
     /// Calls the `prediction` method of the PoseNet model and returns the outputs to the assigned
     /// `delegate`.

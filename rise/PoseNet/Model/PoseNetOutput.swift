@@ -134,7 +134,7 @@ extension PoseNetOutput {
                                     y: cell.yIndex * modelOutputStride)
 
         // Then, add the offset to get a precise position.
-        jointPosition += jointOffset // add '+' overridden operator to CGPoint extension
+        jointPosition += jointOffset
 
         return jointPosition
     }
