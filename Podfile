@@ -9,6 +9,7 @@ target 'rise' do
   pod 'Parse'
   pod 'AFNetworking'
   pod 'SVGKit'
+  pod 'SRCountdownTimer'
 
   target 'riseTests' do
     inherit! :search_paths
