@@ -15,6 +15,7 @@
 #import <SVGKit/SVGKImage.h>
 #import "Workout.h"
 #import "GuideViewController.h"
+#import <AFNetworking/UIImageView+AFNetworking.h>>
 
 
 @interface GalleryViewController ()
@@ -39,26 +40,6 @@
     [self.tableView setDelegate:self];
     [self.tableView setDataSource:self];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
-    
-    // delete this later: save some workouts into Parse
-    /*
-    PFObject *workout1 = [PFObject objectWithClassName:@"Workout"];
-    workout1[@"name"] = @"Mind and Flow";
-    workout1[@"stretches"] = @[@28, @19, @14, @42, @43, @44];
-    [workout1 saveInBackground];
-    PFObject *workout2 = [PFObject objectWithClassName:@"Workout"];
-    workout2[@"name"] = @"Full Body";
-    workout2[@"stretches"] = @[@(22), @(37), @(41), @(14), @(2), @(9)];
-    [workout2 saveInBackground];
-    PFObject *workout3 = [PFObject objectWithClassName:@"Workout"];
-    workout3[@"name"] = @"Core Rotation";
-    workout3[@"stretches"] = @[@(42), @(25), @(33), @(6), @(7), @(1)];
-    [workout3 saveInBackground];
-    PFObject *workout4 = [PFObject objectWithClassName:@"Workout"];
-    workout4[@"name"] = @"Barre Warmup";
-    workout4[@"stretches"] = @[@(16), @(38), @(37), @(28), @(23), @(17)];
-    [workout4 saveInBackground];
-     */
     
     // perform query
     self.arrayOfWorkouts = [[NSArray alloc] init];
@@ -107,7 +88,9 @@
         stringToDisplay = [stringToDisplay stringByAppendingFormat:@"%@\n", poseToList.name];
         // set image
         if (i == 0) {
-            cell.workoutImageView.image = [SVGKImage imageWithData:[[NSData alloc] initWithContentsOfURL:poseToList.imageURL]].UIImage;
+            cell.workoutImageView.image = [SVGKImage imageWithContentsOfURL:poseToList.imageURL].UIImage;
+            
+            //cell.workoutImageView.image = [SVGKImage imageWithData:[[NSData alloc] initWithContentsOfURL:poseToList.imageURL]].UIImage;
         }
     }
     cell.stretchesLabel.text = stringToDisplay;
