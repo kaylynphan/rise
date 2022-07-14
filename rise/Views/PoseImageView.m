@@ -6,21 +6,24 @@
 //
 
 #import "PoseImageView.h"
-#import "JointSegment.h"
+#import "../PoseNet/JointSegment.h"
 #import "rise-Swift.h"
-
 
 @implementation PoseImageView
 
-/*
-+ (NSArray *)jointSegments {
-    return [
-            [JointSegment initWithJointA:Joint.leftHip withJointB:Joint.leftShoulder]
+- (void)awakeFromNib {
+    
+    [PoseImageView getTestJoint];
+    
+    self.jointSegments = @[
+        [[JointSegment alloc] initWithJointA:Joint.leftHip withJointB:Joint.leftShoulder],
+        [[JointSegment alloc] initWithJointA:Joint.leftShoulder withJointB:Joint.leftElbow],
+        [[JointSegment alloc] initWithJointA:Joint.leftElbow withJointB:Joint.leftWrist]
     ];
 }
- */
 
-+ (void)getJoint {
+
++ (void)getTestJoint {
     NSLog([NSString stringWithFormat:@"Nose is %d", Joint.nose]);
 }
 

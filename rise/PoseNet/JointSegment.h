@@ -11,8 +11,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface JointSegment : NSObject
 
-@property (nonatomic) NSInteger *jointA;
-@property (nonatomic) NSInteger *jointB;
+@property (assign, nonatomic) NSInteger *jointA;
+@property (assign, nonatomic) NSInteger *jointB;
 
 - (instancetype)initWithJointA:(NSInteger *)jointA withJointB:(NSInteger *)jointB;
  

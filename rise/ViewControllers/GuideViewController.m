@@ -10,6 +10,7 @@
 #import "YogaPose.h"
 #import <SVGKit/SVGKit.h>
 @import SRCountdownTimer;
+#import "../Views/PoseImageView.h"
 
 
 @interface GuideViewController ()
@@ -23,6 +24,8 @@ static int exerciseNum = 0;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    //[PoseImageView getJoint]; //test success!!
     
     self.countdownTimer.delegate = self;
     self.titleLabel.text = self.workout.name;

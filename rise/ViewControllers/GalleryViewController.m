@@ -17,8 +17,6 @@
 #import "GuideViewController.h"
 #import <AFNetworking/UIImageView+AFNetworking.h>
 
-//#import "PoseImageView.h"
-
 
 @interface GalleryViewController ()
 - (IBAction)didTapLogout:(id)sender;
@@ -32,8 +30,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    //[PoseImageView getJoint]; //test success!!
     
     // set up refresh
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
