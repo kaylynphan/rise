@@ -15,7 +15,7 @@
     
     self.helloLabel.backgroundColor = [UIColor grayColor];
     [self.helloLabel sizeToFit];
-    self.helloLabel.layer.cornerRadius = 26.0;
+    self.helloLabel.layer.cornerRadius = 26;
     self.helloLabel.layer.masksToBounds = YES;
 }
 

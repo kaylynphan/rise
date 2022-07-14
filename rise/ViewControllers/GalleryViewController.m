@@ -40,6 +40,7 @@
     [self.tableView setDelegate:self];
     [self.tableView setDataSource:self];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.separatorColor = [UIColor clearColor];
     
     // perform query
     self.arrayOfWorkouts = [[NSArray alloc] init];
