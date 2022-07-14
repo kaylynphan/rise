@@ -23,16 +23,30 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.usernameField.layer.cornerRadius = 10.0;
-    self.passwordField.layer.cornerRadius = 5.0;
+    NSLog(@"Arrived to LoginViewController");
+    
+    self.usernameField.layer.cornerRadius = 17.0;
+    self.passwordField.layer.cornerRadius = 17.0;
     
     self.usernameField.layer.borderColor = UIColor.blackColor.CGColor;
     self.passwordField.layer.borderColor = UIColor.blackColor.CGColor;
     
     self.usernameField.layer.borderWidth = 1.5;
-    self.passwordField.layer.borderWidth = 2.0;
+    self.passwordField.layer.borderWidth = 1.5;
     
+    
+    UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 5, 0)];
+    self.usernameField.leftView = paddingView;
+    self.usernameField.rightView = paddingView;
+    self.usernameField.leftViewMode = UITextFieldViewModeAlways;
+    self.usernameField.rightViewMode = UITextFieldViewModeAlways;
+    
+    self.passwordField.leftView = paddingView;
+    self.passwordField.rightView = paddingView;
+    self.passwordField.leftViewMode = UITextFieldViewModeAlways;
+    self.passwordField.rightViewMode = UITextFieldViewModeAlways;
 }
+
 
 - (IBAction)loginUser:(id)sender {
     UIAlertController *nullUsernameAlert = [UIAlertController alertControllerWithTitle:@"Username Required"
