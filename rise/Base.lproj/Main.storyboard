@@ -130,6 +130,7 @@
                     <navigationItem key="navigationItem" id="EL2-3W-Byp"/>
                     <connections>
                         <outlet property="passwordField" destination="P3g-PK-Lci" id="XAd-VV-lpL"/>
+                        <outlet property="scrollView" destination="Nro-XR-cbU" id="hWn-YI-u7f"/>
                         <outlet property="usernameField" destination="QsC-QY-G4o" id="kLg-SE-xh2"/>
                         <segue destination="3pc-bl-PBI" kind="presentation" identifier="loginSegue" id="Ecx-6H-y7k"/>
                     </connections>
