@@ -12,14 +12,35 @@
 @implementation PoseImageView
 
 - (void)awakeFromNib {
+    [super awakeFromNib];
     
     self.jointSegments = @[
-        [[JointSegment alloc] initWithJointA:Joint.nose withJointB:Joint.leftEye],
+        //left joints
+        [[JointSegment alloc] initWithJointA:Joint.leftHip withJointB:Joint.leftShoulder],
         [[JointSegment alloc] initWithJointA:Joint.leftShoulder withJointB:Joint.leftElbow],
-        [[JointSegment alloc] initWithJointA:Joint.leftElbow withJointB:Joint.leftWrist]
+        [[JointSegment alloc] initWithJointA:Joint.leftElbow withJointB:Joint.leftWrist],
+        [[JointSegment alloc] initWithJointA:Joint.leftHip withJointB:Joint.leftKnee],
+        [[JointSegment alloc] initWithJointA:Joint.leftKnee withJointB:Joint.leftAnkle],
+        
+        //right joints
+        [[JointSegment alloc] initWithJointA:Joint.rightHip withJointB:Joint.rightShoulder],
+        [[JointSegment alloc] initWithJointA:Joint.rightShoulder withJointB:Joint.rightElbow],
+        [[JointSegment alloc] initWithJointA:Joint.rightElbow withJointB:Joint.rightWrist],
+        [[JointSegment alloc] initWithJointA:Joint.rightHip withJointB:Joint.rightKnee],
+        [[JointSegment alloc] initWithJointA:Joint.rightKnee withJointB:Joint.rightAnkle],
+        
+        //cross overs
+        [[JointSegment alloc] initWithJointA:Joint.leftShoulder withJointB:Joint.rightShoulder],
+        [[JointSegment alloc] initWithJointA:Joint.leftHip withJointB:Joint.rightHip],
     ];
-    
     [self runTests];
+}
+
+- (void)showWithPoses:(NSArray *)poses withFrame:(CGImageRef *)frame {
+    CGFloat *width = (CGFloat)[CGImageGetWidth(*frame)];
+    CGFloat *height = (CGFloat)[CGImageGetHeight(*frame)];
+    CGSize *dstImageSize = [CGSizeMake(*width, *height)];
+    
 }
 
 
