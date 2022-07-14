@@ -6,10 +6,29 @@ Implementation details of a structure used to describe a joint.
 */
 
 import CoreGraphics
+import Foundation
 
-@objcMembers
-
-public class Joint {
+@objc public class Joint : NSObject {
+    
+    static let nose = 0;
+    static let leftEye = 1;
+    static let rightEye = 2;
+    static let leftEar = 3;
+    static let rightEar = 4;
+    static let leftShoulder = 5;
+    static let rightShoulder = 6;
+    static let leftElbow = 7;
+    static let rightElbow = 8;
+    static let leftWrist = 9;
+    static let rightWrist = 10;
+    static let leftHip = 11;
+    static let rightHip = 12;
+    static let leftKnee = 13;
+    static let rightKnee = 14;
+    static let leftAnkle = 15;
+    static let rightAnkle = 16;
+    
+    /*
     enum Name: Int, CaseIterable {
         case nose
         case leftEye
@@ -29,14 +48,15 @@ public class Joint {
         case leftAnkle
         case rightAnkle
     }
+    */
 
     /// The total number of joints available.
     static var numberOfJoints: Int {
-        return Name.allCases.count
+        return 17;
     }
 
     /// The name used to identify the joint.
-    let name: Name
+    let name: Int;
 
     /// The position of the joint relative to the image.
     ///
@@ -55,7 +75,7 @@ public class Joint {
     /// A boolean value that indicates if the joint satisfies the joint threshold defined in the configuration.
     var isValid: Bool
 
-    init(name: Name,
+    init(name: Int,
          cell: PoseNetOutput.Cell = .zero,
          position: CGPoint = .zero,
          confidence: Double = 0,
