@@ -101,6 +101,17 @@
     return cell;
 }
 
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UITableViewCell *headerView = [tableView dequeueReusableCellWithIdentifier:@"galleryViewHeader"];
+    return headerView;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 300;
+}
+
+
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.arrayOfWorkouts.count;
 }
