@@ -22,6 +22,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.usernameField.layer.cornerRadius = 10.0;
+    self.passwordField.layer.cornerRadius = 5.0;
+    
+    self.usernameField.layer.borderColor = UIColor.blackColor.CGColor;
+    self.passwordField.layer.borderColor = UIColor.blackColor.CGColor;
+    
+    self.usernameField.layer.borderWidth = 1.5;
+    self.passwordField.layer.borderWidth = 2.0;
+    
 }
 
 - (IBAction)loginUser:(id)sender {
