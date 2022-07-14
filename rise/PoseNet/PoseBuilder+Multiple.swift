@@ -62,7 +62,7 @@ extension PoseBuilder {
     private var candidateRoots: [Joint] {
         var candidateRoots = [Joint]()
 
-        for jointName in Joint.Name.allCases {
+        for jointName in 0...16 {
             for yIndex in 0..<output.height {
                 for xIndex in 0..<output.width {
                     let cell = PoseNetOutput.Cell(yIndex, xIndex)
@@ -142,7 +142,7 @@ extension PoseBuilder {
     ///     - jointName: Name of joint being queried.
     ///     - cell: The coordinates of the given joint to search around.
     /// - returns: The greatest confidence value.
-    private func greatestConfidence(for jointName: Joint.Name, at cell: PoseNetOutput.Cell) -> Double {
+    private func greatestConfidence(for jointName: Int, at cell: PoseNetOutput.Cell) -> Double {
         // Calculate the start and end indices for the local window.
         let yLowerBound = max(cell.yIndex - configuration.localSearchRadius, 0)
         let yUpperBound = min(cell.yIndex + configuration.localSearchRadius, output.height - 1)
@@ -228,9 +228,9 @@ extension PoseBuilder {
     ///     - joint: Joint whose properties are updated.
     ///     - sourceJoint: Valid source joint to search from.
     ///     - edge: Associated edge between the `joint` and `sourceJoint`.
-    private func configure(joint: Joint,
+    public func configure(joint: Joint,
                            from sourceJoint: Joint,
-                           given edge: Pose.Edge) {
+                           given edge: Edge) {
 
         // Query the appropriate displacement map to obtain the displacement vector.
         var displacementVector = CGVector.zero

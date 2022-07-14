@@ -126,7 +126,7 @@ extension PoseNetOutput {
     ///     - jointName: Query joint used to index the `offsets` array.
     ///     - cell: The coordinates in `offsets` output for the given joint name.
     /// - returns: Calculated position for the specified joint and grid cell.
-    func position(for jointName: Joint.Name, at cell: Cell) -> CGPoint {
+    func position(for jointName: Int, at cell: Cell) -> CGPoint {
         let jointOffset = offset(for: jointName, at: cell)
 
         // First, calculate the joint’s coarse position.
@@ -167,10 +167,10 @@ extension PoseNetOutput {
     /// - parameters:
     ///     - jointName: Joint name whose `rawValue` is used as the index of the first dimension of the `offsets` array.
     ///     - cell: The coordinates in the `offsets` output for the given joint name.
-    func offset(for jointName: Joint.Name, at cell: Cell) -> CGVector {
+    func offset(for jointName: Int, at cell: Cell) -> CGVector {
         // Create the index for the y and x component of the offset.
-        let yOffsetIndex = [jointName.rawValue, cell.yIndex, cell.xIndex]
-        let xOffsetIndex = [jointName.rawValue + Joint.numberOfJoints, cell.yIndex, cell.xIndex]
+        let yOffsetIndex = [jointName, cell.yIndex, cell.xIndex]
+        let xOffsetIndex = [jointName + Joint.numberOfJoints, cell.yIndex, cell.xIndex]
 
         // Obtain y and x component of the offset from the offsets array.
         let offsetY: Double = offsets[yOffsetIndex].doubleValue
@@ -187,8 +187,8 @@ extension PoseNetOutput {
     /// - parameters:
     ///     - jointName: Joint name whose `rawValue` is used as the index of the first dimension of the `heatmap` array.
     ///     - cell: The coordinates in `heatmap` output for the given joint name.
-    func confidence(for jointName: Joint.Name, at cell: Cell) -> Double {
-        let multiArrayIndex = [jointName.rawValue, cell.yIndex, cell.xIndex]
+    func confidence(for jointName: Int, at cell: Cell) -> Double {
+        let multiArrayIndex = [jointName, cell.yIndex, cell.xIndex]
         return heatmap[multiArrayIndex].doubleValue
     }
 

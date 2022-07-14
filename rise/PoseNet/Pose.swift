@@ -6,71 +6,55 @@ Implementation details of a structure used to describe a pose.
 */
 
 import CoreGraphics
+import Foundation
 
-struct Pose {
+@objc public class Pose : NSObject {
 
-    /// A structure used to describe a parent-child relationship between two joints.
-    struct Edge {
-        let index: Int
-        let parent: Joint.Name
-        let child: Joint.Name
-
-        init(from parent: Joint.Name, to child: Joint.Name, index: Int) {
-            self.index = index
-            self.parent = parent
-            self.child = child
-        }
-    }
-
-    /// An array of edges used to define the connections between the joints.
-    ///
-    /// The index relates to the index used to access the associated value within the displacement maps
-    /// output by the PoseNet model.
-    static let edges = [
-        Edge(from: .nose, to: .leftEye, index: 0),
-        Edge(from: .leftEye, to: .leftEar, index: 1),
-        Edge(from: .nose, to: .rightEye, index: 2),
-        Edge(from: .rightEye, to: .rightEar, index: 3),
-        Edge(from: .nose, to: .leftShoulder, index: 4),
-        Edge(from: .leftShoulder, to: .leftElbow, index: 5),
-        Edge(from: .leftElbow, to: .leftWrist, index: 6),
-        Edge(from: .leftShoulder, to: .leftHip, index: 7),
-        Edge(from: .leftHip, to: .leftKnee, index: 8),
-        Edge(from: .leftKnee, to: .leftAnkle, index: 9),
-        Edge(from: .nose, to: .rightShoulder, index: 10),
-        Edge(from: .rightShoulder, to: .rightElbow, index: 11),
-        Edge(from: .rightElbow, to: .rightWrist, index: 12),
-        Edge(from: .rightShoulder, to: .rightHip, index: 13),
-        Edge(from: .rightHip, to: .rightKnee, index: 14),
-        Edge(from: .rightKnee, to: .rightAnkle, index: 15)
+    public static let edges = [
+        Edge(from: Joint.nose, to: Joint.leftEye, index: 0),
+        Edge(from: Joint.leftEye, to: Joint.leftEar, index: 1),
+        Edge(from: Joint.nose, to: Joint.rightEye, index: 2),
+        Edge(from: Joint.rightEye, to: Joint.rightEar, index: 3),
+        Edge(from: Joint.nose, to: Joint.leftShoulder, index: 4),
+        Edge(from: Joint.leftShoulder, to: Joint.leftElbow, index: 5),
+        Edge(from: Joint.leftElbow, to: Joint.leftWrist, index: 6),
+        Edge(from: Joint.leftShoulder, to: Joint.leftHip, index: 7),
+        Edge(from: Joint.leftHip, to: Joint.leftKnee, index: 8),
+        Edge(from: Joint.leftKnee, to: Joint.leftAnkle, index: 9),
+        Edge(from: Joint.nose, to: Joint.rightShoulder, index: 10),
+        Edge(from: Joint.rightShoulder, to: Joint.rightElbow, index: 11),
+        Edge(from: Joint.rightElbow, to: Joint.rightWrist, index: 12),
+        Edge(from: Joint.rightShoulder, to: Joint.rightHip, index: 13),
+        Edge(from: Joint.rightHip, to: Joint.rightKnee, index: 14),
+        Edge(from: Joint.rightKnee, to: Joint.rightAnkle, index: 15)
     ]
 
     /// The joints that make up a pose.
-    private(set) var joints: [Joint.Name: Joint] = [
-        .nose: Joint(name: .nose),
-        .leftEye: Joint(name: .leftEye),
-        .leftEar: Joint(name: .leftEar),
-        .leftShoulder: Joint(name: .leftShoulder),
-        .leftElbow: Joint(name: .leftElbow),
-        .leftWrist: Joint(name: .leftWrist),
-        .leftHip: Joint(name: .leftHip),
-        .leftKnee: Joint(name: .leftKnee),
-        .leftAnkle: Joint(name: .leftAnkle),
-        .rightEye: Joint(name: .rightEye),
-        .rightEar: Joint(name: .rightEar),
-        .rightShoulder: Joint(name: .rightShoulder),
-        .rightElbow: Joint(name: .rightElbow),
-        .rightWrist: Joint(name: .rightWrist),
-        .rightHip: Joint(name: .rightHip),
-        .rightKnee: Joint(name: .rightKnee),
-        .rightAnkle: Joint(name: .rightAnkle)
+    private(set) var joints: [Int: Joint] = [
+        Joint.nose: Joint(name: Joint.nose),
+        Joint.leftEye: Joint(name: Joint.leftEye),
+        Joint.leftEar: Joint(name: Joint.leftEar),
+        Joint.leftShoulder: Joint(name: Joint.leftShoulder),
+        Joint.leftElbow: Joint(name: Joint.leftElbow),
+        Joint.leftWrist: Joint(name: Joint.leftWrist),
+        Joint.leftHip: Joint(name: Joint.leftHip),
+        Joint.leftKnee: Joint(name: Joint.leftKnee),
+        Joint.leftAnkle: Joint(name: Joint.leftAnkle),
+        Joint.rightEye: Joint(name: Joint.rightEye),
+        Joint.rightEar: Joint(name: Joint.rightEar),
+        Joint.rightShoulder: Joint(name: Joint.rightShoulder),
+        Joint.rightElbow: Joint(name: Joint.rightElbow),
+        Joint.rightWrist: Joint(name: Joint.rightWrist),
+        Joint.rightHip: Joint(name: Joint.rightHip),
+        Joint.rightKnee: Joint(name: Joint.rightKnee),
+        Joint.rightAnkle: Joint(name: Joint.rightAnkle)
     ]
-
+    
     /// The confidence score associated with this pose.
     var confidence: Double = 0.0
 
     /// Accesses the joint with the specified name.
-    subscript(jointName: Joint.Name) -> Joint {
+    subscript(jointName: Int) -> Joint {
         get {
             assert(joints[jointName] != nil)
             return joints[jointName]!
@@ -85,7 +69,7 @@ struct Pose {
     /// - parameters:
     ///     - jointName: Query joint name.
     /// - returns: All edges that connect to or from `jointName`.
-    static func edges(for jointName: Joint.Name) -> [Edge] {
+    static func edges(for jointName: Int) -> [Edge] {
         return Pose.edges.filter {
             $0.parent == jointName || $0.child == jointName
         }
@@ -97,7 +81,22 @@ struct Pose {
     ///     - parentJointName: Edge's parent joint name.
     ///     - childJointName: Edge's child joint name.
     /// - returns: All edges that connect to or from `jointName`.
-    static func edge(from parentJointName: Joint.Name, to childJointName: Joint.Name) -> Edge? {
+    static func edge(from parentJointName: Int, to childJointName: Int) -> Edge? {
         return Pose.edges.first(where: { $0.parent == parentJointName && $0.child == childJointName })
     }
 }
+
+@objc public class Edge : NSObject {
+    let index: Int
+    let parent: Int
+    let child: Int
+    
+    init(from parent: Int, to child: Int, index: Int) {
+        self.index = index
+        self.parent = parent
+        self.child = child
+    }
+    
+}
+
+
