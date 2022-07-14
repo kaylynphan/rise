@@ -13,18 +13,29 @@
 
 - (void)awakeFromNib {
     
-    [PoseImageView getTestJoint];
-    
     self.jointSegments = @[
-        [[JointSegment alloc] initWithJointA:Joint.leftHip withJointB:Joint.leftShoulder],
+        [[JointSegment alloc] initWithJointA:Joint.nose withJointB:Joint.leftEye],
         [[JointSegment alloc] initWithJointA:Joint.leftShoulder withJointB:Joint.leftElbow],
         [[JointSegment alloc] initWithJointA:Joint.leftElbow withJointB:Joint.leftWrist]
     ];
+    
+    [self runTests];
 }
 
 
-+ (void)getTestJoint {
+- (void)runTests {
+    // Test 1: PASS!!
+    /*
     NSLog([NSString stringWithFormat:@"Nose is %d", Joint.nose]);
+    */
+    
+    // Test 2: PASS!!
+    /*
+    NSLog(@"Segments:");
+    for (JointSegment *segment in self.jointSegments) {
+        NSLog(@"JointA: %d, JointB: %d", segment.jointA, segment.jointB);
+    }
+     */
 }
 
 

@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (strong, nonatomic) NSArray *jointSegments;
 
-+ (void)getTestJoint;
+- (void)runTests;
 
 @end
 
