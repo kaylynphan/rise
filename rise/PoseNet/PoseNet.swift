@@ -38,11 +38,15 @@ import Vision
     /// The Core ML model that the PoseNet model uses to generate estimates for the poses.
     ///
     /// - Note: Other variants of the PoseNet model are available from the Model Gallery.
-    private let poseNetMLModel: MLModel
+    private var poseNetMLModel: MLModel?
+    
+    override public init() {}
 
+    /*
     override init() throws {
         poseNetMLModel = try PoseNetMobileNet075S16FP16(configuration: .init()).model
     }
+     */
 
 
     /// Calls the `prediction` method of the PoseNet model and returns the outputs to the assigned
@@ -56,7 +60,8 @@ import Vision
             // before being passed to the PoseNet model.
             let input = PoseNetInput(image: image, size: self.modelInputSize)
 
-            guard let prediction = try? self.poseNetMLModel.prediction(from: input) else {
+            self.poseNetMLModel = try? PoseNetMobileNet075S16FP16(configuration: .init()).model
+            guard let prediction = try? self.poseNetMLModel?.prediction(from: input) else {
                 return
             }
 
