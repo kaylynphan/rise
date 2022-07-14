@@ -6,11 +6,23 @@
 //
 
 #import "PoseImageView.h"
+#import "JointSegment.h"
+#import "rise-Swift.h"
 
 
 @implementation PoseImageView
 
+/*
++ (NSArray *)jointSegments {
+    return [
+            [JointSegment initWithJointA:Joint.leftHip withJointB:Joint.leftShoulder]
+    ];
+}
+ */
 
++ (void)getJoint {
+    NSLog([NSString stringWithFormat:@"Nose is %d", Joint.nose]);
+}
 
 
      

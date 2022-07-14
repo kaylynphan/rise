@@ -8,10 +8,12 @@ Implementation details of a structure used to describe a joint.
 import CoreGraphics
 import Foundation
 
+@objcMembers
+
 @objc public class Joint : NSObject {
     
-    static let nose = 0;
-    static let leftEye = 1;
+    public static var nose = 0;
+    public static let leftEye = 1;
     static let rightEye = 2;
     static let leftEar = 3;
     static let rightEar = 4;

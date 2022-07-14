@@ -6,14 +6,18 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "rise-Swift.h""
+#import "rise-Swift.h"
+#import "JointSegment.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PoseImageView : UIImageView
 
-@property (nonatomic, strong) NSArray *jointSegments;
+@property (strong, nonatomic) NSArray *jointSegments;
 
++ (NSArray *)jointSegments;
+
++ (void)getJoint;
 
 
 @end
