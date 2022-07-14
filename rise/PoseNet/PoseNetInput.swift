@@ -9,8 +9,10 @@ The implementation of a CoreML feature provider passed to the PoseNet model by t
 import CoreML
 import Vision
 
+@objcMembers
+
 /// - Tag: PoseNetInput
-class PoseNetInput: MLFeatureProvider {
+public class PoseNetInput: MLFeatureProvider {
     /// The name of the PoseNet model's input feature.
     ///
     /// You can see all the model's inputs and outputs, their names, and other information by selecting
@@ -26,7 +28,7 @@ class PoseNetInput: MLFeatureProvider {
     /// cropping and resizing it to this size in the `featureValue(for:)` method.
     let imageFeatureSize: CGSize
 
-    var featureNames: Set<String> {
+    public var featureNames: Set<String> {
         return [PoseNetInput.imageFeatureName]
     }
 
@@ -35,7 +37,7 @@ class PoseNetInput: MLFeatureProvider {
         imageFeatureSize = size
     }
 
-    func featureValue(for featureName: String) -> MLFeatureValue? {
+    public func featureValue(for featureName: String) -> MLFeatureValue? {
         guard featureName == PoseNetInput.imageFeatureName else {
             return nil
         }
