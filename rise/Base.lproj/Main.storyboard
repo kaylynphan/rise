@@ -250,12 +250,12 @@
                                                         <constraint firstAttribute="width" constant="77" id="zn3-Co-SyW"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jgg-Hs-Hyu">
-                                                    <rect key="frame" x="28" y="121" width="160.5" height="36"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="   Hello Name   " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jgg-Hs-Hyu">
+                                                    <rect key="frame" x="28" y="121" width="183" height="43"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="36" id="jxa-V9-5DK"/>
+                                                        <constraint firstAttribute="height" constant="52" id="jxa-V9-5DK"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="30"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="26"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -294,7 +294,7 @@
                                                 <constraint firstItem="XVW-xS-H2G" firstAttribute="centerX" secondItem="Woz-b0-bga" secondAttribute="centerX" id="4m4-y1-3Qx"/>
                                                 <constraint firstItem="Jgg-Hs-Hyu" firstAttribute="top" secondItem="oMy-XN-xKl" secondAttribute="bottom" constant="25" id="9Hz-zn-Uam"/>
                                                 <constraint firstItem="ggx-vn-OgR" firstAttribute="leading" secondItem="XBC-RG-aDa" secondAttribute="trailing" constant="8" symbolic="YES" id="Lwn-uu-H1h"/>
-                                                <constraint firstItem="ggx-vn-OgR" firstAttribute="top" secondItem="Jgg-Hs-Hyu" secondAttribute="bottom" constant="30" id="MRM-fU-cXw"/>
+                                                <constraint firstItem="ggx-vn-OgR" firstAttribute="top" secondItem="Jgg-Hs-Hyu" secondAttribute="bottom" constant="14" id="MRM-fU-cXw"/>
                                                 <constraint firstItem="XBC-RG-aDa" firstAttribute="leading" secondItem="Jgg-Hs-Hyu" secondAttribute="leading" id="P0L-sz-jn0"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ggx-vn-OgR" secondAttribute="trailing" constant="41" id="YsL-Z7-z0n"/>
                                                 <constraint firstItem="bof-2b-LS7" firstAttribute="top" secondItem="Woz-b0-bga" secondAttribute="top" constant="23" id="ZnS-2S-RsO"/>
@@ -306,6 +306,10 @@
                                                 <constraint firstItem="XBC-RG-aDa" firstAttribute="height" secondItem="ggx-vn-OgR" secondAttribute="height" id="rx9-ac-fHs"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="helloLabel" destination="Jgg-Hs-Hyu" id="oUz-V0-LTu"/>
+                                            <outlet property="todayCompletionLabel" destination="ggx-vn-OgR" id="Ng2-3i-Zm0"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="WorkoutCell" rowHeight="280" id="SwV-B0-iH1" customClass="WorkoutCell">
                                         <rect key="frame" x="0.0" y="349.5" width="414" height="280"/>
