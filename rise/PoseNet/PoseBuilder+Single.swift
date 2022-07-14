@@ -40,11 +40,11 @@ extension PoseBuilder {
     private func configure(joint: Joint) {
         // Iterate over the heatmap's associated joint channel to locate the
         // cell with the greatest confidence.
-        var bestCell = PoseNetOutput.Cell(0, 0)
+        var bestCell = Cell(0, 0)
         var bestConfidence = 0.0
         for yIndex in 0..<output.height {
             for xIndex in 0..<output.width {
-                let currentCell = PoseNetOutput.Cell(yIndex, xIndex)
+                let currentCell = Cell(yIndex, xIndex)
                 let currentConfidence = output.confidence(for: joint.name, at: currentCell)
 
                 // Keep track of the cell with the greatest confidence.

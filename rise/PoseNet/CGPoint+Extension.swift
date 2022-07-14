@@ -9,7 +9,7 @@ The implementation details of some mathematical operations that extend the CGPoi
 import CoreGraphics
 
 extension CGPoint {
-    init(_ cell: PoseNetOutput.Cell) {
+    init(_ cell: Cell) {
         self.init(x: CGFloat(cell.xIndex), y: CGFloat(cell.yIndex))
     }
 

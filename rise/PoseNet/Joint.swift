@@ -44,7 +44,7 @@ import Foundation
     var position: CGPoint
 
     /// The joint's respective cell index into model's output grid.
-    var cell: PoseNetOutput.Cell
+    var cell: Cell
 
     /// The confidence score associated with this joint.
     ///
@@ -55,7 +55,7 @@ import Foundation
     var isValid: Bool
 
     init(name: Int,
-         cell: PoseNetOutput.Cell = .zero,
+         cell: Cell = .zero,
          position: CGPoint = .zero,
          confidence: Double = 0,
          isValid: Bool = false) {

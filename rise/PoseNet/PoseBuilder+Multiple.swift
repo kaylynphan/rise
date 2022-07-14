@@ -65,7 +65,7 @@ extension PoseBuilder {
         for jointName in 0...16 {
             for yIndex in 0..<output.height {
                 for xIndex in 0..<output.width {
-                    let cell = PoseNetOutput.Cell(yIndex, xIndex)
+                    let cell = Cell(yIndex, xIndex)
 
                     let jointConfidence = output.confidence(for: jointName, at: cell)
 
@@ -142,7 +142,7 @@ extension PoseBuilder {
     ///     - jointName: Name of joint being queried.
     ///     - cell: The coordinates of the given joint to search around.
     /// - returns: The greatest confidence value.
-    private func greatestConfidence(for jointName: Int, at cell: PoseNetOutput.Cell) -> Double {
+    private func greatestConfidence(for jointName: Int, at cell: Cell) -> Double {
         // Calculate the start and end indices for the local window.
         let yLowerBound = max(cell.yIndex - configuration.localSearchRadius, 0)
         let yUpperBound = min(cell.yIndex + configuration.localSearchRadius, output.height - 1)
@@ -160,7 +160,7 @@ extension PoseBuilder {
                 guard yIndex != cell.yIndex, xIndex != cell.xIndex else {
                     continue
                 }
-                let localCell = PoseNetOutput.Cell(yIndex, xIndex)
+                let localCell = Cell(yIndex, xIndex)
                 let localConfidence = output.confidence(for: jointName, at: localCell)
 
                 greatestConfidence = max(greatestConfidence, localConfidence)

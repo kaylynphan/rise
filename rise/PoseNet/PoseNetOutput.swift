@@ -7,32 +7,33 @@ Implementation details of a structure to hold the PoseNet model's outputs.
 
 import CoreML
 import Vision
+import Foundation
+
+/// A structure that defines the coordinates of an index used to query the PoseNet model outputs.
+///
+/// The PoseNet outputs are arranged in grid. Each cell in the grid corresponds
+/// to a square region of pixels where each side is `outputStride` pixels of the input image.
+@objc public class Cell : NSObject {
+    let yIndex: Int
+    let xIndex: Int
+
+    init(_ yIndex: Int, _ xIndex: Int) {
+        self.yIndex = yIndex
+        self.xIndex = xIndex
+    }
+
+    static var zero: Cell {
+        return Cell(0, 0)
+    }
+}
 
 /// - Tag: PoseNetOutput
-struct PoseNetOutput {
+@objc public class PoseNetOutput : NSObject {
     enum Feature: String {
         case heatmap = "heatmap"
         case offsets = "offsets"
         case backwardDisplacementMap = "displacementBwd"
         case forwardDisplacementMap = "displacementFwd"
-    }
-
-    /// A structure that defines the coordinates of an index used to query the PoseNet model outputs.
-    ///
-    /// The PoseNet outputs are arranged in grid. Each cell in the grid corresponds
-    /// to a square region of pixels where each side is `outputStride` pixels of the input image.
-    struct Cell {
-        let yIndex: Int
-        let xIndex: Int
-
-        init(_ yIndex: Int, _ xIndex: Int) {
-            self.yIndex = yIndex
-            self.xIndex = xIndex
-        }
-
-        static var zero: Cell {
-            return Cell(0, 0)
-        }
     }
 
     /// A multidimensional array that stores the confidence for each joint.
