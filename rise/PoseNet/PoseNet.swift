@@ -9,11 +9,12 @@ Implementation details of a facade to interact with the PoseNet model, includes 
 import CoreML
 import Vision
 
-protocol PoseNetDelegate: AnyObject {
+
+@objc protocol PoseNetDelegate: AnyObject {
     func poseNet(_ poseNet: PoseNet, didPredict predictions: PoseNetOutput)
 }
 
-class PoseNet {
+@objc public class PoseNet : NSObject {
     /// The delegate to receive the PoseNet model's outputs.
     weak var delegate: PoseNetDelegate?
 
@@ -39,9 +40,10 @@ class PoseNet {
     /// - Note: Other variants of the PoseNet model are available from the Model Gallery.
     private let poseNetMLModel: MLModel
 
-    init() throws {
+    override init() throws {
         poseNetMLModel = try PoseNetMobileNet075S16FP16(configuration: .init()).model
     }
+
 
     /// Calls the `prediction` method of the PoseNet model and returns the outputs to the assigned
     /// `delegate`.
