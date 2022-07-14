@@ -28,27 +28,6 @@ import Foundation
     static let leftAnkle = 15;
     static let rightAnkle = 16;
     
-    /*
-    enum Name: Int, CaseIterable {
-        case nose
-        case leftEye
-        case rightEye
-        case leftEar
-        case rightEar
-        case leftShoulder
-        case rightShoulder
-        case leftElbow
-        case rightElbow
-        case leftWrist
-        case rightWrist
-        case leftHip
-        case rightHip
-        case leftKnee
-        case rightKnee
-        case leftAnkle
-        case rightAnkle
-    }
-    */
 
     /// The total number of joints available.
     static var numberOfJoints: Int {

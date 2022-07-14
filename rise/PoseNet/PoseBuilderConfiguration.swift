@@ -7,13 +7,19 @@ The implementation details of a structure that hold the parameters algorithms us
 */
 
 import CoreGraphics
+import Foundation
 
+/*
 enum Algorithm: Int {
     case single
     case multiple
 }
+*/
 
-struct PoseBuilderConfiguration {
+@objc public class PoseBuilderConfiguration : NSObject {
+    static let single = 0;
+    static let multiple = 1;
+    
     /// The minimum value for valid joints in a pose.
     var jointConfidenceThreshold = 0.1
 
