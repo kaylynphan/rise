@@ -35,7 +35,7 @@
     self.usernameField.layer.borderWidth = 1.5;
     self.passwordField.layer.borderWidth = 1.5;
     
-    
+    /*
     UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 5, 0)];
     self.usernameField.leftView = paddingView;
     self.usernameField.rightView = paddingView;
@@ -46,6 +46,7 @@
     self.passwordField.rightView = paddingView;
     self.passwordField.leftViewMode = UITextFieldViewModeAlways;
     self.passwordField.rightViewMode = UITextFieldViewModeAlways;
+     */
 }
 
 
