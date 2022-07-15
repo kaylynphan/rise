@@ -57,8 +57,8 @@
             for (JointSegment *segment in self.jointSegments) {
                 int indexA = segment.jointA;
                 int indexB = segment.jointB;
-                Joint *jointA = pose[indexA];
-                Joint *jointB = pose[indexB];
+                //Joint *jointA = [pose getJointWithIndex:indexA];
+                //Joint *jointB = pose[indexB];
             }
         }
     }];

@@ -28,7 +28,36 @@ import Foundation
         Edge(from: Joint.rightHip, to: Joint.rightKnee, index: 14),
         Edge(from: Joint.rightKnee, to: Joint.rightAnkle, index: 15)
     ]
+    
+    public var joints = [
+        Joint.nose: Joint(name: Joint.nose),
+        Joint.leftEye: Joint(name: Joint.leftEye),
+        Joint.leftEar: Joint(name: Joint.leftEar),
+        Joint.leftShoulder: Joint(name: Joint.leftShoulder),
+        Joint.leftElbow: Joint(name: Joint.leftElbow),
+        Joint.leftWrist: Joint(name: Joint.leftWrist),
+        Joint.leftHip: Joint(name: Joint.leftHip),
+        Joint.leftKnee: Joint(name: Joint.leftKnee),
+        Joint.leftAnkle: Joint(name: Joint.leftAnkle),
+        Joint.rightEye: Joint(name: Joint.rightEye),
+        Joint.rightEar: Joint(name: Joint.rightEar),
+        Joint.rightShoulder: Joint(name: Joint.rightShoulder),
+        Joint.rightElbow: Joint(name: Joint.rightElbow),
+        Joint.rightWrist: Joint(name: Joint.rightWrist),
+        Joint.rightHip: Joint(name: Joint.rightHip),
+        Joint.rightKnee: Joint(name: Joint.rightKnee),
+        Joint.rightAnkle: Joint(name: Joint.rightAnkle)
+    ]
+    
+    public func getJoint(index: Int) -> Joint {
+        return joints[index]!
+    }
+    
+    public func setJoint(index: Int, joint: Joint) {
+        joints[index] = joint;
+    }
 
+    /*
     /// The joints that make up a pose.
     private(set) var joints: [Int: Joint] = [
         Joint.nose: Joint(name: Joint.nose),
@@ -49,6 +78,7 @@ import Foundation
         Joint.rightKnee: Joint(name: Joint.rightKnee),
         Joint.rightAnkle: Joint(name: Joint.rightAnkle)
     ]
+     */
     
     /// The confidence score associated with this pose.
     var confidence: Double = 0.0
