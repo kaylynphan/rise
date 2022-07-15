@@ -49,7 +49,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nro-XR-cbU">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nro-XR-cbU" userLabel="Scroll View">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="il8-8Y-opr" userLabel="Content View">
@@ -99,7 +99,7 @@
                                                 </constraints>
                                             </imageView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" systemColor="systemYellowColor"/>
                                         <constraints>
                                             <constraint firstItem="bPo-ez-yYE" firstAttribute="centerX" secondItem="il8-8Y-opr" secondAttribute="centerX" id="7Kx-41-mCo"/>
                                             <constraint firstItem="QsC-QY-G4o" firstAttribute="top" secondItem="bPo-ez-yYE" secondAttribute="bottom" constant="32" id="E9G-LJ-6iJ"/>
@@ -118,6 +118,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
+                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="il8-8Y-opr" secondAttribute="trailing" id="3YX-zz-Aym"/>
                                     <constraint firstAttribute="bottom" secondItem="il8-8Y-opr" secondAttribute="bottom" id="XDs-vD-rsB"/>
@@ -131,10 +132,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Nro-XR-cbU" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="DwE-OK-I7k"/>
-                            <constraint firstAttribute="bottom" secondItem="Nro-XR-cbU" secondAttribute="bottom" id="K47-My-1KB"/>
-                            <constraint firstItem="Nro-XR-cbU" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="MuA-CC-RQ6"/>
-                            <constraint firstAttribute="trailing" secondItem="Nro-XR-cbU" secondAttribute="trailing" id="mTo-3j-D9U"/>
+                            <constraint firstAttribute="bottom" secondItem="Nro-XR-cbU" secondAttribute="bottom" id="SYS-Et-dJn"/>
+                            <constraint firstItem="Nro-XR-cbU" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="fO0-HM-0nH"/>
+                            <constraint firstItem="Nro-XR-cbU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="iSY-7f-RqL"/>
+                            <constraint firstItem="Nro-XR-cbU" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="tiP-jq-H8N"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="EL2-3W-Byp"/>
@@ -565,6 +566,12 @@
         </systemColor>
         <systemColor name="systemGray2Color">
             <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
