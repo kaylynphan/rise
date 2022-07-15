@@ -122,13 +122,13 @@ extension PoseBuilder {
             }
 
             for detectedPose in detectedPoses {
-                let otherJoint = detectedPose[joint.name]
+                let otherJoint = detectedPose.joints[joint.name]
 
-                guard otherJoint.isValid else {
+                guard otherJoint!.isValid else {
                     continue
                 }
 
-                if joint.position.distance(to: otherJoint.position) <= configuration.matchingJointDistance {
+                if joint.position.distance(to: otherJoint!.position) <= configuration.matchingJointDistance {
                     return false
                 }
             }
@@ -181,7 +181,7 @@ extension PoseBuilder {
     private func assemblePose(from rootJoint: Joint) -> Pose {
         // Create a pose and update its root joint.
         var pose = Pose()
-        pose[rootJoint.name] = rootJoint
+        pose.joints[rootJoint.name] = rootJoint;
 
         // Update the remaining joints by spawning from the root joint to find
         // adjacent joints using the displacement maps output by the PoseNet model.
@@ -191,9 +191,9 @@ extension PoseBuilder {
 
             // Update the details of all the adjacent joints.
             for edge in Pose.edges(for: joint.name) {
-                let parentJoint = pose[edge.parent]
-                let childJoint = pose[edge.child]
-
+                let parentJoint = pose.joints[edge.parent]!
+                let childJoint = pose.joints[edge.child]!
+                
                 // Ignore any edges that have already been processed.
                 guard !(parentJoint.isValid && childJoint.isValid) else {
                     continue
@@ -289,7 +289,7 @@ private extension Array where Element == Pose {
         // Check each pose in the array.
         for pose in self {
             // Find the joint that matches the candidate.
-            let matchingJoint = pose[candidate.name]
+            let matchingJoint = pose.joints[candidate.name]!
 
             // Skip the pose's joint if it is not valid.
             guard matchingJoint.isValid else { continue }

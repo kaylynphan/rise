@@ -11,7 +11,7 @@ import CoreGraphics
 extension PoseBuilder {
     /// Returns a pose constructed using the outputs from the PoseNet model.
     var pose: Pose {
-        var pose = Pose()
+        let pose = Pose()
 
         // For each joint, find its most likely position and associated confidence
         // by querying the heatmap array for the cell with the greatest

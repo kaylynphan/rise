@@ -57,13 +57,20 @@
             for (JointSegment *segment in self.jointSegments) {
                 int indexA = segment.jointA;
                 int indexB = segment.jointB;
-                //Joint *jointA = [pose getJointWithIndex:indexA];
-                //Joint *jointB = pose[indexB];
+                Joint *jointA = [pose getJointWithIndex:indexA];
+                Joint *jointB = [pose getJointWithIndex:indexB];
+                
+                if (jointA.isValid && jointB.isValid) {
+                    [self drawLineWithParentJoint:jointA withChildJoint:jointB withCGContext:rendererContext.CGContext];
+                }
+            }
+            for (Joint *joint in pose.joints) {
+                if (joint.isValid) {
+                    [self drawWithCircle:joint withCGContext:rendererContext.CGContext];
+                }
             }
         }
     }];
-    
-    
 }
 
 - (void)drawWithImage:(CGImageRef)image withCGContext:(CGContextRef)cgContext {
@@ -90,10 +97,6 @@
     CGContextAddEllipseInRect(cgContext, rectangle);
     CGContextDrawPath(cgContext, kCGPathFill);
 }
-
-
-
-
 
 
 - (void)runTests {

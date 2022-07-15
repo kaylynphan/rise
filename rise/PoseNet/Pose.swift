@@ -8,6 +8,8 @@ Implementation details of a structure used to describe a pose.
 import CoreGraphics
 import Foundation
 
+@objcMembers
+
 @objc public class Pose : NSObject {
 
     public static let edges = [
@@ -49,11 +51,11 @@ import Foundation
         Joint.rightAnkle: Joint(name: Joint.rightAnkle)
     ]
     
-    public func getJoint(index: Int) -> Joint {
+    func getJoint(index: Int) -> Joint {
         return joints[index]!
     }
     
-    public func setJoint(index: Int, joint: Joint) {
+    func setJoint(index: Int, joint: Joint) {
         joints[index] = joint;
     }
 
@@ -84,6 +86,7 @@ import Foundation
     var confidence: Double = 0.0
 
     /// Accesses the joint with the specified name.
+    /*
     subscript(jointName: Int) -> Joint {
         get {
             assert(joints[jointName] != nil)
@@ -93,6 +96,7 @@ import Foundation
             joints[jointName] = newValue
         }
     }
+     */
 
     /// Returns all edges that link **from** or **to** the specified joint.
     ///
