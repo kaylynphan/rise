@@ -8,6 +8,9 @@
 #import "PoseImageView.h"
 #import "../PoseNet/JointSegment.h"
 #import "rise-Swift.h"
+#import <CoreGraphics/CGImage.h>
+#import <CoreGraphics/CGContext.h>
+#import <UIKit/UIKit.h>
 
 @implementation PoseImageView
 
@@ -36,12 +39,61 @@
     [self runTests];
 }
 
-- (void)showWithPoses:(NSArray *)poses withFrame:(CGImageRef *)frame {
-    CGFloat *width = (CGFloat)[CGImageGetWidth(*frame)];
-    CGFloat *height = (CGFloat)[CGImageGetHeight(*frame)];
-    CGSize *dstImageSize = [CGSizeMake(*width, *height)];
+- (void)showWithPoses:(NSArray *)poses withFrame:(CGImageRef)frame {
+    CGFloat frameWidth = CGImageGetWidth(frame);
+    CGFloat frameHeight = CGImageGetHeight(frame);
+    CGSize dstImageSize = CGSizeMake(frameWidth, frameHeight);
+    
+    UIGraphicsImageRendererFormat *dstImageFormat = [[UIGraphicsImageRenderer alloc] init];
+    
+    dstImageFormat.scale = 1;
+    
+    UIGraphicsImageRenderer *renderer = [[UIGraphicsImageRenderer alloc] initWithSize:dstImageSize format:dstImageFormat];
+    
+    // call draw()
+    UIImage *dstImage = [renderer imageWithActions:^(UIGraphicsImageRendererContext * _Nonnull rendererContext) {
+        [self drawWithImage:frame withCGContext:rendererContext.CGContext];
+        for (Pose *pose in poses) {
+            for (JointSegment *segment in self.jointSegments) {
+                int indexA = segment.jointA;
+                int indexB = segment.jointB;
+                Joint *jointA = pose[indexA];
+                Joint *jointB = pose[indexB];
+            }
+        }
+    }];
+    
     
 }
+
+- (void)drawWithImage:(CGImageRef)image withCGContext:(CGContextRef)cgContext {
+    CGContextSaveGState(cgContext);
+    CGContextScaleCTM(cgContext, 1.0, -1.0);
+    CGRect drawingRect = CGRectMake(0, -1 * CGImageGetHeight(image), CGImageGetWidth(image), CGImageGetHeight(image));
+    CGContextDrawImage(cgContext, drawingRect, image);
+    CGContextRestoreGState(cgContext);
+}
+
+- (void) drawLineWithParentJoint:(Joint *)parentJoint withChildJoint:(Joint *)childJoint withCGContext:(CGContextRef)cgContext {
+    
+    CGContextSetStrokeColorWithColor(cgContext, UIColor.blackColor.CGColor);
+    CGContextSetLineWidth(cgContext, 2.0);
+    CGContextMoveToPoint(cgContext, parentJoint.position.x, parentJoint.position.y);
+    CGContextAddLineToPoint(cgContext, childJoint.position.x, childJoint.position.y);
+    CGContextStrokePath(cgContext);
+}
+
+- (void) drawWithCircle:(Joint *)joint withCGContext:(CGContextRef)cgContext {
+    CGContextSetFillColorWithColor(cgContext, UIColor.blackColor.CGColor);
+    CGFloat jointRadius = 4.0;
+    CGRect rectangle = CGRectMake(joint.position.x - jointRadius, joint.position.y - jointRadius, jointRadius * 2, jointRadius * 2);
+    CGContextAddEllipseInRect(cgContext, rectangle);
+    CGContextDrawPath(cgContext, kCGPathFill);
+}
+
+
+
+
 
 
 - (void)runTests {

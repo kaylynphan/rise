@@ -17,7 +17,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)runTests;
 
-- (void)showWithPoses:(NSArray *)poses withFrame:(CGImageRef *)frame;
+- (void)showWithPoses:(NSArray *)poses withFrame:(CGImageRef)frame;
+
+- (void) drawWithImage:(CGImageRef)image withCGContext:(CGContextRef)cgContext;
+
+- (void) drawLineWithParentJoint:(Joint *)parentJoint withChildJoint:(Joint *)childJoint withCGContext:(CGContextRef)cgContext;
+
+- (void) drawWithCircle:(Joint *)joint withCGContext:(CGContextRef)cgContext;
 
 @end
 
