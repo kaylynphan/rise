@@ -14,7 +14,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
 - (IBAction)loginUser:(id)sender;
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIView *passwordBackgroundView;
+@property (weak, nonatomic) IBOutlet UIView *usernameBackgroundView;
 
 @end
 
@@ -26,6 +27,23 @@
     
     NSLog(@"Arrived to LoginViewController");
     
+    self.usernameField.delegate = self;
+    self.passwordField.delegate = self;
+    
+    self.usernameBackgroundView.layer.cornerRadius = 16.0;
+    self.passwordBackgroundView.layer.cornerRadius = 16.0;
+    
+    self.usernameBackgroundView.layer.backgroundColor = [UIColor whiteColor].CGColor;
+    
+    self.passwordBackgroundView.layer.backgroundColor = [UIColor whiteColor].CGColor;
+    
+    
+    self.usernameBackgroundView.layer.borderColor = UIColor.blackColor.CGColor;
+    self.passwordBackgroundView.layer.borderColor = UIColor.blackColor.CGColor;
+    self.usernameBackgroundView.layer.borderWidth = 1.5;
+    self.passwordBackgroundView.layer.borderWidth = 1.5;
+    
+    /*
     self.usernameField.layer.cornerRadius = 17.0;
     self.passwordField.layer.cornerRadius = 17.0;
     
@@ -34,6 +52,7 @@
     
     self.usernameField.layer.borderWidth = 1.5;
     self.passwordField.layer.borderWidth = 1.5;
+     */
     
     /*
     UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 5, 0)];
@@ -48,6 +67,13 @@
     self.passwordField.rightViewMode = UITextFieldViewModeAlways;
      */
 }
+
+
+- (BOOL) textFieldShouldReturn:(UITextField *)textField {
+    [self.view endEditing:true];
+    return false;
+}
+
 
 
 - (IBAction)loginUser:(id)sender {
