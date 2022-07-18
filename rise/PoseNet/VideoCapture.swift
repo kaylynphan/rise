@@ -11,12 +11,14 @@ import CoreVideo
 import UIKit
 import VideoToolbox
 
-protocol VideoCaptureDelegate: AnyObject {
+@objc public protocol VideoCaptureDelegate: AnyObject {
     func videoCapture(_ videoCapture: VideoCapture, didCaptureFrame image: CGImage?)
 }
 
+@objcMembers
+
 /// - Tag: VideoCapture
-class VideoCapture: NSObject {
+@objc public class VideoCapture: NSObject {
     enum VideoCaptureError: Error {
         case captureSessionIsMissing
         case invalidInput

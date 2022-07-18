@@ -15,6 +15,11 @@
 
 @interface GuideViewController ()
 
+@property (weak, nonatomic) VideoCapture *videoCapture;
+@property (strong, nonatomic)  PoseNet * _Nullable poseNet;
+@property (weak, nonatomic) PoseBuilderConfiguration *poseBuilderConfiguration;
+@property (assign, nonatomic) CGImageRef currentFrame;
+
 @end
 
 @implementation GuideViewController
@@ -31,6 +36,11 @@ static int exerciseNum = 0;
     self.titleLabel.text = self.workout.name;
     [self updateLabels];
     
+    self.poseNet = [[PoseNet alloc] init];
+    self.poseNet.delegate = self;
+    [self setupAndBeginCapturingVideoFrames];
+    
+    
     // initial labels and images
     /*
     YogaPose *firstPose = [self.workout.stretches objectAtIndex:0];
@@ -39,6 +49,30 @@ static int exerciseNum = 0;
     [self.countdownTimer startWithBeginingValue:30 interval:1];
      */
 }
+
+- (void)setupAndBeginCapturingVideoFrames {
+    [self.videoCapture setUpAVCaptureWithCompletion:^(NSError * _Nullable error) {
+        if (error != nil) {
+            NSLog([NSString stringWithFormat:@"Error: %@", error.localizedDescription]);
+            return;
+        }
+        self.videoCapture.delegate = self;
+        [self.videoCapture startCapturingWithCompletion:^{
+            // empty
+        }];
+    }];
+}
+
+//- (void)videWillDisappear
+// not sure what this is for
+
+//@IBAction onCameraButtonTapped
+// only for flipping camera
+
+//@IBAction onAlgorithmSegmentValueChanged(sender: UISegmentedControl)
+// not sure what this is for
+
+
 
 - (void)timerDidEndWithSender:(SRCountdownTimer *)sender elapsedTime:(NSTimeInterval)elapsedTime {
     NSLog(@"Timer did end");
@@ -55,6 +89,27 @@ static int exerciseNum = 0;
         [self.countdownTimer startWithBeginingValue:30 interval:1];
     }
 }
+
+// from VideoCaptureDelegate
+- (void) videoCapture:(VideoCapture *)videoCapture didCaptureFrame:(CGImageRef)capturedImage {
+    if (self.currentFrame != nil) {
+        return;
+    }
+    CGImageRef image = capturedImage;
+    if (capturedImage == nil) {
+        // throw fatal error because captured image is null
+    }
+    self.currentFrame = image;
+    [self.poseNet predict:image];
+}
+
+// from PoseNetDelegate
+
+- (void) poseNet:(PoseNet *)poseNet didPredict:(PoseNetOutput *)predictions {
+    
+}
+
+
 /*
 #pragma mark - Navigation
 
@@ -62,6 +117,8 @@ static int exerciseNum = 0;
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+ 
+    // some code for navigating to configurationViewController (not sure if we will use this here)
 }
 */
 

@@ -9,10 +9,11 @@ Implementation details of a facade to interact with the PoseNet model, includes 
 import CoreML
 import Vision
 
-
 @objc protocol PoseNetDelegate: AnyObject {
     func poseNet(_ poseNet: PoseNet, didPredict predictions: PoseNetOutput)
 }
+
+@objcMembers
 
 @objc public class PoseNet : NSObject {
     /// The delegate to receive the PoseNet model's outputs.

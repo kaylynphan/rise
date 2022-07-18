@@ -9,10 +9,11 @@
 #import "Workout.h"
 #import <SRCountdownTimer/SRCountdownTimer-Swift.h>
 #import "../Views/PoseImageView.h"
+#import "rise-Swift.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface GuideViewController : UIViewController <SRCountdownTimerDelegate>
+@interface GuideViewController : UIViewController <SRCountdownTimerDelegate, VideoCaptureDelegate, PoseNetDelegate>
 
 @property (weak, nonatomic) Workout *workout;
 @property (weak, nonatomic) NSArray *poses;
