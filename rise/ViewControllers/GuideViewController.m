@@ -36,8 +36,10 @@ static int exerciseNum = 0;
     self.titleLabel.text = self.workout.name;
     [self updateLabels];
     
+    NSLog(@"Now initializing PoseNet model");
     self.poseNet = [[PoseNet alloc] init];
     self.poseNet.delegate = self;
+    NSLog(@"Now calling setupAndBeginCapturingVideoFrames");
     [self setupAndBeginCapturingVideoFrames];
     
     
@@ -54,12 +56,15 @@ static int exerciseNum = 0;
     [self.videoCapture setUpAVCaptureWithCompletion:^(NSError * _Nullable error) {
         if (error != nil) {
             NSLog([NSString stringWithFormat:@"Error: %@", error.localizedDescription]);
+            NSLog(@"There is an error in setupAndBeginCapturingVideoFrames");
             return;
         }
         self.videoCapture.delegate = self;
         [self.videoCapture startCapturingWithCompletion:^{
             // empty
+            NSLog(@"VideoCapture: startCapturing called");
         }];
+        NSLog(@"Returning from setupAndBeginCapturingFrames");
     }];
 }
 

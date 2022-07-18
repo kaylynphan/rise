@@ -37,7 +37,7 @@ import VideoToolbox
     let videoOutput = AVCaptureVideoDataOutput()
 
     /// The current camera's position.
-    private(set) var cameraPostion = AVCaptureDevice.Position.back
+    private(set) var cameraPostion = AVCaptureDevice.Position.front
 
     /// The dispatch queue responsible for processing camera set up and frame capture.
     private let sessionQueue = DispatchQueue(
@@ -186,6 +186,7 @@ import VideoToolbox
                 // Invoke the startRunning method of the captureSession to start the
                 // flow of data from the inputs to the outputs.
                 self.captureSession.startRunning()
+                print("video capture is running");
             }
 
             if let completionHandler = completionHandler {
