@@ -9,8 +9,8 @@ Implementation details of a facade to interact with the PoseNet model, includes 
 import CoreML
 import Vision
 
-@objc protocol PoseNetDelegate: AnyObject {
-    func poseNet(_ poseNet: PoseNet, didPredict predictions: PoseNetOutput, completion: ((CGImage) -> Void))
+@objc public protocol PoseNetDelegate: AnyObject {
+    func poseNet(_ poseNet: PoseNet, didPredict predictions: PoseNetOutput)
 }
 
 @objcMembers
@@ -71,9 +71,7 @@ import Vision
                                               modelOutputStride: self.outputStride)
 
             DispatchQueue.main.async {
-                self.delegate?.poseNet(self, didPredict: poseNetOutput, completion: { image in
-                    image = nil;
-                })
+                self.delegate?.poseNet(self, didPredict: poseNetOutput)
             }
         }
     }

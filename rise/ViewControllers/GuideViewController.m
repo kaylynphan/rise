@@ -63,7 +63,7 @@ static int exerciseNum = 0;
     }];
 }
 
-//- (void)videWillDisappear
+//- (void)videoWillDisappear
 // not sure what this is for
 
 //@IBAction onCameraButtonTapped
@@ -104,9 +104,10 @@ static int exerciseNum = 0;
 }
 
 // from PoseNetDelegate
-- (void) poseNet:(PoseNet *)poseNet didPredict:(PoseNetOutput *)predictions completion:(void (^)(CGImageRef _Nonnull))completion {
+- (void) poseNet:(PoseNet *)poseNet didPredict:(PoseNetOutput *)predictions {
     CGImageRef currentFrame = self.currentFrame;
     if (currentFrame != self.currentFrame) {
+        self.currentFrame = nil;
         return;
     }
     PoseBuilder *poseBuilder = [[PoseBuilder alloc] initWithOutput:predictions configuration:self.poseBuilderConfiguration inputImage:currentFrame];
@@ -119,6 +120,7 @@ static int exerciseNum = 0;
     [poses arrayByAddingObject:pose];
     
     [self.poseImageView showWithPoses:poses withFrame:currentFrame];
+    self.currentFrame = nil;
 }
 
 
