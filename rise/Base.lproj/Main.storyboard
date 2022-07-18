@@ -396,6 +396,7 @@
                     <connections>
                         <outlet property="countdownTimer" destination="xf1-xc-sT0" id="Q6R-Ko-a5a"/>
                         <outlet property="poseImage" destination="scm-aV-LM0" id="NoV-tZ-a66"/>
+                        <outlet property="poseImageView" destination="slL-hk-w3m" id="J3d-hX-S7F"/>
                         <outlet property="poseLabel" destination="ME3-Ov-vPk" id="fLr-Uw-YfJ"/>
                         <outlet property="titleLabel" destination="Fum-3U-9yL" id="C78-E3-4TF"/>
                     </connections>

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E7DAED92885DAF500097E33 /* VideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7DAED82885DAF500097E33 /* VideoCapture.swift */; };
+		2E7DAEDB2885DB2900097E33 /* AVCaptureVideoOrientation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7DAEDA2885DB2900097E33 /* AVCaptureVideoOrientation+Extension.swift */; };
 		2EA0797E287611C000931A86 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EA0797D287611C000931A86 /* LoginViewController.m */; };
 		2EA079812876144D00931A86 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EA079802876144D00931A86 /* RegisterViewController.m */; };
 		2EA079842876146400931A86 /* GalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EA079832876146400931A86 /* GalleryViewController.m */; };
@@ -67,6 +69,8 @@
 		19087805CD20347335A84649 /* Pods_riseTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_riseTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		19A880A6BE4B8115ADCBECCB /* Pods_rise_riseUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_rise_riseUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CD7FD21D01B8C6A73C2CA80 /* Pods-rise-riseUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rise-riseUITests.debug.xcconfig"; path = "Target Support Files/Pods-rise-riseUITests/Pods-rise-riseUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		2E7DAED82885DAF500097E33 /* VideoCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCapture.swift; sourceTree = "<group>"; };
+		2E7DAEDA2885DB2900097E33 /* AVCaptureVideoOrientation+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVCaptureVideoOrientation+Extension.swift"; sourceTree = "<group>"; };
 		2EA0797C287611C000931A86 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		2EA0797D287611C000931A86 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		2EA0797F2876144D00931A86 /* RegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
@@ -210,6 +214,8 @@
 				2ED12522287F6CE900DD5CBF /* PoseBuilder+Single.swift */,
 				2ED1251E287F6CE900DD5CBF /* PoseBuilderConfiguration.swift */,
 				2ED12512287F6C2F00DD5CBF /* PoseNetOutput.swift */,
+				2E7DAEDA2885DB2900097E33 /* AVCaptureVideoOrientation+Extension.swift */,
+				2E7DAED82885DAF500097E33 /* VideoCapture.swift */,
 				2ED1250F287F6B8F00DD5CBF /* rise-Bridging-Header.h */,
 				2ED12516287F6C4A00DD5CBF /* PoseNet.swift */,
 				2ED12515287F6C4A00DD5CBF /* PoseNetInput.swift */,
@@ -554,10 +560,12 @@
 				2ED124A4287C93A800DD5CBF /* WorkoutCell.m in Sources */,
 				2EA079872876148300931A86 /* GuideViewController.m in Sources */,
 				2ED124AB287DE8F000DD5CBF /* Workout.m in Sources */,
+				2E7DAED92885DAF500097E33 /* VideoCapture.swift in Sources */,
 				2ED12527287F6CE900DD5CBF /* PoseBuilder+Single.swift in Sources */,
 				2EA0797E287611C000931A86 /* LoginViewController.m in Sources */,
 				2ED12518287F6C4A00DD5CBF /* PoseNetInput.swift in Sources */,
 				2EA07997287669DF00931A86 /* SplashViewController.m in Sources */,
+				2E7DAEDB2885DB2900097E33 /* AVCaptureVideoOrientation+Extension.swift in Sources */,
 				2ED1251D287F6CCA00DD5CBF /* CGPoint+Extension.swift in Sources */,
 				2ED12526287F6CE900DD5CBF /* PoseBuilder+Multiple.swift in Sources */,
 				2ED12525287F6CE900DD5CBF /* Pose.swift in Sources */,
