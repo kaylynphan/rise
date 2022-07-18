@@ -7,8 +7,11 @@ The implementation of a structure that analyzes the PoseNet model outputs to det
 */
 
 import CoreGraphics
+import Foundation
 
-struct PoseBuilder {
+@objcMembers
+
+@objc class PoseBuilder : NSObject {
     /// A prediction from the PoseNet model.
     ///
     /// Prediction outputs are analyzed to find and construct poses.

@@ -10,7 +10,7 @@ import CoreML
 import Vision
 
 @objc protocol PoseNetDelegate: AnyObject {
-    func poseNet(_ poseNet: PoseNet, didPredict predictions: PoseNetOutput)
+    func poseNet(_ poseNet: PoseNet, didPredict predictions: PoseNetOutput, completion: ((CGImage) -> Void))
 }
 
 @objcMembers
@@ -71,7 +71,9 @@ import Vision
                                               modelOutputStride: self.outputStride)
 
             DispatchQueue.main.async {
-                self.delegate?.poseNet(self, didPredict: poseNetOutput)
+                self.delegate?.poseNet(self, didPredict: poseNetOutput, completion: { image in
+                    image = nil;
+                })
             }
         }
     }

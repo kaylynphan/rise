@@ -104,9 +104,21 @@ static int exerciseNum = 0;
 }
 
 // from PoseNetDelegate
-
-- (void) poseNet:(PoseNet *)poseNet didPredict:(PoseNetOutput *)predictions {
+- (void) poseNet:(PoseNet *)poseNet didPredict:(PoseNetOutput *)predictions completion:(void (^)(CGImageRef _Nonnull))completion {
+    CGImageRef currentFrame = self.currentFrame;
+    if (currentFrame != self.currentFrame) {
+        return;
+    }
+    PoseBuilder *poseBuilder = [[PoseBuilder alloc] initWithOutput:predictions configuration:self.poseBuilderConfiguration inputImage:currentFrame];
     
+    // here, there is a ternary operator checking for .single or .multiple. Let's only handle single
+    // originally, we construct an array of poses.
+    // here let's only an array of only one pose
+    Pose *pose = [poseBuilder pose];
+    NSArray *poses = [[NSArray alloc] init];
+    [poses arrayByAddingObject:pose];
+    
+    [self.poseImageView showWithPoses:poses withFrame:currentFrame];
 }
 
 
