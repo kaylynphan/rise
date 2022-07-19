@@ -30,6 +30,9 @@
     self.usernameField.delegate = self;
     self.passwordField.delegate = self;
     
+    self.usernameField.font = [UIFont fontWithName:@"Poppins-regular" size:16];
+    self.passwordField.font = [UIFont fontWithName:@"Poppins-regular" size:16];
+    
     self.usernameBackgroundView.layer.cornerRadius = 16.0;
     self.passwordBackgroundView.layer.cornerRadius = 16.0;
     
@@ -43,29 +46,7 @@
     self.usernameBackgroundView.layer.borderWidth = 1.5;
     self.passwordBackgroundView.layer.borderWidth = 1.5;
     
-    /*
-    self.usernameField.layer.cornerRadius = 17.0;
-    self.passwordField.layer.cornerRadius = 17.0;
-    
-    self.usernameField.layer.borderColor = UIColor.blackColor.CGColor;
-    self.passwordField.layer.borderColor = UIColor.blackColor.CGColor;
-    
-    self.usernameField.layer.borderWidth = 1.5;
-    self.passwordField.layer.borderWidth = 1.5;
-     */
-    
-    /*
-    UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 5, 0)];
-    self.usernameField.leftView = paddingView;
-    self.usernameField.rightView = paddingView;
-    self.usernameField.leftViewMode = UITextFieldViewModeAlways;
-    self.usernameField.rightViewMode = UITextFieldViewModeAlways;
-    
-    self.passwordField.leftView = paddingView;
-    self.passwordField.rightView = paddingView;
-    self.passwordField.leftViewMode = UITextFieldViewModeAlways;
-    self.passwordField.rightViewMode = UITextFieldViewModeAlways;
-     */
+   
 }
 
 
