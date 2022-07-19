@@ -40,15 +40,16 @@
 }
 
 - (void)showWithPoses:(NSArray *)poses withFrame:(CGImageRef)frame {
-    CGFloat frameWidth = CGImageGetWidth(frame);
+    CGFloat frameWidth = CGImageGetWidth(frame); // frame is working!!!
     CGFloat frameHeight = CGImageGetHeight(frame);
     CGSize dstImageSize = CGSizeMake(frameWidth, frameHeight);
     
     UIGraphicsImageRendererFormat *dstImageFormat = [[UIGraphicsImageRendererFormat alloc] init];
     
-    dstImageFormat.scale = 1;
+    dstImageFormat.scale = 1; //dstImageFormat is nonnull
     
-    UIGraphicsImageRenderer *renderer = [[UIGraphicsImageRenderer alloc] initWithSize:dstImageSize format:dstImageFormat];
+    UIGraphicsImageRenderer *renderer = [[UIGraphicsImageRenderer alloc] initWithSize:dstImageSize format:dstImageFormat]; //renderer is nonnull
+    
     
     // call draw()
     UIImage *dstImage = [renderer imageWithActions:^(UIGraphicsImageRendererContext * _Nonnull rendererContext) {
@@ -74,14 +75,14 @@
         }
          */
     }];
-    self.image = dstImage;
+    self.image = dstImage; // it appears that dstImage is nil
 }
 
 - (void)drawWithImage:(CGImageRef)image withCGContext:(CGContextRef)cgContext {
     CGContextSaveGState(cgContext);
-    CGContextScaleCTM(cgContext, 1.0, -1.0);
+    CGContextScaleCTM(cgContext, 1.0, -1.0); //image is nonnull
     CGRect drawingRect = CGRectMake(0, -1 * CGImageGetHeight(image), CGImageGetWidth(image), CGImageGetHeight(image));
-    CGContextDrawImage(cgContext, drawingRect, image);
+    CGContextDrawImage(cgContext, drawingRect, image); //drawingRect is nonnull
     CGContextRestoreGState(cgContext);
 }
 
