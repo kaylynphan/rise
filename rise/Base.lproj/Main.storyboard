@@ -453,7 +453,7 @@
                                                         </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZWq-LC-12r" userLabel="StartButtonBackground">
                                                             <rect key="frame" x="156.66666666666666" y="252" width="94.333333333333343" height="36"/>
-                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                            <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                                                         </view>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AXp-01-wmM" userLabel="Start Button">
                                                             <rect key="frame" x="163" y="252" width="82" height="36"/>

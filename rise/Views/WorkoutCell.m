@@ -14,7 +14,7 @@
     [super awakeFromNib];
     // Initialization code
     
-    self.cardView.backgroundColor = [UIColor grayColor];
+    //self.cardView.backgroundColor = [UIColor grayColor];
     self.cardView.layer.cornerRadius = 40.0;
     self.cardView.layer.masksToBounds = YES;
     [self.titleLabel sizeToFit];
@@ -34,7 +34,7 @@
     self.startButtonBackground.layer.masksToBounds = YES;
     self.startButtonBackground.layer.borderWidth = 1;
     self.startButtonBackground.layer.borderColor = [UIColor blackColor].CGColor;
-    self.startButtonBackground.backgroundColor = [UIColor grayColor];
+    //self.startButtonBackground.backgroundColor = [UIColor grayColor];
     self.startButton.titleLabel.textColor = [UIColor blackColor];
     
     

@@ -14,7 +14,7 @@
     [super awakeFromNib];
     // Initialization code
     
-    self.helloLabelBackground.backgroundColor = [UIColor grayColor];
+    //self.helloLabelBackground.backgroundColor = [UIColor grayColor];
     self.helloLabelBackground.layer.cornerRadius = 26;
     self.helloLabelBackground.layer.masksToBounds = YES;
     self.helloLabel.text = [NSString stringWithFormat:@"Hello %@", [User currentUser][@"displayName"]];
