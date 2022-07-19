@@ -6,6 +6,7 @@
 //
 
 #import "GalleryViewHeader.h"
+#import "../Models/User.h"
 
 @implementation GalleryViewHeader
 
@@ -13,10 +14,12 @@
     [super awakeFromNib];
     // Initialization code
     
-    self.helloLabel.backgroundColor = [UIColor grayColor];
+    self.helloLabelBackground.backgroundColor = [UIColor grayColor];
+    self.helloLabelBackground.layer.cornerRadius = 26;
+    self.helloLabelBackground.layer.masksToBounds = YES;
+    self.helloLabel.text = [NSString stringWithFormat:@"Hello %@", [User currentUser][@"displayName"]];
     [self.helloLabel sizeToFit];
-    self.helloLabel.layer.cornerRadius = 26;
-    self.helloLabel.layer.masksToBounds = YES;
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

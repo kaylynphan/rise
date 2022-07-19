@@ -231,9 +231,9 @@
 				2ED124AC287E796200DD5CBF /* YogaPose.h */,
 				2ED124AD287E796200DD5CBF /* YogaPose.m */,
 				2EA0798C287655E700931A86 /* User.h */,
+				2EA0798D287655E700931A86 /* User.m */,
 				2ED124A9287DE8F000DD5CBF /* Workout.h */,
 				2ED124AA287DE8F000DD5CBF /* Workout.m */,
-				2EA0798D287655E700931A86 /* User.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";

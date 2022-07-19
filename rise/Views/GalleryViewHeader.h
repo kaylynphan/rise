@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GalleryViewHeader : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *helloLabel;
 @property (weak, nonatomic) IBOutlet UILabel *todayCompletionLabel;
+@property (weak, nonatomic) IBOutlet UIView *helloLabelBackground;
+
 
 @end
 
