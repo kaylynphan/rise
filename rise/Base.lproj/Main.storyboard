@@ -67,24 +67,32 @@
                                     <constraint firstAttribute="height" constant="30" id="DJB-YL-8oR"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mK1-lQ-ZCr">
-                                <rect key="frame" x="165" y="522" width="60" height="31"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="27V-qD-q2U"/>
-                                </constraints>
+                            <button opaque="NO" contentMode="scaleAspectFit" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mK1-lQ-ZCr">
+                                <rect key="frame" x="147" y="522" width="78" height="41"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Login"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Login" cornerStyle="capsule" titleAlignment="center">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                    </backgroundConfiguration>
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
+                                    <directionalEdgeInsets key="contentInsets" top="4" leading="16" bottom="4" trailing="16"/>
+                                    <color key="baseForegroundColor" systemColor="labelColor"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="loginUser:" destination="BYZ-38-t0r" eventType="touchUpInside" id="B94-3s-TrR"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y8N-F6-JC6">
-                                <rect key="frame" x="157.66666666666666" y="738.66666666666663" width="75" height="31"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="75" id="MPb-Sn-VR0"/>
-                                </constraints>
+                            <button opaque="NO" contentMode="scaleAspectFit" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y8N-F6-JC6">
+                                <rect key="frame" x="148" y="744" width="87" height="26"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Sign Up"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Sign Up" cornerStyle="capsule" titleAlignment="center">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                    </backgroundConfiguration>
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="18"/>
+                                    <directionalEdgeInsets key="contentInsets" top="4" leading="16" bottom="4" trailing="16"/>
+                                    <color key="baseForegroundColor" systemColor="labelColor"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <segue destination="eY3-DJ-83m" kind="presentation" id="B28-8Q-9Ve"/>
                                 </connections>
@@ -128,8 +136,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="EL2-3W-Byp"/>
                     <connections>
+                        <outlet property="loginButton" destination="mK1-lQ-ZCr" id="hhy-Gf-0cN"/>
                         <outlet property="passwordBackgroundView" destination="PlE-Z7-nWr" id="emI-SF-Xh4"/>
                         <outlet property="passwordField" destination="P3g-PK-Lci" id="XAd-VV-lpL"/>
+                        <outlet property="signUpButton" destination="Y8N-F6-JC6" id="G2L-3q-ZV1"/>
                         <outlet property="usernameBackgroundView" destination="OUE-3t-HZg" id="XBs-hs-FfL"/>
                         <outlet property="usernameField" destination="QsC-QY-G4o" id="kLg-SE-xh2"/>
                         <segue destination="3pc-bl-PBI" kind="presentation" identifier="loginSegue" id="Ecx-6H-y7k"/>
@@ -137,7 +147,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="813.60000000000002" y="132.26600985221674"/>
+            <point key="canvasLocation" x="812.30769230769226" y="132.22748815165878"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="TWf-rT-9dd">
@@ -580,6 +590,9 @@
         <image name="Check Mark Component" width="24" height="24"/>
         <image name="Logo" width="170" height="149"/>
         <image name="Profile Icon Component" width="40" height="40"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
