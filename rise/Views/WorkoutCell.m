@@ -27,8 +27,16 @@
     
     self.titleLabel.font = [UIFont fontWithName:@"Poppins-medium" size:30];
     
-    self.startButton.titleLabel.font = [UIFont fontWithName:@"Poppins-medium" size:16];
+    self.startButton.titleLabel.font = [UIFont fontWithName:@"Poppins-medium" size:18];
     [self.startButton sizeToFit];
+    
+    self.startButtonBackground.layer.cornerRadius = 18;
+    self.startButtonBackground.layer.masksToBounds = YES;
+    self.startButtonBackground.layer.borderWidth = 1;
+    self.startButtonBackground.layer.borderColor = [UIColor blackColor].CGColor;
+    self.startButtonBackground.backgroundColor = [UIColor grayColor];
+    self.startButton.titleLabel.textColor = [UIColor blackColor];
+    
     
 }
 

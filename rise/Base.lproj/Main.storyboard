@@ -333,7 +333,7 @@
                                                 <constraint firstItem="TG1-N7-6Tp" firstAttribute="centerY" secondItem="Jgg-Hs-Hyu" secondAttribute="centerY" id="CnO-yh-UDB"/>
                                                 <constraint firstItem="ggx-vn-OgR" firstAttribute="leading" secondItem="XBC-RG-aDa" secondAttribute="trailing" constant="8" symbolic="YES" id="Lwn-uu-H1h"/>
                                                 <constraint firstItem="ggx-vn-OgR" firstAttribute="top" secondItem="Jgg-Hs-Hyu" secondAttribute="bottom" constant="16" id="MRM-fU-cXw"/>
-                                                <constraint firstItem="XBC-RG-aDa" firstAttribute="leading" secondItem="Jgg-Hs-Hyu" secondAttribute="leading" id="P0L-sz-jn0"/>
+                                                <constraint firstItem="XBC-RG-aDa" firstAttribute="leading" secondItem="TG1-N7-6Tp" secondAttribute="leading" constant="5.6666666666666572" id="P0L-sz-jn0"/>
                                                 <constraint firstItem="TG1-N7-6Tp" firstAttribute="width" secondItem="Jgg-Hs-Hyu" secondAttribute="width" multiplier="1.25" id="Sb3-ov-Jnv"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ggx-vn-OgR" secondAttribute="trailing" constant="33" id="YsL-Z7-z0n"/>
                                                 <constraint firstItem="bof-2b-LS7" firstAttribute="top" secondItem="Woz-b0-bga" secondAttribute="top" constant="23" id="ZnS-2S-RsO"/>
@@ -393,13 +393,17 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZWq-LC-12r" userLabel="StartButtonBackground">
-                                                            <rect key="frame" x="181" y="257" width="70" height="31"/>
+                                                            <rect key="frame" x="156.66666666666666" y="252" width="94.333333333333343" height="36"/>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         </view>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AXp-01-wmM" userLabel="Start Button">
-                                                            <rect key="frame" x="188" y="257" width="56" height="31"/>
+                                                            <rect key="frame" x="163" y="252" width="82" height="36"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="82" id="TOC-vX-89u"/>
+                                                                <constraint firstAttribute="height" constant="36" id="unZ-r2-6sH"/>
+                                                            </constraints>
                                                             <state key="normal" title="Button"/>
-                                                            <buttonConfiguration key="configuration" style="plain" title="Start"/>
+                                                            <buttonConfiguration key="configuration" style="plain" title="START"/>
                                                             <connections>
                                                                 <action selector="didTapStart:" destination="SwV-B0-iH1" eventType="touchUpInside" id="Guv-5M-VTL"/>
                                                             </connections>
@@ -411,7 +415,7 @@
                                                         <constraint firstItem="EVu-Bn-E9U" firstAttribute="leading" secondItem="pGV-qz-vUq" secondAttribute="leading" id="6lS-c4-Fun"/>
                                                         <constraint firstItem="EVu-Bn-E9U" firstAttribute="top" secondItem="pGV-qz-vUq" secondAttribute="bottom" constant="8" symbolic="YES" id="98t-e9-Izt"/>
                                                         <constraint firstAttribute="width" constant="270" id="9Tj-pq-JdD"/>
-                                                        <constraint firstItem="ZWq-LC-12r" firstAttribute="width" secondItem="AXp-01-wmM" secondAttribute="width" multiplier="1.25" id="C26-e7-EKy"/>
+                                                        <constraint firstItem="ZWq-LC-12r" firstAttribute="width" secondItem="AXp-01-wmM" secondAttribute="width" multiplier="1.15" id="C26-e7-EKy"/>
                                                         <constraint firstItem="ohp-jf-Y3p" firstAttribute="top" secondItem="mlT-YF-bls" secondAttribute="top" constant="20" symbolic="YES" id="HDa-Qu-YAB"/>
                                                         <constraint firstItem="AXp-01-wmM" firstAttribute="centerY" secondItem="ZWq-LC-12r" secondAttribute="centerY" id="IKV-dd-YFh"/>
                                                         <constraint firstItem="ZWq-LC-12r" firstAttribute="trailing" secondItem="ohp-jf-Y3p" secondAttribute="trailing" id="Qgf-dG-LnJ"/>
@@ -437,6 +441,7 @@
                                             <outlet property="cardView" destination="mlT-YF-bls" id="HqN-pA-ocb"/>
                                             <outlet property="circleView" destination="ohp-jf-Y3p" id="cf1-Sq-rRp"/>
                                             <outlet property="startButton" destination="AXp-01-wmM" id="wX9-IK-KQY"/>
+                                            <outlet property="startButtonBackground" destination="ZWq-LC-12r" id="riI-Ml-eN6"/>
                                             <outlet property="stretchesLabel" destination="EVu-Bn-E9U" id="Ii5-tw-jpF"/>
                                             <outlet property="titleLabel" destination="pGV-qz-vUq" id="el5-Uk-2kz"/>
                                             <outlet property="workoutImageView" destination="h2Z-vf-Bck" id="kgz-KY-FVt"/>
