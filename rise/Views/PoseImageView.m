@@ -52,7 +52,7 @@
     
     // call draw()
     UIImage *dstImage = [renderer imageWithActions:^(UIGraphicsImageRendererContext * _Nonnull rendererContext) {
-        NSLog(@"PoseImageView drawWithImage is being called");
+        //NSLog(@"PoseImageView drawWithImage is being called");
         [self drawWithImage:frame withCGContext:rendererContext.CGContext];
         for (Pose *pose in poses) {
             for (JointSegment *segment in self.jointSegments) {

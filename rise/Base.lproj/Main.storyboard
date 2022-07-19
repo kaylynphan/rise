@@ -340,11 +340,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="slL-hk-w3m" customClass="PoseImageView">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bBy-Pj-FZw" customClass="PoseImageView">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemGray3Color"/>
-                            </view>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fum-3U-9yL">
                                 <rect key="frame" x="41" y="106" width="353" height="30"/>
                                 <constraints>
@@ -396,7 +395,7 @@
                     <connections>
                         <outlet property="countdownTimer" destination="xf1-xc-sT0" id="Q6R-Ko-a5a"/>
                         <outlet property="poseImage" destination="scm-aV-LM0" id="NoV-tZ-a66"/>
-                        <outlet property="poseImageView" destination="slL-hk-w3m" id="J3d-hX-S7F"/>
+                        <outlet property="poseImageView" destination="bBy-Pj-FZw" id="qEE-rN-e3k"/>
                         <outlet property="poseLabel" destination="ME3-Ov-vPk" id="fLr-Uw-YfJ"/>
                         <outlet property="titleLabel" destination="Fum-3U-9yL" id="C78-E3-4TF"/>
                     </connections>
@@ -431,9 +430,6 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray3Color">
-            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
