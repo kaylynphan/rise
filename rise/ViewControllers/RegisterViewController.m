@@ -17,6 +17,10 @@
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
 - (IBAction)registerUser:(id)sender;
 - (IBAction)didTapLogin:(id)sender;
+@property (weak, nonatomic) IBOutlet UIView *nameFieldBackground;
+@property (weak, nonatomic) IBOutlet UIView *emailFieldBackground;
+@property (weak, nonatomic) IBOutlet UIView *usernameFieldBackground;
+@property (weak, nonatomic) IBOutlet UIView *passwordFieldBackground;
 
 @end
 
@@ -26,7 +30,30 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    // must assign text field delegates to 'self' in order to dismiss keyboard upon pressing 'enter'
+    self.nameField.delegate = self;
+    self.emailField.delegate = self;
+    self.usernameField.delegate = self;
+    self.passwordField.delegate = self;
     
+    self.nameField.font = [UIFont fontWithName:@"Poppins-regular" size:18];
+    self.emailField.font = [UIFont fontWithName:@"Poppins-regular" size:18];
+    self.usernameField.font = [UIFont fontWithName:@"Poppins-regular" size:18];
+    self.passwordField.font = [UIFont fontWithName:@"Poppins-regular" size:18];
+    self.nameFieldBackground.layer.cornerRadius = 15.0;
+    self.emailFieldBackground.layer.cornerRadius = 15.0;
+    self.usernameFieldBackground.layer.cornerRadius = 15.0;
+    self.passwordFieldBackground.layer.cornerRadius = 15.0;
+    
+    self.nameFieldBackground.layer.borderColor = UIColor.blackColor.CGColor;
+    self.emailFieldBackground.layer.borderColor = UIColor.blackColor.CGColor;
+    self.usernameFieldBackground.layer.borderColor = UIColor.blackColor.CGColor;
+    self.passwordFieldBackground.layer.borderColor = UIColor.blackColor.CGColor;
+    
+    self.nameFieldBackground.layer.borderWidth = 1.5;
+    self.emailFieldBackground.layer.borderWidth = 1.5;
+    self.usernameFieldBackground.layer.borderWidth = 1.5;
+    self.passwordFieldBackground.layer.borderWidth = 1.5;
 }
 
 
@@ -80,6 +107,11 @@
             }
         }];
     }
+}
+
+- (BOOL) textFieldShouldReturn:(UITextField *)textField {
+    [self.view endEditing:true];
+    return false;
 }
 
 #pragma mark - Navigation

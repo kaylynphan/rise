@@ -27,19 +27,15 @@
     
     NSLog(@"Arrived to LoginViewController");
     
+    // must assign text field delegates to 'self' in order to dismiss keyboard upon pressing 'enter'
     self.usernameField.delegate = self;
     self.passwordField.delegate = self;
     
     self.usernameField.font = [UIFont fontWithName:@"Poppins-regular" size:18];
     self.passwordField.font = [UIFont fontWithName:@"Poppins-regular" size:18];
     
-    self.usernameBackgroundView.layer.cornerRadius = 16.0;
-    self.passwordBackgroundView.layer.cornerRadius = 16.0;
-    
-    self.usernameBackgroundView.layer.backgroundColor = [UIColor whiteColor].CGColor;
-    
-    self.passwordBackgroundView.layer.backgroundColor = [UIColor whiteColor].CGColor;
-    
+    self.usernameBackgroundView.layer.cornerRadius = 15.0;
+    self.passwordBackgroundView.layer.cornerRadius = 15.0;
     
     self.usernameBackgroundView.layer.borderColor = UIColor.blackColor.CGColor;
     self.passwordBackgroundView.layer.borderColor = UIColor.blackColor.CGColor;
@@ -56,13 +52,10 @@
 
 }
 
-
 - (BOOL) textFieldShouldReturn:(UITextField *)textField {
     [self.view endEditing:true];
     return false;
 }
-
-
 
 - (IBAction)loginUser:(id)sender {
     UIAlertController *nullUsernameAlert = [UIAlertController alertControllerWithTitle:@"Username Required"
