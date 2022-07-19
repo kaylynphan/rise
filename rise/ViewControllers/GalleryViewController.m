@@ -79,14 +79,16 @@
     cell.delegate = self;
     
     // This works:
-    NSLog(@"%@", [NSString stringWithFormat:@"The first stretch has index %@", [cell.workout.stretches objectAtIndex:0]]);
+    //NSLog(@"%@", [NSString stringWithFormat:@"The first stretch has index %@", [cell.workout.stretches objectAtIndex:0]]);
     
-    NSString *stringToDisplay = @"Stretches:\n";
-    NSMutableArray *arrayOfStretchNames = [[NSMutableArray alloc] init];
+    // the purpose of some old code here was to see if I could pass in the names of the stretches from Parse
+    
+    //NSString *stringToDisplay = @"Stretches:\n";
+    //NSMutableArray *arrayOfStretchNames = [[NSMutableArray alloc] init];
     for (long i = 0; i < cell.workout.stretches.count; i++) {
         NSNumber *index = [cell.workout.stretches objectAtIndex:i];
         YogaPose *poseToList = [self.poses objectAtIndex:[index intValue]];
-        stringToDisplay = [stringToDisplay stringByAppendingFormat:@"%@\n", poseToList.name];
+        //stringToDisplay = [stringToDisplay stringByAppendingFormat:@"%@\n", poseToList.name];
         // set image
         if (i == 0) {
             cell.workoutImageView.image = [SVGKImage imageWithContentsOfURL:poseToList.imageURL].UIImage;
@@ -94,9 +96,13 @@
             //cell.workoutImageView.image = [SVGKImage imageWithData:[[NSData alloc] initWithContentsOfURL:poseToList.imageURL]].UIImage;
         }
     }
-    cell.stretchesLabel.text = stringToDisplay;
-    [cell.stretchesLabel setNumberOfLines:0];
-    [cell.stretchesLabel sizeToFit];
+    //cell.stretchesLabel.text = stringToDisplay;
+    
+    
+    
+    [cell.descriptionLabel setNumberOfLines:0];
+    cell.descriptionLabel.text = cell.workout[@"description"];
+    [cell.descriptionLabel sizeToFit];
     //NSLog(stringToDisplay);
     
     return cell;

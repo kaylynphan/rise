@@ -22,6 +22,7 @@
     [self.helloLabel sizeToFit];
     
     self.myWorkoutsLabel.font = [UIFont fontWithName:@"Poppins-medium" size:30];
+    [self.myWorkoutsLabel sizeToFit];
     
     [self.todayCompletionLabel sizeToFit];
     

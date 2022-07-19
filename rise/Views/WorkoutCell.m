@@ -14,6 +14,8 @@
     [super awakeFromNib];
     // Initialization code
     
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
+    
     //self.cardView.backgroundColor = [UIColor grayColor];
     self.cardView.layer.cornerRadius = 40.0;
     self.cardView.layer.masksToBounds = YES;
