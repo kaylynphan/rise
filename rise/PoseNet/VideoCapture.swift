@@ -19,12 +19,14 @@ import VideoToolbox
 
 /// - Tag: VideoCapture
 @objc public class VideoCapture: NSObject {
+    /*
     enum VideoCaptureError: Error {
         case captureSessionIsMissing
         case invalidInput
         case invalidOutput
         case unknown
     }
+     */
     
 
     /// The delegate to receive the captured frames.
@@ -175,8 +177,14 @@ import VideoToolbox
 
         videoOutput.setSampleBufferDelegate(self, queue: sessionQueue)
 
+        /*
         guard captureSession.canAddOutput(videoOutput) else {
             throw VideoCaptureError.invalidOutput
+        }
+         */
+        guard try! captureSession.canAddOutput(videoOutput) else {
+            print("VideoCaptureError: invalidOutput")
+            return
         }
 
         captureSession.addOutput(videoOutput)

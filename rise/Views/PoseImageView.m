@@ -44,7 +44,7 @@
     CGFloat frameHeight = CGImageGetHeight(frame);
     CGSize dstImageSize = CGSizeMake(frameWidth, frameHeight);
     
-    UIGraphicsImageRendererFormat *dstImageFormat = [[UIGraphicsImageRenderer alloc] init];
+    UIGraphicsImageRendererFormat *dstImageFormat = [[UIGraphicsImageRendererFormat alloc] init];
     
     dstImageFormat.scale = 1;
     

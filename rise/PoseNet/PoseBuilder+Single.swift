@@ -59,6 +59,7 @@ extension PoseBuilder {
         joint.cell = bestCell
         joint.position = output.position(for: joint.name, at: joint.cell)
         joint.confidence = bestConfidence
-        joint.isValid = joint.confidence >= configuration.jointConfidenceThreshold
+        //joint.isValid = joint.confidence >= configuration.jointConfidenceThreshold
+        joint.isValid = joint.confidence >= 0.1;
     }
 }

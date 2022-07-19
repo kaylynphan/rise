@@ -15,10 +15,10 @@
 
 @interface GuideViewController ()
 
-@property (weak, nonatomic) VideoCapture *videoCapture;
+@property (strong, nonatomic) VideoCapture *videoCapture;
 @property (strong, nonatomic)  PoseNet * _Nullable poseNet;
 @property (weak, nonatomic) PoseBuilderConfiguration *poseBuilderConfiguration;
-@property (assign, nonatomic) CGImageRef currentFrame;
+@property (strong, nonatomic) CGImageRef _Nullable currentFrame __attribute__((NSObject));
 
 @end
 
@@ -39,6 +39,8 @@ static int exerciseNum = 0;
     NSLog(@"Now initializing PoseNet model");
     self.poseNet = [[PoseNet alloc] init];
     self.poseNet.delegate = self;
+    
+    self.videoCapture = [[VideoCapture alloc] init];
     NSLog(@"Now calling setupAndBeginCapturingVideoFrames");
     [self setupAndBeginCapturingVideoFrames];
     
@@ -110,11 +112,13 @@ static int exerciseNum = 0;
 
 // from PoseNetDelegate
 - (void) poseNet:(PoseNet *)poseNet didPredict:(PoseNetOutput *)predictions {
+    
     CGImageRef currentFrame = self.currentFrame;
     if (currentFrame != self.currentFrame) {
         self.currentFrame = nil;
         return;
     }
+    
     PoseBuilder *poseBuilder = [[PoseBuilder alloc] initWithOutput:predictions configuration:self.poseBuilderConfiguration inputImage:currentFrame];
     
     // here, there is a ternary operator checking for .single or .multiple. Let's only handle single
