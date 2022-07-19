@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *helloLabel;
 @property (weak, nonatomic) IBOutlet UILabel *todayCompletionLabel;
 @property (weak, nonatomic) IBOutlet UIView *helloLabelBackground;
+@property (weak, nonatomic) IBOutlet UILabel *myWorkoutsLabel;
 
 
 @end

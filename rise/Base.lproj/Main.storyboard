@@ -265,8 +265,11 @@
                                             <rect key="frame" x="0.0" y="0.0" width="390" height="400"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You've already stretched today." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ggx-vn-OgR">
-                                                    <rect key="frame" x="93" y="191" width="252" height="24"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" misplaced="YES" text="You've already stretched today." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ggx-vn-OgR">
+                                                    <rect key="frame" x="101" y="191" width="240" height="60"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="aXy-Un-UPK"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -281,17 +284,19 @@
                                                     <buttonConfiguration key="configuration" style="plain" image="Profile Icon Component" title=""/>
                                                 </button>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Check Mark Component" translatesAutoresizingMaskIntoConstraints="NO" id="XBC-RG-aDa">
-                                                    <rect key="frame" x="61" y="191" width="24" height="24"/>
+                                                    <rect key="frame" x="57.666666666666657" y="191" width="24" height="24"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="height" constant="24" id="NSm-Qr-DjY"/>
                                                         <constraint firstAttribute="width" secondItem="XBC-RG-aDa" secondAttribute="height" multiplier="1:1" id="eiy-jD-roN"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MY WORKOUTS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XVW-xS-H2G">
-                                                    <rect key="frame" x="75.666666666666686" y="251" width="239" height="138"/>
+                                                    <rect key="frame" x="75.666666666666686" y="323" width="239" height="66"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="239" id="NEr-2p-9au"/>
+                                                        <constraint firstAttribute="height" constant="66" id="hid-34-3cJ"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="30"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -303,12 +308,13 @@
                                                     </constraints>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TG1-N7-6Tp" userLabel="Hello Label Background">
-                                                    <rect key="frame" x="52" y="123" width="62.333333333333343" height="52"/>
+                                                    <rect key="frame" x="52" y="123" width="56.333333333333343" height="52"/>
                                                     <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jgg-Hs-Hyu">
-                                                    <rect key="frame" x="61" y="123" width="44.333333333333343" height="52"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" misplaced="YES" text="Hello Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jgg-Hs-Hyu">
+                                                    <rect key="frame" x="58" y="123" width="102" height="52"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="45" id="JSc-Sg-8Dy"/>
                                                         <constraint firstAttribute="height" constant="52" id="jxa-V9-5DK"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="8"/>
@@ -328,7 +334,7 @@
                                                 <constraint firstItem="ggx-vn-OgR" firstAttribute="leading" secondItem="XBC-RG-aDa" secondAttribute="trailing" constant="8" symbolic="YES" id="Lwn-uu-H1h"/>
                                                 <constraint firstItem="ggx-vn-OgR" firstAttribute="top" secondItem="Jgg-Hs-Hyu" secondAttribute="bottom" constant="16" id="MRM-fU-cXw"/>
                                                 <constraint firstItem="XBC-RG-aDa" firstAttribute="leading" secondItem="Jgg-Hs-Hyu" secondAttribute="leading" id="P0L-sz-jn0"/>
-                                                <constraint firstItem="TG1-N7-6Tp" firstAttribute="width" secondItem="Jgg-Hs-Hyu" secondAttribute="width" multiplier="1.4" id="Sb3-ov-Jnv"/>
+                                                <constraint firstItem="TG1-N7-6Tp" firstAttribute="width" secondItem="Jgg-Hs-Hyu" secondAttribute="width" multiplier="1.25" id="Sb3-ov-Jnv"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ggx-vn-OgR" secondAttribute="trailing" constant="41" id="YsL-Z7-z0n"/>
                                                 <constraint firstItem="bof-2b-LS7" firstAttribute="top" secondItem="Woz-b0-bga" secondAttribute="top" constant="23" id="ZnS-2S-RsO"/>
                                                 <constraint firstItem="TG1-N7-6Tp" firstAttribute="height" secondItem="Jgg-Hs-Hyu" secondAttribute="height" id="a8u-Ub-L9D"/>
@@ -336,12 +342,12 @@
                                                 <constraint firstItem="XBC-RG-aDa" firstAttribute="top" secondItem="ggx-vn-OgR" secondAttribute="top" id="mYs-p1-Z57"/>
                                                 <constraint firstItem="TG1-N7-6Tp" firstAttribute="leading" secondItem="oMy-XN-xKl" secondAttribute="leading" id="mwS-Qu-vEg"/>
                                                 <constraint firstAttribute="trailing" secondItem="bof-2b-LS7" secondAttribute="trailing" constant="33" id="qRe-Gu-4b5"/>
-                                                <constraint firstItem="XBC-RG-aDa" firstAttribute="height" secondItem="ggx-vn-OgR" secondAttribute="height" id="rx9-ac-fHs"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="helloLabel" destination="Jgg-Hs-Hyu" id="oUz-V0-LTu"/>
                                             <outlet property="helloLabelBackground" destination="TG1-N7-6Tp" id="etH-Rs-8Bo"/>
+                                            <outlet property="myWorkoutsLabel" destination="XVW-xS-H2G" id="6Fr-h7-Eeq"/>
                                             <outlet property="todayCompletionLabel" destination="ggx-vn-OgR" id="Ng2-3i-Zm0"/>
                                         </connections>
                                     </tableViewCell>
@@ -460,7 +466,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wtv-vQ-IiH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2585.625" y="137.5"/>
+            <point key="canvasLocation" x="2583.0769230769229" y="137.2037914691943"/>
         </scene>
         <!--Guide View Controller-->
         <scene sceneID="tHF-hZ-mOk">

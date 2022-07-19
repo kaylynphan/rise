@@ -18,7 +18,12 @@
     self.helloLabelBackground.layer.cornerRadius = 26;
     self.helloLabelBackground.layer.masksToBounds = YES;
     self.helloLabel.text = [NSString stringWithFormat:@"Hello %@", [User currentUser][@"displayName"]];
+    self.helloLabel.font = [UIFont fontWithName:@"Poppins-medium" size:24];
     [self.helloLabel sizeToFit];
+    
+    self.myWorkoutsLabel.font = [UIFont fontWithName:@"Poppins-medium" size:30];
+    
+    [self.todayCompletionLabel sizeToFit];
     
 }
 
