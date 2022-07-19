@@ -7,6 +7,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Workout.h"
+#import "ContainedButton.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -22,11 +23,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) Workout *workout;
 @property (weak, nonatomic) IBOutlet UILabel *stretchesLabel;
-@property (weak, nonatomic) IBOutlet UIButton *startButton;
 @property (weak, nonatomic) IBOutlet UIView *circleView;
+@property (weak, nonatomic) IBOutlet UIButton *startButton;
 
 @property (nonatomic, weak) id<WorkoutCellDelegate> delegate;
 - (IBAction)didTapStart:(id)sender;
+
 
 
 @end

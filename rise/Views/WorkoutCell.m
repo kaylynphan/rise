@@ -6,6 +6,7 @@
 //
 
 #import "WorkoutCell.h"
+#import "ContainedButton.h"
 
 @implementation WorkoutCell
 
@@ -25,6 +26,10 @@
     [self.workoutImageView setContentMode:UIViewContentModeScaleAspectFit];
     
     self.titleLabel.font = [UIFont fontWithName:@"Poppins-medium" size:30];
+    
+    self.startButton.titleLabel.font = [UIFont fontWithName:@"Poppins-medium" size:16];
+    [self.startButton sizeToFit];
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -32,6 +37,7 @@
 
     // Configure the view for the selected state
 }
+
 
 - (IBAction)didTapStart:(id)sender {
     NSLog(@"Start button tapped!");
@@ -41,4 +47,5 @@
         [self.delegate didStartWorkout:workoutToSend];
     }
 }
+
 @end

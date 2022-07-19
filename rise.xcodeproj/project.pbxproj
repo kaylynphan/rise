@@ -26,6 +26,7 @@
 		2E7DAED52882801C00097E33 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E7DAEC22882801C00097E33 /* Poppins-SemiBold.ttf */; };
 		2E7DAED62882801C00097E33 /* Poppins-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E7DAEC32882801C00097E33 /* Poppins-Italic.ttf */; };
 		2E7DAED72882801C00097E33 /* Poppins-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E7DAEC42882801C00097E33 /* Poppins-MediumItalic.ttf */; };
+		2E98F300288736A20031DD25 /* ContainedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E98F2FF288736A20031DD25 /* ContainedButton.m */; };
 		2EA0797E287611C000931A86 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EA0797D287611C000931A86 /* LoginViewController.m */; };
 		2EA079812876144D00931A86 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EA079802876144D00931A86 /* RegisterViewController.m */; };
 		2EA079842876146400931A86 /* GalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EA079832876146400931A86 /* GalleryViewController.m */; };
@@ -97,6 +98,8 @@
 		2E7DAEC22882801C00097E33 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
 		2E7DAEC32882801C00097E33 /* Poppins-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Italic.ttf"; sourceTree = "<group>"; };
 		2E7DAEC42882801C00097E33 /* Poppins-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-MediumItalic.ttf"; sourceTree = "<group>"; };
+		2E98F2FE288736A20031DD25 /* ContainedButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContainedButton.h; sourceTree = "<group>"; };
+		2E98F2FF288736A20031DD25 /* ContainedButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContainedButton.m; sourceTree = "<group>"; };
 		2EA0797C287611C000931A86 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		2EA0797D287611C000931A86 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		2EA0797F2876144D00931A86 /* RegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
@@ -241,6 +244,8 @@
 		2EA0797B287611A800931A86 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2E98F2FE288736A20031DD25 /* ContainedButton.h */,
+				2E98F2FF288736A20031DD25 /* ContainedButton.m */,
 				2ED125282880965A00DD5CBF /* GalleryViewHeader.h */,
 				2ED125292880965A00DD5CBF /* GalleryViewHeader.m */,
 				2EA0799828774B9500931A86 /* PoseImageView.h */,
@@ -624,6 +629,7 @@
 				2EA079872876148300931A86 /* GuideViewController.m in Sources */,
 				2EA079A12877563900931A86 /* PoseNetInput.m in Sources */,
 				2ED124AB287DE8F000DD5CBF /* Workout.m in Sources */,
+				2E98F300288736A20031DD25 /* ContainedButton.m in Sources */,
 				2EA0797E287611C000931A86 /* LoginViewController.m in Sources */,
 				2EA07997287669DF00931A86 /* SplashViewController.m in Sources */,
 				2ED6586328760D5100B66436 /* AppDelegate.m in Sources */,
