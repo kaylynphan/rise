@@ -23,6 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) Workout *workout;
 @property (weak, nonatomic) IBOutlet UILabel *stretchesLabel;
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
+@property (weak, nonatomic) IBOutlet UIView *circleView;
 
 @property (nonatomic, weak) id<WorkoutCellDelegate> delegate;
 - (IBAction)didTapStart:(id)sender;

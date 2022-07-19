@@ -18,11 +18,13 @@
     self.cardView.layer.masksToBounds = YES;
     [self.titleLabel sizeToFit];
     
-    self.workoutImageView.layer.cornerRadius = 50;
-    self.workoutImageView.layer.masksToBounds = YES;
-    self.workoutImageView.layer.borderWidth = 1;
-    self.workoutImageView.layer.borderColor = [UIColor blackColor].CGColor;
+    self.circleView.layer.cornerRadius = 40;
+    self.circleView.layer.masksToBounds = YES;
+    self.circleView.layer.borderWidth = 1;
+    self.circleView.layer.borderColor = [UIColor blackColor].CGColor;
     [self.workoutImageView setContentMode:UIViewContentModeScaleAspectFit];
+    
+    self.titleLabel.font = [UIFont fontWithName:@"Poppins-medium" size:30];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

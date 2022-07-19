@@ -74,7 +74,7 @@
     // for now, test the table view by showing each pose's image in a cell
     WorkoutCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"WorkoutCell" forIndexPath:indexPath];
     cell.workout = self.arrayOfWorkouts[indexPath.row];
-    cell.titleLabel.text = [NSString stringWithFormat:@"%d: %@", indexPath.row, cell.workout.name];
+    cell.titleLabel.text = [NSString stringWithFormat:@"%@", cell.workout.name];
     cell.workoutImageView.image = nil;
     cell.delegate = self;
     
