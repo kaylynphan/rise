@@ -17,8 +17,8 @@ enum Algorithm: Int {
 */
 
 @objc public class PoseBuilderConfiguration : NSObject {
-    static let single = 0;
-    static let multiple = 1;
+    public static let single = 0;
+    public static let multiple = 1;
     
     /// The minimum value for valid joints in a pose.
     var jointConfidenceThreshold = 0.1

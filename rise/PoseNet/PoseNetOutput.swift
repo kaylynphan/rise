@@ -8,6 +8,7 @@ Implementation details of a structure to hold the PoseNet model's outputs.
 import CoreML
 import Vision
 import Foundation
+import CryptoKit
 
 /// A structure that defines the coordinates of an index used to query the PoseNet model outputs.
 ///
@@ -29,13 +30,19 @@ import Foundation
 
 /// - Tag: PoseNetOutput
 @objc public class PoseNetOutput : NSObject {
+    /*
     enum Feature: String {
         case heatmap = "heatmap"
         case offsets = "offsets"
         case backwardDisplacementMap = "displacementBwd"
         case forwardDisplacementMap = "displacementFwd"
     }
-
+     */
+    
+    public static let heatmapRawVal = 0;
+    public static let offsetsRawVal = 1;
+    public static let backwardDisplacementMapRawVal = 2;
+    public static let forwardDisplacementMapRawVal = 3;
     /// A multidimensional array that stores the confidence for each joint.
     ///
     /// The layout of the array is `[joint][y][x]`, where `joint` is the index of the associated
@@ -92,16 +99,16 @@ import Foundation
     }
 
     init(prediction: MLFeatureProvider, modelInputSize: CGSize, modelOutputStride: Int) {
-        guard let heatmap = prediction.multiArrayValue(for: .heatmap) else {
+        guard let heatmap = prediction.multiArrayValue(for: PoseNetOutput.heatmapRawVal) else {
             fatalError("Failed to get the heatmap MLMultiArray")
         }
-        guard let offsets = prediction.multiArrayValue(for: .offsets) else {
+        guard let offsets = prediction.multiArrayValue(for: PoseNetOutput.offsetsRawVal) else {
             fatalError("Failed to get the offsets MLMultiArray")
         }
-        guard let backwardDisplacementMap = prediction.multiArrayValue(for: .backwardDisplacementMap) else {
+        guard let backwardDisplacementMap = prediction.multiArrayValue(for: PoseNetOutput.backwardDisplacementMapRawVal) else {
             fatalError("Failed to get the backwardDisplacementMap MLMultiArray")
         }
-        guard let forwardDisplacementMap = prediction.multiArrayValue(for: .forwardDisplacementMap) else {
+        guard let forwardDisplacementMap = prediction.multiArrayValue(for: PoseNetOutput.forwardDisplacementMapRawVal) else {
             fatalError("Failed to get the forwardDisplacementMap MLMultiArray")
         }
 
@@ -233,8 +240,18 @@ extension PoseNetOutput {
 // MARK: - MLFeatureProvider extension
 
 extension MLFeatureProvider {
-    func multiArrayValue(for feature: PoseNetOutput.Feature) -> MLMultiArray? {
-        return featureValue(for: feature.rawValue)?.multiArrayValue
+    func multiArrayValue(for feature: Int) -> MLMultiArray? {
+        if (feature == 0) {
+            return featureValue(for: "heatmap")?.multiArrayValue
+        } else if (feature == 1) {
+            return featureValue(for: "offsets")?.multiArrayValue
+        } else if (feature == 2) {
+            return featureValue(for: "displacementBwd")?.multiArrayValue
+        } else if (feature == 3) {
+            return featureValue(for: "displacementFwd")?.multiArrayValue
+        } else {
+            return nil;
+        }
     }
 }
 

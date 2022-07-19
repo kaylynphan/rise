@@ -25,6 +25,7 @@ import VideoToolbox
         case invalidOutput
         case unknown
     }
+    
 
     /// The delegate to receive the captured frames.
     weak var delegate: VideoCaptureDelegate?
@@ -107,11 +108,21 @@ import VideoToolbox
     private func setCaptureSessionInput() throws {
         // Use the default capture device to obtain access to the physical device
         // and associated properties.
+        /*
         guard let captureDevice = AVCaptureDevice.default(
             .builtInWideAngleCamera,
             for: AVMediaType.video,
             position: cameraPostion) else {
                 throw VideoCaptureError.invalidInput
+        }
+         */
+        // this is quite dangerous, the app would crash if the error occurs
+        guard let captureDevice = try! AVCaptureDevice.default(
+            .builtInWideAngleCamera,
+            for: AVMediaType.video,
+            position: cameraPostion) else {
+            print("Video capture error: invalid input")
+            return
         }
 
         // Remove any existing inputs.
@@ -121,12 +132,25 @@ import VideoToolbox
 
         // Create an instance of AVCaptureDeviceInput to capture the data from
         // the capture device.
+        /*
         guard let videoInput = try? AVCaptureDeviceInput(device: captureDevice) else {
             throw VideoCaptureError.invalidInput
         }
+         */
+        guard let videoInput = try? AVCaptureDeviceInput(device: captureDevice) else {
+            print("Video capture error: invalid input")
+            return
+        }
+        
 
+        /*
         guard captureSession.canAddInput(videoInput) else {
             throw VideoCaptureError.invalidInput
+        }
+         */
+        guard try! captureSession.canAddInput(videoInput) else {
+            print("Video capture error: invalid input")
+            return
         }
 
         captureSession.addInput(videoInput)
