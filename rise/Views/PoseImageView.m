@@ -99,11 +99,14 @@
     
     //Sample code's translations
     
+    CGContextSaveGState(UIGraphicsGetCurrentContext());
+    
     CGContextScaleCTM(UIGraphicsGetCurrentContext(), 1, -1);
     CGRect drawingRect = CGRectMake(0, -1 * frameHeight, frameWidth, frameHeight);
      
-    
     CGContextDrawImage(UIGraphicsGetCurrentContext(), drawingRect, frame);
+    
+    CGContextRestoreGState(UIGraphicsGetCurrentContext());
     
     for (Pose *pose in poses) {
     
