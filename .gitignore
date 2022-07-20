@@ -1,2 +1,6 @@
 Keys.plist
+<<<<<<< HEAD
 *.xcbkptlist
+=======
+.xcbkptlist
+>>>>>>> auto-generate-bridging-headers

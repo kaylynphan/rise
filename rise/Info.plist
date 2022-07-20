@@ -11,6 +11,15 @@
 		<string>Poppins-Regular.ttf</string>
 		<string>Poppins-Thin.ttf</string>
 		<string>Poppins-Bold.ttf</string>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>This app uses the camera to capture and evaluate your stretch pose.</string>
+	<key>UIRequiredDeviceCapabilities</key>
+	<array>
+		<string>armv7</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
