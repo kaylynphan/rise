@@ -39,7 +39,7 @@ enum Algorithm: Int {
     /// The maximum number of poses returned.
     ///
     /// - Note: This parameter only applies to the multiple-pose algorithm.
-    var maxPoseCount = 15
+    var maxPoseCount = 1
 
     /// The number of iterations performed to refine an adjacent joint's position.
     ///

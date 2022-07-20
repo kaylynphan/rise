@@ -82,9 +82,27 @@
     */
     
     UIGraphicsBeginImageContextWithOptions(dstImageSize, NO, 0.0f);
+    /*
+    // My translations
     CGRect drawingRect = CGRectMake(0, 0, 480, 640);
     CGContextScaleCTM(UIGraphicsGetCurrentContext(), 1, -1);
     CGContextTranslateCTM(UIGraphicsGetCurrentContext(), 0, -640);
+     */
+    
+    
+    /*
+    // My translations but with frame size
+    CGRect drawingRect = CGRectMake(0, 0, frameWidth, frameHeight);
+    CGContextScaleCTM(UIGraphicsGetCurrentContext(), 1, -1);
+    CGContextTranslateCTM(UIGraphicsGetCurrentContext(), 0, -1 * frameHeight);
+     */
+    
+    //Sample code's translations
+    
+    CGContextScaleCTM(UIGraphicsGetCurrentContext(), 1, -1);
+    CGRect drawingRect = CGRectMake(0, -1 * frameHeight, frameWidth, frameHeight);
+     
+    
     CGContextDrawImage(UIGraphicsGetCurrentContext(), drawingRect, frame);
     
     for (Pose *pose in poses) {
@@ -105,7 +123,18 @@
         
         for (Joint *joint in pose.joints) {
             if (joint.isValid) {
+                
                 [self drawWithCircle:joint withCGContext:UIGraphicsGetCurrentContext()];
+                
+                // try drawing with updating context
+                /*
+                CGContextSetFillColorWithColor(UIGraphicsGetCurrentContext(), UIColor.blackColor.CGColor);
+                CGFloat jointRadius = 4.0;
+                CGRect rectangle = CGRectMake(joint.position.x - jointRadius, joint.position.y - jointRadius, jointRadius * 2, jointRadius * 2);
+                CGContextAddEllipseInRect(UIGraphicsGetCurrentContext(), rectangle);
+                CGContextDrawPath(UIGraphicsGetCurrentContext(), kCGPathFill);
+                 */
+                
             }
         }
          
@@ -125,7 +154,10 @@
     CGContextSaveGState(cgContext);
     CGContextScaleCTM(cgContext, 1.0, -1.0); //image is nonnull
     
-    CGRect drawingRect = CGRectMake(0, 0, 480, 640);
+    CGRect drawingRect = CGRectMake(0,
+                                    -1 * CGImageGetHeight(image),
+                                    CGImageGetWidth(image),
+                                    CGImageGetHeight(image));
     CGContextScaleCTM(UIGraphicsGetCurrentContext(), 1, -1);
     CGContextTranslateCTM(UIGraphicsGetCurrentContext(), 0, -640);
     /*

@@ -43,6 +43,7 @@ extension PoseBuilder {
         var bestConfidence = 0.0
         for yIndex in 0..<output.height {
             for xIndex in 0..<output.width {
+                //OBJC EDIT: PoseNetOutput.Cell() (previously a struct) to Cell() (Cell class initializer)
                 let currentCell = Cell(yIndex, xIndex)
                 let currentConfidence = output.confidence(for: joint.name, at: currentCell)
 
@@ -60,5 +61,8 @@ extension PoseBuilder {
         joint.confidence = bestConfidence
         //joint.isValid = joint.confidence >= configuration.jointConfidenceThreshold
         joint.isValid = joint.confidence >= 0.1;
+        if (joint.isValid) {
+            print("joint \(joint.name) is valid");
+        }
     }
 }
