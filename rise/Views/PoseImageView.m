@@ -50,12 +50,13 @@
     
     UIGraphicsImageRenderer *renderer = [[UIGraphicsImageRenderer alloc] initWithSize:dstImageSize format:dstImageFormat]; //renderer is nonnull
     
-    
+    /*
     // call draw()
     UIImage *dstImage = [renderer imageWithActions:^(UIGraphicsImageRendererContext * _Nonnull rendererContext) {
         //NSLog(@"PoseImageView drawWithImage is being called");
         [self drawWithImage:frame withCGContext:rendererContext.CGContext];
-        /*
+        
+        
         for (Pose *pose in poses) {
             for (JointSegment *segment in self.jointSegments) {
                 int indexA = segment.jointA;
@@ -73,9 +74,22 @@
                 }
             }
         }
-         */
+         
+         
     }];
     self.image = dstImage; // it appears that dstImage is nil
+    
+    */
+    
+    UIGraphicsBeginImageContextWithOptions(dstImageSize, NO, 0.0f);
+    CGRect drawingRect = CGRectMake(0, 0, 100, 100);
+    CGContextScaleCTM(UIGraphicsGetCurrentContext(), 1, -1);
+    CGContextTranslateCTM(UIGraphicsGetCurrentContext(), 100, -100);
+    CGContextDrawImage(UIGraphicsGetCurrentContext(), drawingRect, frame);
+    UIImage *dstImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    self.image = dstImage;
+     
 }
 
 - (void)drawWithImage:(CGImageRef)image withCGContext:(CGContextRef)cgContext {
