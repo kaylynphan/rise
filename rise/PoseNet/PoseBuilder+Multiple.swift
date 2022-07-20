@@ -181,7 +181,7 @@ extension PoseBuilder {
     private func assemblePose(from rootJoint: Joint) -> Pose {
         // Create a pose and update its root joint.
         var pose = Pose()
-        pose.joints[rootJoint.name] = rootJoint;
+        //pose.joints[rootJoint.name] = rootJoint; //removing due to compile error and +Multiple extension is never used
 
         // Update the remaining joints by spawning from the root joint to find
         // adjacent joints using the displacement maps output by the PoseNet model.

@@ -61,8 +61,10 @@ extension PoseBuilder {
         joint.confidence = bestConfidence
         //joint.isValid = joint.confidence >= configuration.jointConfidenceThreshold
         joint.isValid = joint.confidence >= 0.1;
+        /*
         if (joint.isValid) {
             print("joint \(joint.name) is valid");
         }
+        */
     }
 }

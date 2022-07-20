@@ -31,33 +31,36 @@ import Foundation
         Edge(from: Joint.rightKnee, to: Joint.rightAnkle, index: 15)
     ]
     
-    public var joints = [
-        Joint(name: Joint.nose),
-        Joint(name: Joint.leftEye),
-        Joint(name: Joint.leftEar),
-        Joint(name: Joint.leftShoulder),
-        Joint(name: Joint.leftElbow),
-        Joint(name: Joint.leftWrist),
-        Joint(name: Joint.leftHip),
-        Joint(name: Joint.leftKnee),
-        Joint(name: Joint.leftAnkle),
-        Joint(name: Joint.rightEye),
-        Joint(name: Joint.rightEar),
-        Joint(name: Joint.rightShoulder),
-        Joint(name: Joint.rightElbow),
-        Joint(name: Joint.rightWrist),
-        Joint(name: Joint.rightHip),
-        Joint(name: Joint.rightKnee),
-        Joint(name: Joint.rightAnkle)
+    public let joints = [
+        Joint(name: 0),
+        Joint(name: 1),
+        Joint(name: 2),
+        Joint(name: 3),
+        Joint(name: 4),
+        Joint(name: 5),
+        Joint(name: 6),
+        Joint(name: 7),
+        Joint(name: 8),
+        Joint(name: 9),
+        Joint(name: 10),
+        Joint(name: 11),
+        Joint(name: 12),
+        Joint(name: 13),
+        Joint(name: 14),
+        Joint(name: 15),
+        Joint(name: 16),
     ]
     
     func getJoint(index: Int) -> Joint {
         return joints[index];
     }
     
+    // never called
+    /*
     func setJoint(index: Int, joint: Joint) {
         joints[index] = joint;
     }
+     */
 
     /*
     /// The joints that make up a pose.

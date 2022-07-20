@@ -117,9 +117,9 @@
             Joint *jointB = [pose getJointWithIndex:indexB];
             
             if (jointA.isValid && jointB.isValid) {
-            
+                NSLog([NSString stringWithFormat:@"Segment from Index: %d, Joint %d to Index: %d, Joint %d", indexA, jointA.name, indexB, jointB.name]);
                 [self drawLineWithParentJoint:jointA withChildJoint:jointB withCGContext:UIGraphicsGetCurrentContext()];
-                 
+                
             }
         }
         

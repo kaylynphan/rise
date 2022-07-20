@@ -12,8 +12,8 @@ import Foundation
 
 @objc public class Joint : NSObject {
     
-    public static var nose = 0;
-    public static let leftEye = 1;
+    static let nose = 0;
+    static let leftEye = 1;
     static let rightEye = 2;
     static let leftEar = 3;
     static let rightEar = 4;
