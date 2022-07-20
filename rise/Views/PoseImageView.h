@@ -6,17 +6,24 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "rise-Swift.h"
+#import "JointSegment.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PoseImageView : UIImageView
 
-@property (nonatomic, strong) NSArray *jointSegments;
+@property (strong, nonatomic) NSArray *jointSegments;
 
-struct JointSegment {
-    CGPoint *jointA;
-    CGPoint *jointB;
-};
+- (void)runTests;
+
+- (void)showWithPoses:(NSArray *)poses withFrame:(CGImageRef)frame;
+
+- (void) drawWithImage:(CGImageRef)image withCGContext:(CGContextRef)cgContext;
+
+- (void) drawLineWithParentJoint:(Joint *)parentJoint withChildJoint:(Joint *)childJoint withCGContext:(CGContextRef)cgContext;
+
+- (void) drawWithCircle:(Joint *)joint withCGContext:(CGContextRef)cgContext;
 
 @end
 

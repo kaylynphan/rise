@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface LoginViewController : UIViewController
 
 @property (strong, nonatomic) NSArray *poses;
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
+@property (weak, nonatomic) IBOutlet UIButton *signUpButton;
 
 @end
 

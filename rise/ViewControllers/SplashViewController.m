@@ -43,6 +43,7 @@
         self.poses = poses;
         if (poses != nil) {
             // if the network call is successful, preform the appropriate segue depending on whether there is a user logged in
+            NSLog(@"Now performing segue");
             if (PFUser.currentUser) {
                 NSLog([NSString stringWithFormat:@"The current username is %@", PFUser.currentUser.username]);
                 [self performSegueWithIdentifier:@"splashToGallerySegue" sender:nil];
