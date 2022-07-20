@@ -77,7 +77,7 @@ static int exerciseNum = 0;
         int *poseIndex = [[self.workout.stretches objectAtIndex:exerciseNum] intValue];
         YogaPose *pose = [self.poses objectAtIndex:poseIndex];
         self.poseLabel.text = pose.name;
-        self.poseImage.image = [SVGKImage imageWithContentsOfURL:pose.imageURL].UIImage;
+        self.poseImage.image = pose.image;
         [self.countdownTimer startWithBeginingValue:30 interval:1];
     }
 }

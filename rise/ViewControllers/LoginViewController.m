@@ -23,9 +23,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
-    NSLog(@"Arrived to LoginViewController");
     
     // must assign text field delegates to 'self' in order to dismiss keyboard upon pressing 'enter'
     self.usernameField.delegate = self;
@@ -49,7 +46,13 @@
     self.signUpButton.titleLabel.font = [UIFont fontWithName:@"Poppins-regular" size:18];
     [self.loginButton sizeToFit];
     [self.signUpButton sizeToFit];
+}
 
+- (void) viewDidAppear:(BOOL)animated {
+    if (PFUser.currentUser) {
+        NSLog([NSString stringWithFormat:@"The current username is %@", PFUser.currentUser.username]);
+        [self performSegueWithIdentifier:@"loginSegue" sender:nil];
+    }
 }
 
 - (BOOL) textFieldShouldReturn:(UITextField *)textField {
@@ -88,6 +91,8 @@
             } else {
                 NSLog(@"User logged in successfully");
                 [self performSegueWithIdentifier:@"loginSegue" sender:nil];
+                [self.usernameField setText:nil];
+                [self.passwordField setText:nil];
             }
         }];
     }
@@ -97,13 +102,10 @@
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
+/*
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"loginSegue"]){
-        UINavigationController *navController = (UINavigationController *)segue.destinationViewController;
-        GalleryViewController *controller = (GalleryViewController *)navController.topViewController;
-        controller.poses = self.poses;
-    }
 }
+ */
 
 
 @end
