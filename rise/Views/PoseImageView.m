@@ -82,9 +82,10 @@
     */
     
     UIGraphicsBeginImageContextWithOptions(dstImageSize, NO, 0.0f);
-    CGRect drawingRect = CGRectMake(0, 0, 100, 100);
+    CGRect drawingRect = CGRectMake(0, 0, 480, 640);
+    CGPoint center = CGPointMake(CGRectGetMidX(drawingRect), CGRectGetMidY(drawingRect));
     CGContextScaleCTM(UIGraphicsGetCurrentContext(), 1, -1);
-    CGContextTranslateCTM(UIGraphicsGetCurrentContext(), 100, -100);
+    CGContextTranslateCTM(UIGraphicsGetCurrentContext(), 0, -640);
     CGContextDrawImage(UIGraphicsGetCurrentContext(), drawingRect, frame);
     UIImage *dstImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
