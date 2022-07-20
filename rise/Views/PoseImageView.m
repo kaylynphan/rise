@@ -125,19 +125,11 @@
         
         
         for (Joint *joint in pose.joints) {
-            if (joint.isValid) {
-                
-                [self drawWithCircle:joint withCGContext:UIGraphicsGetCurrentContext()];
-                
-                // try drawing with updating context
-                /*
-                CGContextSetFillColorWithColor(UIGraphicsGetCurrentContext(), UIColor.blackColor.CGColor);
-                CGFloat jointRadius = 4.0;
-                CGRect rectangle = CGRectMake(joint.position.x - jointRadius, joint.position.y - jointRadius, jointRadius * 2, jointRadius * 2);
-                CGContextAddEllipseInRect(UIGraphicsGetCurrentContext(), rectangle);
-                CGContextDrawPath(UIGraphicsGetCurrentContext(), kCGPathFill);
-                 */
-                
+            if (joint.name > 4) {
+                if (joint.isValid) {
+                    
+                    [self drawWithCircle:joint withCGContext:UIGraphicsGetCurrentContext()];
+                }
             }
         }
          
