@@ -32,27 +32,27 @@ import Foundation
     ]
     
     public var joints = [
-        Joint.nose: Joint(name: Joint.nose),
-        Joint.leftEye: Joint(name: Joint.leftEye),
-        Joint.leftEar: Joint(name: Joint.leftEar),
-        Joint.leftShoulder: Joint(name: Joint.leftShoulder),
-        Joint.leftElbow: Joint(name: Joint.leftElbow),
-        Joint.leftWrist: Joint(name: Joint.leftWrist),
-        Joint.leftHip: Joint(name: Joint.leftHip),
-        Joint.leftKnee: Joint(name: Joint.leftKnee),
-        Joint.leftAnkle: Joint(name: Joint.leftAnkle),
-        Joint.rightEye: Joint(name: Joint.rightEye),
-        Joint.rightEar: Joint(name: Joint.rightEar),
-        Joint.rightShoulder: Joint(name: Joint.rightShoulder),
-        Joint.rightElbow: Joint(name: Joint.rightElbow),
-        Joint.rightWrist: Joint(name: Joint.rightWrist),
-        Joint.rightHip: Joint(name: Joint.rightHip),
-        Joint.rightKnee: Joint(name: Joint.rightKnee),
-        Joint.rightAnkle: Joint(name: Joint.rightAnkle)
+        Joint(name: Joint.nose),
+        Joint(name: Joint.leftEye),
+        Joint(name: Joint.leftEar),
+        Joint(name: Joint.leftShoulder),
+        Joint(name: Joint.leftElbow),
+        Joint(name: Joint.leftWrist),
+        Joint(name: Joint.leftHip),
+        Joint(name: Joint.leftKnee),
+        Joint(name: Joint.leftAnkle),
+        Joint(name: Joint.rightEye),
+        Joint(name: Joint.rightEar),
+        Joint(name: Joint.rightShoulder),
+        Joint(name: Joint.rightElbow),
+        Joint(name: Joint.rightWrist),
+        Joint(name: Joint.rightHip),
+        Joint(name: Joint.rightKnee),
+        Joint(name: Joint.rightAnkle)
     ]
     
     func getJoint(index: Int) -> Joint {
-        return joints[index]!
+        return joints[index];
     }
     
     func setJoint(index: Int, joint: Joint) {

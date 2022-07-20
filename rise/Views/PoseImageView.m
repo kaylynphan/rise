@@ -88,6 +88,7 @@
     CGContextDrawImage(UIGraphicsGetCurrentContext(), drawingRect, frame);
     
     for (Pose *pose in poses) {
+    
         for (JointSegment *segment in self.jointSegments) {
             int indexA = segment.jointA;
             int indexB = segment.jointB;
@@ -95,21 +96,19 @@
             Joint *jointB = [pose getJointWithIndex:indexB];
             
             if (jointA.isValid && jointB.isValid) {
-                /*
+            
                 [self drawLineWithParentJoint:jointA withChildJoint:jointB withCGContext:UIGraphicsGetCurrentContext()];
-                 */
-                CGContextSetStrokeColorWithColor(UIGraphicsGetCurrentContext(), UIColor.blackColor.CGColor);
-                CGContextSetLineWidth(UIGraphicsGetCurrentContext(), 2.0);
-                CGContextMoveToPoint(UIGraphicsGetCurrentContext(), jointA.position.x, jointA.position.y);
-                CGContextAddLineToPoint(UIGraphicsGetCurrentContext(), jointB.position.x, jointB.position.y);
-                CGContextStrokePath(UIGraphicsGetCurrentContext());
+                 
             }
         }
+        
+        
         for (Joint *joint in pose.joints) {
             if (joint.isValid) {
                 [self drawWithCircle:joint withCGContext:UIGraphicsGetCurrentContext()];
             }
         }
+         
     }
     
     

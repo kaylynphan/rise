@@ -46,7 +46,7 @@ extension PoseBuilder {
         // Map the pose joints positions back onto the original image using
         // the pre-computed transformation matrix.
         detectedPoses.forEach { pose in
-            pose.joints.values.forEach { joint in
+            pose.joints.forEach { joint in
                 joint.position = joint.position.applying(modelToInputTransformation)
             }
         }
@@ -116,7 +116,7 @@ extension PoseBuilder {
     ///     - detectedPoses: An array of existing poses.
     /// - returns: Non-overlapping joints for `pose`.
     private func nonOverlappingJoints(for pose: Pose, detectedPoses: [Pose]) -> [Joint] {
-        return pose.joints.values.filter { joint in
+        return pose.joints.filter { joint in
             guard joint.isValid else {
                 return false
             }
@@ -124,11 +124,11 @@ extension PoseBuilder {
             for detectedPose in detectedPoses {
                 let otherJoint = detectedPose.joints[joint.name]
 
-                guard otherJoint!.isValid else {
+                guard otherJoint.isValid else {
                     continue
                 }
 
-                if joint.position.distance(to: otherJoint!.position) <= configuration.matchingJointDistance {
+                if joint.position.distance(to: otherJoint.position) <= configuration.matchingJointDistance {
                     return false
                 }
             }
@@ -191,8 +191,8 @@ extension PoseBuilder {
 
             // Update the details of all the adjacent joints.
             for edge in Pose.edges(for: joint.name) {
-                let parentJoint = pose.joints[edge.parent]!
-                let childJoint = pose.joints[edge.child]!
+                let parentJoint = pose.joints[edge.parent]
+                let childJoint = pose.joints[edge.child]
                 
                 // Ignore any edges that have already been processed.
                 guard !(parentJoint.isValid && childJoint.isValid) else {
@@ -289,7 +289,7 @@ private extension Array where Element == Pose {
         // Check each pose in the array.
         for pose in self {
             // Find the joint that matches the candidate.
-            let matchingJoint = pose.joints[candidate.name]!
+            let matchingJoint = pose.joints[candidate.name]
 
             // Skip the pose's joint if it is not valid.
             guard matchingJoint.isValid else { continue }

@@ -16,16 +16,15 @@ extension PoseBuilder {
         // For each joint, find its most likely position and associated confidence
         // by querying the heatmap array for the cell with the greatest
         // confidence and using this to compute its position.
-        pose.joints.values.forEach { joint in
+        pose.joints.forEach { joint in
             configure(joint: joint)
         }
 
         // Compute and assign the confidence for the pose.
-        pose.confidence = pose.joints.values
-            .map { $0.confidence }.reduce(0, +) / Double(Joint.numberOfJoints)
+        pose.confidence = pose.joints.map { $0.confidence }.reduce(0, +) / Double(Joint.numberOfJoints)
 
         // Map the pose joints positions back onto the original image.
-        pose.joints.values.forEach { joint in
+        pose.joints.forEach { joint in
             joint.position = joint.position.applying(modelToInputTransformation)
         }
 

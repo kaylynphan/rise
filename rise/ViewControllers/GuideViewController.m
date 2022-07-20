@@ -125,8 +125,8 @@ static int exerciseNum = 0;
     // originally, we construct an array of poses.
     // here let's only an array of only one pose
     Pose *pose = [poseBuilder pose];
-    NSArray *poses = [[NSArray alloc] init];
-    [poses arrayByAddingObject:pose];
+    NSMutableArray *poses = [[NSMutableArray alloc] init];
+    [poses addObject:pose];
     
     [self.poseImageView showWithPoses:poses withFrame:currentFrame];
     self.currentFrame = nil;
