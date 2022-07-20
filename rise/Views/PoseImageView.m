@@ -83,20 +83,55 @@
     
     UIGraphicsBeginImageContextWithOptions(dstImageSize, NO, 0.0f);
     CGRect drawingRect = CGRectMake(0, 0, 480, 640);
-    CGPoint center = CGPointMake(CGRectGetMidX(drawingRect), CGRectGetMidY(drawingRect));
     CGContextScaleCTM(UIGraphicsGetCurrentContext(), 1, -1);
     CGContextTranslateCTM(UIGraphicsGetCurrentContext(), 0, -640);
     CGContextDrawImage(UIGraphicsGetCurrentContext(), drawingRect, frame);
+    
+    for (Pose *pose in poses) {
+        for (JointSegment *segment in self.jointSegments) {
+            int indexA = segment.jointA;
+            int indexB = segment.jointB;
+            Joint *jointA = [pose getJointWithIndex:indexA];
+            Joint *jointB = [pose getJointWithIndex:indexB];
+            
+            if (jointA.isValid && jointB.isValid) {
+                /*
+                [self drawLineWithParentJoint:jointA withChildJoint:jointB withCGContext:UIGraphicsGetCurrentContext()];
+                 */
+                CGContextSetStrokeColorWithColor(UIGraphicsGetCurrentContext(), UIColor.blackColor.CGColor);
+                CGContextSetLineWidth(UIGraphicsGetCurrentContext(), 2.0);
+                CGContextMoveToPoint(UIGraphicsGetCurrentContext(), jointA.position.x, jointA.position.y);
+                CGContextAddLineToPoint(UIGraphicsGetCurrentContext(), jointB.position.x, jointB.position.y);
+                CGContextStrokePath(UIGraphicsGetCurrentContext());
+            }
+        }
+        for (Joint *joint in pose.joints) {
+            if (joint.isValid) {
+                [self drawWithCircle:joint withCGContext:UIGraphicsGetCurrentContext()];
+            }
+        }
+    }
+    
+    
+    
+    
     UIImage *dstImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     self.image = dstImage;
+     
      
 }
 
 - (void)drawWithImage:(CGImageRef)image withCGContext:(CGContextRef)cgContext {
     CGContextSaveGState(cgContext);
     CGContextScaleCTM(cgContext, 1.0, -1.0); //image is nonnull
+    
+    CGRect drawingRect = CGRectMake(0, 0, 480, 640);
+    CGContextScaleCTM(UIGraphicsGetCurrentContext(), 1, -1);
+    CGContextTranslateCTM(UIGraphicsGetCurrentContext(), 0, -640);
+    /*
     CGRect drawingRect = CGRectMake(0, -1 * CGImageGetHeight(image), CGImageGetWidth(image), CGImageGetHeight(image));
+     */
     CGContextDrawImage(cgContext, drawingRect, image); //drawingRect is nonnull
     CGContextRestoreGState(cgContext);
 }
