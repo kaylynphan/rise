@@ -24,6 +24,12 @@ static int exerciseNum = 0;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    //customize back button
+    //self.backButton.titleView.tintColor = [UIColor blackColor];
+    self.backButton.backBarButtonItem.tintColor = [UIColor blackColor];
+
+  
+    
     self.countdownTimer.delegate = self;
     self.titleLabel.text = self.workout.name;
     [self updateLabels];

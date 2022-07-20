@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIView *emailFieldBackground;
 @property (weak, nonatomic) IBOutlet UIView *usernameFieldBackground;
 @property (weak, nonatomic) IBOutlet UIView *passwordFieldBackground;
+@property (weak, nonatomic) IBOutlet UILabel *registerNewUserLabel;
 
 @end
 
@@ -29,6 +30,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.registerNewUserLabel.font = [UIFont fontWithName:@"Poppins-medium" size:30];
     
     // must assign text field delegates to 'self' in order to dismiss keyboard upon pressing 'enter'
     self.nameField.delegate = self;
@@ -36,10 +38,10 @@
     self.usernameField.delegate = self;
     self.passwordField.delegate = self;
     
-    self.nameField.font = [UIFont fontWithName:@"Poppins-regular" size:18];
-    self.emailField.font = [UIFont fontWithName:@"Poppins-regular" size:18];
-    self.usernameField.font = [UIFont fontWithName:@"Poppins-regular" size:18];
-    self.passwordField.font = [UIFont fontWithName:@"Poppins-regular" size:18];
+    self.nameField.font = [UIFont fontWithName:@"Poppins-regular" size:16];
+    self.emailField.font = [UIFont fontWithName:@"Poppins-regular" size:16];
+    self.usernameField.font = [UIFont fontWithName:@"Poppins-regular" size:16];
+    self.passwordField.font = [UIFont fontWithName:@"Poppins-regular" size:16];
     self.nameFieldBackground.layer.cornerRadius = 15.0;
     self.emailFieldBackground.layer.cornerRadius = 15.0;
     self.usernameFieldBackground.layer.cornerRadius = 15.0;

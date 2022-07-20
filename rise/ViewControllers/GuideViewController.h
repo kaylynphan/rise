@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet SRCountdownTimer *countdownTimer;
 @property (weak, nonatomic) IBOutlet UILabel *poseLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *poseImage;
+@property (weak, nonatomic) IBOutlet UINavigationItem *backButton;
 
 @end
 

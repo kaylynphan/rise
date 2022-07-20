@@ -31,8 +31,8 @@
     self.usernameField.delegate = self;
     self.passwordField.delegate = self;
     
-    self.usernameField.font = [UIFont fontWithName:@"Poppins-regular" size:18];
-    self.passwordField.font = [UIFont fontWithName:@"Poppins-regular" size:18];
+    self.usernameField.font = [UIFont fontWithName:@"Poppins-regular" size:16];
+    self.passwordField.font = [UIFont fontWithName:@"Poppins-regular" size:16];
     
     self.usernameBackgroundView.layer.cornerRadius = 15.0;
     self.passwordBackgroundView.layer.cornerRadius = 15.0;
