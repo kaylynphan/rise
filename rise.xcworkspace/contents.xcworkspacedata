@@ -4,6 +4,302 @@
    <FileRef
       location = "group:rise.xcodeproj">
    </FileRef>
+   <Group
+      location = "group:rise"
+      name = "rise">
+      <FileRef
+         location = "group:YogaPoseAPIManager.h">
+      </FileRef>
+      <FileRef
+         location = "group:AppDelegate.h">
+      </FileRef>
+      <Group
+         location = "group:Assets.xcassets"
+         name = "Assets.xcassets">
+         <Group
+            location = "group:Logo.imageset"
+            name = "Logo.imageset">
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+            <FileRef
+               location = "group:Logo.svg">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:AppIcon.appiconset"
+            name = "AppIcon.appiconset">
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:AccentColor.colorset"
+            name = "AccentColor.colorset">
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+         </Group>
+         <FileRef
+            location = "group:Contents.json">
+         </FileRef>
+         <Group
+            location = "group:Profile Icon Component.imageset"
+            name = "Profile Icon Component.imageset">
+            <FileRef
+               location = "group:Profile Icon Component.svg">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:Check Mark Component.imageset"
+            name = "Check Mark Component.imageset">
+            <FileRef
+               location = "group:Check Mark Component.svg">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+         </Group>
+      </Group>
+      <FileRef
+         location = "group:SceneDelegate.m">
+      </FileRef>
+      <Group
+         location = "group:Models"
+         name = "Models">
+         <FileRef
+            location = "group:Workout.h">
+         </FileRef>
+         <FileRef
+            location = "group:User.m">
+         </FileRef>
+         <FileRef
+            location = "group:YogaPose.m">
+         </FileRef>
+         <FileRef
+            location = "group:User.h">
+         </FileRef>
+         <FileRef
+            location = "group:Workout.m">
+         </FileRef>
+         <FileRef
+            location = "group:YogaPose.h">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:Base.lproj"
+         name = "Base.lproj">
+         <FileRef
+            location = "group:LaunchScreen.storyboard">
+         </FileRef>
+         <FileRef
+            location = "group:Main.storyboard">
+         </FileRef>
+      </Group>
+      <FileRef
+         location = "group:YogaPoseAPIManager.m">
+      </FileRef>
+      <Group
+         location = "group:ViewControllers"
+         name = "ViewControllers">
+         <FileRef
+            location = "group:GuideViewController.h">
+         </FileRef>
+         <FileRef
+            location = "group:SplashViewController.h">
+         </FileRef>
+         <FileRef
+            location = "group:GalleryViewController.m">
+         </FileRef>
+         <FileRef
+            location = "group:LoginViewController.m">
+         </FileRef>
+         <FileRef
+            location = "group:RegisterViewController.m">
+         </FileRef>
+         <FileRef
+            location = "group:GuideViewController.m">
+         </FileRef>
+         <FileRef
+            location = "group:SplashViewController.m">
+         </FileRef>
+         <FileRef
+            location = "group:LoginViewController.h">
+         </FileRef>
+         <FileRef
+            location = "group:GalleryViewController.h">
+         </FileRef>
+         <FileRef
+            location = "group:RegisterViewController.h">
+         </FileRef>
+      </Group>
+      <FileRef
+         location = "group:main.m">
+      </FileRef>
+      <FileRef
+         location = "group:AppDelegate.m">
+      </FileRef>
+      <Group
+         location = "group:Views"
+         name = "Views">
+         <FileRef
+            location = "group:WorkoutCell.h">
+         </FileRef>
+         <FileRef
+            location = "group:GalleryViewHeader.m">
+         </FileRef>
+         <FileRef
+            location = "group:PoseImageView.h">
+         </FileRef>
+         <FileRef
+            location = "group:ContainedButton.h">
+         </FileRef>
+         <FileRef
+            location = "group:GalleryViewHeader.h">
+         </FileRef>
+         <FileRef
+            location = "group:WorkoutCell.m">
+         </FileRef>
+         <FileRef
+            location = "group:ContainedButton.m">
+         </FileRef>
+         <FileRef
+            location = "group:PoseImageView.m">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:Poppins"
+         name = "Poppins">
+         <FileRef
+            location = "group:Poppins-ExtraLight.ttf">
+         </FileRef>
+         <FileRef
+            location = "group:Poppins-ThinItalic.ttf">
+         </FileRef>
+         <FileRef
+            location = "group:Poppins-ExtraLightItalic.ttf">
+         </FileRef>
+         <FileRef
+            location = "group:Poppins-BoldItalic.ttf">
+         </FileRef>
+         <FileRef
+            location = "group:Poppins-Light.ttf">
+         </FileRef>
+         <FileRef
+            location = "group:Poppins-Medium.ttf">
+         </FileRef>
+         <FileRef
+            location = "group:Poppins-SemiBoldItalic.ttf">
+         </FileRef>
+         <FileRef
+            location = "group:Poppins-ExtraBoldItalic.ttf">
+         </FileRef>
+         <FileRef
+            location = "group:Poppins-ExtraBold.ttf">
+         </FileRef>
+         <FileRef
+            location = "group:Poppins-BlackItalic.ttf">
+         </FileRef>
+         <FileRef
+            location = "group:OFL.txt">
+         </FileRef>
+         <FileRef
+            location = "group:Poppins-Regular.ttf">
+         </FileRef>
+         <FileRef
+            location = "group:Poppins-LightItalic.ttf">
+         </FileRef>
+         <FileRef
+            location = "group:Poppins-Bold.ttf">
+         </FileRef>
+         <FileRef
+            location = "group:Poppins-Black.ttf">
+         </FileRef>
+         <FileRef
+            location = "group:Poppins-Thin.ttf">
+         </FileRef>
+         <FileRef
+            location = "group:Poppins-SemiBold.ttf">
+         </FileRef>
+         <FileRef
+            location = "group:Poppins-Italic.ttf">
+         </FileRef>
+         <FileRef
+            location = "group:Poppins-MediumItalic.ttf">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:PoseNet"
+         name = "PoseNet">
+         <FileRef
+            location = "group:PoseNetMobileNet075S8FP16.mlmodel">
+         </FileRef>
+         <FileRef
+            location = "group:Joint.swift">
+         </FileRef>
+         <FileRef
+            location = "group:PoseNetOutput.swift">
+         </FileRef>
+         <FileRef
+            location = "group:PoseBuilder+Multiple.swift">
+         </FileRef>
+         <FileRef
+            location = "group:JointSegment.m">
+         </FileRef>
+         <FileRef
+            location = "group:PoseNet.swift">
+         </FileRef>
+         <FileRef
+            location = "group:AVCaptureVideoOrientation+Extension.swift">
+         </FileRef>
+         <FileRef
+            location = "group:VideoCapture.swift">
+         </FileRef>
+         <FileRef
+            location = "group:PoseBuilder+Single.swift">
+         </FileRef>
+         <FileRef
+            location = "group:Pose.swift">
+         </FileRef>
+         <FileRef
+            location = "group:CGPoint+Extension.swift">
+         </FileRef>
+         <FileRef
+            location = "group:JointSegment.h">
+         </FileRef>
+         <Group
+            location = "group:Model"
+            name = "Model">
+         </Group>
+         <FileRef
+            location = "group:PoseBuilder.swift">
+         </FileRef>
+         <FileRef
+            location = "group:rise-Bridging-Header.h">
+         </FileRef>
+         <FileRef
+            location = "group:PoseNetInput.swift">
+         </FileRef>
+         <FileRef
+            location = "group:PoseBuilderConfiguration.swift">
+         </FileRef>
+         <FileRef
+            location = "group:CGImage+Extension.swift">
+         </FileRef>
+         <FileRef
+            location = "group:PoseNetMobileNet075S16FP16.mlmodel">
+         </FileRef>
+      </Group>
+      <FileRef
+         location = "group:Info.plist">
+      </FileRef>
+      <FileRef
+         location = "group:SceneDelegate.h">
+      </FileRef>
+   </Group>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>

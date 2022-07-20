@@ -29,6 +29,8 @@
     }];
     [Parse initializeWithConfiguration:config];
     
+    [[UILabel appearance] setFont:[UIFont fontWithName:@"Poppins-Regular" size:16.0]];
+    
     return YES;
 }
 

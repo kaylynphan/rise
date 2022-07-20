@@ -26,7 +26,7 @@
 + (NSArray *)posesWithDictionaries:(NSArray *)dictionaries {
     NSMutableArray *poses = [[NSMutableArray alloc] init];
         for (NSDictionary *dictionary in dictionaries) {
-            //NSLog(@"%@", dictionary); // print each 'item' dictionary
+            NSLog(@"%@", dictionary); // print each 'item' dictionary
             YogaPose *pose = [[YogaPose alloc] initWithDictionary:dictionary];
             [poses addObject:pose];
         }
