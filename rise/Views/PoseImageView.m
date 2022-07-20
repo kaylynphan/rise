@@ -50,66 +50,17 @@
     
     UIGraphicsImageRenderer *renderer = [[UIGraphicsImageRenderer alloc] initWithSize:dstImageSize format:dstImageFormat]; //renderer is nonnull
     
-    /*
-    // call draw()
-    UIImage *dstImage = [renderer imageWithActions:^(UIGraphicsImageRendererContext * _Nonnull rendererContext) {
-        //NSLog(@"PoseImageView drawWithImage is being called");
-        [self drawWithImage:frame withCGContext:rendererContext.CGContext];
-        
-        
-        for (Pose *pose in poses) {
-            for (JointSegment *segment in self.jointSegments) {
-                int indexA = segment.jointA;
-                int indexB = segment.jointB;
-                Joint *jointA = [pose getJointWithIndex:indexA];
-                Joint *jointB = [pose getJointWithIndex:indexB];
-                
-                if (jointA.isValid && jointB.isValid) {
-                    [self drawLineWithParentJoint:jointA withChildJoint:jointB withCGContext:rendererContext.CGContext];
-                }
-            }
-            for (Joint *joint in pose.joints) {
-                if (joint.isValid) {
-                    [self drawWithCircle:joint withCGContext:rendererContext.CGContext];
-                }
-            }
-        }
-         
-         
-    }];
-    self.image = dstImage; // it appears that dstImage is nil
-    
-    */
-    
     UIGraphicsBeginImageContextWithOptions(dstImageSize, NO, 0.0f);
-    /*
-    // My translations
-    CGRect drawingRect = CGRectMake(0, 0, 480, 640);
-    CGContextScaleCTM(UIGraphicsGetCurrentContext(), 1, -1);
-    CGContextTranslateCTM(UIGraphicsGetCurrentContext(), 0, -640);
-     */
-    
-    
-    /*
-    // My translations but with frame size
-    CGRect drawingRect = CGRectMake(0, 0, frameWidth, frameHeight);
-    CGContextScaleCTM(UIGraphicsGetCurrentContext(), 1, -1);
-    CGContextTranslateCTM(UIGraphicsGetCurrentContext(), 0, -1 * frameHeight);
-     */
-    
-    //Sample code's translations
-    
+
+    // render camera feed
     CGContextSaveGState(UIGraphicsGetCurrentContext());
-    
     CGContextScaleCTM(UIGraphicsGetCurrentContext(), 1, -1);
     CGRect drawingRect = CGRectMake(0, -1 * frameHeight, frameWidth, frameHeight);
-     
     CGContextDrawImage(UIGraphicsGetCurrentContext(), drawingRect, frame);
-    
     CGContextRestoreGState(UIGraphicsGetCurrentContext());
     
+    // draw segments
     for (Pose *pose in poses) {
-    
         for (JointSegment *segment in self.jointSegments) {
             int indexA = segment.jointA;
             int indexB = segment.jointB;
@@ -117,49 +68,24 @@
             Joint *jointB = [pose getJointWithIndex:indexB];
             
             if (jointA.isValid && jointB.isValid) {
-                NSLog([NSString stringWithFormat:@"Segment from Index: %d, Joint %d to Index: %d, Joint %d", indexA, jointA.name, indexB, jointB.name]);
+                //NSLog([NSString stringWithFormat:@"Segment from Index: %d, Joint %d to Index: %d, Joint %d", indexA, jointA.name, indexB, jointB.name]);
                 [self drawLineWithParentJoint:jointA withChildJoint:jointB withCGContext:UIGraphicsGetCurrentContext()];
-                
             }
         }
         
-        
+        // draw joints
         for (Joint *joint in pose.joints) {
             if (joint.name > 4) {
                 if (joint.isValid) {
-                    
                     [self drawWithCircle:joint withCGContext:UIGraphicsGetCurrentContext()];
                 }
             }
         }
-         
     }
-    
-    
-    
     
     UIImage *dstImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     self.image = dstImage;
-     
-     
-}
-
-- (void)drawWithImage:(CGImageRef)image withCGContext:(CGContextRef)cgContext {
-    CGContextSaveGState(cgContext);
-    CGContextScaleCTM(cgContext, 1.0, -1.0); //image is nonnull
-    
-    CGRect drawingRect = CGRectMake(0,
-                                    -1 * CGImageGetHeight(image),
-                                    CGImageGetWidth(image),
-                                    CGImageGetHeight(image));
-    CGContextScaleCTM(UIGraphicsGetCurrentContext(), 1, -1);
-    CGContextTranslateCTM(UIGraphicsGetCurrentContext(), 0, -640);
-    /*
-    CGRect drawingRect = CGRectMake(0, -1 * CGImageGetHeight(image), CGImageGetWidth(image), CGImageGetHeight(image));
-     */
-    CGContextDrawImage(cgContext, drawingRect, image); //drawingRect is nonnull
-    CGContextRestoreGState(cgContext);
 }
 
 - (void) drawLineWithParentJoint:(Joint *)parentJoint withChildJoint:(Joint *)childJoint withCGContext:(CGContextRef)cgContext {

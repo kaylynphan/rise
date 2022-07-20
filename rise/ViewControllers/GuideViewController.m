@@ -44,14 +44,6 @@ static int exerciseNum = 0;
     NSLog(@"Now calling setupAndBeginCapturingVideoFrames");
     [self setupAndBeginCapturingVideoFrames];
     
-    
-    // initial labels and images
-    /*
-    YogaPose *firstPose = [self.workout.stretches objectAtIndex:0];
-    self.poseLabel.text = firstPose.name;
-    self.poseImage.image = [UIImage imageWithData:[[NSData alloc] initWithContentsOfURL:firstPose.imageURL]];
-    [self.countdownTimer startWithBeginingValue:30 interval:1];
-     */
 }
 
 - (void)setupAndBeginCapturingVideoFrames {
@@ -69,17 +61,6 @@ static int exerciseNum = 0;
         NSLog(@"Returning from setupAndBeginCapturingFrames");
     }];
 }
-
-//- (void)videoWillDisappear
-// not sure what this is for
-
-//@IBAction onCameraButtonTapped
-// only for flipping camera
-
-//@IBAction onAlgorithmSegmentValueChanged(sender: UISegmentedControl)
-// not sure what this is for
-
-
 
 - (void)timerDidEndWithSender:(SRCountdownTimer *)sender elapsedTime:(NSTimeInterval)elapsedTime {
     NSLog(@"Timer did end");

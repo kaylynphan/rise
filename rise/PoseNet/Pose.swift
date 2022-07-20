@@ -55,51 +55,8 @@ import Foundation
         return joints[index];
     }
     
-    // never called
-    /*
-    func setJoint(index: Int, joint: Joint) {
-        joints[index] = joint;
-    }
-     */
-
-    /*
-    /// The joints that make up a pose.
-    private(set) var joints: [Int: Joint] = [
-        Joint.nose: Joint(name: Joint.nose),
-        Joint.leftEye: Joint(name: Joint.leftEye),
-        Joint.leftEar: Joint(name: Joint.leftEar),
-        Joint.leftShoulder: Joint(name: Joint.leftShoulder),
-        Joint.leftElbow: Joint(name: Joint.leftElbow),
-        Joint.leftWrist: Joint(name: Joint.leftWrist),
-        Joint.leftHip: Joint(name: Joint.leftHip),
-        Joint.leftKnee: Joint(name: Joint.leftKnee),
-        Joint.leftAnkle: Joint(name: Joint.leftAnkle),
-        Joint.rightEye: Joint(name: Joint.rightEye),
-        Joint.rightEar: Joint(name: Joint.rightEar),
-        Joint.rightShoulder: Joint(name: Joint.rightShoulder),
-        Joint.rightElbow: Joint(name: Joint.rightElbow),
-        Joint.rightWrist: Joint(name: Joint.rightWrist),
-        Joint.rightHip: Joint(name: Joint.rightHip),
-        Joint.rightKnee: Joint(name: Joint.rightKnee),
-        Joint.rightAnkle: Joint(name: Joint.rightAnkle)
-    ]
-     */
-    
     /// The confidence score associated with this pose.
     var confidence: Double = 0.0
-
-    /// Accesses the joint with the specified name.
-    /*
-    subscript(jointName: Int) -> Joint {
-        get {
-            assert(joints[jointName] != nil)
-            return joints[jointName]!
-        }
-        set {
-            joints[jointName] = newValue
-        }
-    }
-     */
 
     /// Returns all edges that link **from** or **to** the specified joint.
     ///
