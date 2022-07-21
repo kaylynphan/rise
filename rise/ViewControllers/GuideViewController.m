@@ -19,6 +19,7 @@
 @property (weak, nonatomic) PoseBuilderConfiguration *poseBuilderConfiguration;
 @property (strong, nonatomic) CGImageRef _Nullable currentFrame __attribute__((NSObject));
 @property (assign) BOOL isPaused;
+@property (weak, nonatomic) IBOutlet UIImageView *playIcon;
 
 @end
 
@@ -39,9 +40,10 @@ static int exerciseNum = 0;
     // set up countdown timer
     self.countdownTimer.delegate = self;
     [self.countdownTimer setLineColor:[UIColor greenColor]];
-    [self.countdownTimer setLineWidth:15];
+    //[self.countdownTimer setLineWidth:15];
     [self.countdownTimer setLabelFont:[UIFont fontWithName:@"Poppins-medium" size:65]];
-    [self.countdownTimer setBackgroundColor:[UIColor colorWithWhite:1 alpha:0]];
+    //[self.countdownTimer setLabelTextColor:[UIColor colorWithWhite:0.5 alpha:0.5]];
+    //[self.countdownTimer setBackgroundColor:[UIColor clearColor]];
     
     
     self.titleLabel.text = self.workout.name;
@@ -138,6 +140,11 @@ static int exerciseNum = 0;
 }
 */
 
+- (IBAction)didTapPlayIcon:(id)sender {
+    NSLog(@"Play icon tapped");
+    [self pauseOrPlay];
+}
+
 - (IBAction)didDoubleTapScreen:(id)sender {
     NSLog(@"Screen double tapped");
     [self pauseOrPlay];
@@ -150,14 +157,25 @@ static int exerciseNum = 0;
 
 - (void)pauseOrPlay {
     if (!self.isPaused) {
-        [self.countdownTimer setLineColor:[UIColor yellowColor]];
         [self.countdownTimer pause];
         self.isPaused = YES;
     } else {
-        [self.countdownTimer setLineColor:[UIColor greenColor]];
         [self.countdownTimer resume];
         self.isPaused = NO;
     }
+}
+
+- (void)timerDidPauseWithSender:(SRCountdownTimer *)sender {
+    [self.countdownTimer setLineColor:[UIColor yellowColor]];
+    self.countdownTimer.counterLabel.text = @"";
+    [self.playIcon setHidden:NO];
+}
+
+- (void)timerDidResumeWithSender:(SRCountdownTimer *)sender {
+    [self.countdownTimer setLineColor:[UIColor greenColor]];
+    [self.playIcon setHidden:YES];
+    self.countdownTimer.counterLabel.text = [NSString stringWithFormat:@"%ld", self.countdownTimer.currentCounterValue];
+    [self.countdownTimer setIsLabelHidden:NO];
 }
 
 @end

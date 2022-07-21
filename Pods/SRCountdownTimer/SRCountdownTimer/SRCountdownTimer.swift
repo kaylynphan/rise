@@ -57,7 +57,7 @@ public class SRCountdownTimer: UIView {
     private var interval: TimeInterval = 1 // Interval which is set by a user
     private let fireInterval: TimeInterval = 0.01 // ~60 FPS
 
-    private lazy var counterLabel: UILabel = {
+    public lazy var counterLabel: UILabel = {
         let label = UILabel()
         self.addSubview(label)
 
@@ -72,7 +72,7 @@ public class SRCountdownTimer: UIView {
 
         return label
     }()
-    private var currentCounterValue: Int = 0 {
+    public var currentCounterValue: Int = 0 {
         didSet {
             if !isLabelHidden {
                 if let text = timerFinishingText, currentCounterValue == 0 {
@@ -85,7 +85,6 @@ public class SRCountdownTimer: UIView {
                     }
                 }
             }
-
             delegate?.timerDidUpdateCounterValue?(sender: self, newValue: currentCounterValue)
         }
     }
@@ -173,7 +172,6 @@ public class SRCountdownTimer: UIView {
      */
     public func pause() {
         timer?.fireDate = Date.distantFuture
-
         delegate?.timerDidPause?(sender: self)
     }
 

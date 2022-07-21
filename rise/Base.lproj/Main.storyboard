@@ -579,11 +579,38 @@
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xf1-xc-sT0" customClass="SRCountdownTimer" customModule="SRCountdownTimer">
                                 <rect key="frame" x="117.66666666666669" y="497" width="155" height="155"/>
+                                <subviews>
+                                    <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="play" translatesAutoresizingMaskIntoConstraints="NO" id="CRX-2S-Fpq">
+                                        <rect key="frame" x="46.333333333333329" y="42.666666666666629" width="70" height="70"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="70" id="rcM-pM-idR"/>
+                                            <constraint firstAttribute="height" constant="70" id="zff-nV-Msu"/>
+                                        </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="u3q-cM-nMH" appends="YES" id="K6Z-Qo-tbj"/>
+                                        </connections>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
                                 <constraints>
+                                    <constraint firstItem="CRX-2S-Fpq" firstAttribute="centerY" secondItem="xf1-xc-sT0" secondAttribute="centerY" id="7yV-ka-7pw"/>
                                     <constraint firstAttribute="width" constant="155" id="EpJ-3H-xtS"/>
                                     <constraint firstAttribute="height" constant="155" id="vBp-Wi-h7S"/>
+                                    <constraint firstItem="CRX-2S-Fpq" firstAttribute="centerX" secondItem="xf1-xc-sT0" secondAttribute="centerX" multiplier="1.05" id="xOR-vk-SJq"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="labelTextColor">
+                                        <color key="value" white="1" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="trailLineColor">
+                                        <color key="value" white="1" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="IcL-9I-BTi" appends="YES" id="lF6-fe-6oD"/>
                                 </connections>
@@ -626,6 +653,7 @@
                     <connections>
                         <outlet property="backButton" destination="tqn-U5-kZH" id="bpm-g4-Uiv"/>
                         <outlet property="countdownTimer" destination="xf1-xc-sT0" id="Q6R-Ko-a5a"/>
+                        <outlet property="playIcon" destination="CRX-2S-Fpq" id="gWv-iA-KnC"/>
                         <outlet property="poseImage" destination="scm-aV-LM0" id="NoV-tZ-a66"/>
                         <outlet property="poseImageView" destination="bBy-Pj-FZw" id="qEE-rN-e3k"/>
                         <outlet property="poseLabel" destination="ME3-Ov-vPk" id="fLr-Uw-YfJ"/>
@@ -641,6 +669,11 @@
                 <tapGestureRecognizer numberOfTapsRequired="2" id="IcL-9I-BTi">
                     <connections>
                         <action selector="didDoubleTapTimer:" destination="mZG-wJ-sOR" id="7HY-NX-07D"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="u3q-cM-nMH">
+                    <connections>
+                        <action selector="didTapPlayIcon:" destination="mZG-wJ-sOR" id="8Ro-U6-nvw"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -674,6 +707,7 @@
         <image name="Check Mark Component" width="24" height="24"/>
         <image name="Logo" width="170" height="149"/>
         <image name="Profile Icon Component" width="40" height="40"/>
+        <image name="play" width="29" height="32"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

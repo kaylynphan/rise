@@ -25,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet PoseImageView *poseImageView;
 - (IBAction)didDoubleTapTimer:(id)sender;
 - (IBAction)didDoubleTapScreen:(id)sender;
-
+- (IBAction)didTapPlayIcon:(id)sender;
 
 
 @end
