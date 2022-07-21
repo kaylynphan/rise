@@ -18,6 +18,7 @@
 @property (strong, nonatomic)  PoseNet * _Nullable poseNet;
 @property (weak, nonatomic) PoseBuilderConfiguration *poseBuilderConfiguration;
 @property (strong, nonatomic) CGImageRef _Nullable currentFrame __attribute__((NSObject));
+@property (assign) BOOL isPaused;
 
 @end
 
@@ -35,9 +36,17 @@ static int exerciseNum = 0;
 
     //[PoseImageView getJoint]; //test success!!
     
+    // set up countdown timer
     self.countdownTimer.delegate = self;
+    [self.countdownTimer setLineColor:[UIColor grayColor]];
+    [self.countdownTimer setLineWidth:6];
+    [self.countdownTimer setLabelFont:[UIFont fontWithName:@"Poppins-medium" size:30]];
+    [self.countdownTimer setBackgroundColor:[UIColor colorWithWhite:1 alpha:0]];
+    
+    
     self.titleLabel.text = self.workout.name;
     [self updateLabels];
+    self.isPaused = NO;
     
     NSLog(@"Now initializing PoseNet model");
     self.poseNet = [[PoseNet alloc] init];
@@ -128,5 +137,23 @@ static int exerciseNum = 0;
     // some code for navigating to configurationViewController (not sure if we will use this here)
 }
 */
+
+- (IBAction)didDoubleTapScreen:(id)sender {
+    [self pausePlay];
+}
+
+- (IBAction)didDoubleTapTimer:(id)sender {
+    [self pausePlay];
+}
+
+- (void)pausePlay {
+    if (!self.isPaused) {
+        [self.countdownTimer pause];
+        self.isPaused = YES;
+    } else {
+        [self.countdownTimer resume];
+        self.isPaused = NO;
+    }
+}
 
 @end

@@ -51,7 +51,7 @@ public class SRCountdownTimer: UIView {
     public var moveClockWise = true
 
     private var timer: Timer?
-    private var beginingValue: Int = 1
+    private var beginingValue: Int = 0
     private var totalTime: TimeInterval = 1
     private var elapsedTime: TimeInterval = 0
     private var interval: TimeInterval = 1 // Interval which is set by a user

@@ -561,9 +561,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bBy-Pj-FZw" customClass="PoseImageView">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bBy-Pj-FZw" customClass="PoseImageView">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="nMU-2J-Yqb" appends="YES" id="K58-p3-JYp"/>
+                                </connections>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fum-3U-9yL">
                                 <rect key="frame" x="41" y="106" width="353" height="30"/>
@@ -576,11 +579,14 @@
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xf1-xc-sT0" customClass="SRCountdownTimer" customModule="SRCountdownTimer">
                                 <rect key="frame" x="117.66666666666669" y="497" width="155" height="155"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="155" id="EpJ-3H-xtS"/>
                                     <constraint firstAttribute="height" constant="155" id="vBp-Wi-h7S"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="IcL-9I-BTi" appends="YES" id="lF6-fe-6oD"/>
+                                </connections>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stretch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ME3-Ov-vPk">
                                 <rect key="frame" x="41" y="180" width="176" height="21"/>
@@ -608,8 +614,12 @@
                             <constraint firstItem="ME3-Ov-vPk" firstAttribute="top" secondItem="Fum-3U-9yL" secondAttribute="bottom" constant="44" id="E6Z-VF-xq4"/>
                             <constraint firstItem="Fum-3U-9yL" firstAttribute="leading" secondItem="gvT-UN-M41" secondAttribute="leading" constant="41" id="HBC-qm-fWQ"/>
                             <constraint firstItem="ME3-Ov-vPk" firstAttribute="top" secondItem="scm-aV-LM0" secondAttribute="top" id="SgF-X6-zk6"/>
+                            <constraint firstItem="bBy-Pj-FZw" firstAttribute="leading" secondItem="gC1-6Y-o34" secondAttribute="leading" id="WMj-bE-xpD"/>
                             <constraint firstItem="gvT-UN-M41" firstAttribute="bottom" secondItem="xf1-xc-sT0" secondAttribute="bottom" constant="109" id="Y3M-lG-h0G"/>
                             <constraint firstItem="scm-aV-LM0" firstAttribute="leading" secondItem="ME3-Ov-vPk" secondAttribute="trailing" constant="39" id="e7g-Bo-G80"/>
+                            <constraint firstItem="bBy-Pj-FZw" firstAttribute="trailing" secondItem="gC1-6Y-o34" secondAttribute="trailing" id="hm7-hv-zeC"/>
+                            <constraint firstItem="bBy-Pj-FZw" firstAttribute="bottom" secondItem="gC1-6Y-o34" secondAttribute="bottom" id="tpO-q9-slW"/>
+                            <constraint firstItem="bBy-Pj-FZw" firstAttribute="top" secondItem="gC1-6Y-o34" secondAttribute="top" id="z8U-7B-pbU"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="tqn-U5-kZH"/>
@@ -623,8 +633,18 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sub-Lu-78C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="nMU-2J-Yqb">
+                    <connections>
+                        <action selector="didDoubleTapScreen:" destination="mZG-wJ-sOR" id="HGw-Nk-unR"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="IcL-9I-BTi">
+                    <connections>
+                        <action selector="didDoubleTapTimer:" destination="mZG-wJ-sOR" id="7HY-NX-07D"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3447.826086956522" y="138.61607142857142"/>
+            <point key="canvasLocation" x="3447.6923076923076" y="137.91469194312796"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="MxQ-9y-VRE">
