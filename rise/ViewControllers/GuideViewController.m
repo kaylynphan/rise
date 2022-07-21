@@ -12,7 +12,6 @@
 @import SRCountdownTimer;
 #import "../Views/PoseImageView.h"
 
-
 @interface GuideViewController ()
 
 @property (strong, nonatomic) VideoCapture *videoCapture;

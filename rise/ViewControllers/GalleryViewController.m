@@ -16,14 +16,13 @@
 #import "GuideViewController.h"
 #import <AFNetworking/UIImageView+AFNetworking.h>
 #import "YogaPoseAPIManager.h"
-
+#import <NVActivityIndicatorView/NVActivityIndicatorView-Swift.h>
+@import NVActivityIndicatorView;
 
 @interface GalleryViewController ()
 - (IBAction)didTapLogout:(id)sender;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
-
 
 @end
 
@@ -32,7 +31,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self fetchPoses];
+    //[self fetchPoses];
     
     // set up refresh
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
@@ -44,10 +43,20 @@
     [self.tableView setDataSource:self];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.separatorColor = [UIColor clearColor];
+    [self.activityIndicatorView startAnimating];
+    [self.view addSubview:self.activityIndicatorView];
     
     // perform query
     self.arrayOfWorkouts = [[NSArray alloc] init];
+    //[self queryWorkouts];
     [self queryWorkouts];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    // start fetching images after activity indicator is already on screen
+    if (self.poses == nil) {
+        [self fetchPoses];
+    }
 }
 
 - (void)fetchPoses {
@@ -59,8 +68,6 @@
     
     [networkAlert addAction:tryAgainAction];
     
-    [self.activityIndicator startAnimating];
-    
     // new is an alternative syntax to calling alloc init.
     YogaPoseAPIManager *manager = [YogaPoseAPIManager new];
     [manager fetchPoses:^(NSArray *poses, NSError *error) {
@@ -68,13 +75,14 @@
         if (poses != nil) {
             // if the network call is successful
             NSLog(@"Successfully fetched poses");
+            [self.activityIndicatorView stopAnimating];
         } else {
             [self presentViewController:networkAlert animated:YES completion:^{
                 NSLog(@"Fetched poses is nil");
             }];
         }
     }];
-    [self.activityIndicator stopAnimating];
+    [self.tableView reloadData];
 }
 
 - (void)queryWorkouts {

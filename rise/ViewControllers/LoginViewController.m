@@ -48,13 +48,6 @@
     [self.signUpButton sizeToFit];
 }
 
-- (void) viewDidAppear:(BOOL)animated {
-    if (PFUser.currentUser) {
-        NSLog([NSString stringWithFormat:@"The current username is %@", PFUser.currentUser.username]);
-        [self performSegueWithIdentifier:@"loginSegue" sender:nil];
-    }
-}
-
 - (BOOL) textFieldShouldReturn:(UITextField *)textField {
     [self.view endEditing:true];
     return false;
