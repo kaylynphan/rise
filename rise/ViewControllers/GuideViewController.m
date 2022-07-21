@@ -38,9 +38,9 @@ static int exerciseNum = 0;
     
     // set up countdown timer
     self.countdownTimer.delegate = self;
-    [self.countdownTimer setLineColor:[UIColor grayColor]];
-    [self.countdownTimer setLineWidth:6];
-    [self.countdownTimer setLabelFont:[UIFont fontWithName:@"Poppins-medium" size:30]];
+    [self.countdownTimer setLineColor:[UIColor greenColor]];
+    [self.countdownTimer setLineWidth:15];
+    [self.countdownTimer setLabelFont:[UIFont fontWithName:@"Poppins-medium" size:65]];
     [self.countdownTimer setBackgroundColor:[UIColor colorWithWhite:1 alpha:0]];
     
     
@@ -139,18 +139,22 @@ static int exerciseNum = 0;
 */
 
 - (IBAction)didDoubleTapScreen:(id)sender {
-    [self pausePlay];
+    NSLog(@"Screen double tapped");
+    [self pauseOrPlay];
 }
 
 - (IBAction)didDoubleTapTimer:(id)sender {
-    [self pausePlay];
+    NSLog(@"Timer double tapped");
+    [self pauseOrPlay];
 }
 
-- (void)pausePlay {
+- (void)pauseOrPlay {
     if (!self.isPaused) {
+        [self.countdownTimer setLineColor:[UIColor yellowColor]];
         [self.countdownTimer pause];
         self.isPaused = YES;
     } else {
+        [self.countdownTimer setLineColor:[UIColor greenColor]];
         [self.countdownTimer resume];
         self.isPaused = NO;
     }

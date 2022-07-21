@@ -633,12 +633,12 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sub-Lu-78C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="nMU-2J-Yqb">
+                <tapGestureRecognizer numberOfTapsRequired="2" id="nMU-2J-Yqb">
                     <connections>
                         <action selector="didDoubleTapScreen:" destination="mZG-wJ-sOR" id="HGw-Nk-unR"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="IcL-9I-BTi">
+                <tapGestureRecognizer numberOfTapsRequired="2" id="IcL-9I-BTi">
                     <connections>
                         <action selector="didDoubleTapTimer:" destination="mZG-wJ-sOR" id="7HY-NX-07D"/>
                     </connections>
