@@ -565,7 +565,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                                 <gestureRecognizers/>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="nMU-2J-Yqb" appends="YES" id="K58-p3-JYp"/>
+                                    <outletCollection property="gestureRecognizers" destination="bPL-R2-HUU" appends="YES" id="HEp-4m-3We"/>
                                 </connections>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fum-3U-9yL">
@@ -578,18 +578,15 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xf1-xc-sT0" customClass="SRCountdownTimer" customModule="SRCountdownTimer">
-                                <rect key="frame" x="117.66666666666669" y="497" width="155" height="155"/>
+                                <rect key="frame" x="117.66666666666669" y="583.33333333333337" width="155" height="155"/>
                                 <subviews>
                                     <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="play" translatesAutoresizingMaskIntoConstraints="NO" id="CRX-2S-Fpq">
-                                        <rect key="frame" x="46.333333333333329" y="42.666666666666629" width="70" height="70"/>
+                                        <rect key="frame" x="46.333333333333329" y="42.333333333333258" width="70" height="70"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="70" id="rcM-pM-idR"/>
                                             <constraint firstAttribute="height" constant="70" id="zff-nV-Msu"/>
                                         </constraints>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="u3q-cM-nMH" appends="YES" id="K6Z-Qo-tbj"/>
-                                        </connections>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -612,7 +609,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="IcL-9I-BTi" appends="YES" id="lF6-fe-6oD"/>
+                                    <outletCollection property="gestureRecognizers" destination="yoB-U9-sf4" appends="YES" id="rqY-4l-E9e"/>
                                 </connections>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stretch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ME3-Ov-vPk">
@@ -631,20 +628,27 @@
                                     <constraint firstAttribute="width" constant="125" id="dOk-Yr-783"/>
                                 </constraints>
                             </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rewind" translatesAutoresizingMaskIntoConstraints="NO" id="JZm-yi-vrp">
+                                <rect key="frame" x="-70" y="442" width="70" height="70"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gvT-UN-M41"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="ME3-Ov-vPk" firstAttribute="leading" secondItem="Fum-3U-9yL" secondAttribute="leading" id="1YQ-az-b9U"/>
                             <constraint firstItem="Fum-3U-9yL" firstAttribute="top" secondItem="gvT-UN-M41" secondAttribute="top" constant="18" id="61k-TX-pn7"/>
+                            <constraint firstItem="JZm-yi-vrp" firstAttribute="top" secondItem="gC1-6Y-o34" secondAttribute="centerY" constant="20" id="8xA-Ox-Ppa"/>
                             <constraint firstItem="xf1-xc-sT0" firstAttribute="centerX" secondItem="gvT-UN-M41" secondAttribute="centerX" id="CJr-Wv-RaP"/>
                             <constraint firstItem="ME3-Ov-vPk" firstAttribute="top" secondItem="Fum-3U-9yL" secondAttribute="bottom" constant="44" id="E6Z-VF-xq4"/>
                             <constraint firstItem="Fum-3U-9yL" firstAttribute="leading" secondItem="gvT-UN-M41" secondAttribute="leading" constant="41" id="HBC-qm-fWQ"/>
+                            <constraint firstItem="JZm-yi-vrp" firstAttribute="width" secondItem="CRX-2S-Fpq" secondAttribute="width" id="Jrb-6x-PsR"/>
                             <constraint firstItem="ME3-Ov-vPk" firstAttribute="top" secondItem="scm-aV-LM0" secondAttribute="top" id="SgF-X6-zk6"/>
                             <constraint firstItem="bBy-Pj-FZw" firstAttribute="leading" secondItem="gC1-6Y-o34" secondAttribute="leading" id="WMj-bE-xpD"/>
-                            <constraint firstItem="gvT-UN-M41" firstAttribute="bottom" secondItem="xf1-xc-sT0" secondAttribute="bottom" constant="109" id="Y3M-lG-h0G"/>
+                            <constraint firstItem="JZm-yi-vrp" firstAttribute="trailing" secondItem="gvT-UN-M41" secondAttribute="leading" id="We1-ga-lrt"/>
+                            <constraint firstItem="xf1-xc-sT0" firstAttribute="bottom" secondItem="gvT-UN-M41" secondAttribute="bottom" multiplier="0.97" id="Y3M-lG-h0G"/>
                             <constraint firstItem="scm-aV-LM0" firstAttribute="leading" secondItem="ME3-Ov-vPk" secondAttribute="trailing" constant="39" id="e7g-Bo-G80"/>
                             <constraint firstItem="bBy-Pj-FZw" firstAttribute="trailing" secondItem="gC1-6Y-o34" secondAttribute="trailing" id="hm7-hv-zeC"/>
+                            <constraint firstItem="JZm-yi-vrp" firstAttribute="height" secondItem="CRX-2S-Fpq" secondAttribute="height" id="jaW-fj-oLR"/>
                             <constraint firstItem="bBy-Pj-FZw" firstAttribute="bottom" secondItem="gC1-6Y-o34" secondAttribute="bottom" id="tpO-q9-slW"/>
                             <constraint firstItem="bBy-Pj-FZw" firstAttribute="top" secondItem="gC1-6Y-o34" secondAttribute="top" id="z8U-7B-pbU"/>
                         </constraints>
@@ -657,23 +661,19 @@
                         <outlet property="poseImage" destination="scm-aV-LM0" id="NoV-tZ-a66"/>
                         <outlet property="poseImageView" destination="bBy-Pj-FZw" id="qEE-rN-e3k"/>
                         <outlet property="poseLabel" destination="ME3-Ov-vPk" id="fLr-Uw-YfJ"/>
+                        <outlet property="rewindIcon" destination="JZm-yi-vrp" id="VKh-Ea-6Cs"/>
                         <outlet property="titleLabel" destination="Fum-3U-9yL" id="C78-E3-4TF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sub-Lu-78C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer numberOfTapsRequired="2" id="nMU-2J-Yqb">
+                <swipeGestureRecognizer direction="right" id="bPL-R2-HUU">
                     <connections>
-                        <action selector="didDoubleTapScreen:" destination="mZG-wJ-sOR" id="HGw-Nk-unR"/>
+                        <action selector="didSwipeRight:" destination="mZG-wJ-sOR" id="Cb1-C0-b6j"/>
                     </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer numberOfTapsRequired="2" id="IcL-9I-BTi">
+                </swipeGestureRecognizer>
+                <tapGestureRecognizer id="yoB-U9-sf4">
                     <connections>
-                        <action selector="didDoubleTapTimer:" destination="mZG-wJ-sOR" id="7HY-NX-07D"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer id="u3q-cM-nMH">
-                    <connections>
-                        <action selector="didTapPlayIcon:" destination="mZG-wJ-sOR" id="8Ro-U6-nvw"/>
+                        <action selector="didSingleTapTimer:" destination="mZG-wJ-sOR" id="02i-0x-mDi"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -708,6 +708,7 @@
         <image name="Logo" width="170" height="149"/>
         <image name="Profile Icon Component" width="40" height="40"/>
         <image name="play" width="29" height="32"/>
+        <image name="rewind" width="44" height="26"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

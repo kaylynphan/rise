@@ -25,6 +25,7 @@ PODS:
     - Parse/Core (= 1.19.3)
   - Parse/Core (1.19.3):
     - Bolts/Tasks (= 1.9.1)
+  - Sica (0.4.1)
   - SRCountdownTimer (1.3)
   - SVGKit (3.0.0):
     - CocoaLumberjack (~> 3.0)
@@ -33,6 +34,7 @@ DEPENDENCIES:
   - AFNetworking
   - NVActivityIndicatorView
   - Parse
+  - Sica
   - SRCountdownTimer
   - SVGKit
 
@@ -43,6 +45,7 @@ SPEC REPOS:
     - CocoaLumberjack
     - NVActivityIndicatorView
     - Parse
+    - Sica
     - SRCountdownTimer
     - SVGKit
 
@@ -52,9 +55,10 @@ SPEC CHECKSUMS:
   CocoaLumberjack: 543c79c114dadc3b1aba95641d8738b06b05b646
   NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
   Parse: 0abb63a0ff6fa34a3f64b81d595a294e2ece143a
+  Sica: 1a76eae2d819ea30688bb073f502a1f47e421cdd
   SRCountdownTimer: b7f833a51cd33003d55df17667b71d26ee17357f
   SVGKit: 1ad7513f8c74d9652f94ed64ddecda1a23864dea
 
-PODFILE CHECKSUM: 4b1a12661c336b800dae20fd61d2e2abccf05d63
+PODFILE CHECKSUM: d106af1aa6f510bbd1a383fb61fe456621e7ff5b
 
 COCOAPODS: 1.11.3

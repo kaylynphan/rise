@@ -59,6 +59,7 @@
     CGContextDrawImage(UIGraphicsGetCurrentContext(), drawingRect, frame);
     CGContextRestoreGState(UIGraphicsGetCurrentContext());
     
+    
     // draw segments
     for (Pose *pose in poses) {
         for (JointSegment *segment in self.jointSegments) {

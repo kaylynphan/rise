@@ -31,7 +31,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    //[self fetchPoses];
     
     // set up refresh
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
@@ -43,19 +42,18 @@
     [self.tableView setDataSource:self];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.separatorColor = [UIColor clearColor];
-    //[self.activityIndicatorView startAnimating];
-    //[self.view addSubview:self.activityIndicatorView];
+    [self.activityIndicatorView startAnimating];
+    [self.view addSubview:self.activityIndicatorView];
     
     // perform query
     self.arrayOfWorkouts = [[NSArray alloc] init];
-    //[self queryWorkouts];
     [self queryWorkouts];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     // start fetching images after activity indicator is already on screen
     if (self.poses == nil) {
-        //[self fetchPoses];
+        [self fetchPoses];
     }
 }
 

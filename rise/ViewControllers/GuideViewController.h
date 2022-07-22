@@ -23,9 +23,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIImageView *poseImage;
 @property (weak, nonatomic) IBOutlet UINavigationItem *backButton;
 @property (weak, nonatomic) IBOutlet PoseImageView *poseImageView;
-- (IBAction)didDoubleTapTimer:(id)sender;
-- (IBAction)didDoubleTapScreen:(id)sender;
-- (IBAction)didTapPlayIcon:(id)sender;
+- (IBAction)didSwipeRight:(id)sender;
+- (IBAction)didSingleTapTimer:(id)sender;
+
+
 
 
 @end

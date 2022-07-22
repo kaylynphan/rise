@@ -20,6 +20,7 @@
 @property (strong, nonatomic) CGImageRef _Nullable currentFrame __attribute__((NSObject));
 @property (assign) BOOL isPaused;
 @property (weak, nonatomic) IBOutlet UIImageView *playIcon;
+@property (weak, nonatomic) IBOutlet UIImageView *rewindIcon;
 
 @end
 
@@ -58,6 +59,8 @@ static int exerciseNum = 0;
     NSLog(@"Now calling setupAndBeginCapturingVideoFrames");
     [self setupAndBeginCapturingVideoFrames];
     
+    [self.rewindIcon setFrame:CGRectMake(-77, self.playIcon.frame.origin.y, 77, 77)];
+    
 }
 
 - (void)setupAndBeginCapturingVideoFrames {
@@ -88,8 +91,8 @@ static int exerciseNum = 0;
         YogaPose *pose = [self.poses objectAtIndex:poseIndex];
         self.poseLabel.text = pose.name;
         self.poseImage.image = pose.image;
-        [self.countdownTimer startWithBeginingValue:30 interval:1];
     }
+    [self.countdownTimer startWithBeginingValue:30 interval:1];
 }
 
 // from VideoCaptureDelegate
@@ -140,39 +143,73 @@ static int exerciseNum = 0;
 }
 */
 
-- (IBAction)didTapPlayIcon:(id)sender {
-    NSLog(@"Play icon tapped");
-    [self pauseOrPlay];
-}
-
-- (IBAction)didDoubleTapScreen:(id)sender {
-    NSLog(@"Screen double tapped");
-    [self pauseOrPlay];
-}
-
-- (IBAction)didDoubleTapTimer:(id)sender {
-    NSLog(@"Timer double tapped");
-    [self pauseOrPlay];
-}
-
-- (void)pauseOrPlay {
-    if (!self.isPaused) {
-        [self.countdownTimer pause];
-        self.isPaused = YES;
+- (IBAction)didSingleTapTimer:(id)sender {
+    if (self.isPaused) {
+        [self play];
     } else {
-        [self.countdownTimer resume];
-        self.isPaused = NO;
+        [self pause];
     }
 }
 
-- (void)timerDidPauseWithSender:(SRCountdownTimer *)sender {
+- (IBAction)didSwipeRight:(id)sender {
+    if (self.countdownTimer.currentCounterValue > 28) {
+        [UIView animateWithDuration:0.35 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+            self.rewindIcon.frame = CGRectMake(self.view.frame.size.width * 0.75, self.view.frame.size.height / 2 + 20, 70, 70);
+        } completion:^(BOOL finished) {
+            NSLog(@"Swipe animation complete");
+        }];
+        [UIView animateWithDuration:0.35 delay:0.35 options:UIViewAnimationOptionCurveEaseIn animations:^{
+            self.rewindIcon.frame = CGRectMake(-70, self.view.frame.size.height / 2 + 20, 70, 70);
+        } completion:^(BOOL finished) {
+            NSLog(@"Swipe animation complete");
+        }];
+    } else {
+        [UIView animateWithDuration:0.35 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+            self.rewindIcon.frame = CGRectMake(self.view.frame.size.width * 0.25, self.view.frame.size.height / 2 + 20, 70, 70);
+        } completion:^(BOOL finished) {
+            NSLog(@"Swipe animation complete");
+        }];
+        [UIView animateWithDuration:0.35 delay:0.35 options:UIViewAnimationOptionCurveEaseIn animations:^{
+            self.rewindIcon.frame = CGRectMake(-70, self.view.frame.size.height / 2 + 20, 70, 70);
+        } completion:^(BOOL finished) {
+            NSLog(@"Swipe animation complete");
+        }];
+    }
+    [self rewind];
+}
+
+
+- (void)pause {
     [self.countdownTimer setLineColor:[UIColor yellowColor]];
+    [self.countdownTimer pause];
+    self.isPaused = YES;
+}
+
+- (void)play {
+    [self.countdownTimer setLineColor:[UIColor greenColor]];
+    [self.countdownTimer resume];
+    self.isPaused = NO;
+}
+
+- (void)rewind {
+    // if the workout just started, the user likely intends to go to the previous workout
+    if (self.countdownTimer.currentCounterValue > 28) {
+        if (exerciseNum > 0) {
+            exerciseNum--;
+            [self updateLabels];
+        }
+    } else {
+        [self.countdownTimer startWithBeginingValue:30 interval:1];
+    }
+}
+
+
+-(void)timerDidPauseWithSender:(SRCountdownTimer *)sender {
     self.countdownTimer.counterLabel.text = @"";
     [self.playIcon setHidden:NO];
 }
 
-- (void)timerDidResumeWithSender:(SRCountdownTimer *)sender {
-    [self.countdownTimer setLineColor:[UIColor greenColor]];
+-(void)timerDidResumeWithSender:(SRCountdownTimer *)sender {
     [self.playIcon setHidden:YES];
     self.countdownTimer.counterLabel.text = [NSString stringWithFormat:@"%ld", self.countdownTimer.currentCounterValue];
     [self.countdownTimer setIsLabelHidden:NO];
