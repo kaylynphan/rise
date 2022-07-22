@@ -18,11 +18,14 @@
 #import "YogaPoseAPIManager.h"
 #import <NVActivityIndicatorView/NVActivityIndicatorView-Swift.h>
 @import NVActivityIndicatorView;
+#import <Realm/Realm.h>
+#import <Realm/RLMResults.h>
 
 @interface GalleryViewController ()
 - (IBAction)didTapLogout:(id)sender;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
+@property (strong, nonatomic) RLMRealm *realm;
 
 @end
 
@@ -128,7 +131,7 @@
             //stringToDisplay = [stringToDisplay stringByAppendingFormat:@"%@\n", poseToList.name];
             // set image
             if (i == 0) {
-                cell.workoutImageView.image = poseToList.image;
+                cell.workoutImageView.image = [UIImage imageWithData:poseToList.imageData];
                 
                 //cell.workoutImageView.image = [SVGKImage imageWithData:[[NSData alloc] initWithContentsOfURL:poseToList.imageURL]].UIImage;
             }

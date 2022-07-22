@@ -7,15 +7,17 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import <Realm/Realm.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface YogaPose : NSObject
+@interface YogaPose : RLMObject
 
 @property (nonatomic, strong) NSString *name;
-@property (nonatomic, strong) NSURL *imageURL;
-@property (nonatomic, strong) UIImage *image;
-@property (assign) NSInteger *index;
+//@property (nonatomic, strong) NSURL *imageURL;
+@property (nonatomic, strong) NSData *imageData;
+//@property (nonatomic, weak) UIImage *image;
+//@property (assign) int *index;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 
