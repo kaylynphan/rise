@@ -44,14 +44,16 @@
     CGFloat frameHeight = CGImageGetHeight(frame);
     CGSize dstImageSize = CGSizeMake(frameWidth, frameHeight);
     
+    // configure drawing context
     UIGraphicsBeginImageContextWithOptions(dstImageSize, NO, 0.0f);
-
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
     // render camera feed
-    CGContextSaveGState(UIGraphicsGetCurrentContext());
-    CGContextScaleCTM(UIGraphicsGetCurrentContext(), 1, -1);
+    CGContextSaveGState(context);
+    CGContextScaleCTM(context, 1, -1);
     CGRect drawingRect = CGRectMake(0, -1 * frameHeight, frameWidth, frameHeight);
-    CGContextDrawImage(UIGraphicsGetCurrentContext(), drawingRect, frame);
-    CGContextRestoreGState(UIGraphicsGetCurrentContext());
+    CGContextDrawImage(context, drawingRect, frame);
+    CGContextRestoreGState(context);
     
     
     // draw segments
@@ -64,23 +66,24 @@
             
             if (jointA.isValid && jointB.isValid) {
                 //NSLog([NSString stringWithFormat:@"Segment from Index: %d, Joint %d to Index: %d, Joint %d", indexA, jointA.name, indexB, jointB.name]);
-                [self drawLineWithParentJoint:jointA withChildJoint:jointB withCGContext:UIGraphicsGetCurrentContext()];
+                [self drawLineWithParentJoint:jointA withChildJoint:jointB withCGContext:context];
             }
         }
         
         // draw joints
         for (Joint *joint in pose.joints) {
+            // ignore the first 4 joints (facial joints)
             if (joint.name > 4) {
                 if (joint.isValid) {
-                    [self drawWithCircle:joint withCGContext:UIGraphicsGetCurrentContext()];
+                    [self drawWithCircle:joint withCGContext:context];
                 }
             }
         }
     }
-    
     UIImage *dstImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     self.image = dstImage;
+    //[dstImage dealloc];
 }
 
 - (void) drawLineWithParentJoint:(Joint *)parentJoint withChildJoint:(Joint *)childJoint withCGContext:(CGContextRef)cgContext {
