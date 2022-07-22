@@ -44,12 +44,6 @@
     CGFloat frameHeight = CGImageGetHeight(frame);
     CGSize dstImageSize = CGSizeMake(frameWidth, frameHeight);
     
-    UIGraphicsImageRendererFormat *dstImageFormat = [[UIGraphicsImageRendererFormat alloc] init];
-    
-    dstImageFormat.scale = 1; //dstImageFormat is nonnull
-    
-    UIGraphicsImageRenderer *renderer = [[UIGraphicsImageRenderer alloc] initWithSize:dstImageSize format:dstImageFormat]; //renderer is nonnull
-    
     UIGraphicsBeginImageContextWithOptions(dstImageSize, NO, 0.0f);
 
     // render camera feed
