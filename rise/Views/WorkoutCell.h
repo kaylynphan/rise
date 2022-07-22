@@ -7,7 +7,6 @@
 
 #import <UIKit/UIKit.h>
 #import "Workout.h"
-#import "ContainedButton.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

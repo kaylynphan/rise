@@ -6,7 +6,6 @@
 //
 
 #import "WorkoutCell.h"
-#import "ContainedButton.h"
 
 @implementation WorkoutCell
 

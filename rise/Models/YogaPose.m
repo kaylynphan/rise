@@ -18,7 +18,9 @@
     NSInteger id = dictionary[@"id"];
     self.index = id - 1;
     self.imageURL = [NSURL URLWithString:imageURLString];
-    self.image = [SVGKImage imageWithContentsOfURL:self.imageURL].UIImage;
+    if (self.imageURL != nil) {
+        self.image = [SVGKImage imageWithContentsOfURL:self.imageURL].UIImage;
+    }
     return self;
 }
 
