@@ -82,7 +82,11 @@ static int exerciseNum = 0;
 - (void)timerDidEndWithSender:(SRCountdownTimer *)sender elapsedTime:(NSTimeInterval)elapsedTime {
     NSLog(@"Timer did end");
     exerciseNum++;
-    [self updateLabels];
+    if (exerciseNum >= self.workout.stretches.count) {
+        [self performSegueWithIdentifier:@"guideToCompletionSegue" sender:self];
+    } else {
+        [self updateLabels];
+    }
 }
 
 - (void)updateLabels {
@@ -205,8 +209,12 @@ static int exerciseNum = 0;
 
 
 -(void)timerDidPauseWithSender:(SRCountdownTimer *)sender {
+    /*
+    //changing this temporarily for testing
     self.countdownTimer.counterLabel.text = @"";
     [self.playIcon setHidden:NO];
+     */
+    [self performSegueWithIdentifier:@"guideToCompletionSegue" sender:nil];
 }
 
 -(void)timerDidResumeWithSender:(SRCountdownTimer *)sender {
