@@ -22,9 +22,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.backToHomeButton setAlpha:0.0];
-    [self.backToHomeButton setTintColor:[UIColor opaqueSeparatorColor]];
-    [self.backToHomeButton setTitleColor:[UIColor opaqueSeparatorColor] forState:UIControlStateApplication];
-    [self.backToHomeButton setTitleColor:[UIColor opaqueSeparatorColor] forState:UIControlStateDisabled];
     self.backToHomeButton.titleLabel.font = [UIFont fontWithName:@"Poppins-regular" size:18];
     
     // start animation
