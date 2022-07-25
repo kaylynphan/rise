@@ -31,36 +31,34 @@ static int exerciseNum = 0;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    //customize back button
-    //self.backButton.titleView.tintColor = [UIColor blackColor];
-    self.backButton.backBarButtonItem.tintColor = [UIColor blackColor];
 
     //[PoseImageView getJoint]; //test success!!
     
     // set up countdown timer
+    [self setupTimer];
+    
+    self.titleLabel.text = self.workout.name;
+    [self updateLabels];
+    self.isPaused = NO;
+    
+    //NSLog(@"Now initializing PoseNet model");
+    self.poseNet = [[PoseNet alloc] init];
+    self.poseNet.delegate = self;
+    
+    self.videoCapture = [[VideoCapture alloc] init];
+    //NSLog(@"Now calling setupAndBeginCapturingVideoFrames");
+    [self setupAndBeginCapturingVideoFrames];
+    
+    [self.rewindIcon setFrame:CGRectMake(-77, self.playIcon.frame.origin.y, 77, 77)];
+}
+
+- (void)setupTimer {
     self.countdownTimer.delegate = self;
     [self.countdownTimer setLineColor:[UIColor greenColor]];
     //[self.countdownTimer setLineWidth:15];
     [self.countdownTimer setLabelFont:[UIFont fontWithName:@"Poppins-medium" size:65]];
     //[self.countdownTimer setLabelTextColor:[UIColor colorWithWhite:0.5 alpha:0.5]];
     //[self.countdownTimer setBackgroundColor:[UIColor clearColor]];
-    
-    
-    self.titleLabel.text = self.workout.name;
-    [self updateLabels];
-    self.isPaused = NO;
-    
-    NSLog(@"Now initializing PoseNet model");
-    self.poseNet = [[PoseNet alloc] init];
-    self.poseNet.delegate = self;
-    
-    self.videoCapture = [[VideoCapture alloc] init];
-    NSLog(@"Now calling setupAndBeginCapturingVideoFrames");
-    [self setupAndBeginCapturingVideoFrames];
-    
-    [self.rewindIcon setFrame:CGRectMake(-77, self.playIcon.frame.origin.y, 77, 77)];
-    
 }
 
 - (void)setupAndBeginCapturingVideoFrames {
@@ -202,7 +200,6 @@ static int exerciseNum = 0;
         [self.countdownTimer startWithBeginingValue:30 interval:1];
     }
 }
-
 
 -(void)timerDidPauseWithSender:(SRCountdownTimer *)sender {
     self.countdownTimer.counterLabel.text = @"";
