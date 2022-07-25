@@ -34,9 +34,9 @@
             }
             else {
                 NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-                NSArray *dictionaries = dataDictionary[@"items"];
-                if (dictionaries != nil) {
-                    if ([dictionaries isKindOfClass:[NSArray class]]) {
+                if (dataDictionary[@"items"] != nil) {
+                    if ([dataDictionary[@"items"] isKindOfClass:[NSArray class]]) {
+                        NSArray *dictionaries = dataDictionary[@"items"];
                         NSArray *poses = [YogaPose posesWithDictionaries:dictionaries];
                         completion(poses, nil);
                     } else {

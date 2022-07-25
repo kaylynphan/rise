@@ -77,13 +77,14 @@
             // if the network call is successful
             NSLog(@"Successfully fetched poses");
             [self.activityIndicatorView stopAnimating];
+            [self.tableView reloadData];
         } else {
             [self presentViewController:networkAlert animated:YES completion:^{
                 NSLog(@"Fetched poses is nil");
             }];
         }
     }];
-    [self.tableView reloadData];
+    //[self.tableView reloadData];
 }
 
 - (void)queryWorkouts {
