@@ -26,11 +26,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 @property (weak, nonatomic) IBOutlet UIView *startButtonBackground;
 
-
 @property (nonatomic, weak) id<WorkoutCellDelegate> delegate;
 - (IBAction)didTapStart:(id)sender;
-
-
 
 @end
 

@@ -14,24 +14,22 @@
     [super awakeFromNib];
     // Initialization code
     
-    //self.helloLabelBackground.backgroundColor = [UIColor grayColor];
+    [self setupHelloLabel];
+    self.myWorkoutsLabel.font = [UIFont fontWithName:@"Poppins-medium" size:30];
+    [self.myWorkoutsLabel sizeToFit];
+    [self.todayCompletionLabel sizeToFit];
+}
+
+- (void)setupHelloLabel {
     self.helloLabelBackground.layer.cornerRadius = 26;
     self.helloLabelBackground.layer.masksToBounds = YES;
     self.helloLabel.text = [NSString stringWithFormat:@"Hello %@", [User currentUser][@"displayName"]];
     self.helloLabel.font = [UIFont fontWithName:@"Poppins-medium" size:24];
     [self.helloLabel sizeToFit];
-    
-    self.myWorkoutsLabel.font = [UIFont fontWithName:@"Poppins-medium" size:30];
-    [self.myWorkoutsLabel sizeToFit];
-    
-    [self.todayCompletionLabel sizeToFit];
-    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 
 @end

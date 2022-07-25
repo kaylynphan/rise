@@ -34,14 +34,19 @@
             }
             else {
                 NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-
                 NSArray *dictionaries = dataDictionary[@"items"];
-            
-                NSArray *poses = [YogaPose posesWithDictionaries:dictionaries];
-                // The network request has completed, and succeeded.
-                // Invoke the completion block with the movies array.
-                // Think of invoking a block like calling a function with parameters
-                completion(poses, nil);
+                if (dictionaries != nil) {
+                    if ([dictionaries isKindOfClass:[NSArray class]]) {
+                        NSArray *poses = [YogaPose posesWithDictionaries:dictionaries];
+                        completion(poses, nil);
+                    } else {
+                        NSLog(@"Error: dataDictionary[\"items\"] is not an array.");
+                        completion(nil, nil);
+                    }
+                } else {
+                    NSLog(@"Error: dataDictionary[\"items\"] is nil");
+                    completion(nil, nil);
+                }
             }
         }];
         [task resume];
