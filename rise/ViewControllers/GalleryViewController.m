@@ -10,23 +10,19 @@
 #import "Parse/Parse.h"
 #import "WorkoutCell.h"
 #import "YogaPose.h"
-#import <SVGKit/SVGKit.h>
-#import <SVGKit/SVGKImage.h>
 #import "Workout.h"
 #import "GuideViewController.h"
 #import <AFNetworking/UIImageView+AFNetworking.h>
 #import "YogaPoseAPIManager.h"
 #import <NVActivityIndicatorView/NVActivityIndicatorView-Swift.h>
 @import NVActivityIndicatorView;
-#import <Realm/Realm.h>
-#import <Realm/RLMResults.h>
 #import "../Managers/NotificationManager.h"
+#import "../Models/User.h"
 
 @interface GalleryViewController ()
 - (IBAction)didTapLogout:(id)sender;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
-@property (strong, nonatomic) RLMRealm *realm;
 
 @end
 
@@ -53,13 +49,18 @@
     self.arrayOfWorkouts = [[NSArray alloc] init];
     [self queryWorkouts];
     
-    NotificationManager *notificationManager = [NotificationManager new];
-    [notificationManager requestAuthorization:^(BOOL granted) {
-        if (granted) {
-            NSLog(@"Notifications authorization granted.");
-            [notificationManager scheduleNotificationWithHour:15 withMinute:30];
-        }
-    }];
+    User *user = [User currentUser];
+    if (user != nil) {
+        NotificationManager *notificationManager = [NotificationManager new];
+        [notificationManager requestAuthorization:^(BOOL granted) {
+            if (granted) {
+                NSLog(@"Notifications authorization granted.");
+                NSInteger preferredHour = [user[@"preferredHour"] integerValue];
+                NSInteger preferredMinute = [user[@"preferredMinute"] integerValue];
+                [notificationManager scheduleNotificationWithHour:preferredHour withMinute:preferredMinute];
+            }
+        }];
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated {

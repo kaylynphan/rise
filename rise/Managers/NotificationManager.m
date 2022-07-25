@@ -31,7 +31,7 @@
     }];
 }
 
-- (void) scheduleNotificationWithHour:(NSInteger *)hour withMinute:(NSInteger *)minute {
+- (void) scheduleNotificationWithHour:(NSInteger)hour withMinute:(NSInteger)minute {
     // check that hour and minute are within bounds
     /*
     // Confusion with numeric types
@@ -54,7 +54,7 @@
     UNMutableNotificationContent *content = [UNMutableNotificationContent new];
     content.title = @"Time to stretch!";
     if ([PFUser currentUser] != nil) {
-        content.body = [NSString stringWithFormat:@"It's a new day %@, keep building stronger habits and complete your daily stretch.", [PFUser currentUser].username];
+        content.body = [NSString stringWithFormat:@"It's a new day %@, keep building stronger habits and complete your daily stretch.", [PFUser currentUser][@"displayName"]];
     } else {
         content.body = @"It's a new day, keep building stronger habits and complete your daily stretch.";
     }
