@@ -20,6 +20,7 @@
 @import NVActivityIndicatorView;
 #import <Realm/Realm.h>
 #import <Realm/RLMResults.h>
+#import "../Managers/NotificationManager.h"
 
 @interface GalleryViewController ()
 - (IBAction)didTapLogout:(id)sender;
@@ -43,7 +44,7 @@
     // set up table
     [self.tableView setDelegate:self];
     [self.tableView setDataSource:self];
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    //self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.separatorColor = [UIColor clearColor];
     [self.activityIndicatorView startAnimating];
     [self.view addSubview:self.activityIndicatorView];
@@ -51,6 +52,14 @@
     // perform query
     self.arrayOfWorkouts = [[NSArray alloc] init];
     [self queryWorkouts];
+    
+    NotificationManager *notificationManager = [NotificationManager new];
+    [notificationManager requestAuthorization:^(BOOL granted) {
+        if (granted) {
+            NSLog(@"Notifications authorization granted.");
+            [notificationManager scheduleNotificationWithHour:15 withMinute:30];
+        }
+    }];
 }
 
 - (void)viewDidAppear:(BOOL)animated {

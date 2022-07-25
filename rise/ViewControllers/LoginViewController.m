@@ -24,12 +24,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NotificationManager *notificationManager = [NotificationManager new];
-    [notificationManager requestAuthorization:^(BOOL granted) {
-        if (granted) {
-            NSLog(@"Notifications authorization granted.");
-        }
-    }];
     [self setupFields];
 }
 

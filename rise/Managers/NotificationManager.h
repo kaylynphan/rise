@@ -17,6 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void) requestAuthorization:(void(^)(BOOL))completion;
 
+- (void) scheduleNotificationWithHour:(NSInteger *)hour withMinute:(NSInteger *)minute;
+
 
 @end
 

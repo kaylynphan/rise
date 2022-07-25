@@ -465,6 +465,7 @@
                                                         <constraint firstAttribute="width" constant="270" id="9Tj-pq-JdD"/>
                                                         <constraint firstItem="ZWq-LC-12r" firstAttribute="width" secondItem="AXp-01-wmM" secondAttribute="width" multiplier="1.15" id="C26-e7-EKy"/>
                                                         <constraint firstItem="ohp-jf-Y3p" firstAttribute="top" secondItem="mlT-YF-bls" secondAttribute="top" constant="20" symbolic="YES" id="HDa-Qu-YAB"/>
+                                                        <constraint firstAttribute="height" priority="999" constant="270" id="HRh-Kr-OWx"/>
                                                         <constraint firstItem="AXp-01-wmM" firstAttribute="centerY" secondItem="ZWq-LC-12r" secondAttribute="centerY" id="IKV-dd-YFh"/>
                                                         <constraint firstItem="ZWq-LC-12r" firstAttribute="trailing" secondItem="ohp-jf-Y3p" secondAttribute="trailing" id="Qgf-dG-LnJ"/>
                                                         <constraint firstItem="AXp-01-wmM" firstAttribute="centerX" secondItem="ZWq-LC-12r" secondAttribute="centerX" id="Sp4-lW-rN5"/>
@@ -476,7 +477,6 @@
                                                         <constraint firstAttribute="trailing" secondItem="EVu-Bn-E9U" secondAttribute="trailing" constant="20" id="tcq-5Q-R6m"/>
                                                         <constraint firstItem="ZWq-LC-12r" firstAttribute="height" secondItem="AXp-01-wmM" secondAttribute="height" id="txI-qA-hAs"/>
                                                         <constraint firstAttribute="trailing" secondItem="ohp-jf-Y3p" secondAttribute="trailing" constant="20" id="vFI-A8-uLA"/>
-                                                        <constraint firstAttribute="height" constant="270" id="yIe-vH-cvd"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
