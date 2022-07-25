@@ -9,6 +9,7 @@
 #import "Parse/Parse.h"
 #import "User.h"
 #import "GalleryViewController.h"
+#import "../Managers/NotificationManager.h"
 
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
@@ -23,6 +24,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NotificationManager *notificationManager = [NotificationManager new];
+    [notificationManager requestAuthorization:^(BOOL granted) {
+        if (granted) {
+            NSLog(@"Notifications authorization granted.");
+        }
+    }];
     [self setupFields];
 }
 
