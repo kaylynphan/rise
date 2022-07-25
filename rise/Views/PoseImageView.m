@@ -55,7 +55,6 @@
     CGContextDrawImage(context, drawingRect, frame);
     CGContextRestoreGState(context);
     
-    
     // draw segments
     for (Pose *pose in poses) {
         for (JointSegment *segment in self.jointSegments) {
@@ -83,11 +82,9 @@
     UIImage *dstImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     self.image = dstImage;
-    //[dstImage dealloc];
 }
 
 - (void) drawLineWithParentJoint:(Joint *)parentJoint withChildJoint:(Joint *)childJoint withCGContext:(CGContextRef)cgContext {
-    
     CGContextSetStrokeColorWithColor(cgContext, UIColor.blackColor.CGColor);
     CGContextSetLineWidth(cgContext, 2.0);
     CGContextMoveToPoint(cgContext, parentJoint.position.x, parentJoint.position.y);
@@ -103,36 +100,7 @@
     CGContextDrawPath(cgContext, kCGPathFill);
 }
 
-
 - (void)runTests {
-    // Test 1: PASS!!
-    /*
-    NSLog([NSString stringWithFormat:@"Nose is %d", Joint.nose]);
-    */
-    
-    // Test 2: PASS!!
-    /*
-    NSLog(@"Segments:");
-    for (JointSegment *segment in self.jointSegments) {
-        NSLog(@"JointA: %d, JointB: %d", segment.jointA, segment.jointB);
-    }
-     */
 }
-
-
-     
-
-
-
-
-
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
 
 @end

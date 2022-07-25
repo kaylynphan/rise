@@ -506,7 +506,7 @@
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="color">
-                                        <color key="value" systemColor="opaqueSeparatorColor"/>
+                                        <color key="value" red="0.5" green="0.5" blue="0.5" alpha="0.6986607142857143" colorSpace="custom" customColorSpace="displayP3"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="string" keyPath="typeName" value="orbit"/>
                                 </userDefinedRuntimeAttributes>
