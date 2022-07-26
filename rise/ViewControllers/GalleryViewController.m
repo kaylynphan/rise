@@ -18,6 +18,7 @@
 @import NVActivityIndicatorView;
 #import "../Managers/NotificationManager.h"
 #import "../Models/User.h"
+#import "ProfileViewController.h"
 
 @interface GalleryViewController ()
 - (IBAction)didTapLogout:(id)sender;

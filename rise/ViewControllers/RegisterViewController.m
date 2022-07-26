@@ -89,6 +89,8 @@
     newUser.password = self.passwordField.text;
     newUser.email = self.emailField.text;
     newUser.displayName = self.nameField.text;
+    newUser.preferredHour = @7;
+    newUser.preferredMinute = @0;
     
     // call sign up function on the object
     // signUpInBackgroundWithBlock is an async function
