@@ -18,6 +18,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *scheduleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *profileLabel;
 @property (weak, nonatomic) IBOutlet UILabel *settingsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *riseWillNotifyLabel;
+- (IBAction)didTapBack:(id)sender;
 
 @end
 
@@ -48,6 +50,8 @@
     
     self.profileLabel.font = [UIFont fontWithName:@"Poppins-medium" size:30];
     self.settingsLabel.font = [UIFont fontWithName:@"Poppins-medium" size:30];
+    
+    [self.riseWillNotifyLabel sizeToFit];
 }
 
 /*
@@ -64,5 +68,9 @@
 }
 
 - (IBAction)didTapTimeButton:(id)sender {
+}
+
+- (IBAction)didTapBack:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 @end
