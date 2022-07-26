@@ -11,6 +11,7 @@
 #import <SVGKit/SVGKit.h>
 @import SRCountdownTimer;
 #import "../Views/PoseImageView.h"
+#import "CompletionViewController.h"
 
 @interface GuideViewController ()
 
@@ -190,13 +191,31 @@ static int exerciseNum = 0;
     self.countdownTimer.counterLabel.text = @"";
     [self.playIcon setHidden:NO];
      */
-    [self performSegueWithIdentifier:@"guideToCompletionSegue" sender:nil];
+    [self finishWorkout];
 }
 
 -(void)timerDidResumeWithSender:(SRCountdownTimer *)sender {
     [self.playIcon setHidden:YES];
     self.countdownTimer.counterLabel.text = [NSString stringWithFormat:@"%ld", self.countdownTimer.currentCounterValue];
     [self.countdownTimer setIsLabelHidden:NO];
+}
+
+-(void) finishWorkout {
+    [self.videoCapture stopCapturingWithCompletion:^{
+        NSLog(@"Stopped capturing frames");
+    }];
+    //CompletionViewController *completionVC = [[CompletionViewController alloc] initWithNibName:@"CompletionViewController" bundle:nil];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    CompletionViewController *completionVC = [storyboard instantiateViewControllerWithIdentifier:@"CompletionViewController"];
+    UINavigationController *navController = self.navigationController;
+    //Get all view controllers in navigation controller currently
+    NSMutableArray *controllers =[ [NSMutableArray alloc] initWithArray:navController.viewControllers] ;
+    //Remove the last view controller
+    [controllers removeLastObject];
+    //set the new set of view controllers
+    [navController setViewControllers:controllers];
+    //Push a new view controller
+    [navController pushViewController:completionVC animated:YES];
 }
 
 /*
