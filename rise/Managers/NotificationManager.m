@@ -32,18 +32,6 @@
 }
 
 - (void) scheduleNotificationWithHour:(NSInteger)hour withMinute:(NSInteger)minute {
-    // check that hour and minute are within bounds
-    /*
-    // Confusion with numeric types
-    if (hour < @0 || hour > @23) {
-        NSLog(@"%@", [NSString stringWithFormat:@"Error scheduling notification: Hour %@ is out of bounds", hour]);
-        return;
-    }
-    if (minute < @0 || minute > @59) {
-        NSLog(@"%@", [NSString stringWithFormat:@"Error scheduling notification: Minute %@ is out of bounds", minute]);
-        return;
-    }
-     */
     // set up date trigger
     NSDateComponents *components = [NSDateComponents new];
     components.hour = hour;
@@ -69,6 +57,11 @@
             NSLog([NSString stringWithFormat:@"Successfully added notification scheduled for %d:%d", hour, minute]);
         }
     }];
+}
+
+- (void)rescheduleNotificationWithHour:(NSInteger)hour withMinute:(NSInteger)minute {
+    [[UNUserNotificationCenter currentNotificationCenter] removeAllPendingNotificationRequests];
+    [self scheduleNotificationWithHour:hour withMinute:minute];
 }
 
 @end

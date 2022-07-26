@@ -9,6 +9,7 @@
 #import "../Models/User.h"
 #import "GalleryViewController.h"
 #import <Parse/Parse.h>
+#import "../Managers/NotificationManager.h"
 
 @interface ProfileViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *displayNameLabel;
@@ -89,5 +90,9 @@
             NSLog(@"Successfully updated user's preferred notification time");
         }
     }];
+    
+    // update notifications
+    NotificationManager *notificationManager = [[NotificationManager alloc] init];
+    [notificationManager rescheduleNotificationWithHour:components.hour withMinute:components.minute];
 }
 @end
