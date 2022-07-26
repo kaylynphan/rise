@@ -215,7 +215,7 @@ static int exerciseNum = 0;
     //set the new set of view controllers
     [navController setViewControllers:controllers];
     //Push a new view controller
-    [navController pushViewController:completionVC animated:YES];
+    [navController pushViewController:completionVC animated:NO];
 }
 
 /*

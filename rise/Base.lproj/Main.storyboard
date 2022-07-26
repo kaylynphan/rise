@@ -277,22 +277,6 @@
             </objects>
             <point key="canvasLocation" x="818.46153846153845" y="880.80568720379142"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="GYb-GR-lEF">
-            <objects>
-                <navigationController modalPresentationStyle="fullScreen" id="YWI-id-exe" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gEo-or-Nh8">
-                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="AMF-Fz-qXC" kind="relationship" relationship="rootViewController" id="qdz-2d-5g6"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cSJ-TQ-biD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2587" y="-719"/>
-        </scene>
         <!--Gallery View Controller-->
         <scene sceneID="7lv-5q-wMT">
             <objects>
@@ -714,6 +698,9 @@
                                     <directionalEdgeInsets key="contentInsets" top="8" leading="16" bottom="8" trailing="16"/>
                                     <color key="baseForegroundColor" systemColor="labelColor"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="didTapBackToHome:" destination="BF1-LV-aLj" eventType="touchUpInside" id="AG9-Xu-Eg8"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="MmN-0N-VGJ"/>
@@ -759,7 +746,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Ecx-6H-y7k"/>
-        <segue reference="Kb5-dY-LIA"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="labelColor"/>
     <resources>

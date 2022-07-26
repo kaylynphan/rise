@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *congratsLabel;
 @property (weak, nonatomic) IBOutlet AnimationView *animationView;
 @property (weak, nonatomic) IBOutlet UIButton *backToHomeButton;
+- (IBAction)didTapBackToHome:(id)sender;
 
 @end
 
@@ -23,6 +24,10 @@
     [super viewDidLoad];
     [self.backToHomeButton setAlpha:0.0];
     self.backToHomeButton.titleLabel.font = [UIFont fontWithName:@"Poppins-regular" size:18];
+    
+    // hide default navigation bar
+    [self.navigationItem setHidesBackButton:YES];
+    [self.navigationItem setTitle:nil];
     
     // start animation
     [self.animationView loadAnimationWithName:@"../success-check"];
@@ -43,9 +48,6 @@
     }
     self.congratsLabel.font = [UIFont fontWithName:@"Poppins-regular" size:20];
     [self.congratsLabel sizeToFit];
-    
-    
-    
 }
 
 /*
@@ -58,4 +60,8 @@
 }
 */
 
+- (IBAction)didTapBackToHome:(id)sender {
+    NSLog(@"Tapped Back to Home button");
+    [self.navigationController popViewControllerAnimated:YES];
+}
 @end
