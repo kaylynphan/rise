@@ -7,6 +7,7 @@
 
 #import "ProfileViewController.h"
 #import "../Models/User.h"
+#import "GalleryViewController.h"
 
 @interface ProfileViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *displayNameLabel;
@@ -65,6 +66,9 @@
 */
 
 - (IBAction)didTapLogout:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:^{
+        [self.parent logout];
+    }];
 }
 
 - (IBAction)didTapTimeButton:(id)sender {

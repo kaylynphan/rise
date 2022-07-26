@@ -171,6 +171,10 @@
 - (IBAction)didTapLogout:(id)sender {
     // logout user
     NSLog(@"Logout tapped");
+    [self logout];
+}
+
+- (void)logout {
     [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
         if (error != nil) {
             NSLog(@"Error: %@", error.localizedDescription);
@@ -202,6 +206,9 @@
         GuideViewController *guideVC = [segue destinationViewController];
         guideVC.workout = sender;
         guideVC.poses = self.poses;
+    } else if ([[segue identifier] isEqualToString:@"galleryToProfileSegue"]) {
+        ProfileViewController *profileVC = [segue destinationViewController];
+        profileVC.parent = self;
     }
 }
 

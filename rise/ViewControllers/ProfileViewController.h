@@ -6,10 +6,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GalleryViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ProfileViewController : UIViewController
+@property (weak, nonatomic) GalleryViewController *parent;
 
 @end
 

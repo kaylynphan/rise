@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) NSArray *arrayOfWorkouts;
 @property (weak, nonatomic) IBOutlet NVActivityIndicatorView *activityIndicatorView;
 
+- (void)logout;
 
 @end
 
