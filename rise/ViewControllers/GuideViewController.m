@@ -32,7 +32,7 @@ static int exerciseNum = 0;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view
-
+    
     // set up countdown timer
     [self setupTimer];
     
