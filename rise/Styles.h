@@ -7,6 +7,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "Views/CustomTextField.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -17,6 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (CAGradientLayer *)gradientForLargeView:(UIView *)view;
 
 + (void)addGradientToButton:(UIButton *)button;
+
++ (void)styleEnabledTextField:(CustomTextField *)textField;
 
 
 @end

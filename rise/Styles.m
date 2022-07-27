@@ -7,6 +7,7 @@
 
 #import "Styles.h"
 #import "UIKit/UIKit.h"
+#import "Views/CustomTextField.h"
 
 @implementation Styles
 
@@ -40,6 +41,12 @@
     button.layer.cornerRadius = 0.5 * button.frame.size.height;
     [button setClipsToBounds:YES];
     [button sizeToFit];
+}
+
++ (void)styleEnabledTextField:(CustomTextField *)textField {
+    textField.font = [UIFont fontWithName:@"Poppins-regular" size:16];
+    textField.layer.cornerRadius = 12;
+    textField.backgroundColor = [UIColor colorWithRed:234.0/255.0f green:240.0/255.0f blue:255.0/255.0f alpha:1.0f];
 }
 
 @end

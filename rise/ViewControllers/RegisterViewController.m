@@ -10,12 +10,13 @@
 #import "User.h"
 #import "GalleryViewController.h"
 #import "../Styles.h"
+#import "../Views/CustomTextField.h"
 
 @interface RegisterViewController ()
-@property (weak, nonatomic) IBOutlet UITextField *nameField;
-@property (weak, nonatomic) IBOutlet UITextField *emailField;
-@property (weak, nonatomic) IBOutlet UITextField *usernameField;
-@property (weak, nonatomic) IBOutlet UITextField *passwordField;
+@property (weak, nonatomic) IBOutlet CustomTextField *nameField;
+@property (weak, nonatomic) IBOutlet CustomTextField *emailField;
+@property (weak, nonatomic) IBOutlet CustomTextField *usernameField;
+@property (weak, nonatomic) IBOutlet CustomTextField *passwordField;
 - (IBAction)registerUser:(id)sender;
 - (IBAction)didTapLogin:(id)sender;
 @property (weak, nonatomic) IBOutlet UIView *nameFieldBackground;
@@ -41,6 +42,7 @@
     self.usernameField.delegate = self;
     self.passwordField.delegate = self;
     
+    /*
     self.nameField.font = [UIFont fontWithName:@"Poppins-regular" size:16];
     self.emailField.font = [UIFont fontWithName:@"Poppins-regular" size:16];
     self.usernameField.font = [UIFont fontWithName:@"Poppins-regular" size:16];
@@ -59,6 +61,12 @@
     self.emailFieldBackground.layer.borderWidth = 1.5;
     self.usernameFieldBackground.layer.borderWidth = 1.5;
     self.passwordFieldBackground.layer.borderWidth = 1.5;
+     */
+    
+    [Styles styleEnabledTextField:self.nameField];
+    [Styles styleEnabledTextField:self.emailField];
+    [Styles styleEnabledTextField:self.usernameField];
+    [Styles styleEnabledTextField:self.passwordField];
     
     [Styles addGradientToButton:self.signUpButton];
     [Styles addGradientToButton:self.loginButton];

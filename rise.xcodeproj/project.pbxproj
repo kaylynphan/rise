@@ -13,6 +13,7 @@
 		2E53A132288F1F92006C71D2 /* NotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E53A131288F1F92006C71D2 /* NotificationManager.m */; };
 		2E53A135288F6F75006C71D2 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E53A134288F6F75006C71D2 /* ProfileViewController.m */; };
 		2E53A13D2891E11A006C71D2 /* Styles.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E53A13C2891E11A006C71D2 /* Styles.m */; };
+		2E53A1402891F1FD006C71D2 /* CustomTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E53A13F2891F1FD006C71D2 /* CustomTextField.m */; };
 		2E7DAEC52882801C00097E33 /* Poppins-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E7DAEB22882801C00097E33 /* Poppins-ExtraLight.ttf */; };
 		2E7DAEC62882801C00097E33 /* Poppins-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E7DAEB32882801C00097E33 /* Poppins-ThinItalic.ttf */; };
 		2E7DAEC72882801C00097E33 /* Poppins-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E7DAEB42882801C00097E33 /* Poppins-ExtraLightItalic.ttf */; };
@@ -104,6 +105,8 @@
 		2E53A134288F6F75006C71D2 /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		2E53A13B2891E11A006C71D2 /* Styles.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Styles.h; sourceTree = "<group>"; };
 		2E53A13C2891E11A006C71D2 /* Styles.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Styles.m; sourceTree = "<group>"; };
+		2E53A13E2891F1FD006C71D2 /* CustomTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomTextField.h; sourceTree = "<group>"; };
+		2E53A13F2891F1FD006C71D2 /* CustomTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomTextField.m; sourceTree = "<group>"; };
 		2E7DAEB22882801C00097E33 /* Poppins-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLight.ttf"; sourceTree = "<group>"; };
 		2E7DAEB32882801C00097E33 /* Poppins-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ThinItalic.ttf"; sourceTree = "<group>"; };
 		2E7DAEB42882801C00097E33 /* Poppins-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
@@ -287,13 +290,15 @@
 		2EA0797B287611A800931A86 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				2ED125282880965A00DD5CBF /* GalleryViewHeader.h */,
 				2E53A129288B6E30006C71D2 /* AnimationView.swift */,
+				2ED125282880965A00DD5CBF /* GalleryViewHeader.h */,
 				2ED125292880965A00DD5CBF /* GalleryViewHeader.m */,
 				2EA0799828774B9500931A86 /* PoseImageView.h */,
 				2EA0799928774B9500931A86 /* PoseImageView.m */,
 				2ED124A2287C93A800DD5CBF /* WorkoutCell.h */,
 				2ED124A3287C93A800DD5CBF /* WorkoutCell.m */,
+				2E53A13E2891F1FD006C71D2 /* CustomTextField.h */,
+				2E53A13F2891F1FD006C71D2 /* CustomTextField.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -689,6 +694,7 @@
 				2E7DAEDB2885DB2900097E33 /* AVCaptureVideoOrientation+Extension.swift in Sources */,
 				2ED1251D287F6CCA00DD5CBF /* CGPoint+Extension.swift in Sources */,
 				2ED12526287F6CE900DD5CBF /* PoseBuilder+Multiple.swift in Sources */,
+				2E53A1402891F1FD006C71D2 /* CustomTextField.m in Sources */,
 				2ED12525287F6CE900DD5CBF /* Pose.swift in Sources */,
 				2E53A132288F1F92006C71D2 /* NotificationManager.m in Sources */,
 				2E53A135288F6F75006C71D2 /* ProfileViewController.m in Sources */,
