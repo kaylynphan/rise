@@ -10,6 +10,7 @@ target 'rise' do
   pod 'AFNetworking'
   pod 'SVGKit'
   pod 'SRCountdownTimer'
+  pod 'NVActivityIndicatorView'
 
   target 'riseTests' do
     inherit! :search_paths

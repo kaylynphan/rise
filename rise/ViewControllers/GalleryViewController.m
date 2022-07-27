@@ -8,7 +8,6 @@
 #import "GalleryViewController.h"
 #import "LoginViewController.h"
 #import "Parse/Parse.h"
-#import "SplashViewController.h"
 #import "WorkoutCell.h"
 #import "YogaPose.h"
 #import <SVGKit/SVGKit.h>
@@ -16,7 +15,9 @@
 #import "Workout.h"
 #import "GuideViewController.h"
 #import <AFNetworking/UIImageView+AFNetworking.h>
-
+#import "YogaPoseAPIManager.h"
+#import <NVActivityIndicatorView/NVActivityIndicatorView-Swift.h>
+@import NVActivityIndicatorView;
 
 @interface GalleryViewController ()
 - (IBAction)didTapLogout:(id)sender;
@@ -41,10 +42,45 @@
     [self.tableView setDataSource:self];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.separatorColor = [UIColor clearColor];
+    [self.activityIndicatorView startAnimating];
+    [self.view addSubview:self.activityIndicatorView];
     
     // perform query
     self.arrayOfWorkouts = [[NSArray alloc] init];
     [self queryWorkouts];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    // start fetching images after activity indicator is already on screen
+    if (self.poses == nil) {
+        [self fetchPoses];
+    }
+}
+
+- (void)fetchPoses {
+    UIAlertController *networkAlert = [UIAlertController alertControllerWithTitle:@"Cannot Get Poses" message:@"The internet connection appears to be offline." preferredStyle:(UIAlertControllerStyleAlert)];
+    
+    UIAlertAction *tryAgainAction = [UIAlertAction actionWithTitle:@"Try Again" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self fetchPoses];
+    }];
+    
+    [networkAlert addAction:tryAgainAction];
+    
+    // new is an alternative syntax to calling alloc init.
+    YogaPoseAPIManager *manager = [YogaPoseAPIManager new];
+    [manager fetchPoses:^(NSArray *poses, NSError *error) {
+        self.poses = poses;
+        if (poses != nil) {
+            // if the network call is successful
+            NSLog(@"Successfully fetched poses");
+            [self.activityIndicatorView stopAnimating];
+        } else {
+            [self presentViewController:networkAlert animated:YES completion:^{
+                NSLog(@"Fetched poses is nil");
+            }];
+        }
+    }];
+    [self.tableView reloadData];
 }
 
 - (void)queryWorkouts {
@@ -56,7 +92,7 @@
         if (savedWorkouts != nil) {
             // do something with the array of object returned by the call
             self.arrayOfWorkouts = savedWorkouts;
-            NSLog(@"%@", self.arrayOfWorkouts);
+            //NSLog(@"%@", self.arrayOfWorkouts);
             [self.tableView reloadData];
         } else {
             NSLog(@"%@", error.localizedDescription);
@@ -87,13 +123,15 @@
     //NSMutableArray *arrayOfStretchNames = [[NSMutableArray alloc] init];
     for (long i = 0; i < cell.workout.stretches.count; i++) {
         NSNumber *index = [cell.workout.stretches objectAtIndex:i];
-        YogaPose *poseToList = [self.poses objectAtIndex:[index intValue]];
-        //stringToDisplay = [stringToDisplay stringByAppendingFormat:@"%@\n", poseToList.name];
-        // set image
-        if (i == 0) {
-            cell.workoutImageView.image = [SVGKImage imageWithContentsOfURL:poseToList.imageURL].UIImage;
-            
-            //cell.workoutImageView.image = [SVGKImage imageWithData:[[NSData alloc] initWithContentsOfURL:poseToList.imageURL]].UIImage;
+        if (self.poses != nil) {
+            YogaPose *poseToList = [self.poses objectAtIndex:[index intValue]];
+            //stringToDisplay = [stringToDisplay stringByAppendingFormat:@"%@\n", poseToList.name];
+            // set image
+            if (i == 0) {
+                cell.workoutImageView.image = poseToList.image;
+                
+                //cell.workoutImageView.image = [SVGKImage imageWithData:[[NSData alloc] initWithContentsOfURL:poseToList.imageURL]].UIImage;
+            }
         }
     }
     //cell.stretchesLabel.text = stringToDisplay;
@@ -130,20 +168,21 @@
 
 
 - (IBAction)didTapLogout:(id)sender {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    LoginViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
-    self.view.window.rootViewController = loginViewController;
     // logout user
     [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
         if (error != nil) {
             NSLog(@"Error: %@", error.localizedDescription);
         } else {
             NSLog(@"Logout Successful");
+            [self dismissViewControllerAnimated:true completion:nil];
         }
     }];
+    /*
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    LoginViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+    self.view.window.rootViewController = loginViewController;
+     */
 }
-
-
 
 #pragma mark - Navigation
 

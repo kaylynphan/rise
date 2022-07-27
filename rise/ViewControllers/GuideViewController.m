@@ -12,13 +12,15 @@
 @import SRCountdownTimer;
 #import "../Views/PoseImageView.h"
 
-
 @interface GuideViewController ()
 
 @property (strong, nonatomic) VideoCapture *videoCapture;
 @property (strong, nonatomic)  PoseNet * _Nullable poseNet;
 @property (weak, nonatomic) PoseBuilderConfiguration *poseBuilderConfiguration;
 @property (strong, nonatomic) CGImageRef _Nullable currentFrame __attribute__((NSObject));
+@property (assign) BOOL isPaused;
+@property (weak, nonatomic) IBOutlet UIImageView *playIcon;
+@property (weak, nonatomic) IBOutlet UIImageView *rewindIcon;
 
 @end
 
@@ -36,9 +38,18 @@ static int exerciseNum = 0;
 
     //[PoseImageView getJoint]; //test success!!
     
+    // set up countdown timer
     self.countdownTimer.delegate = self;
+    [self.countdownTimer setLineColor:[UIColor greenColor]];
+    //[self.countdownTimer setLineWidth:15];
+    [self.countdownTimer setLabelFont:[UIFont fontWithName:@"Poppins-medium" size:65]];
+    //[self.countdownTimer setLabelTextColor:[UIColor colorWithWhite:0.5 alpha:0.5]];
+    //[self.countdownTimer setBackgroundColor:[UIColor clearColor]];
+    
+    
     self.titleLabel.text = self.workout.name;
     [self updateLabels];
+    self.isPaused = NO;
     
     NSLog(@"Now initializing PoseNet model");
     self.poseNet = [[PoseNet alloc] init];
@@ -47,6 +58,8 @@ static int exerciseNum = 0;
     self.videoCapture = [[VideoCapture alloc] init];
     NSLog(@"Now calling setupAndBeginCapturingVideoFrames");
     [self setupAndBeginCapturingVideoFrames];
+    
+    [self.rewindIcon setFrame:CGRectMake(-77, self.playIcon.frame.origin.y, 77, 77)];
     
 }
 
@@ -77,9 +90,9 @@ static int exerciseNum = 0;
         int *poseIndex = [[self.workout.stretches objectAtIndex:exerciseNum] intValue];
         YogaPose *pose = [self.poses objectAtIndex:poseIndex];
         self.poseLabel.text = pose.name;
-        self.poseImage.image = [SVGKImage imageWithContentsOfURL:pose.imageURL].UIImage;
-        [self.countdownTimer startWithBeginingValue:30 interval:1];
+        self.poseImage.image = pose.image;
     }
+    [self.countdownTimer startWithBeginingValue:30 interval:1];
 }
 
 // from VideoCaptureDelegate
@@ -129,5 +142,77 @@ static int exerciseNum = 0;
     // some code for navigating to configurationViewController (not sure if we will use this here)
 }
 */
+
+- (IBAction)didSingleTapTimer:(id)sender {
+    if (self.isPaused) {
+        [self play];
+    } else {
+        [self pause];
+    }
+}
+
+- (IBAction)didSwipeRight:(id)sender {
+    if (self.countdownTimer.currentCounterValue > 28) {
+        [UIView animateWithDuration:0.35 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+            self.rewindIcon.frame = CGRectMake(self.view.frame.size.width * 0.75, self.view.frame.size.height / 2 + 20, 70, 70);
+        } completion:^(BOOL finished) {
+            NSLog(@"Swipe animation complete");
+        }];
+        [UIView animateWithDuration:0.35 delay:0.35 options:UIViewAnimationOptionCurveEaseIn animations:^{
+            self.rewindIcon.frame = CGRectMake(-70, self.view.frame.size.height / 2 + 20, 70, 70);
+        } completion:^(BOOL finished) {
+            NSLog(@"Swipe animation complete");
+        }];
+    } else {
+        [UIView animateWithDuration:0.35 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+            self.rewindIcon.frame = CGRectMake(self.view.frame.size.width * 0.25, self.view.frame.size.height / 2 + 20, 70, 70);
+        } completion:^(BOOL finished) {
+            NSLog(@"Swipe animation complete");
+        }];
+        [UIView animateWithDuration:0.35 delay:0.35 options:UIViewAnimationOptionCurveEaseIn animations:^{
+            self.rewindIcon.frame = CGRectMake(-70, self.view.frame.size.height / 2 + 20, 70, 70);
+        } completion:^(BOOL finished) {
+            NSLog(@"Swipe animation complete");
+        }];
+    }
+    [self rewind];
+}
+
+
+- (void)pause {
+    [self.countdownTimer setLineColor:[UIColor yellowColor]];
+    [self.countdownTimer pause];
+    self.isPaused = YES;
+}
+
+- (void)play {
+    [self.countdownTimer setLineColor:[UIColor greenColor]];
+    [self.countdownTimer resume];
+    self.isPaused = NO;
+}
+
+- (void)rewind {
+    // if the workout just started, the user likely intends to go to the previous workout
+    if (self.countdownTimer.currentCounterValue > 28) {
+        if (exerciseNum > 0) {
+            exerciseNum--;
+            [self updateLabels];
+        }
+    } else {
+        [self.countdownTimer startWithBeginingValue:30 interval:1];
+    }
+}
+
+
+-(void)timerDidPauseWithSender:(SRCountdownTimer *)sender {
+    self.countdownTimer.counterLabel.text = @"";
+    [self.playIcon setHidden:NO];
+}
+
+-(void)timerDidResumeWithSender:(SRCountdownTimer *)sender {
+    [self.playIcon setHidden:YES];
+    self.countdownTimer.counterLabel.text = [NSString stringWithFormat:@"%ld", self.countdownTimer.currentCounterValue];
+    [self.countdownTimer setIsLabelHidden:NO];
+}
 
 @end

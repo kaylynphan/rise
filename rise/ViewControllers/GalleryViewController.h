@@ -6,6 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NVActivityIndicatorView-Swift.h"
 #import "WorkoutCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -15,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (strong, nonatomic) NSArray *poses;
 @property (strong, nonatomic) NSArray *arrayOfWorkouts;
+@property (weak, nonatomic) IBOutlet NVActivityIndicatorView *activityIndicatorView;
 
 @end
 

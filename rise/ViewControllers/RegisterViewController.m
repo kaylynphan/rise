@@ -65,6 +65,7 @@
 
 
 - (IBAction)registerUser:(id)sender {
+    // create alert controllers
     UIAlertController *nullUsernameAlert = [UIAlertController alertControllerWithTitle:@"Username Required"
                                                                                message:@"Please enter a username."
                                                                         preferredStyle:(UIAlertControllerStyleAlert)];
@@ -89,8 +90,6 @@
     newUser.email = self.emailField.text;
     newUser.displayName = self.nameField.text;
     
-    // create alert controllers
-    
     // call sign up function on the object
     // signUpInBackgroundWithBlock is an async function
     if ([self.usernameField.text isEqual:@""]) {
@@ -106,6 +105,10 @@
             } else {
                 NSLog(@"User registered successfully");
                 [self performSegueWithIdentifier:@"registerSegue" sender:nil];
+                [self.nameField setText:nil];
+                [self.emailField setText:nil];
+                [self.usernameField setText:nil];
+                [self.passwordField setText:nil];
             }
         }];
     }
@@ -117,7 +120,7 @@
 }
 
 #pragma mark - Navigation
-
+/*
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
      if ([segue.identifier isEqualToString:@"registerSegue"]){
@@ -126,6 +129,7 @@
          controller.poses = self.poses;
      }
 }
+*/
 
 
 @end
