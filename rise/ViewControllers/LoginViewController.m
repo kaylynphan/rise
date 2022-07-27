@@ -23,7 +23,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self setupFields];
+}
+
+- (void)setupFields {
     // must assign text field delegates to 'self' in order to dismiss keyboard upon pressing 'enter'
     self.usernameField.delegate = self;
     self.passwordField.delegate = self;
@@ -90,7 +93,6 @@
         }];
     }
 }
-
 
 #pragma mark - Navigation
 

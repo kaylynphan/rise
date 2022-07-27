@@ -11,6 +11,7 @@ target 'rise' do
   pod 'SVGKit'
   pod 'SRCountdownTimer'
   pod 'NVActivityIndicatorView'
+  pod 'Realm', '~>10'
 
   target 'riseTests' do
     inherit! :search_paths

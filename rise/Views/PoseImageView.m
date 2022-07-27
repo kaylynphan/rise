@@ -44,21 +44,16 @@
     CGFloat frameHeight = CGImageGetHeight(frame);
     CGSize dstImageSize = CGSizeMake(frameWidth, frameHeight);
     
-    UIGraphicsImageRendererFormat *dstImageFormat = [[UIGraphicsImageRendererFormat alloc] init];
-    
-    dstImageFormat.scale = 1; //dstImageFormat is nonnull
-    
-    UIGraphicsImageRenderer *renderer = [[UIGraphicsImageRenderer alloc] initWithSize:dstImageSize format:dstImageFormat]; //renderer is nonnull
-    
+    // configure drawing context
     UIGraphicsBeginImageContextWithOptions(dstImageSize, NO, 0.0f);
-
-    // render camera feed
-    CGContextSaveGState(UIGraphicsGetCurrentContext());
-    CGContextScaleCTM(UIGraphicsGetCurrentContext(), 1, -1);
-    CGRect drawingRect = CGRectMake(0, -1 * frameHeight, frameWidth, frameHeight);
-    CGContextDrawImage(UIGraphicsGetCurrentContext(), drawingRect, frame);
-    CGContextRestoreGState(UIGraphicsGetCurrentContext());
+    CGContextRef context = UIGraphicsGetCurrentContext();
     
+    // render camera feed
+    CGContextSaveGState(context);
+    CGContextScaleCTM(context, 1, -1);
+    CGRect drawingRect = CGRectMake(0, -1 * frameHeight, frameWidth, frameHeight);
+    CGContextDrawImage(context, drawingRect, frame);
+    CGContextRestoreGState(context);
     
     // draw segments
     for (Pose *pose in poses) {
@@ -70,27 +65,26 @@
             
             if (jointA.isValid && jointB.isValid) {
                 //NSLog([NSString stringWithFormat:@"Segment from Index: %d, Joint %d to Index: %d, Joint %d", indexA, jointA.name, indexB, jointB.name]);
-                [self drawLineWithParentJoint:jointA withChildJoint:jointB withCGContext:UIGraphicsGetCurrentContext()];
+                [self drawLineWithParentJoint:jointA withChildJoint:jointB withCGContext:context];
             }
         }
         
         // draw joints
         for (Joint *joint in pose.joints) {
+            // ignore the first 4 joints (facial joints)
             if (joint.name > 4) {
                 if (joint.isValid) {
-                    [self drawWithCircle:joint withCGContext:UIGraphicsGetCurrentContext()];
+                    [self drawWithCircle:joint withCGContext:context];
                 }
             }
         }
     }
-    
     UIImage *dstImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     self.image = dstImage;
 }
 
 - (void) drawLineWithParentJoint:(Joint *)parentJoint withChildJoint:(Joint *)childJoint withCGContext:(CGContextRef)cgContext {
-    
     CGContextSetStrokeColorWithColor(cgContext, UIColor.blackColor.CGColor);
     CGContextSetLineWidth(cgContext, 2.0);
     CGContextMoveToPoint(cgContext, parentJoint.position.x, parentJoint.position.y);
@@ -106,36 +100,7 @@
     CGContextDrawPath(cgContext, kCGPathFill);
 }
 
-
 - (void)runTests {
-    // Test 1: PASS!!
-    /*
-    NSLog([NSString stringWithFormat:@"Nose is %d", Joint.nose]);
-    */
-    
-    // Test 2: PASS!!
-    /*
-    NSLog(@"Segments:");
-    for (JointSegment *segment in self.jointSegments) {
-        NSLog(@"JointA: %d, JointB: %d", segment.jointA, segment.jointB);
-    }
-     */
 }
-
-
-     
-
-
-
-
-
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
 
 @end

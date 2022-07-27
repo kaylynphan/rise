@@ -28,7 +28,6 @@
 		2E7DAED72882801C00097E33 /* Poppins-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E7DAEC42882801C00097E33 /* Poppins-MediumItalic.ttf */; };
 		2E7DAED92885DAF500097E33 /* VideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7DAED82885DAF500097E33 /* VideoCapture.swift */; };
 		2E7DAEDB2885DB2900097E33 /* AVCaptureVideoOrientation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7DAEDA2885DB2900097E33 /* AVCaptureVideoOrientation+Extension.swift */; };
-		2E98F300288736A20031DD25 /* ContainedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E98F2FF288736A20031DD25 /* ContainedButton.m */; };
 		2EA0797E287611C000931A86 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EA0797D287611C000931A86 /* LoginViewController.m */; };
 		2EA079812876144D00931A86 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EA079802876144D00931A86 /* RegisterViewController.m */; };
 		2EA079842876146400931A86 /* GalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EA079832876146400931A86 /* GalleryViewController.m */; };
@@ -110,8 +109,6 @@
 		2E7DAEC42882801C00097E33 /* Poppins-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-MediumItalic.ttf"; sourceTree = "<group>"; };
 		2E7DAED82885DAF500097E33 /* VideoCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCapture.swift; sourceTree = "<group>"; };
 		2E7DAEDA2885DB2900097E33 /* AVCaptureVideoOrientation+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVCaptureVideoOrientation+Extension.swift"; sourceTree = "<group>"; };
-		2E98F2FE288736A20031DD25 /* ContainedButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContainedButton.h; sourceTree = "<group>"; };
-		2E98F2FF288736A20031DD25 /* ContainedButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContainedButton.m; sourceTree = "<group>"; };
 		2EA0797C287611C000931A86 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		2EA0797D287611C000931A86 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		2EA0797F2876144D00931A86 /* RegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
@@ -259,8 +256,6 @@
 		2EA0797B287611A800931A86 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				2E98F2FE288736A20031DD25 /* ContainedButton.h */,
-				2E98F2FF288736A20031DD25 /* ContainedButton.m */,
 				2ED125282880965A00DD5CBF /* GalleryViewHeader.h */,
 				2ED125292880965A00DD5CBF /* GalleryViewHeader.m */,
 				2EA0799828774B9500931A86 /* PoseImageView.h */,
@@ -650,7 +645,6 @@
 				2ED124A4287C93A800DD5CBF /* WorkoutCell.m in Sources */,
 				2EA079872876148300931A86 /* GuideViewController.m in Sources */,
 				2ED124AB287DE8F000DD5CBF /* Workout.m in Sources */,
-				2E98F300288736A20031DD25 /* ContainedButton.m in Sources */,
 				2E7DAED92885DAF500097E33 /* VideoCapture.swift in Sources */,
 				2ED12527287F6CE900DD5CBF /* PoseBuilder+Single.swift in Sources */,
 				2EA0797E287611C000931A86 /* LoginViewController.m in Sources */,

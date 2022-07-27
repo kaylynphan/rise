@@ -30,37 +30,30 @@ static int exerciseNum = 0;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
-    //customize back button
-    //self.backButton.titleView.tintColor = [UIColor blackColor];
-    self.backButton.backBarButtonItem.tintColor = [UIColor blackColor];
+    // Do any additional setup after loading the view
 
-    //[PoseImageView getJoint]; //test success!!
-    
     // set up countdown timer
-    self.countdownTimer.delegate = self;
-    [self.countdownTimer setLineColor:[UIColor greenColor]];
-    //[self.countdownTimer setLineWidth:15];
-    [self.countdownTimer setLabelFont:[UIFont fontWithName:@"Poppins-medium" size:65]];
-    //[self.countdownTimer setLabelTextColor:[UIColor colorWithWhite:0.5 alpha:0.5]];
-    //[self.countdownTimer setBackgroundColor:[UIColor clearColor]];
-    
+    [self setupTimer];
     
     self.titleLabel.text = self.workout.name;
     [self updateLabels];
     self.isPaused = NO;
     
-    NSLog(@"Now initializing PoseNet model");
+    //NSLog(@"Now initializing PoseNet model");
     self.poseNet = [[PoseNet alloc] init];
     self.poseNet.delegate = self;
     
     self.videoCapture = [[VideoCapture alloc] init];
-    NSLog(@"Now calling setupAndBeginCapturingVideoFrames");
+    //NSLog(@"Now calling setupAndBeginCapturingVideoFrames");
     [self setupAndBeginCapturingVideoFrames];
     
     [self.rewindIcon setFrame:CGRectMake(-77, self.playIcon.frame.origin.y, 77, 77)];
-    
+}
+
+- (void)setupTimer {
+    self.countdownTimer.delegate = self;
+    [self.countdownTimer setLineColor:[UIColor greenColor]];
+    [self.countdownTimer setLabelFont:[UIFont fontWithName:@"Poppins-medium" size:65]];
 }
 
 - (void)setupAndBeginCapturingVideoFrames {
@@ -90,7 +83,7 @@ static int exerciseNum = 0;
         int *poseIndex = [[self.workout.stretches objectAtIndex:exerciseNum] intValue];
         YogaPose *pose = [self.poses objectAtIndex:poseIndex];
         self.poseLabel.text = pose.name;
-        self.poseImage.image = pose.image;
+        self.poseImage.image = [UIImage imageWithData:pose.imageData];
     }
     [self.countdownTimer startWithBeginingValue:30 interval:1];
 }
@@ -110,7 +103,6 @@ static int exerciseNum = 0;
 
 // from PoseNetDelegate
 - (void) poseNet:(PoseNet *)poseNet didPredict:(PoseNetOutput *)predictions {
-    
     CGImageRef currentFrame = self.currentFrame;
     if (currentFrame != self.currentFrame) {
         self.currentFrame = nil;
@@ -118,7 +110,6 @@ static int exerciseNum = 0;
     }
     
     PoseBuilder *poseBuilder = [[PoseBuilder alloc] initWithOutput:predictions configuration:self.poseBuilderConfiguration inputImage:currentFrame];
-    
     // here, there is a ternary operator checking for .single or .multiple. Let's only handle single
     // originally, we construct an array of poses.
     // here let's only an array of only one pose
@@ -129,19 +120,6 @@ static int exerciseNum = 0;
     [self.poseImageView showWithPoses:poses withFrame:currentFrame];
     self.currentFrame = nil;
 }
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
- 
-    // some code for navigating to configurationViewController (not sure if we will use this here)
-}
-*/
 
 - (IBAction)didSingleTapTimer:(id)sender {
     if (self.isPaused) {
@@ -178,7 +156,6 @@ static int exerciseNum = 0;
     [self rewind];
 }
 
-
 - (void)pause {
     [self.countdownTimer setLineColor:[UIColor yellowColor]];
     [self.countdownTimer pause];
@@ -203,7 +180,6 @@ static int exerciseNum = 0;
     }
 }
 
-
 -(void)timerDidPauseWithSender:(SRCountdownTimer *)sender {
     self.countdownTimer.counterLabel.text = @"";
     [self.playIcon setHidden:NO];
@@ -214,5 +190,17 @@ static int exerciseNum = 0;
     self.countdownTimer.counterLabel.text = [NSString stringWithFormat:@"%ld", self.countdownTimer.currentCounterValue];
     [self.countdownTimer setIsLabelHidden:NO];
 }
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+ 
+    // some code for navigating to configurationViewController (not sure if we will use this here)
+}
+*/
 
 @end

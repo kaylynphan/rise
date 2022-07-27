@@ -15,22 +15,27 @@
     self = [super init];
     self.name = dictionary[@"english_name"];
     NSString *imageURLString = dictionary[@"img_url"];
-    NSInteger id = dictionary[@"id"];
-    self.index = id - 1;
-    self.imageURL = [NSURL URLWithString:imageURLString];
-    self.image = [SVGKImage imageWithContentsOfURL:self.imageURL].UIImage;
+    if (imageURLString != nil) {
+        // this is the hunk of the loading time
+        UIImage *uiImageFromSVG = [SVGKImage imageWithContentsOfURL:[NSURL URLWithString:imageURLString]].UIImage;
+        self.imageData = UIImagePNGRepresentation(uiImageFromSVG);
+    }
     return self;
 }
 
-// dictionaries is an array of dictionaries. In lightning yoga API this is 'items'
-+ (NSArray *)posesWithDictionaries:(NSArray *)dictionaries {
+// same as old posesWithDictionaries, but instead of writing to local NSArray 'poses', it writes to Realm
++ (NSArray * )posesWithDictionaries:(NSArray *)dictionaries {
     NSMutableArray *poses = [[NSMutableArray alloc] init];
-        for (NSDictionary *dictionary in dictionaries) {
-            NSLog(@"%@", dictionary); // print each 'item' dictionary
-            YogaPose *pose = [[YogaPose alloc] initWithDictionary:dictionary];
-            [poses addObject:pose];
-        }
-        return poses;
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    [realm beginWriteTransaction];
+    for (NSDictionary *dictionary in dictionaries) {
+        NSLog(@"%@", dictionary); // print each 'item' dictionary
+        YogaPose *pose = [[YogaPose alloc] initWithDictionary:dictionary];
+        [realm addObject:pose];
+        [poses addObject:pose];
     }
+    [realm commitWriteTransaction];
+    return poses;
+}
 
 @end
