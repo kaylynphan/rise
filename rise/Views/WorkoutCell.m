@@ -6,23 +6,32 @@
 //
 
 #import "WorkoutCell.h"
+#import <UIKit/UIKit.h>
+#import <CoreGraphics/CoreGraphics.h>
+#import "../Styles.h"
 
 @implementation WorkoutCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    
     // remove highlight from table view cells
     self.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    
+    CAGradientLayer *gradient = [Styles gradientForLargeView:self];
+    [self.cardView.layer insertSublayer:gradient atIndex:0];
     
     self.cardView.layer.cornerRadius = 40.0;
     self.cardView.layer.masksToBounds = YES;
     [self.titleLabel sizeToFit];
     
+    
     [self setupCircleView];
     [self.workoutImageView setContentMode:UIViewContentModeScaleAspectFit];
     
     self.titleLabel.font = [UIFont fontWithName:@"Poppins-medium" size:30];
-    [self setupStartButton];
+    [Styles addGradientToButton:self.startButton];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -30,21 +39,10 @@
     // Configure the view for the selected state
 }
 
-- (void)setupStartButton {
-    self.startButton.titleLabel.font = [UIFont fontWithName:@"Poppins-medium" size:18];
-    [self.startButton sizeToFit];
-    self.startButtonBackground.layer.cornerRadius = 18;
-    self.startButtonBackground.layer.masksToBounds = YES;
-    self.startButtonBackground.layer.borderWidth = 1;
-    self.startButtonBackground.layer.borderColor = [UIColor blackColor].CGColor;
-    self.startButton.titleLabel.textColor = [UIColor blackColor];
-}
-
 - (void)setupCircleView {
     self.circleView.layer.cornerRadius = 40;
     self.circleView.layer.masksToBounds = YES;
-    self.circleView.layer.borderWidth = 1;
-    self.circleView.layer.borderColor = [UIColor blackColor].CGColor;
+    self.circleView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.5];
 }
 
 - (IBAction)didTapStart:(id)sender {

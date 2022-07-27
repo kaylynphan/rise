@@ -10,6 +10,7 @@
 #import "GalleryViewController.h"
 #import <Parse/Parse.h>
 #import "../Managers/NotificationManager.h"
+#import "../Styles.h"
 
 @interface ProfileViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *displayNameLabel;
@@ -23,6 +24,7 @@
 - (IBAction)didTapBack:(id)sender;
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 - (IBAction)dateChanged:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *logoutButton;
 
 
 @end
@@ -54,6 +56,14 @@
     self.settingsLabel.font = [UIFont fontWithName:@"Poppins-medium" size:30];
     
     [self.riseWillNotifyLabel sizeToFit];
+    
+    CAGradientLayer *buttonGradient = [Styles buttonGradientForView:self.logoutButton];
+    [self.logoutButton.layer insertSublayer:buttonGradient atIndex:0];
+    self.logoutButton.layer.cornerRadius = 0.5 * self.logoutButton.frame.size.height;
+    [self.logoutButton setClipsToBounds:YES];
+    self.logoutButton.titleLabel.textColor = [UIColor whiteColor];
+    [self.logoutButton sizeToFit];
+    
 }
 
 /*

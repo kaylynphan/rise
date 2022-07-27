@@ -9,6 +9,7 @@
 #import "Parse/Parse.h"
 #import "User.h"
 #import "GalleryViewController.h"
+#import "../Styles.h"
 
 @interface RegisterViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
@@ -22,6 +23,8 @@
 @property (weak, nonatomic) IBOutlet UIView *usernameFieldBackground;
 @property (weak, nonatomic) IBOutlet UIView *passwordFieldBackground;
 @property (weak, nonatomic) IBOutlet UILabel *registerNewUserLabel;
+@property (weak, nonatomic) IBOutlet UIButton *signUpButton;
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
 
 @end
 
@@ -56,6 +59,9 @@
     self.emailFieldBackground.layer.borderWidth = 1.5;
     self.usernameFieldBackground.layer.borderWidth = 1.5;
     self.passwordFieldBackground.layer.borderWidth = 1.5;
+    
+    [Styles addGradientToButton:self.signUpButton];
+    [Styles addGradientToButton:self.loginButton];
 }
 
 

@@ -12,6 +12,7 @@
 		2E53A12E288B7336006C71D2 /* success-check.json in Resources */ = {isa = PBXBuildFile; fileRef = 2E53A12D288B7336006C71D2 /* success-check.json */; };
 		2E53A132288F1F92006C71D2 /* NotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E53A131288F1F92006C71D2 /* NotificationManager.m */; };
 		2E53A135288F6F75006C71D2 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E53A134288F6F75006C71D2 /* ProfileViewController.m */; };
+		2E53A13D2891E11A006C71D2 /* Styles.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E53A13C2891E11A006C71D2 /* Styles.m */; };
 		2E7DAEC52882801C00097E33 /* Poppins-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E7DAEB22882801C00097E33 /* Poppins-ExtraLight.ttf */; };
 		2E7DAEC62882801C00097E33 /* Poppins-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E7DAEB32882801C00097E33 /* Poppins-ThinItalic.ttf */; };
 		2E7DAEC72882801C00097E33 /* Poppins-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E7DAEB42882801C00097E33 /* Poppins-ExtraLightItalic.ttf */; };
@@ -101,6 +102,8 @@
 		2E53A131288F1F92006C71D2 /* NotificationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationManager.m; sourceTree = "<group>"; };
 		2E53A133288F6F75006C71D2 /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		2E53A134288F6F75006C71D2 /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		2E53A13B2891E11A006C71D2 /* Styles.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Styles.h; sourceTree = "<group>"; };
+		2E53A13C2891E11A006C71D2 /* Styles.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Styles.m; sourceTree = "<group>"; };
 		2E7DAEB22882801C00097E33 /* Poppins-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLight.ttf"; sourceTree = "<group>"; };
 		2E7DAEB32882801C00097E33 /* Poppins-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ThinItalic.ttf"; sourceTree = "<group>"; };
 		2E7DAEB42882801C00097E33 /* Poppins-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
@@ -354,6 +357,8 @@
 				2ED6586228760D5100B66436 /* AppDelegate.m */,
 				2ED6586428760D5100B66436 /* SceneDelegate.h */,
 				2ED6586528760D5100B66436 /* SceneDelegate.m */,
+				2E53A13B2891E11A006C71D2 /* Styles.h */,
+				2E53A13C2891E11A006C71D2 /* Styles.m */,
 				2ED6586A28760D5100B66436 /* Main.storyboard */,
 				2ED6586D28760D5200B66436 /* Assets.xcassets */,
 				2E53A12D288B7336006C71D2 /* success-check.json */,
@@ -679,6 +684,7 @@
 				2E7DAED92885DAF500097E33 /* VideoCapture.swift in Sources */,
 				2ED12527287F6CE900DD5CBF /* PoseBuilder+Single.swift in Sources */,
 				2EA0797E287611C000931A86 /* LoginViewController.m in Sources */,
+				2E53A13D2891E11A006C71D2 /* Styles.m in Sources */,
 				2ED12518287F6C4A00DD5CBF /* PoseNetInput.swift in Sources */,
 				2E7DAEDB2885DB2900097E33 /* AVCaptureVideoOrientation+Extension.swift in Sources */,
 				2ED1251D287F6CCA00DD5CBF /* CGPoint+Extension.swift in Sources */,

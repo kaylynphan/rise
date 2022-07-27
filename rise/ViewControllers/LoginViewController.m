@@ -10,6 +10,7 @@
 #import "User.h"
 #import "GalleryViewController.h"
 #import "../Managers/NotificationManager.h"
+#import "../Styles.h"
 
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
@@ -46,10 +47,8 @@
     self.usernameBackgroundView.layer.cornerRadius = 16.0;
     self.passwordBackgroundView.layer.cornerRadius = 16.0;
    
-    self.loginButton.titleLabel.font = [UIFont fontWithName:@"Poppins-regular" size:18];
-    self.signUpButton.titleLabel.font = [UIFont fontWithName:@"Poppins-regular" size:18];
-    [self.loginButton sizeToFit];
-    [self.signUpButton sizeToFit];
+    [Styles addGradientToButton:self.loginButton];
+    [Styles addGradientToButton:self.signUpButton];
 }
 
 - (BOOL) textFieldShouldReturn:(UITextField *)textField {
