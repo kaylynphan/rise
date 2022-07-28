@@ -19,6 +19,8 @@
 
 @implementation CompletionViewController
 
+static NSString *const kPFUserDisplayName = @"displayName";
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.backToHomeButton setAlpha:0.0];
@@ -37,7 +39,7 @@
     // adjust label
     // there should be a user logged in, but just in case, catch null case
     if ([User currentUser] != nil) {
-        self.congratsLabel.text = [NSString stringWithFormat:@"Great job completing your daily stretch, %@!", [User currentUser][@"displayName"]];
+        self.congratsLabel.text = [NSString stringWithFormat:@"Great job completing your daily stretch, %@!", [User currentUser][kPFUserDisplayName]];
     } else {
         self.congratsLabel.text = @"Great job completing your daily stretch!";
     }
