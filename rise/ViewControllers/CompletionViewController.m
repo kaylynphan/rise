@@ -8,6 +8,7 @@
 #import "CompletionViewController.h"
 #import "rise-Swift.h"
 #import "../Models/User.h"
+#import "../Styles.h"
 
 @interface CompletionViewController ()
 @property (strong, nonatomic) AnimationView *successCheckAnimationView;
@@ -23,7 +24,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.backToHomeButton setAlpha:0.0];
-    self.backToHomeButton.titleLabel.font = [UIFont fontWithName:@"Poppins-regular" size:18];
+    //self.backToHomeButton.titleLabel.font = [UIFont fontWithName:@"Poppins-regular" size:18];
+    [Styles addGradientToButton:self.backToHomeButton];
     
     // hide default navigation bar
     [self.navigationItem setHidesBackButton:YES];

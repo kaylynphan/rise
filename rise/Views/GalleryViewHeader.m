@@ -7,26 +7,28 @@
 
 #import "GalleryViewHeader.h"
 #import "../Models/User.h"
+#import "../Styles.h"
 
 @implementation GalleryViewHeader
 
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    
     [self setupHelloLabel];
     self.myWorkoutsLabel.font = [UIFont fontWithName:@"Poppins-medium" size:30];
     [self.myWorkoutsLabel sizeToFit];
     [self.todayCompletionLabel sizeToFit];
 }
 
+
 - (void)setupHelloLabel {
-    self.helloLabelBackground.layer.cornerRadius = 26;
-    self.helloLabelBackground.layer.masksToBounds = YES;
     self.helloLabel.text = [NSString stringWithFormat:@"Hello %@", [User currentUser][@"displayName"]];
-    self.helloLabel.font = [UIFont fontWithName:@"Poppins-medium" size:24];
-    [self.helloLabel sizeToFit];
+    [Styles styleLargeLabel:self.helloLabel];
+    self.helloLabelBackground.backgroundColor = [UIColor colorWithRed:247.0/255.0f green:248.0/255.0f blue:248.0/255.0f alpha:1.0f];
+    self.helloLabelBackground.layer.cornerRadius = 30;
+    self.helloLabelBackground.layer.masksToBounds = YES;
 }
+ 
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

@@ -61,6 +61,12 @@
     textField.borderStyle = UITextBorderStyleNone;
 }
 
++ (void)styleLargeLabel:(UILabel *)label {
+    label.font = [UIFont fontWithName:@"Poppins-bold" size:30];
+    label.textColor = [UIColor colorWithRed:146.0/255.0f green:163.0/255.0f blue:253.0/255.0f alpha:1.0f];
+    [label sizeToFit];
+}
+
 +  (void)styleSmallLabel:(UILabel *)label {
     label.font = [UIFont fontWithName:@"Poppins-medium" size:14];
     label.textColor = [UIColor darkGrayColor];
