@@ -10,6 +10,8 @@
 
 @implementation GalleryViewHeader
 
+static NSString *const kPFUserDisplayName = @"displayName";
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
@@ -23,7 +25,7 @@
 - (void)setupHelloLabel {
     self.helloLabelBackground.layer.cornerRadius = 26;
     self.helloLabelBackground.layer.masksToBounds = YES;
-    self.helloLabel.text = [NSString stringWithFormat:@"Hello %@", [User currentUser][@"displayName"]];
+    self.helloLabel.text = [NSString stringWithFormat:@"Hello %@", [User currentUser][kPFUserDisplayName]];
     self.helloLabel.font = [UIFont fontWithName:@"Poppins-medium" size:24];
     [self.helloLabel sizeToFit];
 }

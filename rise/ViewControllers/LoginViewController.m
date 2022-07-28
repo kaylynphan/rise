@@ -9,6 +9,7 @@
 #import "Parse/Parse.h"
 #import "User.h"
 #import "GalleryViewController.h"
+#import "../Managers/NotificationManager.h"
 
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;

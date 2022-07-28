@@ -6,6 +6,8 @@
 //
 
 #import "AppDelegate.h"
+#import <UserNotifications/UNUserNotificationCenter.h>
+#import <UserNotifications/UNNotificationTrigger.h>
 
 @interface AppDelegate ()
 
@@ -29,6 +31,7 @@
     }];
     [Parse initializeWithConfiguration:config];
     
+    // set system font
     [[UILabel appearance] setFont:[UIFont fontWithName:@"Poppins-Regular" size:16.0]];
     
     return YES;

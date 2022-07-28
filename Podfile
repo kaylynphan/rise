@@ -12,6 +12,7 @@ target 'rise' do
   pod 'SRCountdownTimer'
   pod 'NVActivityIndicatorView'
   pod 'Realm', '~>10'
+  pod 'lottie-ios'
 
   target 'riseTests' do
     inherit! :search_paths

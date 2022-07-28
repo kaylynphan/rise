@@ -10,26 +10,27 @@
 #import "Parse/Parse.h"
 #import "WorkoutCell.h"
 #import "YogaPose.h"
-#import <SVGKit/SVGKit.h>
-#import <SVGKit/SVGKImage.h>
 #import "Workout.h"
 #import "GuideViewController.h"
 #import <AFNetworking/UIImageView+AFNetworking.h>
 #import "YogaPoseAPIManager.h"
 #import <NVActivityIndicatorView/NVActivityIndicatorView-Swift.h>
 @import NVActivityIndicatorView;
-#import <Realm/Realm.h>
-#import <Realm/RLMResults.h>
+#import "../Managers/NotificationManager.h"
+#import "../Models/User.h"
 
 @interface GalleryViewController ()
 - (IBAction)didTapLogout:(id)sender;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
-@property (strong, nonatomic) RLMRealm *realm;
 
 @end
 
 @implementation GalleryViewController
+
+static NSString *const kPFUserPreferredHour = @"preferredHour";
+static NSString *const kPFUserPreferredMinute = @"preferredMinute";
+static NSString *const kPFWorkoutDescription = @"description";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -43,7 +44,7 @@
     // set up table
     [self.tableView setDelegate:self];
     [self.tableView setDataSource:self];
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    //self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.separatorColor = [UIColor clearColor];
     [self.activityIndicatorView startAnimating];
     [self.view addSubview:self.activityIndicatorView];
@@ -51,6 +52,19 @@
     // perform query
     self.arrayOfWorkouts = [[NSArray alloc] init];
     [self queryWorkouts];
+    
+    User *user = [User currentUser];
+    if (user != nil) {
+        NotificationManager *notificationManager = [NotificationManager new];
+        [notificationManager requestAuthorization:^(BOOL granted) {
+            if (granted) {
+                NSLog(@"Notifications authorization granted.");
+                NSInteger preferredHour = [user[kPFUserPreferredHour] integerValue];
+                NSInteger preferredMinute = [user[kPFUserPreferredMinute] integerValue];
+                [notificationManager scheduleNotificationWithHour:preferredHour withMinute:preferredMinute];
+            }
+        }];
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -129,7 +143,7 @@
         }
     }
     [cell.descriptionLabel setNumberOfLines:0];
-    cell.descriptionLabel.text = cell.workout[@"description"];
+    cell.descriptionLabel.text = cell.workout[kPFWorkoutDescription];
     [cell.descriptionLabel sizeToFit];
     
     return cell;
