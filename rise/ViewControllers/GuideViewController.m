@@ -19,7 +19,8 @@
 @property (strong, nonatomic)  PoseNet * _Nullable poseNet;
 @property (weak, nonatomic) PoseBuilderConfiguration *poseBuilderConfiguration;
 @property (strong, nonatomic) CGImageRef _Nullable currentFrame __attribute__((NSObject));
-@property (assign) BOOL isPaused;
+@property (assign) BOOL isPausedByUser;
+@property (assign) BOOL isAutoPaused;
 @property (weak, nonatomic) IBOutlet UIImageView *playIcon;
 @property (weak, nonatomic) IBOutlet UIImageView *rewindIcon;
 
@@ -38,7 +39,7 @@ static int exerciseNum = 0;
     
     self.titleLabel.text = self.workout.name;
     [self updateLabels];
-    self.isPaused = NO;
+    self.isPausedByUser = NO;
     
     //NSLog(@"Now initializing PoseNet model");
     self.poseNet = [[PoseNet alloc] init];
@@ -122,15 +123,29 @@ static int exerciseNum = 0;
     NSMutableArray *poses = [[NSMutableArray alloc] init];
     [poses addObject:pose];
     
-    [self.poseImageView showWithPoses:poses withFrame:currentFrame];
+    [self.poseImageView showWithPoses:poses withFrame:currentFrame withBlock:^void(BOOL didDetectPose) {
+        if (!didDetectPose) {
+            //pause workout
+            [self pause];
+            self.isAutoPaused = YES;
+        }
+        // if the user paused manually for some reason, they probably don't want the workout to start playing just because they were detected in the frame again
+        if (didDetectPose && self.isAutoPaused) {
+            [self play];
+            self.isAutoPaused = NO;
+        }
+    }];
     self.currentFrame = nil;
 }
 
 - (IBAction)didSingleTapTimer:(id)sender {
-    if (self.isPaused) {
+    if (self.isPausedByUser || self.isAutoPaused) {
         [self play];
+        self.isAutoPaused = NO;
+        self.isPausedByUser = NO;
     } else {
         [self pause];
+        self.isPausedByUser = YES;
     }
 }
 
@@ -164,13 +179,11 @@ static int exerciseNum = 0;
 - (void)pause {
     [self.countdownTimer setLineColor:[UIColor yellowColor]];
     [self.countdownTimer pause];
-    self.isPaused = YES;
 }
 
 - (void)play {
     [self.countdownTimer setLineColor:[UIColor greenColor]];
     [self.countdownTimer resume];
-    self.isPaused = NO;
 }
 
 - (void)rewind {
@@ -186,12 +199,14 @@ static int exerciseNum = 0;
 }
 
 -(void)timerDidPauseWithSender:(SRCountdownTimer *)sender {
-    /*
-    //changing this temporarily for testing
+
     self.countdownTimer.counterLabel.text = @"";
     [self.playIcon setHidden:NO];
-     */
+     
+    /*
+    //changing this temporarily for testing
     [self finishWorkout];
+     */
 }
 
 -(void)timerDidResumeWithSender:(SRCountdownTimer *)sender {
