@@ -61,7 +61,6 @@
     self.profileLabel.font = [UIFont fontWithName:@"Poppins-medium" size:30];
     self.settingsLabel.font = [UIFont fontWithName:@"Poppins-medium" size:30];
     
-    [self.riseWillNotifyLabel sizeToFit];
     
     
     self.displayNameField.delegate = self;
@@ -79,6 +78,9 @@
     [Styles styleSmallLabel:self.displayNameLabel];
     [Styles styleSmallLabel:self.usernameLabel];
     [Styles styleSmallLabel:self.emailLabel];
+    
+    [Styles styleSmallLabel:self.riseWillNotifyLabel];
+    
     
 }
 
