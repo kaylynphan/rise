@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *displayName;
 @property (nonatomic, strong) NSNumber *preferredHour;
 @property (nonatomic, strong) NSNumber *preferredMinute;
+@property (nonatomic, strong) NSMutableArray *completionDates;
 
 + (User *)user;
 
