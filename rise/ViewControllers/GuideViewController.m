@@ -12,6 +12,8 @@
 @import SRCountdownTimer;
 #import "../Views/PoseImageView.h"
 #import "CompletionViewController.h"
+#import "../Styles.h"
+#import "../Views/CustomTextField.h"
 
 @interface GuideViewController ()
 
@@ -23,12 +25,15 @@
 @property (assign) BOOL isAutoPaused;
 @property (weak, nonatomic) IBOutlet UIImageView *playIcon;
 @property (weak, nonatomic) IBOutlet UIImageView *rewindIcon;
+- (IBAction)didTapBackButton:(id)sender;
 
 @end
 
 @implementation GuideViewController
 
 static int exerciseNum = 0;
+static int frameNum = 0;
+static const int FRAME_ROTATION_RATE = 5;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -37,8 +42,15 @@ static int exerciseNum = 0;
     // set up countdown timer
     [self setupTimer];
     
-    self.titleLabel.text = self.workout.name;
+    CustomTextField *workoutTitleField = [[CustomTextField alloc] init];
+    workoutTitleField.text = self.workout.name;
+    [Styles styleDisabledTextField:workoutTitleField];
+    self.navigationItem.titleView = workoutTitleField;
+
+    
     [self updateLabels];
+    [Styles styleLargeLabel:self.poseLabel];
+    
     self.isPausedByUser = NO;
     
     //NSLog(@"Now initializing PoseNet model");
@@ -54,7 +66,7 @@ static int exerciseNum = 0;
 
 - (void)setupTimer {
     self.countdownTimer.delegate = self;
-    [self.countdownTimer setLineColor:[UIColor greenColor]];
+    [self.countdownTimer setLineColor:[UIColor colorWithWhite:0.75 alpha:0.5]];
     [self.countdownTimer setLabelFont:[UIFont fontWithName:@"Poppins-medium" size:65]];
 }
 
@@ -89,6 +101,7 @@ static int exerciseNum = 0;
         int *poseIndex = [[self.workout.stretches objectAtIndex:exerciseNum] intValue];
         YogaPose *pose = [self.poses objectAtIndex:poseIndex];
         self.poseLabel.text = pose.name;
+        [self.poseLabel sizeToFit];
         self.poseImage.image = [UIImage imageWithData:pose.imageData];
     }
     [self.countdownTimer startWithBeginingValue:30 interval:1];
@@ -124,24 +137,27 @@ static int exerciseNum = 0;
     [poses addObject:pose];
     
     [self.poseImageView showWithPoses:poses withFrame:currentFrame withBlock:^void(BOOL didDetectPose) {
-        if (!didDetectPose) {
-            //pause workout
-            [self pause];
-            self.isAutoPaused = YES;
-        }
-        // if the user paused manually for some reason, they probably don't want the workout to start playing just because they were detected in the frame again
-        if (didDetectPose && self.isAutoPaused) {
-            [self play];
-            self.isAutoPaused = NO;
+        // don't run auto-pause feature on every single frame, this would be too erratic for smooth user experience
+        if (frameNum % FRAME_ROTATION_RATE == 0) {
+            if (!didDetectPose) {
+                //pause workout
+                [self pause];
+                self.isAutoPaused = YES;
+            }
+            // if the user paused manually for some reason, they probably don't want the workout to start playing just because they were detected in the frame again
+            if (didDetectPose && self.isAutoPaused) {
+                [self play];
+                self.isAutoPaused = NO;
+            }
         }
     }];
     self.currentFrame = nil;
+    frameNum++;
 }
 
 - (IBAction)didSingleTapTimer:(id)sender {
-    if (self.isPausedByUser || self.isAutoPaused) {
+    if (self.isPausedByUser) {
         [self play];
-        self.isAutoPaused = NO;
         self.isPausedByUser = NO;
     } else {
         [self pause];
@@ -177,12 +193,10 @@ static int exerciseNum = 0;
 }
 
 - (void)pause {
-    [self.countdownTimer setLineColor:[UIColor yellowColor]];
     [self.countdownTimer pause];
 }
 
 - (void)play {
-    [self.countdownTimer setLineColor:[UIColor greenColor]];
     [self.countdownTimer resume];
 }
 
