@@ -21,6 +21,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)styleEnabledTextField:(CustomTextField *)textField;
 
++ (void)styleDisabledTextField:(CustomTextField *)textField;
+
++ (void)styleSmallLabel:(UILabel *)label;
+
 
 @end
 

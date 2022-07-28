@@ -47,6 +47,24 @@
     textField.font = [UIFont fontWithName:@"Poppins-regular" size:16];
     textField.layer.cornerRadius = 12;
     textField.backgroundColor = [UIColor colorWithRed:234.0/255.0f green:240.0/255.0f blue:255.0/255.0f alpha:1.0f];
+    [textField setUserInteractionEnabled:YES];
+    textField.textColor = [UIColor darkGrayColor];
+    textField.borderStyle = UITextBorderStyleNone;
+}
+
++ (void)styleDisabledTextField:(CustomTextField *)textField {
+    textField.font = [UIFont fontWithName:@"Poppins-regular" size:16];
+    textField.layer.cornerRadius = 12;
+    textField.backgroundColor = [UIColor colorWithRed:243.0/255.0f green:243.0/255.0f blue:243.0/255.0f alpha:1.0f];
+    [textField setUserInteractionEnabled:NO];
+    textField.textColor = [UIColor grayColor];
+    textField.borderStyle = UITextBorderStyleNone;
+}
+
++  (void)styleSmallLabel:(UILabel *)label {
+    label.font = [UIFont fontWithName:@"Poppins-medium" size:14];
+    label.textColor = [UIColor darkGrayColor];
+    [label sizeToFit];
 }
 
 @end

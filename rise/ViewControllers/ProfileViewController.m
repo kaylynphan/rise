@@ -11,6 +11,8 @@
 #import <Parse/Parse.h>
 #import "../Managers/NotificationManager.h"
 #import "../Styles.h"
+#import "../Views/CustomTextField.h"
+#import "rise-Swift.h"
 
 @interface ProfileViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *displayNameLabel;
@@ -25,6 +27,13 @@
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 - (IBAction)dateChanged:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *logoutButton;
+@property (weak, nonatomic) IBOutlet CustomTextField *displayNameField;
+@property (weak, nonatomic) IBOutlet CustomTextField *usernameField;
+@property (weak, nonatomic) IBOutlet CustomTextField *emailField;
+- (IBAction)didTapEdit:(id)sender;
+@property (weak, nonatomic) IBOutlet AnimationView *checkAnimationView;
+@property (weak, nonatomic) IBOutlet UIButton *editButton;
+- (IBAction)didTapCheck:(id)sender;
 
 
 @end
@@ -34,9 +43,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     User *user = [User currentUser];
-    self.displayNameLabel.text = user[@"displayName"];
-    self.usernameLabel.text = user.username;
-    self.emailLabel.text = user.email;
     
     // set up the time button
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
@@ -57,13 +63,67 @@
     
     [self.riseWillNotifyLabel sizeToFit];
     
-    CAGradientLayer *buttonGradient = [Styles buttonGradientForView:self.logoutButton];
-    [self.logoutButton.layer insertSublayer:buttonGradient atIndex:0];
-    self.logoutButton.layer.cornerRadius = 0.5 * self.logoutButton.frame.size.height;
-    [self.logoutButton setClipsToBounds:YES];
-    self.logoutButton.titleLabel.textColor = [UIColor whiteColor];
-    [self.logoutButton sizeToFit];
     
+    self.displayNameField.delegate = self;
+    self.displayNameField.text = user[@"displayName"];
+    self.usernameField.text = user.username;
+    self.emailField.text = user.email;
+    
+    [self.displayNameField setClearsOnBeginEditing:YES];
+    
+    [Styles styleDisabledTextField:self.displayNameField];
+    [Styles styleDisabledTextField:self.usernameField];
+    [Styles styleDisabledTextField:self.emailField];
+    [Styles addGradientToButton:self.logoutButton];
+    
+    [Styles styleSmallLabel:self.displayNameLabel];
+    [Styles styleSmallLabel:self.usernameLabel];
+    [Styles styleSmallLabel:self.emailLabel];
+    
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [self.view endEditing:true];
+    return false;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    UIAlertController *emptyAlert = [UIAlertController alertControllerWithTitle:@"Display Name Required" message:@"Your display name cannot be empty." preferredStyle:(UIAlertControllerStyleAlert)];
+    
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:(UIAlertActionStyleCancel) handler:^(UIAlertAction * _Nonnull action) {
+        [self.displayNameField becomeFirstResponder];
+    }];
+    [emptyAlert addAction:okAction];
+    
+    if ([self.displayNameField.text isEqual:@""]) {
+        [self presentViewController:emptyAlert animated:YES completion:nil];
+    } else  {
+        [self.checkAnimationView setProgress:0];
+        [self.checkAnimationView playWithCompletion:^(BOOL) {
+            [self.checkAnimationView setHidden:YES];
+            [self.editButton setHidden:NO];
+            [self.displayNameField setUserInteractionEnabled:NO];
+            [self changeDisplayName];
+        }];
+    }
+}
+
+- (void)changeDisplayName {
+    UIAlertController *displayNameChangedAlert = [UIAlertController alertControllerWithTitle:@"Display Name Updated" message:@"Your display name was successfully changed!" preferredStyle:(UIAlertControllerStyleAlert)];
+    
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:(UIAlertActionStyleCancel) handler:nil];
+    [displayNameChangedAlert addAction:okAction];
+    
+    User *user = [User currentUser];
+    user[@"displayName"] = self.displayNameField.text;
+    [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if (error != nil) {
+            NSLog(@"Error uploading new display name: %@", error.localizedDescription);
+        } else {
+            NSLog(@"Successfully updated user's display name");
+            [self presentViewController:displayNameChangedAlert animated:YES completion:nil];
+        }
+    }];
 }
 
 /*
@@ -105,4 +165,17 @@
     NotificationManager *notificationManager = [[NotificationManager alloc] init];
     [notificationManager rescheduleNotificationWithHour:components.hour withMinute:components.minute];
 }
+- (IBAction)didTapEdit:(id)sender {
+    [self.displayNameField setUserInteractionEnabled:YES];
+    [self.displayNameField becomeFirstResponder];
+    [self.checkAnimationView loadAnimationWithName:@"../finished-editing"];
+    [self.checkAnimationView setProgress:0.9];
+    [self.editButton setHidden:YES];
+    [self.checkAnimationView setHidden:NO];
+}
+
+- (IBAction)didTapCheck:(id)sender {
+    [self.view endEditing:true];
+}
+
 @end
