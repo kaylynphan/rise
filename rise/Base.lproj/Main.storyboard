@@ -312,10 +312,10 @@
                                                         <segue destination="tQD-UH-e1Y" kind="presentation" identifier="galleryToProfileSegue" modalTransitionStyle="coverVertical" id="m0O-tE-Kq6"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MY WORKOUTS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XVW-xS-H2G">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MY WORKOUTS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XVW-xS-H2G">
                                                     <rect key="frame" x="75.666666666666686" y="245" width="239" height="66"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="239" id="NEr-2p-9au"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="239" id="NEr-2p-9au"/>
                                                         <constraint firstAttribute="height" constant="66" id="hid-34-3cJ"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="30"/>
@@ -330,7 +330,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TG1-N7-6Tp" userLabel="Background View">
-                                                    <rect key="frame" x="30" y="123" width="328" height="88"/>
+                                                    <rect key="frame" x="30" y="123" width="315.33333333333331" height="88"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Hello Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jgg-Hs-Hyu">
                                                             <rect key="frame" x="22" y="22" width="160.33333333333334" height="25"/>
@@ -342,15 +342,15 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Check Mark Component" translatesAutoresizingMaskIntoConstraints="NO" id="XBC-RG-aDa">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="X Mark Component" translatesAutoresizingMaskIntoConstraints="NO" id="XBC-RG-aDa">
                                                             <rect key="frame" x="22" y="55" width="24" height="24"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="24" id="NSm-Qr-DjY"/>
                                                                 <constraint firstAttribute="width" secondItem="XBC-RG-aDa" secondAttribute="height" multiplier="1:1" id="eiy-jD-roN"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="752" text="You've already stretched today." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ggx-vn-OgR">
-                                                            <rect key="frame" x="54" y="55" width="252" height="11"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="752" text="You have not stretched today." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ggx-vn-OgR">
+                                                            <rect key="frame" x="54.000000000000014" y="55" width="239.33333333333337" height="11"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="25" id="aXy-Un-UPK"/>
                                                             </constraints>
@@ -391,6 +391,7 @@
                                             <outlet property="helloLabelBackground" destination="TG1-N7-6Tp" id="etH-Rs-8Bo"/>
                                             <outlet property="myWorkoutsLabel" destination="XVW-xS-H2G" id="6Fr-h7-Eeq"/>
                                             <outlet property="todayCompletionLabel" destination="ggx-vn-OgR" id="Ng2-3i-Zm0"/>
+                                            <outlet property="xOrCheckMarkImage" destination="XBC-RG-aDa" id="6XV-nt-s7W"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="WorkoutCell" rowHeight="358" id="SwV-B0-iH1" customClass="WorkoutCell">
@@ -437,7 +438,7 @@
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AXp-01-wmM" userLabel="Start Button">
                                                             <rect key="frame" x="155" y="242" width="95" height="36"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="95" id="TOC-vX-89u"/>
+                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="95" id="TOC-vX-89u"/>
                                                                 <constraint firstAttribute="height" constant="36" id="unZ-r2-6sH"/>
                                                             </constraints>
                                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -972,14 +973,14 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Ecx-6H-y7k"/>
-        <segue reference="QAg-Me-2Gy"/>
+        <segue reference="2Md-rE-Qzs"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="labelColor"/>
     <resources>
-        <image name="Check Mark Component" width="24" height="24"/>
         <image name="Edit Component" width="20" height="20"/>
         <image name="Logo" width="170" height="149"/>
         <image name="Profile Icon Component" width="120" height="120"/>
+        <image name="X Mark Component" width="24" height="24"/>
         <image name="play" width="29" height="32"/>
         <image name="rewind" width="44" height="26"/>
         <systemColor name="labelColor">
