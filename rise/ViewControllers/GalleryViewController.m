@@ -18,6 +18,8 @@
 @import NVActivityIndicatorView;
 #import "../Managers/NotificationManager.h"
 #import "../Models/User.h"
+#import "ProfileViewController.h"
+#import "../SceneDelegate.h"
 
 @interface GalleryViewController ()
 - (IBAction)didTapLogout:(id)sender;
@@ -173,14 +175,29 @@ static NSString *const kPFWorkoutDescription = @"description";
 - (IBAction)didTapLogout:(id)sender {
     // logout user
     NSLog(@"Logout tapped");
+    [self logout];
+}
+
+- (void)logout {
     [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
         if (error != nil) {
             NSLog(@"Error: %@", error.localizedDescription);
         } else {
             NSLog(@"Logout Successful");
-            [self dismissViewControllerAnimated:true completion:nil];
+            [self resetToLoginWithCompletion:^{
+                NSMutableArray *controllers = self.navigationController.viewControllers;
+                if (controllers.count >= 2) {
+                    [controllers removeObjectAtIndex:(controllers.count - 2)];
+                }
+                [self.navigationController setViewControllers:controllers];
+            }];
         }
     }];
+}
+
+- (void)resetToLoginWithCompletion:(void (^)(void))completion {
+    [self performSegueWithIdentifier:@"logoutSegue" sender:nil];
+    completion();
 }
 
 #pragma mark - Navigation
@@ -193,6 +210,9 @@ static NSString *const kPFWorkoutDescription = @"description";
         GuideViewController *guideVC = [segue destinationViewController];
         guideVC.workout = sender;
         guideVC.poses = self.poses;
+    } else if ([[segue identifier] isEqualToString:@"galleryToProfileSegue"]) {
+        ProfileViewController *profileVC = [segue destinationViewController];
+        profileVC.parent = self;
     }
 }
 

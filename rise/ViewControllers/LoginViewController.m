@@ -10,10 +10,11 @@
 #import "User.h"
 #import "GalleryViewController.h"
 #import "../Managers/NotificationManager.h"
+#import "../Styles.h"
 
 @interface LoginViewController ()
-@property (weak, nonatomic) IBOutlet UITextField *usernameField;
-@property (weak, nonatomic) IBOutlet UITextField *passwordField;
+@property (weak, nonatomic) IBOutlet CustomTextField *usernameField;
+@property (weak, nonatomic) IBOutlet CustomTextField *passwordField;
 - (IBAction)loginUser:(id)sender;
 @property (weak, nonatomic) IBOutlet UIView *passwordBackgroundView;
 @property (weak, nonatomic) IBOutlet UIView *usernameBackgroundView;
@@ -32,6 +33,11 @@
     self.usernameField.delegate = self;
     self.passwordField.delegate = self;
     
+    [Styles styleEnabledTextField:self.usernameField];
+    [Styles styleEnabledTextField:self.passwordField];
+    
+    
+    /*
     self.usernameField.font = [UIFont fontWithName:@"Poppins-regular" size:16];
     self.passwordField.font = [UIFont fontWithName:@"Poppins-regular" size:16];
     
@@ -45,11 +51,10 @@
     
     self.usernameBackgroundView.layer.cornerRadius = 16.0;
     self.passwordBackgroundView.layer.cornerRadius = 16.0;
+     */
    
-    self.loginButton.titleLabel.font = [UIFont fontWithName:@"Poppins-regular" size:18];
-    self.signUpButton.titleLabel.font = [UIFont fontWithName:@"Poppins-regular" size:18];
-    [self.loginButton sizeToFit];
-    [self.signUpButton sizeToFit];
+    [Styles addGradientToButton:self.loginButton];
+    [Styles addGradientToButton:self.signUpButton];
 }
 
 - (BOOL) textFieldShouldReturn:(UITextField *)textField {

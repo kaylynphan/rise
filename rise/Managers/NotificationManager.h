@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void) scheduleNotificationWithHour:(NSInteger)hour withMinute:(NSInteger)minute;
 
+- (void)rescheduleNotificationWithHour:(NSInteger)hour withMinute:(NSInteger)minute;
 
 @end
 
