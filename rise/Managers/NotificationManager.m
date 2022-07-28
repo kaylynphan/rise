@@ -11,6 +11,8 @@
 
 @implementation NotificationManager
 
+static NSString *const kPFUserDisplayName = @"displayName";
+
 - (void) fetchNotificationSettings {
     [[UNUserNotificationCenter currentNotificationCenter] getNotificationSettingsWithCompletionHandler:^(UNNotificationSettings * _Nonnull settings) {
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -42,7 +44,7 @@
     UNMutableNotificationContent *content = [UNMutableNotificationContent new];
     content.title = @"Time to stretch!";
     if ([PFUser currentUser] != nil) {
-        content.body = [NSString stringWithFormat:@"It's a new day %@, keep building stronger habits and complete your daily stretch.", [PFUser currentUser][@"displayName"]];
+        content.body = [NSString stringWithFormat:@"It's a new day %@, keep building stronger habits and complete your daily stretch.", [PFUser currentUser][kPFUserDisplayName]];
     } else {
         content.body = @"It's a new day, keep building stronger habits and complete your daily stretch.";
     }

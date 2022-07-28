@@ -11,6 +11,8 @@
 
 @implementation GalleryViewHeader
 
+static NSString *const kPFUserDisplayName = @"displayName";
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
@@ -22,7 +24,7 @@
 
 
 - (void)setupHelloLabel {
-    self.helloLabel.text = [NSString stringWithFormat:@"Hello %@", [User currentUser][@"displayName"]];
+    self.helloLabel.text = [NSString stringWithFormat:@"Hello %@", [User currentUser][kPFUserDisplayName]];
     [Styles styleLargeLabel:self.helloLabel];
     self.helloLabelBackground.backgroundColor = [UIColor colorWithRed:247.0/255.0f green:248.0/255.0f blue:248.0/255.0f alpha:1.0f];
     self.helloLabelBackground.layer.cornerRadius = 30;

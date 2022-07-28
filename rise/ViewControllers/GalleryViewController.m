@@ -30,6 +30,10 @@
 
 @implementation GalleryViewController
 
+static NSString *const kPFUserPreferredHour = @"preferredHour";
+static NSString *const kPFUserPreferredMinute = @"preferredMinute";
+static NSString *const kPFWorkoutDescription = @"description";
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -57,8 +61,8 @@
         [notificationManager requestAuthorization:^(BOOL granted) {
             if (granted) {
                 NSLog(@"Notifications authorization granted.");
-                NSInteger preferredHour = [user[@"preferredHour"] integerValue];
-                NSInteger preferredMinute = [user[@"preferredMinute"] integerValue];
+                NSInteger preferredHour = [user[kPFUserPreferredHour] integerValue];
+                NSInteger preferredMinute = [user[kPFUserPreferredMinute] integerValue];
                 [notificationManager scheduleNotificationWithHour:preferredHour withMinute:preferredMinute];
             }
         }];
@@ -141,7 +145,7 @@
         }
     }
     [cell.descriptionLabel setNumberOfLines:0];
-    cell.descriptionLabel.text = cell.workout[@"description"];
+    cell.descriptionLabel.text = cell.workout[kPFWorkoutDescription];
     [cell.descriptionLabel sizeToFit];
     
     return cell;
