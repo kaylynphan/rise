@@ -33,7 +33,7 @@
 
 static int exerciseNum = 0;
 static int frameNum = 0;
-static const int FRAME_ROTATION_RATE = 5;
+static const int FRAME_ROTATION_RATE = 10;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -144,8 +144,8 @@ static const int FRAME_ROTATION_RATE = 5;
                 [self pause];
                 self.isAutoPaused = YES;
             }
-            // if the user paused manually for some reason, they probably don't want the workout to start playing just because they were detected in the frame again
-            if (didDetectPose && self.isAutoPaused) {
+            // if the user paused manually, with the intention of takinga  break or the like, they probably don't want the workout to start playing just because they were detected in the frame again
+            if (didDetectPose && self.isAutoPaused && !self.isPausedByUser) {
                 [self play];
                 self.isAutoPaused = NO;
             }
@@ -198,6 +198,7 @@ static const int FRAME_ROTATION_RATE = 5;
 
 - (void)play {
     [self.countdownTimer resume];
+    frameNum = 0; // give user a 5-frame buffer before auto-pause takes effect (time to get back into position)
 }
 
 - (void)rewind {
