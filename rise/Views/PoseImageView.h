@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)runTests;
 
-- (void)showWithPoses:(NSArray *)poses withFrame:(CGImageRef)frame;
+- (void)showWithPoses:(NSArray *)poses withFrame:(CGImageRef)frame withBlock:(void(^)(BOOL didDetectPose))block;
 
 - (void) drawWithImage:(CGImageRef)image withCGContext:(CGContextRef)cgContext;
 

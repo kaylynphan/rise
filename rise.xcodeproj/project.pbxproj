@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E4F61B8289459870070DDA2 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2E4F61B7289459870070DDA2 /* Keys.plist */; };
 		2E53A126288B6743006C71D2 /* CompletionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E53A125288B6743006C71D2 /* CompletionViewController.m */; };
 		2E53A12A288B6E30006C71D2 /* AnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E53A129288B6E30006C71D2 /* AnimationView.swift */; };
 		2E53A12E288B7336006C71D2 /* success-check.json in Resources */ = {isa = PBXBuildFile; fileRef = 2E53A12D288B7336006C71D2 /* success-check.json */; };
@@ -40,7 +41,6 @@
 		2EA079812876144D00931A86 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EA079802876144D00931A86 /* RegisterViewController.m */; };
 		2EA079842876146400931A86 /* GalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EA079832876146400931A86 /* GalleryViewController.m */; };
 		2EA079872876148300931A86 /* GuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EA079862876148300931A86 /* GuideViewController.m */; };
-		2EA0798B287615B100931A86 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2EA0798A287615B100931A86 /* Keys.plist */; };
 		2EA0798E287655E700931A86 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EA0798D287655E700931A86 /* User.m */; };
 		2EA0799128765ACD00931A86 /* YogaPoseAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EA0799028765ACD00931A86 /* YogaPoseAPIManager.m */; };
 		2EA0799A28774B9500931A86 /* PoseImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EA0799928774B9500931A86 /* PoseImageView.m */; };
@@ -96,6 +96,7 @@
 		19087805CD20347335A84649 /* Pods_riseTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_riseTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		19A880A6BE4B8115ADCBECCB /* Pods_rise_riseUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_rise_riseUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CD7FD21D01B8C6A73C2CA80 /* Pods-rise-riseUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rise-riseUITests.debug.xcconfig"; path = "Target Support Files/Pods-rise-riseUITests/Pods-rise-riseUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		2E4F61B7289459870070DDA2 /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		2E53A124288B6743006C71D2 /* CompletionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CompletionViewController.h; sourceTree = "<group>"; };
 		2E53A125288B6743006C71D2 /* CompletionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CompletionViewController.m; sourceTree = "<group>"; };
 		2E53A129288B6E30006C71D2 /* AnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationView.swift; sourceTree = "<group>"; };
@@ -138,7 +139,6 @@
 		2EA079832876146400931A86 /* GalleryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GalleryViewController.m; sourceTree = "<group>"; };
 		2EA079852876148300931A86 /* GuideViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GuideViewController.h; sourceTree = "<group>"; };
 		2EA079862876148300931A86 /* GuideViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GuideViewController.m; sourceTree = "<group>"; };
-		2EA0798A287615B100931A86 /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		2EA0798C287655E700931A86 /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		2EA0798D287655E700931A86 /* User.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		2EA0798F28765ACD00931A86 /* YogaPoseAPIManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YogaPoseAPIManager.h; sourceTree = "<group>"; };
@@ -332,7 +332,7 @@
 		2ED6585528760D5100B66436 = {
 			isa = PBXGroup;
 			children = (
-				2EA0798A287615B100931A86 /* Keys.plist */,
+				2E4F61B7289459870070DDA2 /* Keys.plist */,
 				2ED6586028760D5100B66436 /* rise */,
 				2ED6587C28760D5200B66436 /* riseTests */,
 				2ED6588628760D5200B66436 /* riseUITests */,
@@ -538,7 +538,6 @@
 				2E7DAEC92882801C00097E33 /* Poppins-Light.ttf in Resources */,
 				2E7DAEC72882801C00097E33 /* Poppins-ExtraLightItalic.ttf in Resources */,
 				2E7DAED42882801C00097E33 /* Poppins-Thin.ttf in Resources */,
-				2EA0798B287615B100931A86 /* Keys.plist in Resources */,
 				2E7DAED02882801C00097E33 /* Poppins-Regular.ttf in Resources */,
 				2ED6587128760D5200B66436 /* LaunchScreen.storyboard in Resources */,
 				2E7DAEC62882801C00097E33 /* Poppins-ThinItalic.ttf in Resources */,
@@ -553,6 +552,7 @@
 				2E7DAED72882801C00097E33 /* Poppins-MediumItalic.ttf in Resources */,
 				2E7DAECD2882801C00097E33 /* Poppins-ExtraBold.ttf in Resources */,
 				2E53A14828921631006C71D2 /* finished-editing.json in Resources */,
+				2E4F61B8289459870070DDA2 /* Keys.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
