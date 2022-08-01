@@ -90,7 +90,7 @@ static const int FRAME_ROTATION_RATE = 10;
     NSLog(@"Timer did end");
     exerciseNum++;
     if (exerciseNum >= self.workout.stretches.count) {
-        [self performSegueWithIdentifier:@"guideToCompletionSegue" sender:self];
+        [self finishWorkout];
     } else {
         [self updateLabels];
     }
@@ -217,11 +217,11 @@ static const int FRAME_ROTATION_RATE = 10;
 
     self.countdownTimer.counterLabel.text = @"";
     [self.playIcon setHidden:NO];
-     
-    /*
+    
+    
     //changing this temporarily for testing
-    [self finishWorkout];
-     */
+    //[self finishWorkout];
+     
 }
 
 -(void)timerDidResumeWithSender:(SRCountdownTimer *)sender {
