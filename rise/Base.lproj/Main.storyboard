@@ -499,7 +499,7 @@
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="color">
-                                        <color key="value" red="0.5" green="0.5" blue="0.5" alpha="0.6986607142857143" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="value" red="0.5725490196078431" green="0.63921568627450975" blue="0.99215686274509807" alpha="0.6986607142857143" colorSpace="custom" customColorSpace="displayP3"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="string" keyPath="typeName" value="orbit"/>
                                 </userDefinedRuntimeAttributes>
@@ -949,7 +949,7 @@
                 <navigationController storyboardIdentifier="GalleryNavController" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="3pc-bl-PBI" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="eWs-z0-oBY">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -964,12 +964,12 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="At5-ff-MHn"/>
-        <segue reference="QAg-Me-2Gy"/>
+        <segue reference="2Md-rE-Qzs"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="labelColor"/>
     <resources>
         <image name="Edit Component" width="20" height="20"/>
-        <image name="Logo" width="170" height="149"/>
+        <image name="Logo" width="189" height="166"/>
         <image name="Profile Icon Component" width="120" height="120"/>
         <image name="X Mark Component" width="24" height="24"/>
         <image name="play" width="29" height="32"/>
