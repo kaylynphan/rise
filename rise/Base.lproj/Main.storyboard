@@ -520,7 +520,7 @@
                     <navigationItem key="navigationItem" id="SmY-DX-tXY">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="mXz-Gr-tth">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Cfm-gZ-jRG">
-                                <rect key="frame" x="16" y="7.5" width="106" height="35"/>
+                                <rect key="frame" x="16" y="4.5" width="106" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" systemColor="labelColor"/>
                                 <state key="normal" title="Button"/>
@@ -833,6 +833,12 @@
                                     <constraint firstAttribute="width" constant="125" id="dOk-Yr-783"/>
                                 </constraints>
                             </imageView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Step back into frame to continue..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vG1-qT-Sre">
+                                <rect key="frame" x="37" y="152.5" width="246" height="100.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                <color key="textColor" white="1" alpha="0.69866071429999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gvT-UN-M41"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -843,12 +849,15 @@
                             <constraint firstItem="JZm-yi-vrp" firstAttribute="width" secondItem="CRX-2S-Fpq" secondAttribute="width" id="Jrb-6x-PsR"/>
                             <constraint firstItem="ME3-Ov-vPk" firstAttribute="leading" secondItem="gvT-UN-M41" secondAttribute="leading" constant="37" id="K7h-8b-6un"/>
                             <constraint firstItem="gvT-UN-M41" firstAttribute="trailing" secondItem="scm-aV-LM0" secondAttribute="trailing" constant="29" id="M35-t0-cWu"/>
+                            <constraint firstItem="vG1-qT-Sre" firstAttribute="centerX" secondItem="gvT-UN-M41" secondAttribute="centerX" id="MWM-Kp-25x"/>
+                            <constraint firstItem="xf1-xc-sT0" firstAttribute="top" secondItem="vG1-qT-Sre" secondAttribute="bottom" constant="10" id="RjX-Sv-vUt"/>
                             <constraint firstItem="bBy-Pj-FZw" firstAttribute="leading" secondItem="gC1-6Y-o34" secondAttribute="leading" id="WMj-bE-xpD"/>
                             <constraint firstItem="JZm-yi-vrp" firstAttribute="trailing" secondItem="gvT-UN-M41" secondAttribute="leading" id="We1-ga-lrt"/>
                             <constraint firstItem="xf1-xc-sT0" firstAttribute="bottom" secondItem="gvT-UN-M41" secondAttribute="bottom" multiplier="0.97" id="Y3M-lG-h0G"/>
                             <constraint firstItem="bBy-Pj-FZw" firstAttribute="trailing" secondItem="gC1-6Y-o34" secondAttribute="trailing" id="hm7-hv-zeC"/>
                             <constraint firstItem="JZm-yi-vrp" firstAttribute="height" secondItem="CRX-2S-Fpq" secondAttribute="height" id="jaW-fj-oLR"/>
                             <constraint firstItem="bBy-Pj-FZw" firstAttribute="bottom" secondItem="gC1-6Y-o34" secondAttribute="bottom" id="tpO-q9-slW"/>
+                            <constraint firstItem="vG1-qT-Sre" firstAttribute="leading" secondItem="gvT-UN-M41" secondAttribute="leading" constant="37" id="tq7-bv-Ea2"/>
                             <constraint firstItem="ME3-Ov-vPk" firstAttribute="top" secondItem="gvT-UN-M41" secondAttribute="top" constant="24" id="vsF-we-BjZ"/>
                             <constraint firstItem="scm-aV-LM0" firstAttribute="top" secondItem="ME3-Ov-vPk" secondAttribute="bottom" constant="16" id="wJT-B1-OGj"/>
                             <constraint firstItem="bBy-Pj-FZw" firstAttribute="top" secondItem="gC1-6Y-o34" secondAttribute="top" id="z8U-7B-pbU"/>
@@ -858,6 +867,7 @@
                     <connections>
                         <outlet property="backButton" destination="tqn-U5-kZH" id="bpm-g4-Uiv"/>
                         <outlet property="countdownTimer" destination="xf1-xc-sT0" id="Q6R-Ko-a5a"/>
+                        <outlet property="pauseStatusLabel" destination="vG1-qT-Sre" id="718-Xd-4VN"/>
                         <outlet property="playIcon" destination="CRX-2S-Fpq" id="gWv-iA-KnC"/>
                         <outlet property="poseImage" destination="scm-aV-LM0" id="NoV-tZ-a66"/>
                         <outlet property="poseImageView" destination="bBy-Pj-FZw" id="qEE-rN-e3k"/>
@@ -878,7 +888,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3447.6923076923076" y="137.91469194312796"/>
+            <point key="canvasLocation" x="3446.25" y="137.5"/>
         </scene>
         <!--CompletionViewController-->
         <scene sceneID="7Gt-hO-PNP">
@@ -949,7 +959,7 @@
                 <navigationController storyboardIdentifier="GalleryNavController" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="3pc-bl-PBI" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="eWs-z0-oBY">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
