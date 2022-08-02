@@ -70,6 +70,7 @@ static NSString *const kPFWorkoutDescription = @"description";
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:YES];
     // start fetching images after activity indicator is already on screen
     if (self.poses == nil) {
         [self fetchPoses];

@@ -42,6 +42,8 @@ static const int FRAME_ROTATION_RATE = 10;
     [super viewDidLoad];
     // Do any additional setup after loading the view
     
+    [self.navigationController setNavigationBarHidden:NO];
+    
     // set up countdown timer
     [self setupTimer];
     
