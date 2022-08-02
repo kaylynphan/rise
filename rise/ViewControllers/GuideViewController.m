@@ -26,6 +26,9 @@
 @property (weak, nonatomic) IBOutlet UIImageView *playIcon;
 @property (weak, nonatomic) IBOutlet UIImageView *rewindIcon;
 - (IBAction)didTapBackButton:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *pauseStatusLabel;
+@property (weak, nonatomic) IBOutlet UIView *poseLabelBackground;
+@property (weak, nonatomic) IBOutlet UIView *circleView;
 
 @end
 
@@ -46,11 +49,16 @@ static const int FRAME_ROTATION_RATE = 10;
     workoutTitleField.text = self.workout.name;
     [Styles styleDisabledTextField:workoutTitleField];
     self.navigationItem.titleView = workoutTitleField;
+    
+    [self setupCircleView];
 
-    
     [self updateLabels];
-    [Styles styleLargeLabel:self.poseLabel];
+    [self.poseLabel setFont:[UIFont fontWithName:@"Poppins-medium" size:30]];
+
+    self.poseLabelBackground.layer.cornerRadius = 16;
+    self.poseLabelBackground.layer.masksToBounds = YES;
     
+    //default
     self.isPausedByUser = NO;
     
     //NSLog(@"Now initializing PoseNet model");
@@ -62,6 +70,14 @@ static const int FRAME_ROTATION_RATE = 10;
     [self setupAndBeginCapturingVideoFrames];
     
     [self.rewindIcon setFrame:CGRectMake(-77, self.playIcon.frame.origin.y, 77, 77)];
+    
+    self.pauseStatusLabel.font = [UIFont fontWithName:@"Poppins-bold" size:30];
+}
+
+- (void)setupCircleView {
+    self.circleView.layer.cornerRadius = 40;
+    self.circleView.layer.masksToBounds = YES;
+    self.circleView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.5];
 }
 
 - (void)setupTimer {
@@ -138,15 +154,17 @@ static const int FRAME_ROTATION_RATE = 10;
     [self.poseImageView showWithPoses:poses withFrame:currentFrame withBlock:^void(BOOL didDetectPose) {
         // don't run auto-pause feature on every single frame, this would be too erratic for smooth user experience
         if (frameNum % FRAME_ROTATION_RATE == 0) {
-            if (!didDetectPose) {
-                //pause workout
-                [self pause];
-                self.isAutoPaused = YES;
-            }
-            // if the user paused manually, with the intention of takinga  break or the like, they probably don't want the workout to start playing just because they were detected in the frame again
-            if (didDetectPose && self.isAutoPaused && !self.isPausedByUser) {
-                [self play];
-                self.isAutoPaused = NO;
+            if (!self.isPausedByUser) {
+                if (!didDetectPose) {
+                    //pause workout
+                    [self pause];
+                    [self turnOnAutoPause];
+                }
+                // if the user paused manually, with the intention of takinga  break or the like, they probably don't want the workout to start playing just because they were detected in the frame again
+                if (didDetectPose && self.isAutoPaused) {
+                    [self play];
+                    [self turnOffAutoPause];
+                }
             }
         }
     }];
@@ -154,13 +172,40 @@ static const int FRAME_ROTATION_RATE = 10;
     frameNum++;
 }
 
+- (void)turnOnAutoPause {
+    self.isAutoPaused = YES;
+    [self.pauseStatusLabel setText:@"Step back into frame to continue..."];
+    [self.pauseStatusLabel setHidden:NO];
+}
+
+- (void)turnOffAutoPause {
+    self.isAutoPaused = NO;
+    [self.pauseStatusLabel setHidden:YES];
+}
+
+- (void)turnOnManualPause {
+    self.isPausedByUser = YES;
+    [self.pauseStatusLabel setText:@"Press PLAY to continue..."];
+    [self.pauseStatusLabel setHidden:NO];
+    self.countdownTimer.counterLabel.text = @"";
+    [self.playIcon setHidden:NO];
+}
+
+- (void)turnOffManualPause {
+    self.isPausedByUser = NO;
+    [self.pauseStatusLabel setHidden:YES];
+    [self.playIcon setHidden:YES];
+    self.countdownTimer.counterLabel.text = [NSString stringWithFormat:@"%ld", self.countdownTimer.currentCounterValue];
+    [self.countdownTimer setIsLabelHidden:NO];
+}
+
 - (IBAction)didSingleTapTimer:(id)sender {
     if (self.isPausedByUser) {
         [self play];
-        self.isPausedByUser = NO;
+        [self turnOffManualPause];
     } else {
         [self pause];
-        self.isPausedByUser = YES;
+        [self turnOnManualPause];
     }
 }
 
@@ -197,7 +242,7 @@ static const int FRAME_ROTATION_RATE = 10;
 
 - (void)play {
     [self.countdownTimer resume];
-    frameNum = 0; // give user a 5-frame buffer before auto-pause takes effect (time to get back into position)
+    frameNum = 0; // give user a 10-frame buffer before auto-pause takes effect (time to get back into position)
 }
 
 - (void)rewind {
@@ -213,20 +258,8 @@ static const int FRAME_ROTATION_RATE = 10;
 }
 
 -(void)timerDidPauseWithSender:(SRCountdownTimer *)sender {
-
-    self.countdownTimer.counterLabel.text = @"";
-    [self.playIcon setHidden:NO];
-    
-    
     //changing this temporarily for testing
     //[self finishWorkout];
-     
-}
-
--(void)timerDidResumeWithSender:(SRCountdownTimer *)sender {
-    [self.playIcon setHidden:YES];
-    self.countdownTimer.counterLabel.text = [NSString stringWithFormat:@"%ld", self.countdownTimer.currentCounterValue];
-    [self.countdownTimer setIsLabelHidden:NO];
 }
 
 -(void) finishWorkout {
