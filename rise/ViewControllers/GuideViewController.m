@@ -101,7 +101,6 @@ static const int FRAME_ROTATION_RATE = 10;
         int *poseIndex = [[self.workout.stretches objectAtIndex:exerciseNum] intValue];
         YogaPose *pose = [self.poses objectAtIndex:poseIndex];
         self.poseLabel.text = pose.name;
-        [self.poseLabel sizeToFit];
         self.poseImage.image = [UIImage imageWithData:pose.imageData];
     }
     [self.countdownTimer startWithBeginingValue:30 interval:1];
