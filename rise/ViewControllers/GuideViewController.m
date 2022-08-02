@@ -27,6 +27,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *rewindIcon;
 - (IBAction)didTapBackButton:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *pauseStatusLabel;
+@property (weak, nonatomic) IBOutlet UIView *poseLabelBackground;
+@property (weak, nonatomic) IBOutlet UIView *circleView;
 
 @end
 
@@ -47,9 +49,14 @@ static const int FRAME_ROTATION_RATE = 10;
     workoutTitleField.text = self.workout.name;
     [Styles styleDisabledTextField:workoutTitleField];
     self.navigationItem.titleView = workoutTitleField;
+    
+    [self setupCircleView];
 
     [self updateLabels];
-    [Styles styleLargeLabel:self.poseLabel];
+    [self.poseLabel setFont:[UIFont fontWithName:@"Poppins-medium" size:30]];
+
+    self.poseLabelBackground.layer.cornerRadius = 16;
+    self.poseLabelBackground.layer.masksToBounds = YES;
     
     //default
     self.isPausedByUser = NO;
@@ -65,6 +72,12 @@ static const int FRAME_ROTATION_RATE = 10;
     [self.rewindIcon setFrame:CGRectMake(-77, self.playIcon.frame.origin.y, 77, 77)];
     
     self.pauseStatusLabel.font = [UIFont fontWithName:@"Poppins-bold" size:30];
+}
+
+- (void)setupCircleView {
+    self.circleView.layer.cornerRadius = 40;
+    self.circleView.layer.masksToBounds = YES;
+    self.circleView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.5];
 }
 
 - (void)setupTimer {
@@ -104,7 +117,6 @@ static const int FRAME_ROTATION_RATE = 10;
         int *poseIndex = [[self.workout.stretches objectAtIndex:exerciseNum] intValue];
         YogaPose *pose = [self.poses objectAtIndex:poseIndex];
         self.poseLabel.text = pose.name;
-        [self.poseLabel sizeToFit];
         self.poseImage.image = [UIImage imageWithData:pose.imageData];
     }
     [self.countdownTimer startWithBeginingValue:30 interval:1];
