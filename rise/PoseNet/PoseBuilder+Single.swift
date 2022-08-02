@@ -60,7 +60,7 @@ extension PoseBuilder {
         joint.position = output.position(for: joint.name, at: joint.cell)
         joint.confidence = bestConfidence
         //joint.isValid = joint.confidence >= configuration.jointConfidenceThreshold
-        joint.isValid = joint.confidence >= 0.1;
+        joint.isValid = joint.confidence >= 0.15;
         /*
         if (joint.isValid) {
             print("joint \(joint.name) is valid");

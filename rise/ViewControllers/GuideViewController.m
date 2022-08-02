@@ -12,6 +12,8 @@
 @import SRCountdownTimer;
 #import "../Views/PoseImageView.h"
 #import "CompletionViewController.h"
+#import "../Styles.h"
+#import "../Views/CustomTextField.h"
 
 @interface GuideViewController ()
 
@@ -19,15 +21,19 @@
 @property (strong, nonatomic)  PoseNet * _Nullable poseNet;
 @property (weak, nonatomic) PoseBuilderConfiguration *poseBuilderConfiguration;
 @property (strong, nonatomic) CGImageRef _Nullable currentFrame __attribute__((NSObject));
-@property (assign) BOOL isPaused;
+@property (assign) BOOL isPausedByUser;
+@property (assign) BOOL isAutoPaused;
 @property (weak, nonatomic) IBOutlet UIImageView *playIcon;
 @property (weak, nonatomic) IBOutlet UIImageView *rewindIcon;
+- (IBAction)didTapBackButton:(id)sender;
 
 @end
 
 @implementation GuideViewController
 
 static int exerciseNum = 0;
+static int frameNum = 0;
+static const int FRAME_ROTATION_RATE = 10;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -36,9 +42,16 @@ static int exerciseNum = 0;
     // set up countdown timer
     [self setupTimer];
     
-    self.titleLabel.text = self.workout.name;
+    CustomTextField *workoutTitleField = [[CustomTextField alloc] init];
+    workoutTitleField.text = self.workout.name;
+    [Styles styleDisabledTextField:workoutTitleField];
+    self.navigationItem.titleView = workoutTitleField;
+
+    
     [self updateLabels];
-    self.isPaused = NO;
+    [Styles styleLargeLabel:self.poseLabel];
+    
+    self.isPausedByUser = NO;
     
     //NSLog(@"Now initializing PoseNet model");
     self.poseNet = [[PoseNet alloc] init];
@@ -53,7 +66,7 @@ static int exerciseNum = 0;
 
 - (void)setupTimer {
     self.countdownTimer.delegate = self;
-    [self.countdownTimer setLineColor:[UIColor greenColor]];
+    [self.countdownTimer setLineColor:[UIColor colorWithWhite:0.75 alpha:0.5]];
     [self.countdownTimer setLabelFont:[UIFont fontWithName:@"Poppins-medium" size:65]];
 }
 
@@ -77,7 +90,7 @@ static int exerciseNum = 0;
     NSLog(@"Timer did end");
     exerciseNum++;
     if (exerciseNum >= self.workout.stretches.count) {
-        [self performSegueWithIdentifier:@"guideToCompletionSegue" sender:self];
+        [self finishWorkout];
     } else {
         [self updateLabels];
     }
@@ -122,15 +135,32 @@ static int exerciseNum = 0;
     NSMutableArray *poses = [[NSMutableArray alloc] init];
     [poses addObject:pose];
     
-    [self.poseImageView showWithPoses:poses withFrame:currentFrame];
+    [self.poseImageView showWithPoses:poses withFrame:currentFrame withBlock:^void(BOOL didDetectPose) {
+        // don't run auto-pause feature on every single frame, this would be too erratic for smooth user experience
+        if (frameNum % FRAME_ROTATION_RATE == 0) {
+            if (!didDetectPose) {
+                //pause workout
+                [self pause];
+                self.isAutoPaused = YES;
+            }
+            // if the user paused manually, with the intention of takinga  break or the like, they probably don't want the workout to start playing just because they were detected in the frame again
+            if (didDetectPose && self.isAutoPaused && !self.isPausedByUser) {
+                [self play];
+                self.isAutoPaused = NO;
+            }
+        }
+    }];
     self.currentFrame = nil;
+    frameNum++;
 }
 
 - (IBAction)didSingleTapTimer:(id)sender {
-    if (self.isPaused) {
+    if (self.isPausedByUser) {
         [self play];
+        self.isPausedByUser = NO;
     } else {
         [self pause];
+        self.isPausedByUser = YES;
     }
 }
 
@@ -162,15 +192,12 @@ static int exerciseNum = 0;
 }
 
 - (void)pause {
-    [self.countdownTimer setLineColor:[UIColor yellowColor]];
     [self.countdownTimer pause];
-    self.isPaused = YES;
 }
 
 - (void)play {
-    [self.countdownTimer setLineColor:[UIColor greenColor]];
     [self.countdownTimer resume];
-    self.isPaused = NO;
+    frameNum = 0; // give user a 5-frame buffer before auto-pause takes effect (time to get back into position)
 }
 
 - (void)rewind {
@@ -186,12 +213,14 @@ static int exerciseNum = 0;
 }
 
 -(void)timerDidPauseWithSender:(SRCountdownTimer *)sender {
-    /*
-    //changing this temporarily for testing
+
     self.countdownTimer.counterLabel.text = @"";
     [self.playIcon setHidden:NO];
-     */
-    [self finishWorkout];
+    
+    
+    //changing this temporarily for testing
+    //[self finishWorkout];
+     
 }
 
 -(void)timerDidResumeWithSender:(SRCountdownTimer *)sender {

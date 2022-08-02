@@ -39,7 +39,7 @@
     [self runTests];
 }
 
-- (void)showWithPoses:(NSArray *)poses withFrame:(CGImageRef)frame {
+- (void)showWithPoses:(NSArray *)poses withFrame:(CGImageRef)frame withBlock:(void(^)(BOOL didDetectPose))block {
     CGFloat frameWidth = CGImageGetWidth(frame); // frame is working!!!
     CGFloat frameHeight = CGImageGetHeight(frame);
     CGSize dstImageSize = CGSizeMake(frameWidth, frameHeight);
@@ -69,14 +69,25 @@
             }
         }
         
+        int jointsDetected = 0;
+        
         // draw joints
         for (Joint *joint in pose.joints) {
             // ignore the first 4 joints (facial joints)
             if (joint.name > 4) {
                 if (joint.isValid) {
                     [self drawWithCircle:joint withCGContext:context];
+                    jointsDetected++;
                 }
             }
+        }
+        
+        // if less than 5 non-facial joints are detected, it would be safe to say that a valid pose was not detected
+        // likely the user walked off the screen
+        if (jointsDetected < 5) {
+            block(NO);
+        } else {
+            block(YES);
         }
     }
     UIImage *dstImage = UIGraphicsGetImageFromCurrentImageContext();
