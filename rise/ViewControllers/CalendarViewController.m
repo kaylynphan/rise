@@ -10,6 +10,7 @@
 #import <Parse/Parse.h>
 #import "../Models/User.h"
 #import "CalendarDetailViewController.h"
+#import "../Styles.h"
 
 @interface CalendarViewController ()
 @property (weak, nonatomic) IBOutlet JTVerticalCalendarView *calendarView;
@@ -67,8 +68,7 @@ static NSString *const kPFUserCompletionDates = @"completionDates";
     // custom view for today's date
     if ([self.calendarManager.dateHelper date:[NSDate date] isTheSameDayThan:dayView.date]){
         dayView.circleView.hidden = NO;
-        dayView.circleView.backgroundColor = [UIColor blueColor];
-        dayView.dotView.backgroundColor = [UIColor whiteColor];
+        dayView.circleView.backgroundColor = [Styles customPurpleColor];
         dayView.textLabel.textColor = [UIColor whiteColor];
     }
     
@@ -76,7 +76,8 @@ static NSString *const kPFUserCompletionDates = @"completionDates";
     for (NSDate *completionDate in completionDatesInThisMonth) {
         if ([self.calendarManager.dateHelper date:completionDate isTheSameDayThan:dayView.date]) {
             dayView.circleView.hidden = NO;
-            dayView.circleView.backgroundColor = [UIColor grayColor];
+            dayView.circleView.backgroundColor = [UIColor colorWithRed:243.0/255.0f green:243.0/255.0f blue:243.0/255.0f alpha:1.0f];
+            //dayView.textLabel.textColor = [UIColor whiteColor];
         }
     }
 }

@@ -13,6 +13,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Styles : NSObject
 
++ (UIColor *)customPurpleColor;
+
++ (UIColor *)customBlueColor;
+
 + (CAGradientLayer *)buttonGradientForView:(UIView *)view;
 
 + (CAGradientLayer *)gradientForLargeView:(UIView *)view;
