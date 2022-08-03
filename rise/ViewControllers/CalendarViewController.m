@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet JTVerticalCalendarView *calendarView;
 @property (weak, nonatomic) IBOutlet JTCalendarMenuView *calendarMenuView;
 @property (strong, nonatomic) JTCalendarManager *calendarManager;
+@property (weak, nonatomic) IBOutlet UILabel *historyLabel;
 
 @end
 
@@ -30,6 +31,9 @@ static NSString *const kPFUserCompletionDates = @"completionDates";
     [self.calendarManager setMenuView:self.calendarMenuView];
     [self.calendarManager setContentView:self.calendarView];
     [self.calendarManager setDate:[NSDate date]];
+    
+    self.historyLabel.font = [UIFont fontWithName:@"Poppins-medium" size:30];
+    
 }
 
 - (void)calendar:(JTCalendarManager *)calendar prepareDayView:(JTCalendarDayView *)dayView

@@ -291,24 +291,47 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NXp-Vd-5Nf" customClass="JTVerticalCalendarView">
-                                <rect key="frame" x="16" y="303" width="339" height="429"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NXp-Vd-5Nf" customClass="JTVerticalCalendarView">
+                                <rect key="frame" x="20" y="342.33333333333326" width="350" height="418.66666666666674"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fXx-OX-HBj" customClass="JTCalendarMenuView">
-                                <rect key="frame" x="0.0" y="110" width="355" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fXx-OX-HBj" customClass="JTCalendarMenuView">
+                                <rect key="frame" x="36" y="306.33333333333331" width="318" height="36"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="318" id="Ga3-Wv-Rf3"/>
+                                    <constraint firstAttribute="height" constant="36" id="I6I-8Z-BJB"/>
+                                </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HISTORY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CB9-li-3bY">
+                                <rect key="frame" x="119" y="242.33333333333337" width="152" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="152" id="9rf-aB-iPu"/>
+                                    <constraint firstAttribute="height" constant="31" id="euZ-FL-rV1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="b0t-XB-fkP"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="NXp-Vd-5Nf" firstAttribute="top" secondItem="b0t-XB-fkP" secondAttribute="bottom" multiplier="0.45" id="RQJ-Vy-KLv"/>
+                            <constraint firstItem="fXx-OX-HBj" firstAttribute="centerX" secondItem="b0t-XB-fkP" secondAttribute="centerX" id="XjP-M9-unx"/>
+                            <constraint firstItem="b0t-XB-fkP" firstAttribute="trailing" secondItem="NXp-Vd-5Nf" secondAttribute="trailing" constant="20" id="Xmn-lP-Sya"/>
+                            <constraint firstItem="NXp-Vd-5Nf" firstAttribute="leading" secondItem="b0t-XB-fkP" secondAttribute="leading" constant="20" id="ZTf-zF-Z6S"/>
+                            <constraint firstItem="NXp-Vd-5Nf" firstAttribute="top" secondItem="fXx-OX-HBj" secondAttribute="bottom" id="dkV-iH-XRu"/>
+                            <constraint firstItem="b0t-XB-fkP" firstAttribute="bottom" secondItem="NXp-Vd-5Nf" secondAttribute="bottom" id="exU-9m-Xtk"/>
+                            <constraint firstItem="CB9-li-3bY" firstAttribute="centerX" secondItem="b0t-XB-fkP" secondAttribute="centerX" id="v3H-XH-UjR"/>
+                            <constraint firstItem="fXx-OX-HBj" firstAttribute="top" secondItem="CB9-li-3bY" secondAttribute="bottom" constant="33" id="wwg-sI-lKG"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="GCg-Pl-Gzx"/>
                     <connections>
                         <outlet property="calendarMenuView" destination="fXx-OX-HBj" id="f7G-70-zjq"/>
                         <outlet property="calendarView" destination="NXp-Vd-5Nf" id="cfo-M4-Chj"/>
+                        <outlet property="historyLabel" destination="CB9-li-3bY" id="Xw7-6M-ytQ"/>
                         <segue destination="VR5-WP-LQ5" kind="show" identifier="calendarDetailSegue" id="i84-D5-U1n"/>
                     </connections>
                 </viewController>
@@ -324,26 +347,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nuf-sM-SQ1" customClass="CustomTextField">
-                                <rect key="frame" x="61" y="152" width="269" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="OBk-ic-yr3"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lM3-Vp-tuX">
+                                <rect key="frame" x="34" y="108" width="298" height="20.333333333333343"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="QJ9-pZ-Dtc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="QJ9-pZ-Dtc" firstAttribute="trailing" secondItem="Nuf-sM-SQ1" secondAttribute="trailing" constant="60" id="CnT-7R-VAI"/>
-                            <constraint firstItem="Nuf-sM-SQ1" firstAttribute="leading" secondItem="QJ9-pZ-Dtc" secondAttribute="leading" constant="61" id="PLg-wL-vhQ"/>
-                            <constraint firstItem="Nuf-sM-SQ1" firstAttribute="top" secondItem="QJ9-pZ-Dtc" secondAttribute="top" constant="64" id="c9V-wK-xHx"/>
+                            <constraint firstItem="lM3-Vp-tuX" firstAttribute="leading" secondItem="QJ9-pZ-Dtc" secondAttribute="leading" constant="34" id="7dN-g1-LpK"/>
+                            <constraint firstItem="lM3-Vp-tuX" firstAttribute="top" secondItem="QJ9-pZ-Dtc" secondAttribute="top" constant="20" id="DZf-1Z-lkC"/>
+                            <constraint firstItem="QJ9-pZ-Dtc" firstAttribute="trailing" secondItem="lM3-Vp-tuX" secondAttribute="trailing" constant="58" id="T3f-7L-0d2"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="tg8-kI-tQ5"/>
                     <connections>
-                        <outlet property="didCompleteTextField" destination="Nuf-sM-SQ1" id="K9p-RQ-mVo"/>
+                        <outlet property="didCompleteLabel" destination="lM3-Vp-tuX" id="BFO-T6-dVb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Whg-mD-UwI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

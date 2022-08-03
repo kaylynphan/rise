@@ -10,7 +10,7 @@
 #import "../Views/CustomTextField.h"
 
 @interface CalendarDetailViewController ()
-@property (weak, nonatomic) IBOutlet CustomTextField *didCompleteTextField;
+@property (weak, nonatomic) IBOutlet UILabel *didCompleteLabel;
 
 @end
 
@@ -21,15 +21,14 @@
     if (self.completionDate != nil) {
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         [formatter setDateFormat:@"EEEE, MMM d, yyyy hh:mm aa"];
-        self.didCompleteTextField.text = [NSString stringWithFormat:@"You completed a stretch on %@. Keep up the great work!", [formatter stringFromDate:self.completionDate]];
+        self.didCompleteLabel.text = [NSString stringWithFormat:@"You completed a stretch on %@. Keep up the great work!", [formatter stringFromDate:self.completionDate]];
     } else {
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         [formatter setDateFormat:@"EEEE, MMM d, yyyy"];
-        self.didCompleteTextField.text = [NSString stringWithFormat:@"%@\nYou did not complete a stretch on this day. Let's work to build stronger habits!", [formatter stringFromDate:self.date]];
+        self.didCompleteLabel.text = [NSString stringWithFormat:@"%@\nYou did not complete a stretch on this day. Let's work to build stronger habits!", [formatter stringFromDate:self.date]];
     }
-    [Styles styleDisabledTextField:self.didCompleteTextField];
-    
-    [self.didCompleteTextField sizeToFit];
+    [Styles styleLargeLabel:self.didCompleteLabel];
+
 }
 
 /*
