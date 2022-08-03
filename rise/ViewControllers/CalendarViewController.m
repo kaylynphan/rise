@@ -9,6 +9,7 @@
 #import "JTCalendar/JTCalendar.h"
 #import <Parse/Parse.h>
 #import "../Models/User.h"
+#import "CalendarDetailViewController.h"
 
 @interface CalendarViewController ()
 @property (weak, nonatomic) IBOutlet JTVerticalCalendarView *calendarView;
@@ -78,35 +79,25 @@ static NSString *const kPFUserCompletionDates = @"completionDates";
 
 - (void)calendar:(JTCalendarManager *)calendar didTouchDayView:(JTCalendarDayView *)dayView
 {
-    // Animation for the circleView
-    dayView.circleView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.1, 0.1);
-    [UIView transitionWithView:dayView
-                      duration:.3
-                       options:0
-                    animations:^{
-                        dayView.circleView.transform = CGAffineTransformIdentity;
-                        [self.calendarManager reload];
-                    } completion:nil];
+    [self performSegueWithIdentifier:@"calendarDetailSegue" sender:dayView];
     
-    // Load the previous or next page if touch a day from another month
-    if(![self.calendarManager.dateHelper date:self.calendarView.date isTheSameMonthThan:dayView.date]){
-        if([self.calendarView.date compare:dayView.date] == NSOrderedAscending){
-            [self.calendarView loadNextPageWithAnimation];
-        }
-        else{
-            [self.calendarView loadPreviousPageWithAnimation];
-        }
-    }
+
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    CalendarDetailViewController *detailVC = [segue destinationViewController];
+    JTCalendarDayView *dayView = sender;
+    User *user = [User currentUser];
+    NSArray *completionDates = user[kPFUserCompletionDates];
+    for (NSDate *completionDate in completionDates) {
+        if ([self.calendarManager.dateHelper date:completionDate isTheSameDayThan:dayView.date]) {
+            detailVC.completionDate = completionDate;
+        }
+    }
 }
-*/
 
 @end
