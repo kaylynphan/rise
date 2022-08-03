@@ -10,7 +10,10 @@
 #import "../Views/CustomTextField.h"
 
 @interface CalendarDetailViewController ()
-@property (weak, nonatomic) IBOutlet UILabel *didCompleteLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *activityLabel;
+@property (weak, nonatomic) IBOutlet UILabel *messageLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *xOrCheckImage;
 
 @end
 
@@ -18,17 +21,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    if (self.completionDate != nil) {
-        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-        [formatter setDateFormat:@"EEEE, MMM d, yyyy hh:mm aa"];
-        self.didCompleteLabel.text = [NSString stringWithFormat:@"You completed a stretch on %@. Keep up the great work!", [formatter stringFromDate:self.completionDate]];
+    self.activityLabel.font = [UIFont fontWithName:@"Poppins-medium" size:30];
+    // set up date label
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"EEEE, MMM d, yyyy"];
+    self.dateLabel.text = [formatter stringFromDate:self.date];
+    [Styles styleLargeLabel:self.dateLabel];
+    // set up message label
+    if (self.completionDate == nil) {
+        [self.xOrCheckImage setImage:[UIImage imageNamed:@"X Mark Component"]];
+        self.messageLabel.text = @"You did not complete a stretch on this day. Let's work to build stronger habits!";
     } else {
+        [self.xOrCheckImage setImage:[UIImage imageNamed:@"Check Mark Component"]];
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-        [formatter setDateFormat:@"EEEE, MMM d, yyyy"];
-        self.didCompleteLabel.text = [NSString stringWithFormat:@"%@\nYou did not complete a stretch on this day. Let's work to build stronger habits!", [formatter stringFromDate:self.date]];
+        [formatter setDateFormat:@"h:mm aa"];
+        self.messageLabel.text = [NSString stringWithFormat:@"Daily stretch completed at %@. Keep up the great work!", [formatter stringFromDate:self.completionDate]];
     }
-    [Styles styleLargeLabel:self.didCompleteLabel];
+    [self.messageLabel sizeToFit];
 
+    
 }
 
 /*
