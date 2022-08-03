@@ -323,14 +323,32 @@
                     <view key="view" contentMode="scaleToFill" id="5NJ-cB-SXa">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nuf-sM-SQ1" customClass="CustomTextField">
+                                <rect key="frame" x="61" y="152" width="269" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="OBk-ic-yr3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="QJ9-pZ-Dtc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="QJ9-pZ-Dtc" firstAttribute="trailing" secondItem="Nuf-sM-SQ1" secondAttribute="trailing" constant="60" id="CnT-7R-VAI"/>
+                            <constraint firstItem="Nuf-sM-SQ1" firstAttribute="leading" secondItem="QJ9-pZ-Dtc" secondAttribute="leading" constant="61" id="PLg-wL-vhQ"/>
+                            <constraint firstItem="Nuf-sM-SQ1" firstAttribute="top" secondItem="QJ9-pZ-Dtc" secondAttribute="top" constant="64" id="c9V-wK-xHx"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="tg8-kI-tQ5"/>
+                    <connections>
+                        <outlet property="didCompleteTextField" destination="Nuf-sM-SQ1" id="K9p-RQ-mVo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Whg-mD-UwI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5308" y="-555"/>
+            <point key="canvasLocation" x="5307.6923076923076" y="-555.21327014218002"/>
         </scene>
         <!--Item-->
         <scene sceneID="7lv-5q-wMT">

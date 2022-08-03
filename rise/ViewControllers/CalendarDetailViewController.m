@@ -6,8 +6,11 @@
 //
 
 #import "CalendarDetailViewController.h"
+#import "../Styles.h"
+#import "../Views/CustomTextField.h"
 
 @interface CalendarDetailViewController ()
+@property (weak, nonatomic) IBOutlet CustomTextField *didCompleteTextField;
 
 @end
 
@@ -18,9 +21,15 @@
     if (self.completionDate != nil) {
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         [formatter setDateFormat:@"EEEE, MMM d, yyyy hh:mm aa"];
-        NSLog([formatter stringFromDate:self.completionDate]);
+        self.didCompleteTextField.text = [NSString stringWithFormat:@"You completed a stretch on %@. Keep up the great work!", [formatter stringFromDate:self.completionDate]];
+    } else {
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"EEEE, MMM d, yyyy"];
+        self.didCompleteTextField.text = [NSString stringWithFormat:@"%@\nYou did not complete a stretch on this day. Let's work to build stronger habits!", [formatter stringFromDate:self.date]];
     }
-    // Do any additional setup after loading the view.
+    [Styles styleDisabledTextField:self.didCompleteTextField];
+    
+    [self.didCompleteTextField sizeToFit];
 }
 
 /*

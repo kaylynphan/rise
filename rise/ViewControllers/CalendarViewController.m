@@ -91,6 +91,7 @@ static NSString *const kPFUserCompletionDates = @"completionDates";
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     CalendarDetailViewController *detailVC = [segue destinationViewController];
     JTCalendarDayView *dayView = sender;
+    detailVC.date = dayView.date;
     User *user = [User currentUser];
     NSArray *completionDates = user[kPFUserCompletionDates];
     for (NSDate *completionDate in completionDates) {

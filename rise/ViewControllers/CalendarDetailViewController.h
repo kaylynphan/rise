@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface CalendarDetailViewController : UIViewController
 
 @property (weak, nonatomic) NSDate *completionDate;
+@property (weak, nonatomic) NSDate *date;
 
 @end
 
