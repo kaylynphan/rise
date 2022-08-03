@@ -690,19 +690,19 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" text="Schedule my stretch reminders at" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W8E-fQ-MW9">
-                                        <rect key="frame" x="60" y="575.66666666666663" width="158" height="40.666666666666629"/>
+                                        <rect key="frame" x="60" y="631.33333333333337" width="158" height="40.666666666666629"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RISE will notify you at this time every day to complete a morning stretch." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kIv-18-lza">
-                                        <rect key="frame" x="60" y="631.33333333333337" width="270" height="61"/>
+                                        <rect key="frame" x="60" y="687" width="270" height="61"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uzq-yF-7BP">
-                                        <rect key="frame" x="147.66666666666666" y="710.33333333333337" width="95" height="36"/>
+                                        <rect key="frame" x="147.66666666666666" y="766" width="95" height="36"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="95" id="Cjv-Ve-qtS"/>
                                             <constraint firstAttribute="height" constant="36" id="VdH-4A-9XP"/>
@@ -789,7 +789,7 @@
                                         </connections>
                                     </view>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="9wO-Q9-TzK">
-                                        <rect key="frame" x="218" y="578" width="112" height="36"/>
+                                        <rect key="frame" x="218" y="633.66666666666663" width="112" height="36"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="112" id="Oql-2d-hTP"/>
                                             <constraint firstAttribute="height" constant="36" id="Ud0-NP-dGi"/>
@@ -798,11 +798,29 @@
                                             <action selector="dateChanged:" destination="tQD-UH-e1Y" eventType="editingDidEnd" id="mbn-z8-26H"/>
                                         </connections>
                                     </datePicker>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KdQ-3s-sM8">
+                                        <rect key="frame" x="281" y="580.66666666666663" width="51" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="49" id="7BM-bF-rpN"/>
+                                            <constraint firstAttribute="height" constant="31" id="FWb-zH-8ht"/>
+                                        </constraints>
+                                        <connections>
+                                            <action selector="didSwitch:" destination="tQD-UH-e1Y" eventType="valueChanged" id="i9n-6S-VAl"/>
+                                        </connections>
+                                    </switch>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Send me notifications to stretch" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a5V-sB-Us6">
+                                        <rect key="frame" x="60" y="575.66666666666663" width="206" height="40.666666666666629"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="JML-hU-Jzf" firstAttribute="centerY" secondItem="0se-ub-TVR" secondAttribute="centerY" id="285-z6-Ful"/>
+                                    <constraint firstItem="a5V-sB-Us6" firstAttribute="leading" secondItem="SQ4-ZT-iZu" secondAttribute="leading" id="392-9j-Xrb"/>
                                     <constraint firstItem="W8E-fQ-MW9" firstAttribute="leading" secondItem="Shi-50-ViO" secondAttribute="leading" id="3Eb-h5-QLQ"/>
                                     <constraint firstItem="Uzq-yF-7BP" firstAttribute="top" secondItem="kIv-18-lza" secondAttribute="bottom" constant="18" id="4Vi-vj-GuF"/>
+                                    <constraint firstItem="KdQ-3s-sM8" firstAttribute="leading" secondItem="a5V-sB-Us6" secondAttribute="trailing" constant="15" id="5pe-De-TZV"/>
                                     <constraint firstItem="9wO-Q9-TzK" firstAttribute="centerY" secondItem="W8E-fQ-MW9" secondAttribute="centerY" id="7ow-3g-3fI"/>
                                     <constraint firstItem="IZN-K1-yFe" firstAttribute="top" secondItem="SQ4-ZT-iZu" secondAttribute="bottom" constant="46.666666666666686" id="AK6-Kg-POJ"/>
                                     <constraint firstItem="SQ4-ZT-iZu" firstAttribute="top" secondItem="Shi-50-ViO" secondAttribute="bottom" id="Anp-Qa-BBU"/>
@@ -813,7 +831,7 @@
                                     <constraint firstItem="0se-ub-TVR" firstAttribute="height" secondItem="J7q-5g-8hT" secondAttribute="height" id="GTa-u4-77T"/>
                                     <constraint firstItem="9wO-Q9-TzK" firstAttribute="leading" secondItem="W8E-fQ-MW9" secondAttribute="trailing" id="HFm-6p-Gkd"/>
                                     <constraint firstItem="J7q-5g-8hT" firstAttribute="top" secondItem="hwh-mH-cSd" secondAttribute="bottom" id="Hfy-Ww-4gU"/>
-                                    <constraint firstItem="W8E-fQ-MW9" firstAttribute="top" secondItem="IZN-K1-yFe" secondAttribute="bottom" constant="30" id="IeS-5Y-HLe"/>
+                                    <constraint firstItem="KdQ-3s-sM8" firstAttribute="trailing" secondItem="SQ4-ZT-iZu" secondAttribute="trailing" id="Jon-Sj-wOM"/>
                                     <constraint firstItem="0se-ub-TVR" firstAttribute="leading" secondItem="eSD-P9-fE6" secondAttribute="leading" id="L9W-cF-9Sj"/>
                                     <constraint firstItem="SQ4-ZT-iZu" firstAttribute="leading" secondItem="eSD-P9-fE6" secondAttribute="leading" id="LND-18-Fci"/>
                                     <constraint firstItem="JML-hU-Jzf" firstAttribute="height" secondItem="0se-ub-TVR" secondAttribute="height" id="Mym-kN-yC7"/>
@@ -825,11 +843,14 @@
                                     <constraint firstItem="c6u-OL-doS" firstAttribute="height" secondItem="0se-ub-TVR" secondAttribute="height" id="SOY-jW-N7J"/>
                                     <constraint firstItem="JML-hU-Jzf" firstAttribute="trailing" secondItem="0se-ub-TVR" secondAttribute="trailing" id="Tm1-iu-7tP"/>
                                     <constraint firstItem="kIv-18-lza" firstAttribute="trailing" secondItem="9wO-Q9-TzK" secondAttribute="trailing" id="Yak-Bi-yuB"/>
+                                    <constraint firstItem="W8E-fQ-MW9" firstAttribute="top" secondItem="a5V-sB-Us6" secondAttribute="bottom" constant="15" id="Yzx-ey-g4q"/>
                                     <constraint firstItem="0se-ub-TVR" firstAttribute="height" secondItem="SQ4-ZT-iZu" secondAttribute="height" id="Zr9-ot-Drp"/>
+                                    <constraint firstItem="a5V-sB-Us6" firstAttribute="centerY" secondItem="KdQ-3s-sM8" secondAttribute="centerY" id="bdr-Zd-5jz"/>
                                     <constraint firstItem="Shi-50-ViO" firstAttribute="top" secondItem="J7q-5g-8hT" secondAttribute="bottom" constant="15" id="cMU-dK-vIV"/>
                                     <constraint firstItem="Uzq-yF-7BP" firstAttribute="centerX" secondItem="AaH-dJ-iCl" secondAttribute="centerX" id="dGE-PI-a9S"/>
                                     <constraint firstAttribute="trailing" secondItem="9wO-Q9-TzK" secondAttribute="trailing" constant="60" id="dK9-5m-DVK"/>
                                     <constraint firstItem="9wO-Q9-TzK" firstAttribute="trailing" secondItem="SQ4-ZT-iZu" secondAttribute="trailing" id="g8i-of-dW8"/>
+                                    <constraint firstItem="a5V-sB-Us6" firstAttribute="top" secondItem="IZN-K1-yFe" secondAttribute="bottom" constant="30" id="jM8-hY-Yol"/>
                                     <constraint firstItem="Shi-50-ViO" firstAttribute="leading" secondItem="eSD-P9-fE6" secondAttribute="leading" id="jWL-QJ-8x6"/>
                                     <constraint firstItem="hwh-mH-cSd" firstAttribute="top" secondItem="0se-ub-TVR" secondAttribute="bottom" constant="15" id="mEI-kV-BlE"/>
                                     <constraint firstItem="0se-ub-TVR" firstAttribute="leading" secondItem="AaH-dJ-iCl" secondAttribute="leading" constant="60" id="oab-RT-xlF"/>
@@ -874,6 +895,7 @@
                         <outlet property="emailField" destination="SQ4-ZT-iZu" id="QFN-FA-Gnl"/>
                         <outlet property="emailLabel" destination="Shi-50-ViO" id="s8Q-fe-EHx"/>
                         <outlet property="logoutButton" destination="Uzq-yF-7BP" id="jDG-Vo-VYS"/>
+                        <outlet property="notificationsSwitch" destination="KdQ-3s-sM8" id="0zm-Cw-aEx"/>
                         <outlet property="profileLabel" destination="Hde-L0-jRu" id="hXe-Jz-JvT"/>
                         <outlet property="riseWillNotifyLabel" destination="kIv-18-lza" id="PjE-ff-yGM"/>
                         <outlet property="scheduleLabel" destination="W8E-fQ-MW9" id="VgE-Z7-MDs"/>
@@ -890,7 +912,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3512" y="1009"/>
+            <point key="canvasLocation" x="3510.7692307692305" y="1008.7677725118483"/>
         </scene>
         <!--Guide-->
         <scene sceneID="tHF-hZ-mOk">
@@ -1163,7 +1185,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Ecx-6H-y7k"/>
-        <segue reference="2Md-rE-Qzs"/>
+        <segue reference="QAg-Me-2Gy"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="labelColor"/>
     <resources>

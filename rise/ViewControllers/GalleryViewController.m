@@ -33,6 +33,7 @@
 static NSString *const kPFUserPreferredHour = @"preferredHour";
 static NSString *const kPFUserPreferredMinute = @"preferredMinute";
 static NSString *const kPFWorkoutDescription = @"description";
+static NSString *const kPFUserNotificationsOn = @"notificationsOn";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -57,15 +58,19 @@ static NSString *const kPFWorkoutDescription = @"description";
     
     User *user = [User currentUser];
     if (user != nil) {
-        NotificationManager *notificationManager = [NotificationManager new];
-        [notificationManager requestAuthorization:^(BOOL granted) {
-            if (granted) {
-                NSLog(@"Notifications authorization granted.");
-                NSInteger preferredHour = [user[kPFUserPreferredHour] integerValue];
-                NSInteger preferredMinute = [user[kPFUserPreferredMinute] integerValue];
-                [notificationManager scheduleNotificationWithHour:preferredHour withMinute:preferredMinute];
-            }
-        }];
+        if (user[kPFUserNotificationsOn]) {
+            NotificationManager *notificationManager = [NotificationManager new];
+            [notificationManager requestAuthorization:^(BOOL granted) {
+                if (granted) {
+                    NSLog(@"Notifications authorization granted.");
+                    NSInteger preferredHour = [user[kPFUserPreferredHour] integerValue];
+                    NSInteger preferredMinute = [user[kPFUserPreferredMinute] integerValue];
+                    [notificationManager scheduleNotificationWithHour:preferredHour withMinute:preferredMinute];
+                }
+            }];
+        } else {
+            NSLog(@"User has notifications off.");
+        }
     }
 }
 

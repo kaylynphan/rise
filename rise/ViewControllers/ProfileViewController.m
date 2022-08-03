@@ -34,30 +34,38 @@
 @property (weak, nonatomic) IBOutlet AnimationView *checkAnimationView;
 @property (weak, nonatomic) IBOutlet UIButton *editButton;
 - (IBAction)didTapCheck:(id)sender;
+@property (weak, nonatomic) IBOutlet UISwitch *notificationsSwitch;
+- (IBAction)didSwitch:(id)sender;
 
 
 @end
 
 @implementation ProfileViewController
 
+static NSString *const kPFUserPreferredHour = @"preferredHour";
+static NSString *const kPFUserPreferredMinute = @"preferredMinute";
+static NSString *const kPFUserNotificationsOn = @"notificationsOn";
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     User *user = [User currentUser];
     
-    // set up the time button
+    // set up the notifications switch
+    if (user[kPFUserNotificationsOn]) {
+        [self.notificationsSwitch setOn:YES];
+    } else {
+        [self.notificationsSwitch setOn:NO];
+    }
+    
+    // set up the date picker
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"h:mm aa"];
     NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
-    dateComponents.hour = [user[@"preferredHour"] integerValue];
-    dateComponents.minute = [user[@"preferredMinute"] integerValue];
+    dateComponents.hour = [user[kPFUserPreferredHour] integerValue];
+    dateComponents.minute = [user[kPFUserPreferredMinute] integerValue];
     NSDate *date = [[NSCalendar currentCalendar] dateFromComponents:dateComponents];
-    
     [self.datePicker setDate:date];
-    
-    NSLog(@"%@", [formatter stringFromDate:date]);
-    
     [self.scheduleLabel sizeToFit];
-    
     self.profileLabel.font = [UIFont fontWithName:@"Poppins-medium" size:30];
     self.settingsLabel.font = [UIFont fontWithName:@"Poppins-medium" size:30];
     
@@ -153,8 +161,8 @@
     NSDate *newDate = self.datePicker.date;
     NSDateComponents *components = [[NSCalendar currentCalendar] components:(NSCalendarUnitHour | NSCalendarUnitMinute) fromDate:newDate];
     User *user = [User currentUser];
-    user[@"preferredHour"] = [NSNumber numberWithInteger:components.hour];
-    user[@"preferredMinute"] = [NSNumber numberWithInteger:components.minute];
+    user[kPFUserPreferredHour] = [NSNumber numberWithInteger:components.hour];
+    user[kPFUserPreferredMinute] = [NSNumber numberWithInteger:components.minute];
     [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         if (error != nil) {
             NSLog(@"Error uploading new preferred notification time: %@", error.localizedDescription);
@@ -180,4 +188,35 @@
     [self.view endEditing:true];
 }
 
+- (IBAction)didSwitch:(id)sender {
+    User *user = [User currentUser];
+    if (user != nil) {
+        if (self.notificationsSwitch.on) {
+            user[kPFUserNotificationsOn] = @YES;
+            NSLog(@"Notifications turned on.");
+            //schedule a notification
+            NotificationManager *notificationManager = [NotificationManager new];
+            [notificationManager requestAuthorization:^(BOOL granted) {
+                if (granted) {
+                    NSLog(@"Notifications authorization granted.");
+                    NSInteger preferredHour = [user[kPFUserPreferredHour] integerValue];
+                    NSInteger preferredMinute = [user[kPFUserPreferredMinute] integerValue];
+                    [notificationManager scheduleNotificationWithHour:preferredHour withMinute:preferredMinute];
+                }
+            }];
+        } else {
+            user[kPFUserNotificationsOn] = @NO;
+            // cancel any pending notifications
+            [[UNUserNotificationCenter currentNotificationCenter] removeAllPendingNotificationRequests];
+            NSLog(@"Notifications turned off.");
+        }
+        [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+            if (error != nil) {
+                NSLog(@"Error updating user's notificationsOn preference in Parse: %@", error.localizedDescription);
+            } else {
+                NSLog(@"Successfully updated user's notificationsOn preference in Parse");
+            }
+        }];
+    }
+}
 @end

@@ -105,6 +105,7 @@
     newUser.displayName = self.nameField.text;
     newUser.preferredHour = @7;
     newUser.preferredMinute = @0;
+    newUser.notificationsOn = @YES;
     
     // call sign up function on the object
     // signUpInBackgroundWithBlock is an async function
