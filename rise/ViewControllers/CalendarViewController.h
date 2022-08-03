@@ -6,10 +6,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <JTCalendar/JTCalendar.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CalendarViewController : UIViewController
+@interface CalendarViewController : UIViewController <JTCalendarDelegate>
 
 @end
 
