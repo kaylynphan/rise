@@ -13,6 +13,7 @@ target 'rise' do
   pod 'NVActivityIndicatorView'
   pod 'Realm', '~>10'
   pod 'lottie-ios'
+  pod 'JTCalendar', '~> 2.0'
 
   target 'riseTests' do
     inherit! :search_paths

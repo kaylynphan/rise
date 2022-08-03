@@ -70,6 +70,7 @@
 		2ED6587E28760D5200B66436 /* riseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ED6587D28760D5200B66436 /* riseTests.m */; };
 		2ED6588828760D5200B66436 /* riseUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ED6588728760D5200B66436 /* riseUITests.m */; };
 		2ED6588A28760D5200B66436 /* riseUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ED6588928760D5200B66436 /* riseUITestsLaunchTests.m */; };
+		2EDD9EC22899F4300067ED0A /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDD9EC12899F4300067ED0A /* CalendarViewController.m */; };
 		3736CADEB2AA3803C40A16E9 /* Pods_riseTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19087805CD20347335A84649 /* Pods_riseTests.framework */; };
 		5D8267FC61DD3B20317CED35 /* Pods_rise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7188923E3A8320555BE7C9 /* Pods_rise.framework */; };
 		FF1074AD65948910A6CA2107 /* Pods_rise_riseUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19A880A6BE4B8115ADCBECCB /* Pods_rise_riseUITests.framework */; };
@@ -184,6 +185,8 @@
 		2ED6588328760D5200B66436 /* riseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = riseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2ED6588728760D5200B66436 /* riseUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = riseUITests.m; sourceTree = "<group>"; };
 		2ED6588928760D5200B66436 /* riseUITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = riseUITestsLaunchTests.m; sourceTree = "<group>"; };
+		2EDD9EC02899F4300067ED0A /* CalendarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalendarViewController.h; sourceTree = "<group>"; };
+		2EDD9EC12899F4300067ED0A /* CalendarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
 		30E3CD26461577DE0746FC2B /* Pods-rise-riseUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rise-riseUITests.release.xcconfig"; path = "Target Support Files/Pods-rise-riseUITests/Pods-rise-riseUITests.release.xcconfig"; sourceTree = "<group>"; };
 		642AF3CB8B28883CD23F5A0F /* Pods-riseTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-riseTests.release.xcconfig"; path = "Target Support Files/Pods-riseTests/Pods-riseTests.release.xcconfig"; sourceTree = "<group>"; };
 		8DA873CE591308AB62E8B7BB /* Pods-rise.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rise.debug.xcconfig"; path = "Target Support Files/Pods-rise/Pods-rise.debug.xcconfig"; sourceTree = "<group>"; };
@@ -272,6 +275,8 @@
 				2E53A125288B6743006C71D2 /* CompletionViewController.m */,
 				2E53A133288F6F75006C71D2 /* ProfileViewController.h */,
 				2E53A134288F6F75006C71D2 /* ProfileViewController.m */,
+				2EDD9EC02899F4300067ED0A /* CalendarViewController.h */,
+				2EDD9EC12899F4300067ED0A /* CalendarViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -708,6 +713,7 @@
 				2ED1252D2880CC9000DD5CBF /* JointSegment.m in Sources */,
 				2ED6587428760D5200B66436 /* main.m in Sources */,
 				2ED12513287F6C2F00DD5CBF /* PoseNetOutput.swift in Sources */,
+				2EDD9EC22899F4300067ED0A /* CalendarViewController.m in Sources */,
 				2ED12523287F6CE900DD5CBF /* PoseBuilderConfiguration.swift in Sources */,
 				2ED6586628760D5100B66436 /* SceneDelegate.m in Sources */,
 				2E53A12A288B6E30006C71D2 /* AnimationView.swift in Sources */,
