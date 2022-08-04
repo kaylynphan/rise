@@ -73,6 +73,8 @@
 		2EDD9EC22899F4300067ED0A /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDD9EC12899F4300067ED0A /* CalendarViewController.m */; };
 		2EDD9ECB289B14E70067ED0A /* CalendarDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDD9ECA289B14E70067ED0A /* CalendarDetailViewController.m */; };
 		2EDD9ED1289C771A0067ED0A /* GalleryViewFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDD9ED0289C771A0067ED0A /* GalleryViewFooter.m */; };
+		2EDD9ED4289C80830067ED0A /* CreateWorkoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDD9ED3289C80830067ED0A /* CreateWorkoutViewController.m */; };
+		2EDD9ED7289C83220067ED0A /* YogaPoseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDD9ED6289C83220067ED0A /* YogaPoseCollectionViewCell.m */; };
 		3736CADEB2AA3803C40A16E9 /* Pods_riseTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19087805CD20347335A84649 /* Pods_riseTests.framework */; };
 		5D8267FC61DD3B20317CED35 /* Pods_rise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7188923E3A8320555BE7C9 /* Pods_rise.framework */; };
 		FF1074AD65948910A6CA2107 /* Pods_rise_riseUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19A880A6BE4B8115ADCBECCB /* Pods_rise_riseUITests.framework */; };
@@ -193,6 +195,10 @@
 		2EDD9ECA289B14E70067ED0A /* CalendarDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalendarDetailViewController.m; sourceTree = "<group>"; };
 		2EDD9ECF289C771A0067ED0A /* GalleryViewFooter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GalleryViewFooter.h; sourceTree = "<group>"; };
 		2EDD9ED0289C771A0067ED0A /* GalleryViewFooter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GalleryViewFooter.m; sourceTree = "<group>"; };
+		2EDD9ED2289C80830067ED0A /* CreateWorkoutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateWorkoutViewController.h; sourceTree = "<group>"; };
+		2EDD9ED3289C80830067ED0A /* CreateWorkoutViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateWorkoutViewController.m; sourceTree = "<group>"; };
+		2EDD9ED5289C83220067ED0A /* YogaPoseCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YogaPoseCollectionViewCell.h; sourceTree = "<group>"; };
+		2EDD9ED6289C83220067ED0A /* YogaPoseCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YogaPoseCollectionViewCell.m; sourceTree = "<group>"; };
 		30E3CD26461577DE0746FC2B /* Pods-rise-riseUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rise-riseUITests.release.xcconfig"; path = "Target Support Files/Pods-rise-riseUITests/Pods-rise-riseUITests.release.xcconfig"; sourceTree = "<group>"; };
 		642AF3CB8B28883CD23F5A0F /* Pods-riseTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-riseTests.release.xcconfig"; path = "Target Support Files/Pods-riseTests/Pods-riseTests.release.xcconfig"; sourceTree = "<group>"; };
 		8DA873CE591308AB62E8B7BB /* Pods-rise.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rise.debug.xcconfig"; path = "Target Support Files/Pods-rise/Pods-rise.debug.xcconfig"; sourceTree = "<group>"; };
@@ -285,6 +291,8 @@
 				2EDD9EC12899F4300067ED0A /* CalendarViewController.m */,
 				2EDD9EC9289B14E70067ED0A /* CalendarDetailViewController.h */,
 				2EDD9ECA289B14E70067ED0A /* CalendarDetailViewController.m */,
+				2EDD9ED2289C80830067ED0A /* CreateWorkoutViewController.h */,
+				2EDD9ED3289C80830067ED0A /* CreateWorkoutViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -316,6 +324,8 @@
 				2ED124A3287C93A800DD5CBF /* WorkoutCell.m */,
 				2E53A13E2891F1FD006C71D2 /* CustomTextField.h */,
 				2E53A13F2891F1FD006C71D2 /* CustomTextField.m */,
+				2EDD9ED5289C83220067ED0A /* YogaPoseCollectionViewCell.h */,
+				2EDD9ED6289C83220067ED0A /* YogaPoseCollectionViewCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -731,6 +741,8 @@
 				2E53A12A288B6E30006C71D2 /* AnimationView.swift in Sources */,
 				2EA079842876146400931A86 /* GalleryViewController.m in Sources */,
 				2ED12519287F6C4A00DD5CBF /* PoseNet.swift in Sources */,
+				2EDD9ED4289C80830067ED0A /* CreateWorkoutViewController.m in Sources */,
+				2EDD9ED7289C83220067ED0A /* YogaPoseCollectionViewCell.m in Sources */,
 				2ED12524287F6CE900DD5CBF /* PoseBuilder.swift in Sources */,
 				2ED1251C287F6CCA00DD5CBF /* CGImage+Extension.swift in Sources */,
 			);

@@ -20,6 +20,7 @@
 #import "../Models/User.h"
 #import "ProfileViewController.h"
 #import "../SceneDelegate.h"
+#import "CreateWorkoutViewController.h"
 
 @interface GalleryViewController ()
 - (IBAction)didTapLogout:(id)sender;
@@ -228,6 +229,9 @@ static NSString *const kPFUserNotificationsOn = @"notificationsOn";
     } else if ([[segue identifier] isEqualToString:@"galleryToProfileSegue"]) {
         ProfileViewController *profileVC = [segue destinationViewController];
         profileVC.parent = self;
+    } else if ([[segue identifier] isEqualToString:@"galleryToCreateWorkoutSegue"]) {
+        CreateWorkoutViewController *createVC = [segue destinationViewController];
+        createVC.poses = self.poses;
     }
 }
 

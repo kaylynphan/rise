@@ -14,6 +14,7 @@ target 'rise' do
   pod 'Realm', '~>10'
   pod 'lottie-ios'
   pod 'JTCalendar', '~> 2.0'
+  pod 'GravitySliderFlowLayout'
 
   target 'riseTests' do
     inherit! :search_paths
