@@ -72,6 +72,7 @@
 		2ED6588A28760D5200B66436 /* riseUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ED6588928760D5200B66436 /* riseUITestsLaunchTests.m */; };
 		2EDD9EC22899F4300067ED0A /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDD9EC12899F4300067ED0A /* CalendarViewController.m */; };
 		2EDD9ECB289B14E70067ED0A /* CalendarDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDD9ECA289B14E70067ED0A /* CalendarDetailViewController.m */; };
+		2EDD9ED1289C771A0067ED0A /* GalleryViewFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDD9ED0289C771A0067ED0A /* GalleryViewFooter.m */; };
 		3736CADEB2AA3803C40A16E9 /* Pods_riseTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19087805CD20347335A84649 /* Pods_riseTests.framework */; };
 		5D8267FC61DD3B20317CED35 /* Pods_rise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7188923E3A8320555BE7C9 /* Pods_rise.framework */; };
 		FF1074AD65948910A6CA2107 /* Pods_rise_riseUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19A880A6BE4B8115ADCBECCB /* Pods_rise_riseUITests.framework */; };
@@ -190,6 +191,8 @@
 		2EDD9EC12899F4300067ED0A /* CalendarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
 		2EDD9EC9289B14E70067ED0A /* CalendarDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalendarDetailViewController.h; sourceTree = "<group>"; };
 		2EDD9ECA289B14E70067ED0A /* CalendarDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalendarDetailViewController.m; sourceTree = "<group>"; };
+		2EDD9ECF289C771A0067ED0A /* GalleryViewFooter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GalleryViewFooter.h; sourceTree = "<group>"; };
+		2EDD9ED0289C771A0067ED0A /* GalleryViewFooter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GalleryViewFooter.m; sourceTree = "<group>"; };
 		30E3CD26461577DE0746FC2B /* Pods-rise-riseUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rise-riseUITests.release.xcconfig"; path = "Target Support Files/Pods-rise-riseUITests/Pods-rise-riseUITests.release.xcconfig"; sourceTree = "<group>"; };
 		642AF3CB8B28883CD23F5A0F /* Pods-riseTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-riseTests.release.xcconfig"; path = "Target Support Files/Pods-riseTests/Pods-riseTests.release.xcconfig"; sourceTree = "<group>"; };
 		8DA873CE591308AB62E8B7BB /* Pods-rise.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rise.debug.xcconfig"; path = "Target Support Files/Pods-rise/Pods-rise.debug.xcconfig"; sourceTree = "<group>"; };
@@ -305,6 +308,8 @@
 				2E53A129288B6E30006C71D2 /* AnimationView.swift */,
 				2ED125282880965A00DD5CBF /* GalleryViewHeader.h */,
 				2ED125292880965A00DD5CBF /* GalleryViewHeader.m */,
+				2EDD9ECF289C771A0067ED0A /* GalleryViewFooter.h */,
+				2EDD9ED0289C771A0067ED0A /* GalleryViewFooter.m */,
 				2EA0799828774B9500931A86 /* PoseImageView.h */,
 				2EA0799928774B9500931A86 /* PoseImageView.m */,
 				2ED124A2287C93A800DD5CBF /* WorkoutCell.h */,
@@ -692,6 +697,7 @@
 			files = (
 				2ED124AE287E796200DD5CBF /* YogaPose.m in Sources */,
 				2ED1252A2880965A00DD5CBF /* GalleryViewHeader.m in Sources */,
+				2EDD9ED1289C771A0067ED0A /* GalleryViewFooter.m in Sources */,
 				2EA0798E287655E700931A86 /* User.m in Sources */,
 				2EA0799128765ACD00931A86 /* YogaPoseAPIManager.m in Sources */,
 				2E53A126288B6743006C71D2 /* CompletionViewController.m in Sources */,

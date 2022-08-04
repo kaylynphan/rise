@@ -47,7 +47,7 @@ static NSString *const kPFUserNotificationsOn = @"notificationsOn";
     // set up table
     [self.tableView setDelegate:self];
     [self.tableView setDataSource:self];
-    //self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.separatorColor = [UIColor clearColor];
     [self.activityIndicatorView startAnimating];
     [self.view addSubview:self.activityIndicatorView];
@@ -164,6 +164,15 @@ static NSString *const kPFUserNotificationsOn = @"notificationsOn";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return UITableViewAutomaticDimension;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    UITableViewCell *footerView = [tableView dequeueReusableCellWithIdentifier:@"galleryViewFooter"];
+    return footerView;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     return UITableViewAutomaticDimension;
 }
 
