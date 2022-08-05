@@ -65,13 +65,6 @@ static NSString *const kPFUserCompletionDates = @"completionDates";
     }];
     NSArray *completionDatesInThisMonth = [completionDates filteredArrayUsingPredicate:calendarPredicate];
     
-    // custom view for today's date
-    if ([self.calendarManager.dateHelper date:[NSDate date] isTheSameDayThan:dayView.date]){
-        dayView.circleView.hidden = NO;
-        dayView.circleView.backgroundColor = [Styles customPurpleColor];
-        dayView.textLabel.textColor = [UIColor whiteColor];
-    }
-    
     // if day is in completionDatesInThisMonth
     for (NSDate *completionDate in completionDatesInThisMonth) {
         if ([self.calendarManager.dateHelper date:completionDate isTheSameDayThan:dayView.date]) {
@@ -80,6 +73,14 @@ static NSString *const kPFUserCompletionDates = @"completionDates";
             //dayView.textLabel.textColor = [UIColor whiteColor];
         }
     }
+    
+    // custom view for today's date
+    if ([self.calendarManager.dateHelper date:[NSDate date] isTheSameDayThan:dayView.date]){
+        dayView.circleView.hidden = NO;
+        dayView.circleView.backgroundColor = [Styles customPurpleColor];
+        dayView.textLabel.textColor = [UIColor whiteColor];
+    }
+    
 }
 
 - (void)calendar:(JTCalendarManager *)calendar didTouchDayView:(JTCalendarDayView *)dayView
