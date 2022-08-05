@@ -6,6 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "../ViewControllers/CreateWorkoutViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -14,7 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *poseNameLabel;
 @property (weak, nonatomic) IBOutlet UIView *cardView;
 @property (weak, nonatomic) IBOutlet UIButton *selectorButton;
-
+@property (strong, nonatomic) NSNumber *isSelectedPose;
+@property (assign, nonatomic) NSInteger row;
+@property (weak, nonatomic) CreateWorkoutViewController *createVC;
 @end
 
 NS_ASSUME_NONNULL_END

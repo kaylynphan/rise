@@ -177,7 +177,6 @@ static NSString *const kPFUserNotificationsOn = @"notificationsOn";
     return UITableViewAutomaticDimension;
 }
 
-
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.arrayOfWorkouts.count;
 }

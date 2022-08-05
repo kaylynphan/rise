@@ -16,10 +16,18 @@
     [self.cardView.layer insertSublayer:gradient atIndex:0];
     self.cardView.layer.cornerRadius = 40.0;
     self.cardView.layer.masksToBounds = YES;
-    [self sizeToFit];
+    [self.poseNameLabel sizeToFit];
 }
 
 - (IBAction)didTapSelectorButton:(id)sender {
+    if ([self.isSelectedPose isEqual:@YES]) {
+        [self.selectorButton setImage:[UIImage imageNamed:@"Empty check"] forState:UIControlStateNormal];
+        self.isSelectedPose = @NO;
+    } else {
+        [self.selectorButton setImage:[UIImage imageNamed:@"Filled check"] forState:UIControlStateNormal];
+        self.isSelectedPose = @YES;
+    }
+    [self.createVC updateSelectedPoseAtIndex:self.row withVal:self.isSelectedPose];
 }
 
 @end

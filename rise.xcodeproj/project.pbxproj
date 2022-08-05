@@ -75,6 +75,7 @@
 		2EDD9ED1289C771A0067ED0A /* GalleryViewFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDD9ED0289C771A0067ED0A /* GalleryViewFooter.m */; };
 		2EDD9ED4289C80830067ED0A /* CreateWorkoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDD9ED3289C80830067ED0A /* CreateWorkoutViewController.m */; };
 		2EDD9ED7289C83220067ED0A /* YogaPoseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDD9ED6289C83220067ED0A /* YogaPoseCollectionViewCell.m */; };
+		2EDD9EDA289D9EA90067ED0A /* CustomWorkout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDD9ED9289D9EA90067ED0A /* CustomWorkout.m */; };
 		3736CADEB2AA3803C40A16E9 /* Pods_riseTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19087805CD20347335A84649 /* Pods_riseTests.framework */; };
 		5D8267FC61DD3B20317CED35 /* Pods_rise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7188923E3A8320555BE7C9 /* Pods_rise.framework */; };
 		FF1074AD65948910A6CA2107 /* Pods_rise_riseUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19A880A6BE4B8115ADCBECCB /* Pods_rise_riseUITests.framework */; };
@@ -199,6 +200,8 @@
 		2EDD9ED3289C80830067ED0A /* CreateWorkoutViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateWorkoutViewController.m; sourceTree = "<group>"; };
 		2EDD9ED5289C83220067ED0A /* YogaPoseCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YogaPoseCollectionViewCell.h; sourceTree = "<group>"; };
 		2EDD9ED6289C83220067ED0A /* YogaPoseCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YogaPoseCollectionViewCell.m; sourceTree = "<group>"; };
+		2EDD9ED8289D9EA90067ED0A /* CustomWorkout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomWorkout.h; sourceTree = "<group>"; };
+		2EDD9ED9289D9EA90067ED0A /* CustomWorkout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomWorkout.m; sourceTree = "<group>"; };
 		30E3CD26461577DE0746FC2B /* Pods-rise-riseUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rise-riseUITests.release.xcconfig"; path = "Target Support Files/Pods-rise-riseUITests/Pods-rise-riseUITests.release.xcconfig"; sourceTree = "<group>"; };
 		642AF3CB8B28883CD23F5A0F /* Pods-riseTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-riseTests.release.xcconfig"; path = "Target Support Files/Pods-riseTests/Pods-riseTests.release.xcconfig"; sourceTree = "<group>"; };
 		8DA873CE591308AB62E8B7BB /* Pods-rise.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rise.debug.xcconfig"; path = "Target Support Files/Pods-rise/Pods-rise.debug.xcconfig"; sourceTree = "<group>"; };
@@ -306,6 +309,8 @@
 				2EA0798D287655E700931A86 /* User.m */,
 				2ED124A9287DE8F000DD5CBF /* Workout.h */,
 				2ED124AA287DE8F000DD5CBF /* Workout.m */,
+				2EDD9ED8289D9EA90067ED0A /* CustomWorkout.h */,
+				2EDD9ED9289D9EA90067ED0A /* CustomWorkout.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -743,6 +748,7 @@
 				2ED12519287F6C4A00DD5CBF /* PoseNet.swift in Sources */,
 				2EDD9ED4289C80830067ED0A /* CreateWorkoutViewController.m in Sources */,
 				2EDD9ED7289C83220067ED0A /* YogaPoseCollectionViewCell.m in Sources */,
+				2EDD9EDA289D9EA90067ED0A /* CustomWorkout.m in Sources */,
 				2ED12524287F6CE900DD5CBF /* PoseBuilder.swift in Sources */,
 				2ED1251C287F6CCA00DD5CBF /* CGImage+Extension.swift in Sources */,
 			);

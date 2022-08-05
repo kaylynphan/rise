@@ -23,6 +23,10 @@
     self.collectionView.delegate = self;
     GravitySliderFlowLayout *gravitySliderLayout = [[GravitySliderFlowLayout alloc] initWith:(CGSizeMake(self.collectionView.frame.size.width * 0.8, self.collectionView.frame.size.height * 0.8))];
     self.collectionView.collectionViewLayout = gravitySliderLayout;
+    self.selectedPoses = [[NSMutableArray alloc] init];
+    for(int i = 0; i < self.poses.count; i++) {
+        [self.selectedPoses addObject:@NO];
+    }
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -36,36 +40,27 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     YogaPoseCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"yogaPoseCollectionViewCell" forIndexPath:indexPath];
     YogaPose *pose = [self.poses objectAtIndex:indexPath.row];
+    cell.createVC = self;
+    cell.isSelectedPose = [self.selectedPoses objectAtIndex:indexPath.row];
+    if ([cell.isSelectedPose isEqual:@YES]) {
+        [cell.selectorButton setImage:[UIImage imageNamed:@"Filled check"] forState:UIControlStateNormal];
+    } else {
+        [cell.selectorButton setImage:[UIImage imageNamed:@"Empty check"] forState:UIControlStateNormal];
+    }
+    cell.row = indexPath.row;
     cell.poseNameLabel.text = pose.name;
     cell.poseImageView.image = [UIImage imageWithData:pose.imageData];
     return cell;
 }
 
-// credit to GravitySlider example (https://github.com/ApplikeySolutions/GravitySlider/blob/master/Example/GravitySliderFlowLayout/ViewController.swift)
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    CGPoint locationFirst = CGPointMake(self.collectionView.center.x + scrollView.contentOffset.x, self.collectionView.center.y + scrollView.contentOffset.y);
-    CGPoint locationSecond = CGPointMake(self.collectionView.center.x + scrollView.contentOffset.x + 20, self.collectionView.center.y + scrollView.contentOffset.y);
-    CGPoint locationThird = CGPointMake(self.collectionView.center.x + scrollView.contentOffset.x - 20, self.collectionView.center.y + scrollView.contentOffset.y);
-    
-    NSIndexPath *indexPathFirst = [self.collectionView indexPathForItemAtPoint:locationFirst];
-    NSIndexPath *indexPathSecond = [self.collectionView indexPathForItemAtPoint:locationSecond];
-    NSIndexPath *indexPathThird = [self.collectionView indexPathForItemAtPoint:locationThird];
-    
-    if (indexPathFirst == indexPathSecond && indexPathSecond == indexPathThird) {
-        if (indexPathFirst.row != self.pageControl.currentPage) {
-            self.pageControl.currentPage = indexPathFirst.row % self.poses.count;
-            
+- (void)updateSelectedPoseAtIndex:(NSInteger)index withVal:(NSNumber *)val {
+    [self.selectedPoses setObject:val atIndexedSubscript:index];
+    for (int i = 0; i < self.selectedPoses.count; i++) {
+        if ([[self.selectedPoses objectAtIndex:i] isEqual:@YES]) {
+            NSLog(@"%@", [NSString stringWithFormat:@"Pose at index %d is selected.", i]);
         }
     }
-
 }
-/*
-- (void) animateChangingCellForIndexPath:(NSIndexPath *)indexPath {
-    [UIView transitionWithView:[self.collectionView cellForItemAtIndexPath:(indexPath.row % self.poses.count)] duration:0.3 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
-        <#code#>
-    } completion:<#^(BOOL finished)completion#>]
-}
- */
 
 /*
 #pragma mark - Navigation

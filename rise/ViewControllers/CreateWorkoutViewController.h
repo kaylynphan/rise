@@ -13,6 +13,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (weak, nonatomic) NSArray *poses;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (strong, nonatomic) NSMutableArray *selectedPoses; //array of booleans that is the size of self.poses
+
+- (void)updateSelectedPoseAtIndex:(NSInteger)index withVal:(NSNumber *)val;
 
 @end
 

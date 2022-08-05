@@ -14,7 +14,6 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     [Styles addGradientToButton:self.createNewWorkoutButton];
-    NSLog([NSString stringWithFormat:@"%f", self.createNewWorkoutButton.layer.cornerRadius]);
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
