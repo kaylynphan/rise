@@ -11,6 +11,7 @@
 #import <GravitySliderFlowLayout/GravitySliderFlowLayout-Swift.h>
 
 @interface CreateWorkoutViewController ()
+@property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 
 @end
 
@@ -40,8 +41,31 @@
     return cell;
 }
 
+// credit to GravitySlider example (https://github.com/ApplikeySolutions/GravitySlider/blob/master/Example/GravitySliderFlowLayout/ViewController.swift)
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    CGPoint locationFirst = CGPointMake(self.collectionView.center.x + scrollView.contentOffset.x, self.collectionView.center.y + scrollView.contentOffset.y);
+    CGPoint locationSecond = CGPointMake(self.collectionView.center.x + scrollView.contentOffset.x + 20, self.collectionView.center.y + scrollView.contentOffset.y);
+    CGPoint locationThird = CGPointMake(self.collectionView.center.x + scrollView.contentOffset.x - 20, self.collectionView.center.y + scrollView.contentOffset.y);
+    
+    NSIndexPath *indexPathFirst = [self.collectionView indexPathForItemAtPoint:locationFirst];
+    NSIndexPath *indexPathSecond = [self.collectionView indexPathForItemAtPoint:locationSecond];
+    NSIndexPath *indexPathThird = [self.collectionView indexPathForItemAtPoint:locationThird];
+    
+    if (indexPathFirst == indexPathSecond && indexPathSecond == indexPathThird) {
+        if (indexPathFirst.row != self.pageControl.currentPage) {
+            self.pageControl.currentPage = indexPathFirst.row % self.poses.count;
+            
+        }
+    }
+
 }
+/*
+- (void) animateChangingCellForIndexPath:(NSIndexPath *)indexPath {
+    [UIView transitionWithView:[self.collectionView cellForItemAtIndexPath:(indexPath.row % self.poses.count)] duration:0.3 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+        <#code#>
+    } completion:<#^(BOOL finished)completion#>]
+}
+ */
 
 /*
 #pragma mark - Navigation

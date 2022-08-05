@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface YogaPoseCollectionViewCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *poseImageView;
 @property (weak, nonatomic) IBOutlet UILabel *poseNameLabel;
+@property (weak, nonatomic) IBOutlet UIView *cardView;
+@property (weak, nonatomic) IBOutlet UIButton *selectorButton;
 
 @end
 

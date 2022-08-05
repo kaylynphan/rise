@@ -41,6 +41,17 @@
     return gradient;
 }
 
++ (CAGradientLayer *)gradientForPoseCardView:(UIView *)view {
+    CAGradientLayer *gradient = [CAGradientLayer layer];
+    gradient.frame = view.bounds;
+    gradient.colors = [NSArray arrayWithObjects:
+                       (id)[[Styles customPurpleColor] CGColor],
+                           (id)[[Styles customBlueColor] CGColor], nil];
+    gradient.startPoint = CGPointMake(1, 1);
+    gradient.endPoint = CGPointMake(0, 0);
+    return gradient;
+}
+
 + (void)addGradientToButton:(UIButton *)button {
     button.titleLabel.font = [UIFont fontWithName:@"Poppins-medium" size:18];
     button.titleLabel.textColor = [UIColor whiteColor];
