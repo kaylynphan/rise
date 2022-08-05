@@ -956,7 +956,6 @@
         <!--Create Workout View Controller-->
         <scene sceneID="NWU-C0-guX">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="p3w-kD-2kk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="X5p-Rd-8kT" customClass="CreateWorkoutViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oP0-I5-aZE">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
@@ -1084,6 +1083,7 @@
                         <outlet property="pageControl" destination="HC5-uw-Rpe" id="qOm-SI-S4E"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p3w-kD-2kk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4001.5384615384614" y="1031.5165876777251"/>
         </scene>
