@@ -17,6 +17,8 @@
     self.cardView.layer.cornerRadius = 40.0;
     self.cardView.layer.masksToBounds = YES;
     self.circleView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.5];
+    self.poseNameLabel.font = [UIFont fontWithName:@"Poppins-medium" size:20];
+    [self.poseNameLabel sizeToFit];
 }
 
 - (IBAction)didTapSelectorButton:(id)sender {

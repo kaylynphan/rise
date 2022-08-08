@@ -13,8 +13,7 @@
 #import "../Styles.h"
 
 @interface SelectPosesViewController ()
-@property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
-
+@property (weak, nonatomic) IBOutlet UIButton *nextButton;
 @end
 
 @implementation SelectPosesViewController
@@ -32,6 +31,7 @@
     
     CAGradientLayer *gradient = [Styles gradientForLargeView:self.view];
     [self.view.layer insertSublayer:gradient atIndex:0];
+    [Styles addGradientToButton:self.nextButton];
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
