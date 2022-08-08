@@ -1,21 +1,23 @@
 //
-//  CreateWorkoutViewController.m
+//  SelectPosesViewController.m
 //  rise
 //
 //  Created by Kaylyn Phan on 8/4/22.
 //
 
-#import "CreateWorkoutViewController.h"
+#import "SelectPosesViewController.h"
 #import "../Views/YogaPoseCollectionViewCell.h"
 #import "../Models/YogaPose.h"
 #import <GravitySliderFlowLayout/GravitySliderFlowLayout-Swift.h>
+#import "CreateCustomWorkoutViewController.h"
+#import "../Styles.h"
 
-@interface CreateWorkoutViewController ()
+@interface SelectPosesViewController ()
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 
 @end
 
-@implementation CreateWorkoutViewController
+@implementation SelectPosesViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -27,6 +29,9 @@
     for(int i = 0; i < self.poses.count; i++) {
         [self.selectedPoses addObject:@NO];
     }
+    
+    CAGradientLayer *gradient = [Styles gradientForLargeView:self.view];
+    [self.view.layer insertSublayer:gradient atIndex:0];
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -62,14 +67,14 @@
     }
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    CreateCustomWorkoutViewController *createVC = [segue destinationViewController];
+    createVC.selectVC = self;
 }
-*/
+
 
 @end

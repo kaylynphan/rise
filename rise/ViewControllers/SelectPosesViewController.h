@@ -1,5 +1,5 @@
 //
-//  CreateWorkoutViewController.h
+//  SelectPosesViewController.h
 //  rise
 //
 //  Created by Kaylyn Phan on 8/4/22.
@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CreateWorkoutViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource>
+@interface SelectPosesViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (weak, nonatomic) NSArray *poses;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;

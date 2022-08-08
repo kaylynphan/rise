@@ -16,7 +16,7 @@
     [self.cardView.layer insertSublayer:gradient atIndex:0];
     self.cardView.layer.cornerRadius = 40.0;
     self.cardView.layer.masksToBounds = YES;
-    [self.poseNameLabel sizeToFit];
+    self.circleView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.5];
 }
 
 - (IBAction)didTapSelectorButton:(id)sender {
