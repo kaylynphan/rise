@@ -9,13 +9,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CreateCustomWorkoutViewController : UIViewController
-- (IBAction)didTapChange:(id)sender;
-- (IBAction)didTapDone:(id)sender;
-@property (weak, nonatomic) IBOutlet UIButton *changeButton;
-@property (weak, nonatomic) IBOutlet UIButton *doneButton;
+@interface CreateCustomWorkoutViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) UIViewController *selectVC;
-
+@property (strong, nonatomic) NSArray *selectedPoses;
+- (void)change;
+- (void)done;
 
 @end
 

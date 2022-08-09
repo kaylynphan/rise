@@ -74,6 +74,13 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     CreateCustomWorkoutViewController *createVC = [segue destinationViewController];
     createVC.selectVC = self;
+    NSMutableArray *posesToSend = [NSMutableArray new];
+    for (int i = 0; i < self.selectedPoses.count; i++) {
+        if ([[self.selectedPoses objectAtIndex:i] isEqual: @YES]) {
+            [posesToSend addObject:[self.poses objectAtIndex:i]];
+        }
+    }
+    createVC.selectedPoses = posesToSend;
 }
 
 
