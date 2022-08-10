@@ -6,17 +6,15 @@
 //
 
 #import "SelectedPoseTableFooter.h"
+#import "../Styles.h"
 
 @implementation SelectedPoseTableFooter
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+    [Styles styleEnabledTextField:self.nameField];
+    [Styles styleEnabledTextField:self.descriptionField];
+    [Styles addGradientToButton:self.changeButton];
+    [Styles addGradientToButton:self.doneButton];
 }
 
 - (IBAction)didTapChange:(id)sender {

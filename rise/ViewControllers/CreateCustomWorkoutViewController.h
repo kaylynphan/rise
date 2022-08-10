@@ -9,9 +9,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CreateCustomWorkoutViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface CreateCustomWorkoutViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
 @property (weak, nonatomic) UIViewController *selectVC;
 @property (strong, nonatomic) NSArray *selectedPoses;
+@property (strong, nonatomic) NSArray *indices;
 - (void)change;
 - (void)done;
 

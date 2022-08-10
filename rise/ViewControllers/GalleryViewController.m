@@ -33,7 +33,7 @@
 
 static NSString *const kPFUserPreferredHour = @"preferredHour";
 static NSString *const kPFUserPreferredMinute = @"preferredMinute";
-static NSString *const kPFWorkoutDescription = @"description";
+static NSString *const kPFWorkoutDescription = @"workoutDescription";
 static NSString *const kPFUserNotificationsOn = @"notificationsOn";
 
 - (void)viewDidLoad {
@@ -111,9 +111,17 @@ static NSString *const kPFUserNotificationsOn = @"notificationsOn";
 }
 
 - (void)queryWorkouts {
-    PFQuery *query = [PFQuery queryWithClassName:@"Workout"];
+    //default workouts
+    PFQuery *query1 = [PFQuery queryWithClassName:@"Workout"];
+    [query1 whereKeyDoesNotExist:@"creator"];
+    
+    PFQuery *query2 = [PFQuery queryWithClassName:@"Workout"];
+    [query1 whereKey:@"creator" equalTo:[User currentUser]];
+    
+    PFQuery *query = [PFQuery orQueryWithSubqueries:@[query1, query2]];
     [query orderByDescending:@"createdAt"];
     [query includeKey:@"objectId"];
+    
     // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:^(NSArray *savedWorkouts, NSError *error) {
         if (savedWorkouts != nil) {

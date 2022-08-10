@@ -74,7 +74,6 @@
 		2EDD9ECB289B14E70067ED0A /* CalendarDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDD9ECA289B14E70067ED0A /* CalendarDetailViewController.m */; };
 		2EDD9ED1289C771A0067ED0A /* GalleryViewFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDD9ED0289C771A0067ED0A /* GalleryViewFooter.m */; };
 		2EDD9ED7289C83220067ED0A /* YogaPoseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDD9ED6289C83220067ED0A /* YogaPoseCollectionViewCell.m */; };
-		2EDD9EDA289D9EA90067ED0A /* CustomWorkout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDD9ED9289D9EA90067ED0A /* CustomWorkout.m */; };
 		2EDD9EE3289DDE9C0067ED0A /* SelectPosesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDD9EE2289DDE9B0067ED0A /* SelectPosesViewController.m */; };
 		2EDD9EE6289DE0490067ED0A /* CreateCustomWorkoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDD9EE5289DE0490067ED0A /* CreateCustomWorkoutViewController.m */; };
 		2EDD9EE928A1B7400067ED0A /* CircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDD9EE828A1B73F0067ED0A /* CircleView.m */; };
@@ -202,8 +201,6 @@
 		2EDD9ED0289C771A0067ED0A /* GalleryViewFooter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GalleryViewFooter.m; sourceTree = "<group>"; };
 		2EDD9ED5289C83220067ED0A /* YogaPoseCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YogaPoseCollectionViewCell.h; sourceTree = "<group>"; };
 		2EDD9ED6289C83220067ED0A /* YogaPoseCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YogaPoseCollectionViewCell.m; sourceTree = "<group>"; };
-		2EDD9ED8289D9EA90067ED0A /* CustomWorkout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomWorkout.h; sourceTree = "<group>"; };
-		2EDD9ED9289D9EA90067ED0A /* CustomWorkout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomWorkout.m; sourceTree = "<group>"; };
 		2EDD9EE1289DDE9B0067ED0A /* SelectPosesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectPosesViewController.h; sourceTree = "<group>"; };
 		2EDD9EE2289DDE9B0067ED0A /* SelectPosesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelectPosesViewController.m; sourceTree = "<group>"; };
 		2EDD9EE4289DE0490067ED0A /* CreateCustomWorkoutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateCustomWorkoutViewController.h; sourceTree = "<group>"; };
@@ -323,8 +320,6 @@
 				2EA0798D287655E700931A86 /* User.m */,
 				2ED124A9287DE8F000DD5CBF /* Workout.h */,
 				2ED124AA287DE8F000DD5CBF /* Workout.m */,
-				2EDD9ED8289D9EA90067ED0A /* CustomWorkout.h */,
-				2EDD9ED9289D9EA90067ED0A /* CustomWorkout.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -772,7 +767,6 @@
 				2ED12519287F6C4A00DD5CBF /* PoseNet.swift in Sources */,
 				2EDD9EEF28A1C56B0067ED0A /* SelectedPoseTableFooter.m in Sources */,
 				2EDD9ED7289C83220067ED0A /* YogaPoseCollectionViewCell.m in Sources */,
-				2EDD9EDA289D9EA90067ED0A /* CustomWorkout.m in Sources */,
 				2ED12524287F6CE900DD5CBF /* PoseBuilder.swift in Sources */,
 				2ED1251C287F6CCA00DD5CBF /* CGImage+Extension.swift in Sources */,
 			);

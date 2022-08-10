@@ -10,9 +10,11 @@
 #import "../Views/SelectedPoseTableFooter.h"
 #import "../Views/SelectedPoseTableViewCell.h"
 #import "../Models/YogaPose.h"
+#import "../Models/Workout.h"
 
 @interface CreateCustomWorkoutViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet SelectedPoseTableFooter *footerView;
 
 @end
 
@@ -22,25 +24,22 @@
     [super viewDidLoad];
     CAGradientLayer *gradient = [Styles gradientForLargeView:self.view];
     [self.view.layer insertSublayer:gradient atIndex:0];
-    // Do any additional setup after loading the view.
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.tableView.separatorColor = [UIColor clearColor];
     
+    self.footerView.vc = self;
+    self.footerView.nameField.delegate = self;
+    self.footerView.descriptionField.delegate = self;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.selectedPoses.count;
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    SelectedPoseTableFooter *footerView = [tableView dequeueReusableCellWithIdentifier:@"selectedPoseTableFooter"];
-    footerView.vc = self;
-    return footerView;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return 300;
+- (void)viewDidLayoutSubviews {
+    self.tableView.sectionFooterHeight = UITableViewAutomaticDimension;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -55,7 +54,6 @@
     return 180;
 }
 
-
 /*
 #pragma mark - Navigation
 
@@ -67,13 +65,25 @@
 */
 
 - (void)done {
-    [self dismissViewControllerAnimated:YES completion:^{
-        [self.selectVC dismissViewControllerAnimated:YES completion:nil];
+    [Workout createNewWorkoutWithPoses:self.indices withName:self.footerView.nameField.text withDescription:self.footerView.descriptionField.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+        if (error != nil) {
+            NSLog(@"Error uploading new custom workout");
+        } else {
+            NSLog(@"Uploaded new custom workout!");
+        }
     }];
+    if (self.presentingViewController.presentingViewController != nil) {
+        [self.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 
 - (void)change {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (BOOL) textFieldShouldReturn:(UITextField *)textField {
+    [self.view endEditing:true];
+    return false;
 }
 
 @end
