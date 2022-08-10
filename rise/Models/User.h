@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSNumber *preferredHour;
 @property (nonatomic, strong) NSNumber *preferredMinute;
 @property (nonatomic, strong) NSMutableArray *completionDates;
+@property (assign) BOOL notificationsOn;
 
 + (User *)user;
 

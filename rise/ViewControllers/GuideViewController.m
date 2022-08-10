@@ -42,6 +42,8 @@ static const int FRAME_ROTATION_RATE = 10;
     [super viewDidLoad];
     // Do any additional setup after loading the view
     
+    [self.navigationController setNavigationBarHidden:NO];
+    
     // set up countdown timer
     [self setupTimer];
     
@@ -119,7 +121,7 @@ static const int FRAME_ROTATION_RATE = 10;
         self.poseLabel.text = pose.name;
         self.poseImage.image = [UIImage imageWithData:pose.imageData];
     }
-    [self.countdownTimer startWithBeginingValue:30 interval:1];
+    [self.countdownTimer startWithBeginingValue:30 interval:0.6];
 }
 
 // from VideoCaptureDelegate
