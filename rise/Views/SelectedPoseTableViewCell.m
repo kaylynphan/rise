@@ -13,11 +13,6 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     
-    CAGradientLayer *gradient = [Styles gradientForLargeView:self.backgroundView];
-    [self.backgroundView.layer insertSublayer:gradient atIndex:0];
-    self.backgroundView.layer.cornerRadius = 20.0;
-    self.backgroundView.layer.masksToBounds = YES;
-    
     [self setupCircleView];
     [Styles styleDisabledTextField:self.poseNameField];
     

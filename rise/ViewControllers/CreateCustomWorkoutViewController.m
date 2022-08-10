@@ -15,6 +15,7 @@
 @interface CreateCustomWorkoutViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet SelectedPoseTableFooter *footerView;
+@property (weak, nonatomic) IBOutlet UILabel *selectedPosesLabel;
 
 @end
 
@@ -24,6 +25,8 @@
     [super viewDidLoad];
     CAGradientLayer *gradient = [Styles gradientForLargeView:self.view];
     [self.view.layer insertSublayer:gradient atIndex:0];
+    
+    self.selectedPosesLabel.font = [UIFont fontWithName:@"Poppins-medium" size:30];
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -51,7 +54,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 180;
+    return 80;
 }
 
 /*

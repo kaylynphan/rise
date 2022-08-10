@@ -69,6 +69,30 @@
     }
 }
 
+- (IBAction)didTapNext:(id)sender {
+    UIAlertController *notEnoughStretchesAlert = [UIAlertController alertControllerWithTitle:@"Not Enough Stretches Selected" message:@"Pick at least 4 stretches to include in your new workout" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:(UIAlertActionStyleCancel) handler:^(UIAlertAction * _Nonnull action) {
+            // do nothing
+    }];
+    [notEnoughStretchesAlert addAction:okAction];
+    
+    self.posesToSend = [NSMutableArray new];
+    self.indicesToSend = [NSMutableArray new];
+    for (int i = 0; i < self.selectedPoses.count; i++) {
+        if ([[self.selectedPoses objectAtIndex:i] isEqual: @YES]) {
+            [self.posesToSend addObject:[self.poses objectAtIndex:i]];
+            [self.indicesToSend addObject:@(i)];
+        }
+    }
+    if (self.posesToSend.count < 4) {
+        [self presentViewController:notEnoughStretchesAlert animated:YES completion:^{
+        }];
+    } else {
+        [self performSegueWithIdentifier:@"selectStretchesToCreateWorkoutSegue" sender:nil];
+    }
+    
+}
+
 
 #pragma mark - Navigation
 
@@ -76,16 +100,8 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     CreateCustomWorkoutViewController *createVC = [segue destinationViewController];
     createVC.selectVC = self;
-    NSMutableArray *posesToSend = [NSMutableArray new];
-    NSMutableArray *indicesToSend = [NSMutableArray new];
-    for (int i = 0; i < self.selectedPoses.count; i++) {
-        if ([[self.selectedPoses objectAtIndex:i] isEqual: @YES]) {
-            [posesToSend addObject:[self.poses objectAtIndex:i]];
-            [indicesToSend addObject:@(i)];
-        }
-    }
-    createVC.selectedPoses = posesToSend;
-    createVC.indices = indicesToSend;
+    createVC.selectedPoses = self.posesToSend;
+    createVC.indices = self.indicesToSend;
 }
 
 
