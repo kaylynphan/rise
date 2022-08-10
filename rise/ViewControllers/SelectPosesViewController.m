@@ -13,6 +13,7 @@
 #import "../Styles.h"
 
 @interface SelectPosesViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *selectStretchesLabel;
 @property (weak, nonatomic) IBOutlet UIButton *nextButton;
 @end
 
@@ -32,6 +33,7 @@
     CAGradientLayer *gradient = [Styles gradientForLargeView:self.view];
     [self.view.layer insertSublayer:gradient atIndex:0];
     [Styles addGradientToButton:self.nextButton];
+    self.selectStretchesLabel.font = [UIFont fontWithName:@"Poppins-medium" size:30];
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
