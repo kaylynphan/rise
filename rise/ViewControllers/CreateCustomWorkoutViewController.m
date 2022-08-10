@@ -67,6 +67,29 @@
 }
 */
 
+- (void)showEmptyNameAlert {
+    UIAlertController *emptyNameAlert = [UIAlertController alertControllerWithTitle:@"Workout Name Required" message:@"Workout Name cannot be empty." preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:(UIAlertActionStyleCancel) handler:^(UIAlertAction * _Nonnull action) {
+            // do nothing
+    }];
+    [emptyNameAlert addAction:okAction];
+    [self presentViewController:emptyNameAlert animated:YES completion:^{
+        //do nothing
+    }];
+}
+
+- (void)showEmptyDescriptionAlert {
+    UIAlertController *emptyDescriptionAlert = [UIAlertController alertControllerWithTitle:@"Workout Description Required" message:@"Workout Description cannot be empty." preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:(UIAlertActionStyleCancel) handler:^(UIAlertAction * _Nonnull action) {
+            // do nothing
+    }];
+    [emptyDescriptionAlert addAction:okAction];
+    [self presentViewController:emptyDescriptionAlert animated:YES completion:^{
+        //do nothing
+    }];
+    
+}
+
 - (void)done {
     [Workout createNewWorkoutWithPoses:self.indices withName:self.footerView.nameField.text withDescription:self.footerView.descriptionField.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
         if (error != nil) {

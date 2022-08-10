@@ -44,6 +44,10 @@ static NSString *const kPFUserNotificationsOn = @"notificationsOn";
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(beginRefresh:) forControlEvents:UIControlEventValueChanged];
     [self.tableView insertSubview:refreshControl atIndex:0];
+    
+    // perform query
+    self.arrayOfWorkouts = [NSArray new];
+    [self queryWorkouts];
 
     // set up table
     [self.tableView setDelegate:self];
@@ -52,9 +56,6 @@ static NSString *const kPFUserNotificationsOn = @"notificationsOn";
     self.tableView.separatorColor = [UIColor clearColor];
     [self.activityIndicatorView startAnimating];
     [self.view addSubview:self.activityIndicatorView];
-    
-    // perform query
-    [self queryWorkouts];
     
     User *user = [User currentUser];
     if (user != nil) {
@@ -110,9 +111,7 @@ static NSString *const kPFUserNotificationsOn = @"notificationsOn";
 }
 
 - (void)queryWorkouts {
-    self.arrayOfWorkouts = [NSArray new];
     //default workouts
-    
     PFQuery *query1 = [PFQuery queryWithClassName:@"Workout"];
     [query1 whereKeyDoesNotExist:@"creator"];
     
@@ -143,7 +142,6 @@ static NSString *const kPFUserNotificationsOn = @"notificationsOn";
 
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    // for now, test the table view by showing each pose's image in a cell
     WorkoutCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"WorkoutCell" forIndexPath:indexPath];
     cell.workout = self.arrayOfWorkouts[indexPath.row];
     cell.titleLabel.text = [NSString stringWithFormat:@"%@", cell.workout.name];

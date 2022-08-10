@@ -22,7 +22,13 @@
 }
 
 - (IBAction)didTapDone:(id)sender {
-    [self.vc done];
+    if ([self.nameField.text isEqualToString:@""]) {
+        [self.vc showEmptyNameAlert];
+    } else if ([self.descriptionField.text isEqualToString:@""]) {
+        [self.vc showEmptyDescriptionAlert];
+    } else {
+        [self.vc done];
+    }
 }
 
 @end

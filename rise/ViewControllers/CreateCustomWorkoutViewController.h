@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) NSArray *indices;
 - (void)change;
 - (void)done;
+- (void)showEmptyNameAlert;
+- (void)showEmptyDescriptionAlert;
 
 @end
 
