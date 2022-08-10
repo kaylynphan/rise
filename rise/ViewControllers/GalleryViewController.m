@@ -54,7 +54,6 @@ static NSString *const kPFUserNotificationsOn = @"notificationsOn";
     [self.view addSubview:self.activityIndicatorView];
     
     // perform query
-    self.arrayOfWorkouts = [[NSArray alloc] init];
     [self queryWorkouts];
     
     User *user = [User currentUser];
@@ -111,12 +110,14 @@ static NSString *const kPFUserNotificationsOn = @"notificationsOn";
 }
 
 - (void)queryWorkouts {
+    self.arrayOfWorkouts = [NSArray new];
     //default workouts
+    
     PFQuery *query1 = [PFQuery queryWithClassName:@"Workout"];
     [query1 whereKeyDoesNotExist:@"creator"];
     
     PFQuery *query2 = [PFQuery queryWithClassName:@"Workout"];
-    [query1 whereKey:@"creator" equalTo:[User currentUser]];
+    [query2 whereKey:@"creator" equalTo:[User currentUser]];
     
     PFQuery *query = [PFQuery orQueryWithSubqueries:@[query1, query2]];
     [query orderByDescending:@"createdAt"];
