@@ -16,6 +16,7 @@ static NSArray *buggyPoses = @[@0, @4, @10, @11, @15, @20, @21, @27, @29, @30, @
 - (id)initWithDictionary:(NSDictionary *)dictionary {
     self = [super init];
     self.name = dictionary[@"english_name"];
+    self.description = dictionary[@"description"];
     NSString *imageURLString = dictionary[@"img_url"];
     if (imageURLString != nil) {
         // this is the hunk of the loading time

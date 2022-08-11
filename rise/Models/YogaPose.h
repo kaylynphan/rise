@@ -14,10 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface YogaPose : RLMObject
 
 @property (nonatomic, strong) NSString *name;
-//@property (nonatomic, strong) NSURL *imageURL;
 @property (nonatomic, strong) NSData *imageData;
-//@property (nonatomic, weak) UIImage *image;
-//@property (assign) int *index;
+@property (nonatomic, strong) NSString *description;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 

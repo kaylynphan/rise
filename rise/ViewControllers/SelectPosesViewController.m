@@ -30,8 +30,6 @@
         [self.selectedPoses addObject:@NO];
     }
     
-    CAGradientLayer *gradient = [Styles gradientForLargeView:self.view];
-    [self.view.layer insertSublayer:gradient atIndex:0];
     [Styles addGradientToButton:self.nextButton];
     self.selectStretchesLabel.font = [UIFont fontWithName:@"Poppins-medium" size:30];
 }
