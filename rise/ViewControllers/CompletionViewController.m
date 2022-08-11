@@ -87,6 +87,7 @@ static NSString *const kPFUserCompletionDates = @"completionDates";
                 } else {
                     // add current date to array of completion dates
                     [userCompletionDates addObject:[NSDate date]];
+                    user[kPFUserCompletionDates] = userCompletionDates;
                     // write modified array of completion dates to Parse
                     [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
                         if (error != nil) {

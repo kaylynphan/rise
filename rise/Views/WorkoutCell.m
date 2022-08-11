@@ -30,7 +30,7 @@
     [self setupCircleView];
     [self.workoutImageView setContentMode:UIViewContentModeScaleAspectFit];
     
-    self.titleLabel.font = [UIFont fontWithName:@"Poppins-medium" size:30];
+    self.titleLabel.font = [UIFont fontWithName:@"Poppins-medium" size:28];
     [Styles addGradientToButton:self.startButton];
 }
 

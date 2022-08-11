@@ -11,9 +11,12 @@
 
 @implementation YogaPose
 
+static NSArray *buggyPoses = @[@0, @4, @10, @11, @15, @20, @21, @27, @29, @30, @31, @36, @39, @40, @47];
+
 - (id)initWithDictionary:(NSDictionary *)dictionary {
     self = [super init];
     self.name = dictionary[@"english_name"];
+    self.description = dictionary[@"description"];
     NSString *imageURLString = dictionary[@"img_url"];
     if (imageURLString != nil) {
         // this is the hunk of the loading time
@@ -28,11 +31,16 @@
     NSMutableArray *poses = [[NSMutableArray alloc] init];
     RLMRealm *realm = [RLMRealm defaultRealm];
     [realm beginWriteTransaction];
+
+    int index = 0;
     for (NSDictionary *dictionary in dictionaries) {
         NSLog(@"%@", dictionary); // print each 'item' dictionary
-        YogaPose *pose = [[YogaPose alloc] initWithDictionary:dictionary];
-        [realm addObject:pose];
-        [poses addObject:pose];
+        if (![buggyPoses containsObject:@(index)]) {
+            YogaPose *pose = [[YogaPose alloc] initWithDictionary:dictionary];
+            [realm addObject:pose];
+            [poses addObject:pose];
+        }
+        index++;
     }
     [realm commitWriteTransaction];
     return poses;

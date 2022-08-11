@@ -20,6 +20,7 @@
 #import "../Models/User.h"
 #import "ProfileViewController.h"
 #import "../SceneDelegate.h"
+#import "SelectPosesViewController.h"
 
 @interface GalleryViewController ()
 - (IBAction)didTapLogout:(id)sender;
@@ -32,7 +33,7 @@
 
 static NSString *const kPFUserPreferredHour = @"preferredHour";
 static NSString *const kPFUserPreferredMinute = @"preferredMinute";
-static NSString *const kPFWorkoutDescription = @"description";
+static NSString *const kPFWorkoutDescription = @"workoutDescription";
 static NSString *const kPFUserNotificationsOn = @"notificationsOn";
 
 - (void)viewDidLoad {
@@ -43,18 +44,18 @@ static NSString *const kPFUserNotificationsOn = @"notificationsOn";
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(beginRefresh:) forControlEvents:UIControlEventValueChanged];
     [self.tableView insertSubview:refreshControl atIndex:0];
+    
+    // perform query
+    self.arrayOfWorkouts = [NSArray new];
+    [self queryWorkouts];
 
     // set up table
     [self.tableView setDelegate:self];
     [self.tableView setDataSource:self];
-    //self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.separatorColor = [UIColor clearColor];
     [self.activityIndicatorView startAnimating];
     [self.view addSubview:self.activityIndicatorView];
-    
-    // perform query
-    self.arrayOfWorkouts = [[NSArray alloc] init];
-    [self queryWorkouts];
     
     User *user = [User currentUser];
     if (user != nil) {
@@ -110,9 +111,17 @@ static NSString *const kPFUserNotificationsOn = @"notificationsOn";
 }
 
 - (void)queryWorkouts {
-    PFQuery *query = [PFQuery queryWithClassName:@"Workout"];
+    //default workouts
+    PFQuery *query1 = [PFQuery queryWithClassName:@"Workout"];
+    [query1 whereKeyDoesNotExist:@"creator"];
+    
+    PFQuery *query2 = [PFQuery queryWithClassName:@"Workout"];
+    [query2 whereKey:@"creator" equalTo:[User currentUser]];
+    
+    PFQuery *query = [PFQuery orQueryWithSubqueries:@[query1, query2]];
     [query orderByDescending:@"createdAt"];
     [query includeKey:@"objectId"];
+    
     // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:^(NSArray *savedWorkouts, NSError *error) {
         if (savedWorkouts != nil) {
@@ -133,7 +142,6 @@ static NSString *const kPFUserNotificationsOn = @"notificationsOn";
 
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    // for now, test the table view by showing each pose's image in a cell
     WorkoutCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"WorkoutCell" forIndexPath:indexPath];
     cell.workout = self.arrayOfWorkouts[indexPath.row];
     cell.titleLabel.text = [NSString stringWithFormat:@"%@", cell.workout.name];
@@ -167,6 +175,14 @@ static NSString *const kPFUserNotificationsOn = @"notificationsOn";
     return UITableViewAutomaticDimension;
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    UITableViewCell *footerView = [tableView dequeueReusableCellWithIdentifier:@"galleryViewFooter"];
+    return footerView;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return UITableViewAutomaticDimension;
+}
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.arrayOfWorkouts.count;
@@ -219,6 +235,9 @@ static NSString *const kPFUserNotificationsOn = @"notificationsOn";
     } else if ([[segue identifier] isEqualToString:@"galleryToProfileSegue"]) {
         ProfileViewController *profileVC = [segue destinationViewController];
         profileVC.parent = self;
+    } else if ([[segue identifier] isEqualToString:@"galleryToSelectPosesSegue"]) {
+        SelectPosesViewController *createVC = [segue destinationViewController];
+        createVC.poses = self.poses;
     }
 }
 

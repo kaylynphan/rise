@@ -72,6 +72,13 @@
 		2ED6588A28760D5200B66436 /* riseUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ED6588928760D5200B66436 /* riseUITestsLaunchTests.m */; };
 		2EDD9EC22899F4300067ED0A /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDD9EC12899F4300067ED0A /* CalendarViewController.m */; };
 		2EDD9ECB289B14E70067ED0A /* CalendarDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDD9ECA289B14E70067ED0A /* CalendarDetailViewController.m */; };
+		2EDD9ED1289C771A0067ED0A /* GalleryViewFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDD9ED0289C771A0067ED0A /* GalleryViewFooter.m */; };
+		2EDD9ED7289C83220067ED0A /* YogaPoseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDD9ED6289C83220067ED0A /* YogaPoseCollectionViewCell.m */; };
+		2EDD9EE3289DDE9C0067ED0A /* SelectPosesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDD9EE2289DDE9B0067ED0A /* SelectPosesViewController.m */; };
+		2EDD9EE6289DE0490067ED0A /* CreateCustomWorkoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDD9EE5289DE0490067ED0A /* CreateCustomWorkoutViewController.m */; };
+		2EDD9EE928A1B7400067ED0A /* CircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDD9EE828A1B73F0067ED0A /* CircleView.m */; };
+		2EDD9EEC28A1C5500067ED0A /* SelectedPoseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDD9EEB28A1C5500067ED0A /* SelectedPoseTableViewCell.m */; };
+		2EDD9EEF28A1C56B0067ED0A /* SelectedPoseTableFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDD9EEE28A1C56B0067ED0A /* SelectedPoseTableFooter.m */; };
 		3736CADEB2AA3803C40A16E9 /* Pods_riseTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19087805CD20347335A84649 /* Pods_riseTests.framework */; };
 		5D8267FC61DD3B20317CED35 /* Pods_rise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7188923E3A8320555BE7C9 /* Pods_rise.framework */; };
 		FF1074AD65948910A6CA2107 /* Pods_rise_riseUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19A880A6BE4B8115ADCBECCB /* Pods_rise_riseUITests.framework */; };
@@ -190,6 +197,20 @@
 		2EDD9EC12899F4300067ED0A /* CalendarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
 		2EDD9EC9289B14E70067ED0A /* CalendarDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalendarDetailViewController.h; sourceTree = "<group>"; };
 		2EDD9ECA289B14E70067ED0A /* CalendarDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalendarDetailViewController.m; sourceTree = "<group>"; };
+		2EDD9ECF289C771A0067ED0A /* GalleryViewFooter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GalleryViewFooter.h; sourceTree = "<group>"; };
+		2EDD9ED0289C771A0067ED0A /* GalleryViewFooter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GalleryViewFooter.m; sourceTree = "<group>"; };
+		2EDD9ED5289C83220067ED0A /* YogaPoseCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YogaPoseCollectionViewCell.h; sourceTree = "<group>"; };
+		2EDD9ED6289C83220067ED0A /* YogaPoseCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YogaPoseCollectionViewCell.m; sourceTree = "<group>"; };
+		2EDD9EE1289DDE9B0067ED0A /* SelectPosesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectPosesViewController.h; sourceTree = "<group>"; };
+		2EDD9EE2289DDE9B0067ED0A /* SelectPosesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelectPosesViewController.m; sourceTree = "<group>"; };
+		2EDD9EE4289DE0490067ED0A /* CreateCustomWorkoutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateCustomWorkoutViewController.h; sourceTree = "<group>"; };
+		2EDD9EE5289DE0490067ED0A /* CreateCustomWorkoutViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateCustomWorkoutViewController.m; sourceTree = "<group>"; };
+		2EDD9EE728A1B73F0067ED0A /* CircleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CircleView.h; sourceTree = "<group>"; };
+		2EDD9EE828A1B73F0067ED0A /* CircleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CircleView.m; sourceTree = "<group>"; };
+		2EDD9EEA28A1C5500067ED0A /* SelectedPoseTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectedPoseTableViewCell.h; sourceTree = "<group>"; };
+		2EDD9EEB28A1C5500067ED0A /* SelectedPoseTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelectedPoseTableViewCell.m; sourceTree = "<group>"; };
+		2EDD9EED28A1C56B0067ED0A /* SelectedPoseTableFooter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectedPoseTableFooter.h; sourceTree = "<group>"; };
+		2EDD9EEE28A1C56B0067ED0A /* SelectedPoseTableFooter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelectedPoseTableFooter.m; sourceTree = "<group>"; };
 		30E3CD26461577DE0746FC2B /* Pods-rise-riseUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rise-riseUITests.release.xcconfig"; path = "Target Support Files/Pods-rise-riseUITests/Pods-rise-riseUITests.release.xcconfig"; sourceTree = "<group>"; };
 		642AF3CB8B28883CD23F5A0F /* Pods-riseTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-riseTests.release.xcconfig"; path = "Target Support Files/Pods-riseTests/Pods-riseTests.release.xcconfig"; sourceTree = "<group>"; };
 		8DA873CE591308AB62E8B7BB /* Pods-rise.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rise.debug.xcconfig"; path = "Target Support Files/Pods-rise/Pods-rise.debug.xcconfig"; sourceTree = "<group>"; };
@@ -282,6 +303,10 @@
 				2EDD9EC12899F4300067ED0A /* CalendarViewController.m */,
 				2EDD9EC9289B14E70067ED0A /* CalendarDetailViewController.h */,
 				2EDD9ECA289B14E70067ED0A /* CalendarDetailViewController.m */,
+				2EDD9EE1289DDE9B0067ED0A /* SelectPosesViewController.h */,
+				2EDD9EE2289DDE9B0067ED0A /* SelectPosesViewController.m */,
+				2EDD9EE4289DE0490067ED0A /* CreateCustomWorkoutViewController.h */,
+				2EDD9EE5289DE0490067ED0A /* CreateCustomWorkoutViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -305,12 +330,22 @@
 				2E53A129288B6E30006C71D2 /* AnimationView.swift */,
 				2ED125282880965A00DD5CBF /* GalleryViewHeader.h */,
 				2ED125292880965A00DD5CBF /* GalleryViewHeader.m */,
+				2EDD9ECF289C771A0067ED0A /* GalleryViewFooter.h */,
+				2EDD9ED0289C771A0067ED0A /* GalleryViewFooter.m */,
 				2EA0799828774B9500931A86 /* PoseImageView.h */,
 				2EA0799928774B9500931A86 /* PoseImageView.m */,
 				2ED124A2287C93A800DD5CBF /* WorkoutCell.h */,
 				2ED124A3287C93A800DD5CBF /* WorkoutCell.m */,
 				2E53A13E2891F1FD006C71D2 /* CustomTextField.h */,
 				2E53A13F2891F1FD006C71D2 /* CustomTextField.m */,
+				2EDD9ED5289C83220067ED0A /* YogaPoseCollectionViewCell.h */,
+				2EDD9ED6289C83220067ED0A /* YogaPoseCollectionViewCell.m */,
+				2EDD9EE728A1B73F0067ED0A /* CircleView.h */,
+				2EDD9EE828A1B73F0067ED0A /* CircleView.m */,
+				2EDD9EEA28A1C5500067ED0A /* SelectedPoseTableViewCell.h */,
+				2EDD9EEB28A1C5500067ED0A /* SelectedPoseTableViewCell.m */,
+				2EDD9EED28A1C56B0067ED0A /* SelectedPoseTableFooter.h */,
+				2EDD9EEE28A1C56B0067ED0A /* SelectedPoseTableFooter.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -692,7 +727,9 @@
 			files = (
 				2ED124AE287E796200DD5CBF /* YogaPose.m in Sources */,
 				2ED1252A2880965A00DD5CBF /* GalleryViewHeader.m in Sources */,
+				2EDD9ED1289C771A0067ED0A /* GalleryViewFooter.m in Sources */,
 				2EA0798E287655E700931A86 /* User.m in Sources */,
+				2EDD9EE928A1B7400067ED0A /* CircleView.m in Sources */,
 				2EA0799128765ACD00931A86 /* YogaPoseAPIManager.m in Sources */,
 				2E53A126288B6743006C71D2 /* CompletionViewController.m in Sources */,
 				2EA0799A28774B9500931A86 /* PoseImageView.m in Sources */,
@@ -704,6 +741,7 @@
 				2ED12527287F6CE900DD5CBF /* PoseBuilder+Single.swift in Sources */,
 				2EA0797E287611C000931A86 /* LoginViewController.m in Sources */,
 				2E53A13D2891E11A006C71D2 /* Styles.m in Sources */,
+				2EDD9EE6289DE0490067ED0A /* CreateCustomWorkoutViewController.m in Sources */,
 				2ED12518287F6C4A00DD5CBF /* PoseNetInput.swift in Sources */,
 				2E7DAEDB2885DB2900097E33 /* AVCaptureVideoOrientation+Extension.swift in Sources */,
 				2ED1251D287F6CCA00DD5CBF /* CGPoint+Extension.swift in Sources */,
@@ -712,6 +750,7 @@
 				2ED12525287F6CE900DD5CBF /* Pose.swift in Sources */,
 				2E53A132288F1F92006C71D2 /* NotificationManager.m in Sources */,
 				2E53A135288F6F75006C71D2 /* ProfileViewController.m in Sources */,
+				2EDD9EEC28A1C5500067ED0A /* SelectedPoseTableViewCell.m in Sources */,
 				2ED12517287F6C4A00DD5CBF /* PoseNetMobileNet075S16FP16.mlmodel in Sources */,
 				2ED6586328760D5100B66436 /* AppDelegate.m in Sources */,
 				2ED12511287F6B9000DD5CBF /* Joint.swift in Sources */,
@@ -722,9 +761,12 @@
 				2ED12523287F6CE900DD5CBF /* PoseBuilderConfiguration.swift in Sources */,
 				2ED6586628760D5100B66436 /* SceneDelegate.m in Sources */,
 				2EDD9ECB289B14E70067ED0A /* CalendarDetailViewController.m in Sources */,
+				2EDD9EE3289DDE9C0067ED0A /* SelectPosesViewController.m in Sources */,
 				2E53A12A288B6E30006C71D2 /* AnimationView.swift in Sources */,
 				2EA079842876146400931A86 /* GalleryViewController.m in Sources */,
 				2ED12519287F6C4A00DD5CBF /* PoseNet.swift in Sources */,
+				2EDD9EEF28A1C56B0067ED0A /* SelectedPoseTableFooter.m in Sources */,
+				2EDD9ED7289C83220067ED0A /* YogaPoseCollectionViewCell.m in Sources */,
 				2ED12524287F6CE900DD5CBF /* PoseBuilder.swift in Sources */,
 				2ED1251C287F6CCA00DD5CBF /* CGImage+Extension.swift in Sources */,
 			);

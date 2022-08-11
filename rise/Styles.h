@@ -21,6 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (CAGradientLayer *)gradientForLargeView:(UIView *)view;
 
++ (CAGradientLayer *)gradientForPoseCardView:(UIView *)view;
+
 + (void)addGradientToButton:(UIButton *)button;
 
 + (void)styleEnabledTextField:(CustomTextField *)textField;

@@ -18,6 +18,7 @@ PODS:
   - CocoaLumberjack (3.7.4):
     - CocoaLumberjack/Core (= 3.7.4)
   - CocoaLumberjack/Core (3.7.4)
+  - GravitySliderFlowLayout (1.0)
   - JTCalendar (2.2.6)
   - lottie-ios (3.4.0)
   - NVActivityIndicatorView (5.1.1):
@@ -36,6 +37,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - GravitySliderFlowLayout
   - JTCalendar (~> 2.0)
   - lottie-ios
   - NVActivityIndicatorView
@@ -49,6 +51,7 @@ SPEC REPOS:
     - AFNetworking
     - Bolts
     - CocoaLumberjack
+    - GravitySliderFlowLayout
     - JTCalendar
     - lottie-ios
     - NVActivityIndicatorView
@@ -61,6 +64,7 @@ SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
   Bolts: 8c1e8aab2f603387b8b9924f57d1d64f43d3ffdc
   CocoaLumberjack: 543c79c114dadc3b1aba95641d8738b06b05b646
+  GravitySliderFlowLayout: bb9ae6a302b85821c9e0271c00533fae8091143b
   JTCalendar: 1b326e0d59dd1855b52c5f3feb059d2ff953805d
   lottie-ios: 69495122151a378fdc7d1bb4c5930347e37baf1f
   NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
@@ -69,6 +73,6 @@ SPEC CHECKSUMS:
   SRCountdownTimer: b7f833a51cd33003d55df17667b71d26ee17357f
   SVGKit: 1ad7513f8c74d9652f94ed64ddecda1a23864dea
 
-PODFILE CHECKSUM: deb4ff68ac9fcac1062bb1793cc906f69cc47599
+PODFILE CHECKSUM: 54abe1b3ead6cac973ffcb5a49f6502efe23b64f
 
 COCOAPODS: 1.11.3
