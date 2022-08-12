@@ -55,40 +55,38 @@
     CGContextDrawImage(context, drawingRect, frame);
     CGContextRestoreGState(context);
     
-    // draw segments
-    for (Pose *pose in poses) {
-        for (JointSegment *segment in self.jointSegments) {
-            int indexA = segment.jointA;
-            int indexB = segment.jointB;
-            Joint *jointA = [pose getJointWithIndex:indexA];
-            Joint *jointB = [pose getJointWithIndex:indexB];
-            
-            if (jointA.isValid && jointB.isValid) {
-                //NSLog([NSString stringWithFormat:@"Segment from Index: %d, Joint %d to Index: %d, Joint %d", indexA, jointA.name, indexB, jointB.name]);
-                [self drawLineWithParentJoint:jointA withChildJoint:jointB withCGContext:context];
+    // turn on auto pause if needed
+    if (poses.count == 0) {
+        block(NO);
+    } else {
+        // draw segments
+        for (Pose *pose in poses) {
+            for (JointSegment *segment in self.jointSegments) {
+                int indexA = segment.jointA;
+                int indexB = segment.jointB;
+                Joint *jointA = [pose getJointWithIndex:indexA];
+                Joint *jointB = [pose getJointWithIndex:indexB];
+                
+                if (jointA.isValid && jointB.isValid) {
+                    //NSLog([NSString stringWithFormat:@"Segment from Index: %d, Joint %d to Index: %d, Joint %d", indexA, jointA.name, indexB, jointB.name]);
+                    [self drawLineWithParentJoint:jointA withChildJoint:jointB withCGContext:context];
+                }
             }
-        }
-        
-        int jointsDetected = 0;
-        
-        // draw joints
-        for (Joint *joint in pose.joints) {
-            // ignore the first 4 joints (facial joints)
-            if (joint.name > 4) {
-                if (joint.isValid) {
-                    [self drawWithCircle:joint withCGContext:context];
-                    jointsDetected++;
+            
+            int jointsDetected = 0;
+            
+            // draw joints
+            for (Joint *joint in pose.joints) {
+                // ignore the first 4 joints (facial joints)
+                if (joint.name > 4) {
+                    if (joint.isValid) {
+                        [self drawWithCircle:joint withCGContext:context];
+                        jointsDetected++;
+                    }
                 }
             }
         }
-        
-        // if less than 5 non-facial joints are detected, it would be safe to say that a valid pose was not detected
-        // likely the user walked off the screen
-        if (jointsDetected < 5) {
-            block(NO);
-        } else {
-            block(YES);
-        }
+        block(YES);
     }
     UIImage *dstImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
