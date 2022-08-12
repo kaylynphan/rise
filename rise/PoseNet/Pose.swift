@@ -31,7 +31,7 @@ import Foundation
         Edge(from: Joint.rightKnee, to: Joint.rightAnkle, index: 15)
     ]
     
-    public let joints = [
+    public var joints = [
         Joint(name: 0),
         Joint(name: 1),
         Joint(name: 2),

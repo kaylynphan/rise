@@ -19,7 +19,7 @@
 
 @property (strong, nonatomic) VideoCapture *videoCapture;
 @property (strong, nonatomic)  PoseNet * _Nullable poseNet;
-@property (weak, nonatomic) PoseBuilderConfiguration *poseBuilderConfiguration;
+@property (strong, nonatomic) PoseBuilderConfiguration *poseBuilderConfiguration;
 @property (strong, nonatomic) CGImageRef _Nullable currentFrame __attribute__((NSObject));
 @property (assign) BOOL isPausedByUser;
 @property (assign) BOOL isAutoPaused;
@@ -66,6 +66,9 @@ static const int FRAME_ROTATION_RATE = 10;
     //NSLog(@"Now initializing PoseNet model");
     self.poseNet = [[PoseNet alloc] init];
     self.poseNet.delegate = self;
+    
+    // set up configuration
+    self.poseBuilderConfiguration = [[PoseBuilderConfiguration alloc] init];
     
     self.videoCapture = [[VideoCapture alloc] init];
     //NSLog(@"Now calling setupAndBeginCapturingVideoFrames");
@@ -149,9 +152,9 @@ static const int FRAME_ROTATION_RATE = 10;
     // here, there is a ternary operator checking for .single or .multiple. Let's only handle single
     // originally, we construct an array of poses.
     // here let's only an array of only one pose
-    Pose *pose = [poseBuilder pose];
-    NSMutableArray *poses = [[NSMutableArray alloc] init];
-    [poses addObject:pose];
+
+    NSArray *poses = [NSArray new];
+    poses = [poseBuilder poses];
     
     [self.poseImageView showWithPoses:poses withFrame:currentFrame withBlock:^void(BOOL didDetectPose) {
         // don't run auto-pause feature on every single frame, this would be too erratic for smooth user experience
