@@ -11,11 +11,14 @@
 #import <CoreGraphics/CGImage.h>
 #import <CoreGraphics/CGContext.h>
 #import <UIKit/UIKit.h>
+#import "../Styles.h"
 
 @implementation PoseImageView
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    
+    self.frameNum = 0;
     
     self.jointSegments = @[
         //left joints
@@ -40,6 +43,7 @@
 }
 
 - (void)showWithPoses:(NSArray *)poses withFrame:(CGImageRef)frame withBlock:(void(^)(BOOL didDetectPose))block {
+    self.frameNum++;
     CGFloat frameWidth = CGImageGetWidth(frame); // frame is working!!!
     CGFloat frameHeight = CGImageGetHeight(frame);
     CGSize dstImageSize = CGSizeMake(frameWidth, frameHeight);
@@ -55,48 +59,49 @@
     CGContextDrawImage(context, drawingRect, frame);
     CGContextRestoreGState(context);
     
-    // draw segments
-    for (Pose *pose in poses) {
-        for (JointSegment *segment in self.jointSegments) {
-            int indexA = segment.jointA;
-            int indexB = segment.jointB;
-            Joint *jointA = [pose getJointWithIndex:indexA];
-            Joint *jointB = [pose getJointWithIndex:indexB];
-            
-            if (jointA.isValid && jointB.isValid) {
-                //NSLog([NSString stringWithFormat:@"Segment from Index: %d, Joint %d to Index: %d, Joint %d", indexA, jointA.name, indexB, jointB.name]);
-                [self drawLineWithParentJoint:jointA withChildJoint:jointB withCGContext:context];
-            }
-        }
-        
-        int jointsDetected = 0;
-        
-        // draw joints
-        for (Joint *joint in pose.joints) {
-            // ignore the first 4 joints (facial joints)
-            if (joint.name > 4) {
-                if (joint.isValid) {
-                    [self drawWithCircle:joint withCGContext:context];
-                    jointsDetected++;
+
+        // draw segments
+        for (Pose *pose in poses) {
+            for (JointSegment *segment in self.jointSegments) {
+                int indexA = segment.jointA;
+                int indexB = segment.jointB;
+                Joint *jointA = [pose getJointWithIndex:indexA];
+                Joint *jointB = [pose getJointWithIndex:indexB];
+                
+                if (jointA.isValid && jointB.isValid) {
+                    //NSLog([NSString stringWithFormat:@"Segment from Index: %d, Joint %d to Index: %d, Joint %d", indexA, jointA.name, indexB, jointB.name]);
+                    [self drawLineWithParentJoint:jointA withChildJoint:jointB withCGContext:context];
                 }
             }
+            
+            int jointsDetected = 0;
+            
+            // draw joints
+            for (Joint *joint in pose.joints) {
+                // ignore the first 4 joints (facial joints)
+                if (joint.name > 4) {
+                    if (joint.isValid) {
+                        [self drawWithCircle:joint withCGContext:context];
+                        jointsDetected++;
+                    }
+                }
+            }
+            
+            // if less than 5 non-facial joints are detected, it would be safe to say that a valid pose was not detected
+            // likely the user walked off the screen
+            if (jointsDetected < 5) {
+                block(NO);
+            } else {
+                block(YES);
+            }
         }
-        
-        // if less than 5 non-facial joints are detected, it would be safe to say that a valid pose was not detected
-        // likely the user walked off the screen
-        if (jointsDetected < 5) {
-            block(NO);
-        } else {
-            block(YES);
-        }
-    }
     UIImage *dstImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     self.image = dstImage;
 }
 
 - (void) drawLineWithParentJoint:(Joint *)parentJoint withChildJoint:(Joint *)childJoint withCGContext:(CGContextRef)cgContext {
-    CGContextSetStrokeColorWithColor(cgContext, UIColor.blackColor.CGColor);
+    CGContextSetStrokeColorWithColor(cgContext, Styles.customPurpleColor.CGColor);
     CGContextSetLineWidth(cgContext, 2.0);
     CGContextMoveToPoint(cgContext, parentJoint.position.x, parentJoint.position.y);
     CGContextAddLineToPoint(cgContext, childJoint.position.x, childJoint.position.y);
@@ -104,7 +109,7 @@
 }
 
 - (void) drawWithCircle:(Joint *)joint withCGContext:(CGContextRef)cgContext {
-    CGContextSetFillColorWithColor(cgContext, UIColor.blackColor.CGColor);
+    CGContextSetFillColorWithColor(cgContext, UIColor.whiteColor.CGColor);
     CGFloat jointRadius = 4.0;
     CGRect rectangle = CGRectMake(joint.position.x - jointRadius, joint.position.y - jointRadius, jointRadius * 2, jointRadius * 2);
     CGContextAddEllipseInRect(cgContext, rectangle);
